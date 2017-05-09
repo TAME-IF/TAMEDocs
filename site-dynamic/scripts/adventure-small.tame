@@ -1,9 +1,12 @@
 action general a_quit named "quit";
 action general a_look named "look around", "look", "l";
-action general a_take named "take", "pick up", "t", "p";
+action transitive a_take named "take", "pick up", "t", "p";
 action transitive a_examine named "look at", "examine", "x";
+action transitive a_open named "open", "o";
 action ditransitive a_use named "use" uses conjunctions "with", "and";
 
+
+// The KEY!
 object o_key named "key", "small key"
 {
 	onAction(a_examine)
@@ -13,9 +16,9 @@ object o_key named "key", "small key"
 	
 	onAction(a_take)
 	{
-		if (!hasObject(player, o_key))
+		if (!hasObject(player, this))
 		{
-			giveObject(player, o_key);
+			giveObject(player, this);
 			textln("You take the key.");
 		}
 		else
@@ -34,6 +37,7 @@ object o_key named "key", "small key"
 	
 }
 
+// The DOOR!
 object o_door named "door" uses determiners "the"
 {
 	init()
@@ -49,13 +53,25 @@ object o_door named "door" uses determiners "the"
 	
 	onActionWith(a_use, o_key)
 	{
-		locked = false;
-		textln("You unlocked the door!");
+		if (locked)
+		{
+			locked = false;
+			textln("You unlocked the door!");
+		}
+		else
+		{
+			textln("The door is already unlocked.");
+		}
 	}
 	
 	onAction(a_take)
 	{
 		textln("You can't pick up a door.");
+	}
+	
+	onAction(a_open)
+	{
+		queueActionObject(a_use, this);
 	}
 	
 	onAction(a_use)
@@ -64,32 +80,92 @@ object o_door named "door" uses determiners "the"
 			textln("The door is locked.");
 		else
 		{
-			textln("You open the door. You escaped the room!");
-			quit;
+			textln("You open the door.");
+			world.win = true;
 		}
+	}
+
+	onRoomBrowse()
+	{
+		textln("There's a wooden door, here.");
+	}
+
+}
+
+// YOU!
+player p_guy
+{
+	function oops()
+	{
+		local x = random(3);
+		if (x == 0)
+			textln("I can't do that.");
+		else if (x == 1)
+			textln("I don't understand.");
+		else
+			textln("I don't think so.");
+	}
+	
+	onBadAction()
+	{
+		oops();
+	}
+	
+	onUnknownAction()
+	{
+		oops();
+	}
+	
+	onIncompleteAction()
+	{
+		oops();
+	}
+
+	onFailedAction()
+	{
+		oops();
 	}
 	
 }
 
-player p_guy
-{
-}
-
+// The ROOM!
 room r_startroom
 {
 	init()
 	{
-		
+		giveObject(r_startroom, o_key);
+		giveObject(r_startroom, o_door);
 	}
 }
 
+// HELLO, WORLD!
 world
 {
+	init()
+	{
+		win = false;
+	}
+
+	afterRequest()
+	{
+		if (win == true)
+		{
+			textln("You escaped the room!");
+			quit;
+		}
+		else if (objectCount(player) > 0)
+		{
+			textln("You have:");
+			browse(player);
+		}
+	}
+	
 	start()
 	{
-		giveObject(r_startroom, o_key);
-		giveObject(r_startroom, o_door);
+		setRoom(p_guy, r_startroom);
 		setPlayer(p_guy);
-		setRoom(player, r_startroom);
+
+		textln("Escape the room!");
+		browse(room);
 	}
 }

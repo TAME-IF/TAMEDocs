@@ -454,15 +454,15 @@ public final class TAMEDoxGen
 			String headingName = resolveVariable(tokenizer.nextToken(), pageContext);
 			String moduleName = resolveVariable(tokenizer.nextToken(), pageContext);
 			String scriptPath = resolveVariable(tokenizer.nextToken(), pageContext);
-			
 				
 			InputStream scriptIn = null;
 			String scriptFile = RESOURCE_SCRIPTROOT + scriptPath;
 			try {
 				
 				scriptIn = new FileInputStream(new File(scriptFile));
-				
 				String scriptContent = Common.getTextualContents(scriptIn);
+				TAMEModule module = TAMEScriptReader.read(scriptContent, TAMESCRIPT_INCLUDER);
+				
 				writer.write("<div class=\"w3-example\">\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
@@ -472,8 +472,6 @@ public final class TAMEDoxGen
 				writer.write(scriptContent);
 				writer.write("</code></pre>\n");
 				writer.write("</div>\n");
-				
-				TAMEModule module = TAMEScriptReader.read(scriptContent, TAMESCRIPT_INCLUDER);
 				
 				String filePath = outPath + "/" + OUTPATH_JS_TAMEMODULE + moduleName + ".js";
 				
@@ -487,6 +485,7 @@ public final class TAMEDoxGen
 			} catch (TAMEScriptParseException e) {
 				out.println("PROBLEM!!!! "+scriptFile+" not parsed!!");
 				out.println(e.getClass().getSimpleName()+": "+e.getLocalizedMessage());
+				writer.write("<pre>"+e.getClass().getSimpleName()+": "+e.getLocalizedMessage()+"</pre>");
 				return false;
 			} catch (IOException e) {
 				writer.write("<pre>!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>");
