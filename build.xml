@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (c) 2015-2016 Matt Tropiano
+    All rights reserved. This program and the accompanying materials
+    are made available under the terms of the GNU Lesser Public License v2.1
+    which accompanies this distribution, and is available at
+    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+   
+    Contributors:
+        Matt Tropiano - initial API and implementation
+ -->
+<!DOCTYPE project>
+<!-- ====================================================================== 
+     Text Adventure Module Engine   
+     Matt Tropiano                                                                
+     ====================================================================== -->
+<project name="build" default="compile">
+
+	<description>TAME</description>
+
+	<property file="build.properties" />
+	
+	<!-- Dependencies -->
+	<property name="dev.base" value=".." />
+	<property name="S" value="${path.separator}" />
+
+	<!-- Project Libs -->
+	<property name="common.lib" value="${dev.base}/Common/bin" />
+	<property name="common.io.lib" value="${dev.base}/CommonIO/bin" />
+	<property name="common.lang.lib" value="${dev.base}/CommonLang/bin" />
+	<property name="tame.lib" value="${dev.base}/TAME/bin" />
+	
+	<!-- Project Info -->
+	<property name="project.classpath" value="${common.lib}${S}${common.io.lib}${S}${common.lang.lib}${S}${tame.lib}" />
+	
+	<import file="build-import.xml" />
+
+	<property name="tamedox.dir" value="${build.dir}/tamedox" />
+
+	<target name="compile" depends="init.compile" description="Compiles the project, including test classes.">
+		<javac 
+			source="1.8"
+			srcdir="${src.dir}" 
+			destdir="${bin.dir}"
+            includeAntRuntime="false"
+			classpath="${project.classpath}"
+			debug="off" 
+		/>
+	</target>
+
+	<target name="tamedox" description="Creates TAME documentation HTML pages. Run compile.all first!">
+		<delete dir="${tamedox.dir}" includeemptydirs="true" casesensitive="false" /> 
+		<java classname="net.mtrop.tame.dox.TAMEDoxGen" classpath="${project.classpath}${S}${bin.dir}">
+			<arg value="${tamedox.dir}" />
+		</java>
+	</target>
+
+</project>
