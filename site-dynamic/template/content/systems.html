@@ -1,0 +1,87 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		TAME itself is essentially a logic kernel that accepts input, processes it, changes a context according to the module, and returns a result. 
+		<strong>Requests</strong> are created and sent to a context, and a <strong>Response</strong> is generated
+		that contains data to relate to the player. This data is a list of items called <strong>Cues</strong>.
+	</p>
+	<p>
+		TAME's Request-Response model is similar to most other transaction-based systems. For example, <em>web servers</em> receive an HTTP request, interprets the path, 
+		creates a session, does something in the server code, and then returns an HTTP response with HTML to render in a browser. In this scenario, 
+		the Web Server is TAME, the programs, files, and code are the Module, the Session is the Context, and the Browser is the Shell that submits requests and interprets responses.
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="response" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#response"><i class="link-stub fa fa-link"></i></a> 3.1 Input and Requests <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		Input into TAME is usually a player-typed string like:
+		<pre>pick up lamp
+look at dog
+scream
+</pre>
+		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
+		and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
+		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the player somehow.
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="response" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#response"><i class="link-stub fa fa-link"></i></a> 3.2 Response and Cues <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		Every TAME request gets a <strong>Response</strong>. The Response contains things like:
+		<ul>
+			<li>How long it took to interpret the input.</li>
+			<li>How long it took to process the request.</li>
+			<li>How many commands called to complete the full request.</li>
+			<li>The list of Cues returned.</li>
+		</ul>
+		After the response is received, the Shell has to do something wih it. Each of the <strong>Cues</strong> in the Response 
+		is something for the Shell to do, <em>in the order that they are read from the list</em>, before it can send input again. 
+		Not every TAME Shell can or should handle these Cues, but there are a few types of Cues that ALL Shells need to
+		handle.
+	</p>
+	<p>
+		You can see these Cues when you run modules in this documentation in <em>DEBUG</em> mode.
+	</p>
+	<p>
+		The fact that not every Shell can handle every Cue is the thing that gives TAME flexibility in authoring - some Cues can
+		be graphical, some can change a screen layout, and some could refer to music or sound effects, but this is only relevant
+		to special shells. If written properly, the same TAME module can be executed in both a rich multimedia environment, as well
+		as a purely textual environment, like a command terminal or even across an IRC server!
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="diagram" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#diagrams"><i class="link-stub fa fa-link"></i></a> 3.3 Diagrams of Typical TAME Systems <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		For the most part, the most common TAME setup is this one - a user that interacts with a shell that changes a context, and 
+		the separation between shell, context, and module doesn't exist (for instance, most all-in-one adventures or games).
+	</p>
+	<img class="tame-diagram" src="images/tame-diagram-1.svg" />
+	<p>
+		But to be honest, they do not have to be together conceptually - the shell can be a dumb terminal that relies on the context for parsing and execution, like
+		a website that holds a context and the engine in memory, and can change its frontend appearance at will, or start new games.
+	</p>
+	<img class="tame-diagram" src="images/tame-diagram-2.svg" />
+	<p>
+		In fact, in some multi-user versions, you can have a system built to handle input from many users with 
+		many separate contexts, all built from the same module, like a old-school Compuserve terminal system or an interactive IRC bot!
+	</p>
+	<img class="tame-diagram" src="images/tame-diagram-3.svg" />
+	<p>
+		It is this separation that gives TAME additional flexibility, be it for authoring, rendering, or running on multiple platforms that have a TAME
+		implementation. But regardless of the implementation, TAME still follows the same Request-Response model.
+	</p>
+</div>
