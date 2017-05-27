@@ -16,95 +16,130 @@
 
 <!------------------------------------------------------------------------------->
 
-<div id="world" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#world"><i class="link-stub fa fa-link"></i></a> 2.1 World <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+<div id="objects" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#objects"><i class="link-stub fa fa-link"></i></a> 2.1 Objects <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<p>
-		Every module contains one <strong>world</strong>. The world is the main abstraction of the concept of <em>everything</em>.
-	</p>
-	<p>
-		The world can also hold <strong>objects</strong> that are <em>accessible</em> to all players (even if no player is set). 
-		While nothing is specifically connected to it, it is a primary context that you can count on existing, and contains entry 
-		points that are executed every request, or after the module initializes. All actions and failure to execute 
-		actions fall through to this for handling. 
-	</p>
+	<div class="w3-row">
+		<div class="w3-col s12 m6">
+			<p>
+				The most-used element in a module are <strong>objects</strong>. These can be moved between all of the object containers 
+				(<em>world</em>, <em>player</em>, <em>room</em>, <em>container</em>) and is the common element
+				that is targeted by actions.
+			</p>
+			<p>
+				Where <em>objects</em> are contained dictate their availability, as well as the current player
+				or room. The currently available objects also affect how user input is interpreted.
+			</p>
+		</div>
+		<div class="w3-center w3-col s12 m6">
+			<img class="w3-image" src="images/diagram-objects.svg"/>
+		</div>
+	</div>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="world" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#world"><i class="link-stub fa fa-link"></i></a> 2.2 World <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<div class="w3-row">
+		<div class="w3-col s12 m6">
+			<p>
+				Every module contains one <strong>world</strong>. The world is the main abstraction of the concept of <em>everything</em>.
+			</p>
+			<p>
+				The world can also hold <strong>objects</strong> that are <em>accessible</em> to all players (even if no player is set). 
+				While nothing is specifically connected to it, it is a primary context that you can count on existing, and contains entry 
+				points that are executed every request, or after the module initializes. All actions and failure to execute 
+				actions fall through to this for handling. 
+			</p>
+		</div>
+		<div class="w3-center w3-col s12 m6">
+			<img class="w3-image" src="images/diagram-world.svg"/>
+		</div>
+	</div>
 </div>
 
 <!------------------------------------------------------------------------------->
 
 <div id="players" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#players"><i class="link-stub fa fa-link"></i></a> 2.2 Players <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#players"><i class="link-stub fa fa-link"></i></a> 2.3 Players <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<p>
-		Not to be confused with users, the ones typing the input, the <strong>player</strong> is the representation
-		of the current viewpoint in the world. The purpose of the player is to define or constrain what is currently visible 
-		in terms of actions or objects. 
-	</p>
-	<p>
-		Players also can have a current <strong>room</strong>, which further controls what
-		the player can both do and interact with. A TAME module is not required to have a player, but without players, you
-		cannot set the current room. 
-	</p>
-	<p>
-		Players can also hold <strong>objects</strong>. The objects held by a player are <em>accessible</em> so long
-		as that player is current. Players also handle failed actions and other input errors before they are 
-		passed onto the world. You can also restrict the actions that a player can use.
-	</p>
+	<div class="w3-row">
+		<div class="w3-col s12 m6">
+			<p>
+				Not to be confused with users, the ones typing the input, the <strong>player</strong> is the representation
+				of the current viewpoint in the world. The purpose of the player is to define or constrain what is currently visible 
+				in terms of actions or objects. 
+			</p>
+			<p>
+				Players also can have a current <strong>room</strong>, which further controls what
+				the player can both do and interact with. A TAME module is not required to have a player, but without players, you
+				cannot set the current room. 
+			</p>
+			<p>
+				Players can also hold <strong>objects</strong>. The objects held by a player are <em>accessible</em> so long
+				as that player is current. Players also handle failed actions and other input errors before they are 
+				passed onto the world. You can also restrict the actions that a player can use.
+			</p>
+		</div>
+		<div class="w3-center w3-col s12 m6">
+			<img class="w3-image" src="images/diagram-players.svg"/>
+		</div>
+	</div>
 </div>
 
 <!------------------------------------------------------------------------------->
 
 <div id="rooms" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#rooms"><i class="link-stub fa fa-link"></i></a> 2.3 Rooms <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#rooms"><i class="link-stub fa fa-link"></i></a> 2.4 Rooms <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<p>
-		<strong>Rooms</strong> are little abstractions of environment between which players are moved. 
-	</p>
-	<p>
-		Rooms can contain <strong>objects</strong>. These objects are <em>accessible</em> as long as it is current on 
-		the current <strong>player</strong>.
-	</p>
-	<p>
-		Rooms can also restrict what actions can be used in them, much like players.
-	</p>
+	<div class="w3-row">
+		<div class="w3-col s12 m6">
+			<p>
+				<strong>Rooms</strong> are little abstractions of environment between which players are moved. 
+			</p>
+			<p>
+				Rooms can contain <strong>objects</strong>. These objects are <em>accessible</em> as long as it is current on 
+				the current <strong>player</strong>.
+			</p>
+			<p>
+				Rooms can also restrict what actions can be used in them, much like players.
+			</p>
+		</div>
+		<div class="w3-center w3-col s12 m6">
+			<img class="w3-image" src="images/diagram-rooms.svg"/>
+		</div>
+	</div>
 </div>
 
 <!------------------------------------------------------------------------------->
 
 <div id="containers" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#containers"><i class="link-stub fa fa-link"></i></a> 2.4 Containers <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#containers"><i class="link-stub fa fa-link"></i></a> 2.5 Containers <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<p>
-		<strong>Containers</strong>, much like <strong>rooms</strong> and players, and the <strong>world</strong>,
-		can contain <strong>objects</strong> and variable context. However, nothing in a container is
-		<em>accessible</em>.
-	</p>
-	<p>
-		Containers are useful for containing objects that need to be tagged or bulk-moved to other containers,
-		or keeping track of other object-like things that could be useful, like objective lists or the like,
-		since they can be browsed like any other thing that can contain objects.
-	</p>
-</div>
-
-<!------------------------------------------------------------------------------->
-
-<div id="objects" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#objects"><i class="link-stub fa fa-link"></i></a> 2.5 Objects <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
-</div>
-<div class="w3-container">
-	<p>
-		Lastly, we have <strong>objects</strong>. These can be moved between all of the object containers 
-		(<em>world</em>, <em>player</em>, <em>room</em>, <em>container</em>) and are the common element
-		that are targeted by actions.
-	</p>
-	<p>
-		Where <em>objects</em> are contained dictate their availability, as well as the current player
-		or room. Available objects affect how user input is interpreted.
-	</p>
+	<div class="w3-row">
+		<div class="w3-col s12 m6">
+			<p>
+				<strong>Containers</strong>, much like <strong>rooms</strong> and players, and the <strong>world</strong>,
+				can contain <strong>objects</strong> and variable context. However, nothing in a container is
+				<em>accessible</em>.
+			</p>
+			<p>
+				Containers are useful for containing objects that need to be tagged or bulk-moved to other containers,
+				or keeping track of other object-like things that could be useful, like objective lists or the like,
+				since they can be browsed like any other thing that can contain objects.
+			</p>
+		</div>
+		<div class="w3-center w3-col s12 m6">
+			<img class="w3-image" src="images/diagram-containers.svg"/>
+		</div>
+	</div>
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -121,5 +156,9 @@
 	<p>
 		There are 5 action types: <strong>General</strong>, <strong>Modal</strong>, <strong>Open</strong>, <strong>Transitive</strong>, 
 		and <strong>Ditransitive</strong>.
+	</p>
+	<h3>General</h3>
+	<p>
+		BUTTS!
 	</p>
 </div>
