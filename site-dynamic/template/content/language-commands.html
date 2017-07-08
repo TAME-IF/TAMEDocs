@@ -190,66 +190,354 @@
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if token <em>VALUE2</em> is in <em>VALUE1</em> (case-insensitive), or <strong>FALSE</strong> if not.</td>
 			</tr>
-			<!--
-command-strstartswith.html "Command: StrStartsWith" template/main.html
-command-strendswith.html "Command: StrEndsWith" template/main.html
-command-substring.html "Command: SubString" template/main.html
-command-strlower.html "Command: StrLower" template/main.html
-command-strupper.html "Command: StrUpper" template/main.html
-command-strchar.html "Command: StrChar" template/main.html
-command-strtrim.html "Command: StrTrim" template/main.html
-command-floor.html "Command: Floor" template/main.html
-command-ceiling.html "Command: Ceiling" template/main.html
-command-round.html "Command: Round" template/main.html
-command-fix.html "Command: Fix" template/main.html
-command-sqrt.html "Command: Sqrt" template/main.html
-command-pi.html "Command: PI" template/main.html
-command-e.html "Command: E" template/main.html
-command-sin.html "Command: SIN" template/main.html
-command-cos.html "Command: COS" template/main.html
-command-tan.html "Command: TAN" template/main.html
-command-min.html "Command: Min" template/main.html
-command-max.html "Command: Max" template/main.html
-command-clamp.html "Command: Clamp" template/main.html
-command-random.html "Command: Random" template/main.html
-command-frandom.html "Command: FRandom" template/main.html
-command-grandom.html "Command: GRandom" template/main.html
-command-time.html "Command: Time" template/main.html
-command-seconds.html "Command: Seconds" template/main.html
-command-minutes.html "Command: Minutes" template/main.html
-command-hours.html "Command: Hours" template/main.html
-command-days.html "Command: Days" template/main.html
-command-formattime.html "Command: FormatTime" template/main.html
-command-objecthasname.html "Command: ObjectHasName" template/main.html
-command-objecthastag.html "Command: ObjectHasTag" template/main.html
-command-addobjectname.html "Command: AddObjectName" template/main.html
-command-addobjecttag.html "Command: AddObjectTag" template/main.html
-command-addobjecttagtoallin.html "Command: AddObjectTagToAllIn" template/main.html
-command-removeobjectname.html "Command: RemoveObjectName" template/main.html
-command-removeobjecttag.html "Command: RemoveObjectTag" template/main.html
-command-removeobjecttagfromallin.html "RemoveObjectTagFromAllIn: XXXX" template/main.html
-command-giveobject.html "Command: GiveObject" template/main.html
-command-removeobject.html "Command: RemoveObject" template/main.html
-command-moveobjectswithtag.html "Command: RemoveObjectWithTag" template/main.html
-command-objectcount.html "Command: ObjectCount" template/main.html
-command-hasobject.html "Command: HasCount" template/main.html
-command-objecthasnoowner.html "Command: ObjectHasNoOwner" template/main.html
-command-playerisinroom.html "Command: PlayerIsInRoom" template/main.html
-command-playercanaccessobject.html "Command: PlayerCanAccessObject" template/main.html
-command-browse.html "Command: Browse" template/main.html
-command-browsetagged.html "Command: BrowseTagged" template/main.html
-command-setplayer.html "Command: SetPlayer" template/main.html
-command-setroom.html "Command: SetRoom" template/main.html
-command-pushroom.html "Command: PushRoom" template/main.html
-command-poproom.html "Command: PopRoom" template/main.html
-command-swaproom.html "Command: SwapRoom" template/main.html
-command-currentplayeris.html "Command: CurrentPlayerIs" template/main.html
-command-nocurrentplayer.html "Command: NoCurrentPlayer" template/main.html
-command-currentroomis.html "Command: CurrentRoomIs" template/main.html
-command-nocurrentroom.html "Command: NoCurrentRoom" template/main.html
-command-identity.html "Command: Identity" template/main.html
-command-header.html "Command: Header" template/main.html
-			-->
+			<tr>
+				<td><a href="command-strstartswith.html">StrStartsWith</a></td>
+				<td>VALUE1(STRING), VALUE2(STRING)</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>Returns <strong>TRUE</strong> if string <em>VALUE1</em> starts with string <em>VALUE2</em>, or <strong>FALSE</strong> if not.</td>
+			</tr>
+			<tr>
+				<td><a href="command-strendswith.html">StrEndsWith</a></td>
+				<td>VALUE1(STRING), VALUE2(STRING)</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>Returns <strong>TRUE</strong> if string <em>VALUE1</em> ends with string <em>VALUE2</em>, or <strong>FALSE</strong> if not.</td>
+			</tr>
+			<tr>
+				<td><a href="command-substring.html">Substring</a></td>
+				<td>VALUE1(STRING), VALUE2(INTEGER), VALUE3(INTEGER)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns a part of a larger string <em>VALUE1</em>, from character index <em>VALUE2(INTEGER)</em> (inclusive), to index <em>VALUE3(INTEGER)</em> (exclusive).</td>
+			</tr>
+			<tr>
+				<td><a href="command-strlower.html">StrLower</a></td>
+				<td>VALUE(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns <em>VALUE</em> as a lower-case string. May be locale-specific.</td>
+			</tr>
+			<tr>
+				<td><a href="command-strlower.html">StrUpper</a></td>
+				<td>VALUE(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns <em>VALUE</em> as a upper-case string. May be locale-specific.</td>
+			</tr>
+			<tr>
+				<td><a href="command-strchar.html">StrChar</a></td>
+				<td>VALUE1(STRING), VALUE2(INTEGER)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns <em>VALUE</em> as a upper-case string. May be locale-specific.</td>
+			</tr>
+			<tr>
+				<td><a href="command-strtrim.html">StrTrim</a></td>
+				<td>VALUE(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns <em>VALUE</em> with superfluous whitespace removed from both the start and end.</td>
+			</tr>
+			<tr>
+				<td><a href="command-floor.html">Floor</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-ceiling.html">Ceiling</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-round.html">Round</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-fix.html">Fix</a></td>
+				<td>VALUE1(FLOAT), VALUE2(INTEGER)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-fix.html">Sqrt</a></td>
+				<td>VALUE1(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-pi.html">PI</a></td>
+				<td>None</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-e.html">E</a></td>
+				<td>None</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-sin.html">sin</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-cos.html">cos</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-tan.html">tan</a></td>
+				<td>VALUE(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-min.html">min</a></td>
+				<td>VALUE1, VALUE2</td>
+				<td>VALUE</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-max.html">max</a></td>
+				<td>VALUE1, VALUE2</td>
+				<td>VALUE</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-clamp.html">Clamp</a></td>
+				<td>VALUE1(FLOAT), VALUE2(FLOAT), VALUE3(FLOAT)</td>
+				<td>VALUE</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-random.html">Random</a></td>
+				<td>VALUE</td>
+				<td>VALUE</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-frandom.html">FRandom</a></td>
+				<td>None</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-grandom.html">GRandom</a></td>
+				<td>VALUE1(FLOAT), VALUE2(FLOAT)</td>
+				<td>VALUE(FLOAT)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-time.html">Time</a></td>
+				<td>None</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-seconds.html">Seconds</a></td>
+				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-minutes.html">Minutes</a></td>
+				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-hours.html">Hours</a></td>
+				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-days.html">Days</a></td>
+				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-formattime.html">FormatTime</a></td>
+				<td>VALUE1(INTEGER), VALUE2(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-objecthasname.html">ObjectHasName</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-objecthastag.html">ObjectHasTag</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-addobjectname.html">AddObjectName</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-addobjecttag.html">AddObjectTag</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-addobjecttagtoallin.html">AddObjectTagToAllIn</a></td>
+				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-removeobjectname.html">RemoveObjectName</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-removeobjecttag.html">RemoveObjectTag</a></td>
+				<td>OBJECT, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-removeobjecttagfromallin.html">RemoveObjectTagFromAllIn</a></td>
+				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-giveobject.html">GiveObject</a></td>
+				<td>OBJECT-CONTAINER, OBJECT</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-removeobject.html">RemoveObject</a></td>
+				<td>OBJECT</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-removeobjectswithtag.html">MoveObjectsWithTag</a></td>
+				<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-objectcount.html">ObjectCount</a></td>
+				<td>OBJECT-CONTAINER</td>
+				<td>VALUE(INTEGER)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-hasobject.html">HasObject</a></td>
+				<td>OBJECT-CONTAINER, OBJECT</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-objecthasnoowner.html">ObjectHasNoOwner</a></td>
+				<td>OBJECT</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-playerisinroom.html">PlayerIsInRoom</a></td>
+				<td>PLAYER, ROOM</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-playercanaccessobject.html">PlayerCanAccessObject</a></td>
+				<td>PLAYER, OBJECT</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-browse.html">Browse</a></td>
+				<td>OBJECT-CONTAINER</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-browsetagged.html">BrowseTagged</a></td>
+				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-setplayer.html">SetPlayer</a></td>
+				<td>PLAYER</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-setroom.html">SetRoom</a></td>
+				<td>PLAYER, ROOM</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-pushroom.html">PushRoom</a></td>
+				<td>PLAYER, ROOM</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-poproom.html">PopRoom</a></td>
+				<td>PLAYER, ROOM</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-swaproom.html">SwapRoom</a></td>
+				<td>PLAYER, ROOM</td>
+				<td>Nothing</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-currentplayeris.html">CurrentPlayerIs</a></td>
+				<td>PLAYER</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-currentplayeris.html">NoCurrentPlayer</a></td>
+				<td>None</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-currentroomis.html">CurrentRoomIs</a></td>
+				<td>ROOM</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-currentplayeris.html">NoCurrentRoom</a></td>
+				<td>None</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-identity.html">Identity</a></td>
+				<td>ELEMENT</td>
+				<td>VALUE(STRING)</td>
+				<td>[[BUH]]</td>
+			</tr>
+			<tr>
+				<td><a href="command-identity.html">Header</a></td>
+				<td>VALUE(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>[[BUH]]</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
