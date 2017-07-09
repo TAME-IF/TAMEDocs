@@ -1,5 +1,8 @@
 <div class="w3-container" style="margin-top: 2em;">
 	<h3>Quick Reference</h3>
+	<p>
+		<strong>NOTE:</strong> <em>VALUE</em>s that mention a sub-type denote that the input value is coerced/converted to that type before evaluation, or returned as that type.
+	</p>
 	<table class="w3-table w3-striped tamedox-command-reference">
 		<thead>
 			<tr>
@@ -18,67 +21,67 @@
 			</tr>
 			<tr>
 				<td><a href="command-queueaction.html">QueueAction</a></td>
-				<td><em>ACTION</em></td>
+				<td>ACTION</td>
 				<td>Nothing</td>
 				<td>Queues a general action <em>ACTION</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionstring.html">QueueActionString</a></td>
-				<td><em>ACTION, VALUE(STRING)</em></td>
+				<td>ACTION, VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Queues an open action <em>ACTION</em> with target <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionstring.html">QueueActionObject</a></td>
-				<td><em>ACTION, OBJECT</em></td>
+				<td>ACTION, OBJECT</td>
 				<td>Nothing</td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> with target <em>OBJECT</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionforobjectsin.html">QueueActionForObjectsIn</a></td>
-				<td><em>ACTION, OBJECT_CONTAINER</em></td>
+				<td>ACTION, OBJECT-CONTAINER</td>
 				<td>Nothing</td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT_CONTAINER</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionfortaggedobjectsin.html">QueueActionForTaggedObjectsIn</a></td>
-				<td><em>ACTION, OBJECT_CONTAINER, VALUE(STRING)</em></td>
+				<td>ACTION, OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT_CONTAINER</em> with tag <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionobject2.html">QueueActionObject2</a></td>
-				<td><em>ACTION, OBJECT1, OBJECT2</em></td>
+				<td>ACTION, OBJECT1, OBJECT2</td>
 				<td>Nothing</td>
 				<td>Queues a ditransitive action <em>ACTION</em> with targets <em>OBJECT1</em> and <em>OBJECT2</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionobject2.html">AddCue</a></td>
-				<td><em>VALUE(STRING), VALUE(STRING)</em></td>
+				<td>VALUE(STRING), VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Adds a <em>VALUE</em> cue to the response with content <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-text.html">Text</a></td>
-				<td><em>VALUE(STRING)</em></td>
+				<td>VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Convenience for <em>AddCue("text", VALUE)</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textln.html">Textln</a></td>
-				<td><em>VALUE(STRING)</em></td>
+				<td>VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Convenience for <em>AddCue("text", VALUE + "\n")</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textf.html">Textf</a></td>
-				<td><em>VALUE(STRING)</em></td>
+				<td>VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Convenience for <em>AddCue("textf", VALUE)</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textfln.html">Textfln</a></td>
-				<td><em>VALUE(STRING)</em></td>
+				<td>VALUE(STRING)</td>
 				<td>Nothing</td>
 				<td>Convenience for <em>AddCue("textf", VALUE + "\n")</em></td>
 			</tr>
@@ -236,307 +239,307 @@
 				<td><a href="command-floor.html">Floor</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the mathematical floor of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-ceiling.html">Ceiling</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the mathematical ceiling of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-round.html">Round</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <em>VALUE</em> rounded to the nearest whole number (banker's rounding).</td>
 			</tr>
 			<tr>
 				<td><a href="command-fix.html">Fix</a></td>
 				<td>VALUE1(FLOAT), VALUE2(INTEGER)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <em>VALUE1</em> rounded to the nearest digit place denoted by <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-fix.html">Sqrt</a></td>
-				<td>VALUE1(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>VALUE(FLOAT)</td>
+				<td>Returns the square root of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-pi.html">PI</a></td>
 				<td>None</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the value of the mathematical constant Pi (&pi;).</td>
 			</tr>
 			<tr>
 				<td><a href="command-e.html">E</a></td>
 				<td>None</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the value of Euler's Number.</td>
 			</tr>
 			<tr>
 				<td><a href="command-sin.html">sin</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the mathematical Sine of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-cos.html">cos</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the mathematical Cosine of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-tan.html">tan</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the mathematical Tangent of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-min.html">min</a></td>
 				<td>VALUE1, VALUE2</td>
 				<td>VALUE</td>
-				<td>[[BUH]]</td>
+				<td>Returns the <em>comparative minimum</em> of <em>VALUE1</em> and <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-max.html">max</a></td>
 				<td>VALUE1, VALUE2</td>
 				<td>VALUE</td>
-				<td>[[BUH]]</td>
+				<td>Returns the <em>comparative maximum</em> of <em>VALUE1</em> and <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-clamp.html">Clamp</a></td>
 				<td>VALUE1(FLOAT), VALUE2(FLOAT), VALUE3(FLOAT)</td>
-				<td>VALUE</td>
-				<td>[[BUH]]</td>
+				<td>VALUE(FLOAT)</td>
+				<td>Returns <em>VALUE1</em> clamped between the range of <em>VALUE2</em> and <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-random.html">Random</a></td>
 				<td>VALUE</td>
 				<td>VALUE</td>
-				<td>[[BUH]]</td>
+				<td>Returns a random value from 0 up to <em>VALUE</em> (but not <em>VALUE</em>). Return type is INTEGER if input is integer, FLOAT if float.</td>
 			</tr>
 			<tr>
 				<td><a href="command-frandom.html">FRandom</a></td>
 				<td>None</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns a random float from 0.0 (inclusive) to 1.0 (exclusive).</td>
 			</tr>
 			<tr>
 				<td><a href="command-grandom.html">GRandom</a></td>
 				<td>VALUE1(FLOAT), VALUE2(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
-				<td>[[BUH]]</td>
+				<td>Returns a random Gaussian-distributed float from mean <em>VALUE1</em> and standard deviation <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-time.html">Time</a></td>
 				<td>None</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the current system time as an integer value (milliseconds since UNIX Epoch).</td>
 			</tr>
 			<tr>
 				<td><a href="command-seconds.html">Seconds</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the amount of seconds between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
 				<td><a href="command-minutes.html">Minutes</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the amount of minutes between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
 				<td><a href="command-hours.html">Hours</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the amount of hours between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
 				<td><a href="command-days.html">Days</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the amount of days between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
 				<td><a href="command-formattime.html">FormatTime</a></td>
 				<td>VALUE1(INTEGER), VALUE2(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>[[BUH]]</td>
+				<td>Returns a time value formatted into text. Format is similar to Java <a href="http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-objecthasname.html">ObjectHasName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> can be referred to as <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
 				<td><a href="command-objecthastag.html">ObjectHasTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> has a tag called <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addobjectname.html">AddObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Adds a name <em>VALUE</em> to <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addobjecttag.html">AddObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Adds a tag called <em>VALUE</em> to <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addobjecttagtoallin.html">AddObjectTagToAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Adds a tag called <em>VALUE</em> to all objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjectname.html">RemoveObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Removes a name <em>VALUE</em> from <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjecttag.html">RemoveObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Removes a tag called <em>VALUE</em> from <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjecttagfromallin.html">RemoveObjectTagFromAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Removes all tags called <em>VALUE</em> from objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-giveobject.html">GiveObject</a></td>
 				<td>OBJECT-CONTAINER, OBJECT</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Sets the ownership of <em>OBJECT</em> to <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobject.html">RemoveObject</a></td>
 				<td>OBJECT</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Removes <em>OBJECT</em> from its current owner.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjectswithtag.html">MoveObjectsWithTag</a></td>
 				<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-objectcount.html">ObjectCount</a></td>
 				<td>OBJECT-CONTAINER</td>
 				<td>VALUE(INTEGER)</td>
-				<td>[[BUH]]</td>
+				<td>Returns how many objects are in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-hasobject.html">HasObject</a></td>
 				<td>OBJECT-CONTAINER, OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>OBJECT-CONTAINER</em> is the owner of <em>OBJECT</em>, <strong>FALSE</strong> otherwise.<td>
 			</tr>
 			<tr>
 				<td><a href="command-objecthasnoowner.html">ObjectHasNoOwner</a></td>
 				<td>OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> does not have an owner, <strong>FALSE</strong> otherwise.<td>
 			</tr>
 			<tr>
 				<td><a href="command-playerisinroom.html">PlayerIsInRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
 				<td><a href="command-playercanaccessobject.html">PlayerCanAccessObject</a></td>
 				<td>PLAYER, OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
 				<td><a href="command-browse.html">Browse</a></td>
 				<td>OBJECT-CONTAINER</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>For each object in <em>OBJECT-CONTAINER</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
 				<td><a href="command-browsetagged.html">BrowseTagged</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>For each object in <em>OBJECT-CONTAINER</em> with tag <em>VALUE</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
 				<td><a href="command-setplayer.html">SetPlayer</a></td>
 				<td>PLAYER</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Sets the current player to <em>PLAYER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-setroom.html">SetRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Sets the current room on <em>PLAYER</em> to <em>ROOM</em>. Clears <em>PLAYER</em>'s room stack, first.</td>
 			</tr>
 			<tr>
 				<td><a href="command-pushroom.html">PushRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Pushes <em>ROOM</em> room on <em>PLAYER</em>'s current room stack.</td>
 			</tr>
 			<tr>
 				<td><a href="command-poproom.html">PopRoom</a></td>
-				<td>PLAYER, ROOM</td>
+				<td>PLAYER</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Restores the previous room on <em>PLAYER</em>'s current room stack. Error if no room.</td>
 			</tr>
 			<tr>
 				<td><a href="command-swaproom.html">SwapRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>Nothing</td>
-				<td>[[BUH]]</td>
+				<td>Swaps the current room with <em>ROOM</em> on <em>PLAYER</em>'s current room stack. The rest of the stack is unaffected.</td>
 			</tr>
 			<tr>
 				<td><a href="command-currentplayeris.html">CurrentPlayerIs</a></td>
 				<td>PLAYER</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if the current player is <em>PLAYER</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-currentplayeris.html">NoCurrentPlayer</a></td>
+				<td><a href="command-nocurrentplayer.html">NoCurrentPlayer</a></td>
 				<td>None</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if no current player is set, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
 				<td><a href="command-currentroomis.html">CurrentRoomIs</a></td>
-				<td>ROOM</td>
+				<td>PLAYER, ROOM</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if the current room for <em>PLAYER</em> is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-currentplayeris.html">NoCurrentRoom</a></td>
-				<td>None</td>
+				<td><a href="command-nocurrentroom.html">NoCurrentRoom</a></td>
+				<td>PLAYER</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>[[BUH]]</td>
+				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> has no current room, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
 				<td><a href="command-identity.html">Identity</a></td>
 				<td>ELEMENT</td>
 				<td>VALUE(STRING)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the internal identity of <em>ELEMENT</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-identity.html">Header</a></td>
+				<td><a href="command-header.html">Header</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>[[BUH]]</td>
+				<td>Returns the value of the module header called <em>VALUE</em>.</td>
 			</tr>
 		</tbody>
 	</table>
