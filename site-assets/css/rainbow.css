@@ -47,8 +47,8 @@ pre [data-language].loading,
 pre [class^="lang"].loading {
     animation-play-state: paused
 }
-pre {
-    position: relative
+pre [data-language] {
+    position: relative;
 }
 pre.loading .preloader div {
     animation-play-state: running
@@ -95,36 +95,6 @@ pre .preloader div {
     opacity: 0;
     animation-play-state: paused;
     animation-fill-mode: forwards
-}
-pre {
-    border: 1px solid #ccc;
-    word-wrap: break-word;
-    padding: 6px 10px;
-    line-height: 19px;
-    margin-bottom: 20px
-}
-pre code {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-}
-code {
-    border: 1px solid #eaeaea;
-    margin: 0px 2px;
-    padding: 0px 5px;
-    font-size: 12px;
-}
-pre,
-code {
-    font-family: Consolas, 'Liberation Mono', Courier, monospace;
-    color: #333;
-    background: #f8f8f8;
-    border-radius: 3px;
-}
-pre,
-pre code {
-    font-size: 1em;
 }
 
 /* Actual Keywords */

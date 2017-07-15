@@ -45,9 +45,4 @@ Rainbow.extend('tamescript', [
         name: 'constant.keyword',
         pattern: /\b(true|false|Infinity|NaN)\b/gi
     },
-	/*
-		'boolean': /\b(true|false|Infinity|NaN)\b/i,
-	'number': /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,
-	'operator': /(\(|\)|\[|\]|:|;|\.|,|\+|\-|\!|~|\*\*?|\/|%|&\||\^|<<?|<=?|>>?>?|>=?|==?=?|\!==?)/
-	*/
 ], 'generic');

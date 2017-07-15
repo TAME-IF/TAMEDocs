@@ -57,8 +57,11 @@ li.group {
     line-height: 1.25em;
 }
  
-PRE[class*="language-"] {
+PRE[class*="tame-example"] {
+	background-color: #fff;
+	padding: 4px;
 	max-height: 30em;
+	overflow-y: auto;
 }
 
 IMG.main-logo {
