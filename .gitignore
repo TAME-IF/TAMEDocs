@@ -10,3 +10,5 @@ versions.properties
 *.iml
 *.iws
 /_TAME/
+
+tamedox.cmd

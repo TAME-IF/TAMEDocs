@@ -467,7 +467,7 @@ public final class TAMEDoxGen
 				writer.write("\t<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>\n");
 				writer.write("\t<h4>"+headingName+"</h4>\n");
 				writer.write("<pre class=\"tame-example\"><code data-language=\"tamescript\">");
-				writer.write(scriptContent);
+				writer.write(scriptContent.replaceAll(">", "&gt;").replaceAll("<", "&lt;"));
 				writer.write("</code></pre>\n");
 				writer.write("</div>\n");
 				
