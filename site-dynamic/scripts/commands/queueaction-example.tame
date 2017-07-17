@@ -1,0 +1,68 @@
+action general a_test named "test";
+action general a_wait named "wait";
+action general a_quit named "quit";
+
+/*
+	Name not required for invoking through other commands -
+	Unnamed actions are just not callable via user input.
+*/
+action general a_incr;
+action general a_printer; 
+
+world
+{
+	init()
+	{
+		count = 0;
+	}
+	
+	onAction(a_quit)
+	{
+		textln("Quitting. Note that afterRequest() does not get called.");
+		quit;
+	}
+
+	onAction(a_test)
+	{
+		textln("Called a_test.");
+		textln("Enqueueing a_incr.");
+		queueAction(a_incr);
+	}
+
+	onAction(a_wait)
+	{
+		textln("Waiting.");
+	}
+
+	onAction(a_incr)
+	{
+		textln("Called a_incr.");
+		count = count + 1;
+		textln("Counter is now " + count + ".");
+	}
+
+	onAction(a_printer)
+	{
+		textln("Called a_printer.");
+	}
+
+	start()
+	{
+		textln("Type \"test\" to test incrementer.");
+		textln("Type \"wait\" to do nothing.");
+		textln("Type \"quit\" to quit.");
+	}
+	
+	afterRequest()
+	{
+		textln("First enqueued actions done. Handling after request.");
+		textln("Enqueuing a_printer " + count + " time(s).");
+		local x = 0;
+		while (x < count)
+		{
+			queueAction(a_printer);
+			textln((x+1) + " queued!");
+			x = x + 1;
+		}
+	}
+}
