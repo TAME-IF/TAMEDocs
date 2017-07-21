@@ -1,4 +1,4 @@
-action modal a_move named "move", "go" modes "north", "south", "west", "east";
+action modal a_move named "move", "go" uses modes "north", "south", "west", "east";
 action general a_quit named "quit";
 
 /*

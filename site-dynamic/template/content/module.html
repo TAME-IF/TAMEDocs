@@ -185,10 +185,24 @@ open door
 	</p>
 	<!------------------------------>
 	<div class="w3-panel w3-light-gray w3-card-1">
+		<h3>Ditransitive</h3>
+	</div>
+	<p>
+		<strong>Ditransitive</strong> actions are actions that require <em>two</em> objects in order to perform it. The objects need to be <em>accessible</em>
+		to the current player (or in the <em>world</em> if no player). Ditransitive actions are treated as normal <strong>transitive</strong> actions if only <em>one</em>
+		object is used, though. The words or phrases that separate the two objects are called "conjunctions," and are declared with the action.
+		<pre>use key with door
+give bottle to hermit
+stab monster with sword
+</pre>
+		...where <em>with</em> and <em>to</em> are conjunctions, and <em>key</em>, <em>bottle</em>, <em>sword</em>, <em>hermit</em>, <em>monster</em>, and <em>door</em> are names of objects in the module.
+	</p>
+	<!------------------------------>
+	<div class="w3-panel w3-light-gray w3-card-1">
 		<h3>Modal</h3>
 	</div>
 	<p>
-		<strong>Modal</strong> actions are actions that require a <em>mode</em>, or rather, take specific arguments that are not related to
+		<strong>Modal</strong> actions are actions that require a <em>mode</em>, or rather, take specific arguments (called "modes") that are not related to
 		anything in the world. Things like:
 		<pre>go west
 look up
@@ -202,10 +216,10 @@ walk east
 	</div>
 	<p>
 		Here's where things can get tricky - <strong>Open</strong> actions are actions that, after it is parsed, accept EVERYTHING after it. The stuff that is typed in is saved to a local
-		variable of the module writer's choosing called a <strong>target</strong>, where it can be parsed for specific phrases or words.
+		variable of the module writer's choosing called a "target," where it can be parsed for specific phrases or tokens.
 		<pre>say open sesame
 </pre>
-		...where <em>say</em>, is the action and <em>open sesame</em> is the <strong>target</strong>. WARNINGL: Text that is passed along is 
+		...where <em>say</em>, is the action and <em>open sesame</em> is the <strong>target</strong>. WARNING: Text that is passed along is 
 		sanitized, so what the user literally inputs may not be the exact same thing as what is parsed!
 	</p>
 </div>

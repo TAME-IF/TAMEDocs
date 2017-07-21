@@ -62,6 +62,9 @@ PRE[class*="tame-example"] {
 	padding: 4px;
 	max-height: 30em;
 	overflow-y: auto;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
 }
 
 IMG.main-logo {

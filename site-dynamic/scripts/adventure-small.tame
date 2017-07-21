@@ -97,7 +97,7 @@ player p_guy
 {
 	function oops()
 	{
-		local x = random(3);
+		local x = irandom(3);
 		if (x == 0)
 			textln("I can't do that.");
 		else if (x == 1)

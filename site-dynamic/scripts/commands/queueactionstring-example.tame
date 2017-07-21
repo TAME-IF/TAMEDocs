@@ -1,0 +1,89 @@
+action modal a_switch named "switch language to" uses modes "english", "french", "spanish";
+action general a_saysomething named "say something";
+action general a_quit named "quit";
+
+/*
+	Name not required for invoking through other commands -
+	Unnamed actions are just not callable via user input.
+*/
+action open a_say uses local "stuff"; 
+
+world
+{
+	init()
+	{
+		language = "english";
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	onFailedAction(a_switch)
+	{
+		textln("Not a valid language.");
+	}
+
+	onModalAction(a_switch, "english")
+	{
+		language = "english";
+		queueAction(a_saysomething);
+	}
+	
+	onModalAction(a_switch, "french")
+	{
+		language = "french";
+		queueAction(a_saysomething);
+	}
+	
+	onModalAction(a_switch, "spanish")
+	{
+		language = "spanish";
+		queueAction(a_saysomething);
+	}
+
+	onAction(a_saysomething)
+	{
+		local x = irandom(3);
+		if (language == "english")
+		{
+			if (x == 0)
+				queueActionString(a_say, "Hello.");
+			else if (x == 1)
+				queueActionString(a_say, "Cheese.");
+			else if (x == 2)
+				queueActionString(a_say, "Goodbye!");
+		}
+		else if (language == "french")
+		{
+			if (x == 0)
+				queueActionString(a_say, "Bonjour.");
+			else if (x == 1)
+				queueActionString(a_say, "Fromage.");
+			else if (x == 2)
+				queueActionString(a_say, "Au revoir!");
+		}
+		else if (language == "spanish")
+		{
+			if (x == 0)
+				queueActionString(a_say, "Hola.");
+			else if (x == 1)
+				queueActionString(a_say, "Queso.");
+			else if (x == 2)
+				queueActionString(a_say, "¡Adiós!");
+		}
+	}
+
+	onAction(a_say)
+	{
+		textln("You said, \""+stuff+"\"");
+	}
+
+	start()
+	{
+		textln("Type \"say something\", or type \"switch language to\" and \"english\", \"french\", or \"spanish\".");
+		textln("Type \"quit\" to quit.");
+	}
+	
+}
