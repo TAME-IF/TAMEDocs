@@ -1,13 +1,16 @@
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
-		TAME itself is essentially a logic kernel that accepts input, processes it, changes a context according to the module, and returns a result. 
-		<strong>Requests</strong> are created and sent to a context, and a <strong>Response</strong> is generated
-		that contains data to relate to the player. This data is a list of items called <strong>Cues</strong>.
+		TAME itself is essentially a logic kernel that accepts input (usually submitted using a <em>shell</em>), processes it, 
+		changes a module context's state, and returns a result. <strong>Requests</strong> are created and sent to the 
+		context, and a <strong>Response</strong> is generated that contains data to relate to the user. This data is a list 
+		of items called <strong>Cues</strong>.
 	</p>
 	<p>
-		TAME's Request-Response model is similar to most other transaction-based systems. For example, <em>web servers</em> receive an HTTP request, interprets the path, 
-		creates a session, does something in the server code, and then returns an HTTP response with HTML to render in a browser. In this scenario, 
-		the Web Server is TAME, the programs, files, and code are the Module, the Session is the Context, and the Browser is the Shell that submits requests and interprets responses.
+		TAME's Request-Response model is similar to most other transaction-based systems. For example, <em>web servers</em> receive an HTTP
+		Request from a web browser, find the correct Session, interpret the URL path, do something in the server code, and then return 
+		an HTTP Response with HTML to render in a browser. In this scenario, TAME is the server itself, the Module Context is the Session, 
+		the User Input is the URL, the Module is the package of files and server-side code, and the Shell is the web browser - the thing that 
+		submits requests and interprets responses, and the Cues are the "HTML".
 	</p>
 </div>
 
@@ -18,14 +21,14 @@
 </div>
 <div class="w3-container">
 	<p>
-		Input into TAME is usually a player-typed string like:
+		Input into TAME is usually a user-typed string like:
 		<pre>pick up lamp
 look at dog
 scream
 </pre>
 		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
 		and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
-		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the player somehow.
+		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the user somehow.
 	</p>
 </div>
 

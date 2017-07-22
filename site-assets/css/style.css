@@ -45,6 +45,7 @@ ul.sidebar-list {
 ul.sidebar-list ul {
     list-style-type: none;
     padding-left: 1.0em;
+	font-size: 90%;
 }
  
 li.section {
@@ -71,7 +72,7 @@ IMG.main-logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 55%;
+    max-width: 400px;
     height: auto;
 }
 
@@ -88,12 +89,17 @@ IMG.nav-logo {
     height: 77px;
 }
  
+.tame-sidebar {
+    background-color: #f1f1f1;
+}
+
 .sidebar-footer {
     padding: 0.25em;
 }
 
 .tamedox-footer {
 	padding-top: 0.5em;
+	padding-bottom: 0.5em;
 	margin-top: 3em;
 	font-size:75%;
 }
