@@ -1,0 +1,11 @@
+world
+{
+	start()
+	{
+		text("apple");
+		text("orange");
+		text("pear");
+		text("grape");
+		//quit;
+	}
+}
