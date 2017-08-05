@@ -84,6 +84,7 @@ command-playerisinroom.html "Command: PlayerIsInRoom" template/main.html
 command-playercanaccessobject.html "Command: PlayerCanAccessObject" template/main.html
 command-browse.html "Command: Browse" template/main.html
 command-browsetagged.html "Command: BrowseTagged" template/main.html
+command-elementhasancestor.html "Command: ElementHasAncestor" template/main.html
 command-setplayer.html "Command: SetPlayer" template/main.html
 command-setroom.html "Command: SetRoom" template/main.html
 command-pushroom.html "Command: PushRoom" template/main.html
