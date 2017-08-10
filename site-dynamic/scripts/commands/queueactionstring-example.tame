@@ -20,7 +20,7 @@ world
 		quit;
 	}
 
-	onFailedAction(a_switch)
+	onMalformedCommand(a_switch)
 	{
 		textln("Not a valid language.");
 	}

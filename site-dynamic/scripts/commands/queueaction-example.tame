@@ -53,7 +53,7 @@ world
 		textln("Type \"quit\" to quit.");
 	}
 	
-	afterRequest()
+	afterSuccessfulCommand()
 	{
 		textln("First enqueued actions done. Handling after request.");
 		textln("Enqueuing a_printer " + count + " time(s).");

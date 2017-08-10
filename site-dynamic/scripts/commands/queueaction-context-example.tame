@@ -131,7 +131,7 @@ world
 
 	}
 	
-	afterRequest()
+	afterSuccessfulCommand()
 	{
 		// Queued actions do not "remember" the context in which they were called (this is pretty useful, though).
 		queueAction(a_look);

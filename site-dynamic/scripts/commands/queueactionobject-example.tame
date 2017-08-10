@@ -158,22 +158,22 @@ player p_guy
 		textln("That is not a valid direction to travel! (north, south, east, west)");
 	}
 
-	onBadAction()
+	onUnhandledAction()
 	{
 		textln("Can't do that.");
 	}
 
-	onFailedAction(a_move)
+	onMalformedCommand(a_move)
 	{
 		textln("Can't go that way.");
 	}
 	
-	onFailedAction()
+	onMalformedCommand()
 	{
 		textln("Can't do that.");
 	}
 	
-	onIncompleteAction()
+	onIncompleteCommand()
 	{
 		textln("You should probably complete that thought.");
 	}
@@ -206,7 +206,7 @@ world
 		textln("Type \"quit\" to quit.");
 	}
 
-	afterRequest()
+	afterSuccessfulCommand()
 	{
 		queueAction(a_look);
 		queueActionObject(a_examine, o_orb);

@@ -146,7 +146,7 @@ world
 		win = false;
 	}
 
-	afterRequest()
+	afterSuccessfulCommand()
 	{
 		if (win == true)
 		{
