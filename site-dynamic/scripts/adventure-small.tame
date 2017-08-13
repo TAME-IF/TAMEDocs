@@ -106,26 +106,26 @@ player p_guy
 			textln("I don't think so.");
 	}
 	
-	onBadAction()
+	onUnhandledAction()
 	{
 		oops();
 	}
 	
-	onUnknownAction()
+	onMalformedCommand()
 	{
 		oops();
 	}
 	
-	onIncompleteAction()
+	onUnknownCommand()
+	{
+		oops();
+	}
+	
+	onIncompleteCommand()
 	{
 		oops();
 	}
 
-	onFailedAction()
-	{
-		oops();
-	}
-	
 }
 
 // The ROOM!

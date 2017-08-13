@@ -483,7 +483,13 @@ public final class TAMEDoxGen
 			} catch (TAMEScriptParseException e) {
 				out.println("PROBLEM!!!! "+scriptFile+" not parsed!!");
 				out.println(e.getClass().getSimpleName()+": "+e.getLocalizedMessage());
-				writer.write("<pre>"+e.getClass().getSimpleName()+": "+e.getLocalizedMessage()+"</pre>");
+				writer.write("<div class=\"w3-card-4 w3-red\">");
+				writer.write("<div class=\"w3-container w3-padding-4\">");
+				writer.write("<h3>"+scriptFile+"</h3>");
+				writer.write("<h5>"+e.getClass().getSimpleName()+"</h5>");
+				writer.write("<pre>"+e.getLocalizedMessage()+"</pre>");
+				writer.write("</div>");
+				writer.write("</div>");
 				return false;
 			} catch (IOException e) {
 				writer.write("<pre>!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>");
