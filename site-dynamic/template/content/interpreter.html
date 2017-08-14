@@ -1,0 +1,105 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		The most common way that a user sends commands to TAME is via text input, usually at some kind of prompt.
+		Stuff like:<pre>pick up lamp
+look at dog
+scream
+</pre>
+		This text input is sent through a part of TAME called an <em>interpreter</em>. It's the interpreter's job to 
+		parse this input and find significant words and phrases in order to divine a meaningful action.
+	</p>
+	<p>
+		While the <strong>module</strong> is a giant accumulation of every element in the world, it also contains what
+		the interpreter is supposed to deem significant, mostly by the author assigning names to <strong>actions</strong> and <strong>objects</strong>.
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="response" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#parsing"><i class="link-stub fa fa-link"></i></a> 4.1. How TAME Parses Input <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		No matter the method by which input text is sent to TAME, TAME's interpreter takes the input text and cuts 
+		it up into chunks of words called <em>tokens</em>. TAME uses the whitespace between words as the delimiter for these tokens.
+	</p>
+	<p>
+		For example, the phrase "look at wooden table" would be broken into the tokens "look", "at", "wooden", and "table" before parsing.
+	</p>
+	<p>
+		TAME always parses input in this manner:
+		<ul>
+			<li><strong>Attempt to parse an Action.</strong> Then, depending on the kind of action:</li>
+			<li>If the action type is <strong>GENERAL</strong>,
+				<ul><li><strong>Stop.</strong></li></ul>
+			</li>
+			<li>If the action type is <strong>OPEN</strong>,
+				<ul>
+					<li><strong>Scan the rest of the input.</strong> Pass it along with the action.</li>
+					<li><strong>Stop.</strong></li>
+				</ul>
+			</li>
+			<li>If the action type is <strong>MODAL</strong>,
+				<ul>
+					<li><strong>Attempt to parse a Mode.</strong></li>
+					<li><strong>Stop.</strong></li>
+				</ul>
+			</li>
+			<li>If the action type is <strong>TRANSITIVE</strong>,
+				<ul>
+					<li><strong>Attempt to parse an Object.</strong></li>
+					<li><strong>Stop.</strong></li>
+				</ul>
+			</li>
+			<li>If the action type is <strong>DITRANSITIVE</strong>,
+				<ul>
+					<li><strong>Attempt to parse an Object.</strong></li>
+					<li><strong>Attempt to parse a Conjunction.</strong></li>
+					<li><strong>Attempt to parse a second Object.</strong></li>
+					<li><strong>Stop.</strong></li>
+				</ul>
+			</li>
+		</ul>
+	</p>
+	<p>
+		TAME's interpreter is a <em>greedy</em> interpeter, and this affects how words and phrases are
+		matched to actions and objects.
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="response" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#greedy"><i class="link-stub fa fa-link"></i></a> 4.2. What is a &quot;Greedy&quot; interpreter? <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		TAME's interpreter is <strong>greedy,</strong> which means it searches for matches using all of the tokens available. In contrast,
+		a <strong>lazy</strong> interpreter would stop looking at tokens (and then move on to the next thing to match) the moment that it found a relevant match.
+	</p>
+	<p>
+		For example, if the input was:
+		<pre>look at wooden table</pre>
+		And "look" and "look at" are actions, and "wooden table" is an object, in a <strong>lazy</strong> interpreter:
+		<ul>
+			<li>Check if "look" is an action.</li>
+			<li>Since it is, stop.</li>
+			<li>Continue parse with "at wooden table".</li>
+		</ul>
+		But in a <strong>greedy</strong> interpreter:
+		<ul>
+			<li>Check if "look" is an action.</li>
+			<li>Since it is, mark "look" as a match.</li>
+			<li>Check if "look at" is an action.</li>
+			<li>Since it is, mark "look at" as a match.</li>
+			<li>Check if "look at wooden" is an action.</li>
+			<li>It is not - continue scan.</li>
+			<li>Check if "look at wooden table" is an action.</li>
+			<li>It is not - continue scan.</li>
+			<li>Reached end of input tokens. Best match for action was "look at".</li>
+			<li>Continue parse with "wooden table"</li>
+		</ul>
+		This greedy scan still happens for each subsequent match, including action <em>modes</em>, <em>conjunctions</em> and module <em>objects</em>.
+	</p>
+</div>
