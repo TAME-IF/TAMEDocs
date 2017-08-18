@@ -48,8 +48,6 @@ command-textf.html "Command: Textf" template/main.html
 command-textfln.html "Command: Textfln" template/main.html
 command-pause.html "Command: Pause" template/main.html
 command-wait.html "Command: Wait" template/main.html
-command-tip.html "Command: Tip" template/main.html
-command-info.html "Command: Info" template/main.html
 command-asboolean.html "Command: AsBoolean" template/main.html
 command-asint.html "Command: AsInt" template/main.html
 command-asfloat.html "Command: AsFloat" template/main.html
