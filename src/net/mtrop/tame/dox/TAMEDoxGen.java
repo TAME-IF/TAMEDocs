@@ -459,7 +459,7 @@ public final class TAMEDoxGen
 				
 				scriptIn = new FileInputStream(new File(scriptFile));
 				String scriptContent = Common.getTextualContents(scriptIn);
-				TAMEModule module = TAMEScriptReader.read(scriptContent, TAMESCRIPT_INCLUDER);
+				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
 				
 				writer.write("<div class=\"w3-example\">\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
