@@ -15,86 +15,86 @@
 		<tbody>
 			<tr>
 				<td><a href="command-noop.html">NoOp</a></td>
-				<td>None</td>
-				<td>Nothing</td>
+				<td><em>None</em></td>
+				<td><em>Nothing</em></td>
 				<td>Does nothing.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueaction.html">QueueAction</a></td>
 				<td>ACTION</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues a general action <em>ACTION</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionstring.html">QueueActionString</a></td>
 				<td>ACTION, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues an open action <em>ACTION</em> with target <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionobject.html">QueueActionObject</a></td>
 				<td>ACTION, OBJECT</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> with target <em>OBJECT</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionforobjectsin.html">QueueActionForObjectsIn</a></td>
 				<td>ACTION, OBJECT-CONTAINER</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT-CONTAINER</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionfortaggedobjectsin.html">QueueActionForTaggedObjectsIn</a></td>
 				<td>ACTION, OBJECT-CONTAINER, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT-CONTAINER</em> with tag <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-queueactionobject2.html">QueueActionObject2</a></td>
 				<td>ACTION, OBJECT1, OBJECT2</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Queues a ditransitive action <em>ACTION</em> with targets <em>OBJECT1</em> and <em>OBJECT2</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addcue.html">AddCue</a></td>
 				<td>VALUE(STRING), VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Adds a <em>VALUE</em> cue to the response with content <em>VALUE</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-text.html">Text</a></td>
 				<td>VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("text", VALUE)</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textln.html">Textln</a></td>
 				<td>VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("text", VALUE + "\n")</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textf.html">Textf</a></td>
 				<td>VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("textf", VALUE)</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-textfln.html">Textfln</a></td>
 				<td>VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("textf", VALUE + "\n")</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-pause.html">Pause</a></td>
-				<td>None</td>
-				<td>Nothing</td>
+				<td><em>None</em></td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("pause", "")</em></td>
 			</tr>
 			<tr>
 				<td><a href="command-wait.html">Wait</a></td>
 				<td>VALUE(INTEGER)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("wait", VALUE)</em></td>
 			</tr>
 			<tr>
@@ -255,13 +255,13 @@
 			</tr>
 			<tr>
 				<td><a href="command-pi.html">PI</a></td>
-				<td>None</td>
+				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the value of the mathematical constant Pi (&pi;).</td>
 			</tr>
 			<tr>
 				<td><a href="command-e.html">E</a></td>
-				<td>None</td>
+				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the value of Euler's Number.</td>
 			</tr>
@@ -309,7 +309,7 @@
 			</tr>
 			<tr>
 				<td><a href="command-frandom.html">FRandom</a></td>
-				<td>None</td>
+				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns a random float from 0.0 (inclusive) to 1.0 (exclusive).</td>
 			</tr>
@@ -321,7 +321,7 @@
 			</tr>
 			<tr>
 				<td><a href="command-time.html">Time</a></td>
-				<td>None</td>
+				<td><em>None</em></td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the current system time as an integer value (milliseconds since UNIX Epoch).</td>
 			</tr>
@@ -370,55 +370,55 @@
 			<tr>
 				<td><a href="command-addobjectname.html">AddObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Adds a name <em>VALUE</em> to <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addobjecttag.html">AddObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Adds a tag called <em>VALUE</em> to <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-addobjecttagtoallin.html">AddObjectTagToAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Adds a tag called <em>VALUE</em> to all objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjectname.html">RemoveObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Removes a name <em>VALUE</em> from <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjecttag.html">RemoveObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Removes a tag called <em>VALUE</em> from <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjecttagfromallin.html">RemoveObjectTagFromAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Removes all tags called <em>VALUE</em> from objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-giveobject.html">GiveObject</a></td>
 				<td>OBJECT-CONTAINER, OBJECT</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Sets the ownership of <em>OBJECT</em> to <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobject.html">RemoveObject</a></td>
 				<td>OBJECT</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Removes <em>OBJECT</em> from its current owner.</td>
 			</tr>
 			<tr>
 				<td><a href="command-removeobjectswithtag.html">MoveObjectsWithTag</a></td>
 				<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>
 			</tr>
 			<tr>
@@ -454,43 +454,43 @@
 			<tr>
 				<td><a href="command-browse.html">Browse</a></td>
 				<td>OBJECT-CONTAINER</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>For each object in <em>OBJECT-CONTAINER</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
 				<td><a href="command-browsetagged.html">BrowseTagged</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>For each object in <em>OBJECT-CONTAINER</em> with tag <em>VALUE</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
 				<td><a href="command-setplayer.html">SetPlayer</a></td>
 				<td>PLAYER</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Sets the current player to <em>PLAYER</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-setroom.html">SetRoom</a></td>
 				<td>PLAYER, ROOM</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Sets the current room on <em>PLAYER</em> to <em>ROOM</em>. Clears <em>PLAYER</em>'s room stack, first.</td>
 			</tr>
 			<tr>
 				<td><a href="command-pushroom.html">PushRoom</a></td>
 				<td>PLAYER, ROOM</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Pushes <em>ROOM</em> room on <em>PLAYER</em>'s current room stack.</td>
 			</tr>
 			<tr>
 				<td><a href="command-poproom.html">PopRoom</a></td>
 				<td>PLAYER</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Restores the previous room on <em>PLAYER</em>'s current room stack. Error if no room.</td>
 			</tr>
 			<tr>
 				<td><a href="command-swaproom.html">SwapRoom</a></td>
 				<td>PLAYER, ROOM</td>
-				<td>Nothing</td>
+				<td><em>Nothing</em></td>
 				<td>Swaps the current room with <em>ROOM</em> on <em>PLAYER</em>'s current room stack. The rest of the stack is unaffected.</td>
 			</tr>
 			<tr>
@@ -501,7 +501,7 @@
 			</tr>
 			<tr>
 				<td><a href="command-nocurrentplayer.html">NoCurrentPlayer</a></td>
-				<td>None</td>
+				<td><em>None</em></td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if no current player is set, <strong>FALSE</strong> otherwise.</td>
 			</tr>

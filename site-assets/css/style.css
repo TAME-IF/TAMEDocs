@@ -29,14 +29,30 @@ hr {
 	margin: 20px 0;
 }
 
-ul a {
+ul a, ul a:visited {
+	color: #000;
     text-decoration: none;
 }
  
 ul a:hover {
+	color: #000;
     text-decoration: underline;
 }
- 
+
+ul a:visited {
+	color: #000;
+}
+
+a, a:visited {
+	text-decoration: none;
+	color: #009688;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #009688;
+}
+
 ul.sidebar-list {
     list-style-type: none;
     padding-left: 0;
