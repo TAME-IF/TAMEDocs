@@ -1,0 +1,7 @@
+	<p>
+		Initializing a context is wrapped in one <a href="systems.html">request-response loop</a>. The response cues that come back are the result of all 
+		<span class="tamedox-block-type">init()</span> blocks plus <span class="tamedox-block-type">start()</span>. All commands 
+		executed contribute towards the command and function call limits, which is TAME's soft protection against infinite loops 
+		and stack overflows. This may vary by implementation, but the author can override these in the 
+		<a href="language-element-module.html">module header</a>.
+	</p>

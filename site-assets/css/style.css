@@ -123,9 +123,12 @@ IMG.nav-logo {
 .tamedox-parameter {
 	font-style: italic;
 	font-weight: 800;
+	white-space: nowrap;
 	width: 1px;
 }
 .tamedox-parameter-type {
+	white-space: nowrap;
+	width: 1px;
 }
 .tamedox-parameter-description {
 }
@@ -138,11 +141,18 @@ TABLE.tamedox-block-reference td:not(:last-child)
 	width: 1px;
 }
 
+.tamedox-command-type {
+	white-space: nowrap;
+	font-weight: bold;
+}
+
 .tamedox-element-type {
+	white-space: nowrap;
 	font-style: italic;
 }
 
 .tamedox-block-type {
+	white-space: nowrap;
 	font-weight: bold;
 }
 

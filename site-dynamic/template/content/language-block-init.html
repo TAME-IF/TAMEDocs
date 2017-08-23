@@ -30,7 +30,7 @@
 	</p>
 	<p>
 		The best thing to do in <span class="tamedox-block-type">init()</span> blocks are setting variables on the element it is initializing.
-		You can theoretically do anything in these blocks, but may be better to set up object ownership and other 
+		You can theoretically do anything in these blocks, but it may be better to set up object ownership and other 
 		enviromental things in the <a class="link" href="language-block-start.html">start()</a> block on the world, since it gets called after 
 		all <span class="tamedox-block-type">init()</span> blocks are called.
 	</p>
@@ -47,7 +47,7 @@
 	<h3>Example</h3>
 </div>
 <div class="w3-container">
-<!--[ tamescript "Init/Start Example" noop blocks/init-start-example.tame ]-->
+<!--[ tamescript "Init/Start Example" module_init_start_example blocks/init-start-example.tame ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -59,17 +59,18 @@
 	</p>
 </div>
 
-<div class="w3-panel w3-light-gray w3-card-2">
+<div class="w3-panel w3-red w3-card-2">
 	<h3>Technical Junk</h3>
 </div>
 <div class="w3-container">
 	<p>
 		When we say that "you cannot guarantee the order in which <span class="tamedox-block-type">init()</span> blocks are called," this means
-		that you cannot rely on any element in TAME to initialize in the same order, or on any determined order in any implementation of TAME,
+		that you cannot rely on any element in TAME to initialize elements in the same order, or on <em>any</em> determined order in <em>any</em> implementation of TAME,
 		on <em>any</em> platform that TAME runs on.
 	</p>
 	<p>
-		A good guideline is to not write code that relies on the value of a variable on other elements, or relies on object ownership of other
-		elements, or any other element's context-specific state.
+		A good guideline is to not write code in <span class="tamedox-block-type">init()</span> blocks that rely on the value 
+		of a variable on other elements, or relies on object ownership of other elements, or any other element's context-specific state.
 	</p>
+	<!--[ include fragments/techjunk-init-start.html ]-->
 </div>

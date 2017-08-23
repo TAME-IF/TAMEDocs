@@ -56,6 +56,10 @@ scream
 				<ul>
 					<li><strong>Attempt to parse an Object.</strong></li>
 					<li><strong>Attempt to parse a Conjunction.</strong></li>
+					<li>
+						<strong>If nothing to parse,</strong>
+						<ul><li><strong>Stop.</strong></li></ul>
+					</li>
 					<li><strong>Attempt to parse a second Object.</strong></li>
 					<li><strong>Stop.</strong></li>
 				</ul>
@@ -100,7 +104,7 @@ scream
 			<li>Reached end of input tokens. Best match for action was "look at".</li>
 			<li>Continue parse with "wooden table"</li>
 		</ul>
-		This greedy scan still happens for each subsequent match, including action <em>modes</em>, <em>conjunctions</em> and module <em>objects</em>.
+		This greedy scan still happens for each subsequent match, including action <em>modes</em>, <em>conjunctions</em> and accessible <em>objects</em>.
 	</p>
 </div>
 
@@ -111,7 +115,12 @@ scream
 </div>
 <div class="w3-container">
 	<p>
-		[[FINISH THIS]]
+		Once the interpreter figures out all of the parts of the input, it is bundled into a full action and TAME figures out what
+		<a href="language-blocks.html">blocks</a> to execute. The blocks executed differ depending on context state or action types
+		or target modes or objects with the action.
+	</p>
+	<p>
+		<em>This documentation has several <a href="diagrams.html">diagrams</a> that outline this process.</em>
 	</p>
 </div>
 
@@ -122,7 +131,15 @@ scream
 </div>
 <div class="w3-container">
 	<p>
-		[[FINISH THIS]]
+		Sometimes the user will input something that will fail to parse completely or result in an action that is unhandled. 
+		This, too is handled in module logic in other blocks. Depending on what parts of the input are either incomplete or
+		unresolvable, different blocks will be called.
+	</p>
+	<p>
+		If a block does not exist that handles these cases, TAME will add an <em>ERROR</em> cue to the response 
+		for the missing block.
+	</p>
+	<p>
+		<em>This documentation has several <a href="diagrams.html">diagrams</a> that outline this process.</em>
 	</p>
 </div>
-

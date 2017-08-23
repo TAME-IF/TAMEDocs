@@ -1,0 +1,80 @@
+<h1>OnAction ( <em>ACTION</em> )</h1>
+<div class="w3-container">
+	The start block on the world. Called when the module is first initialized, 
+	after all <a href="language-block-init.html">init()</a> blocks are called.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Valid on Elements</h3>
+</div>
+<div class="w3-container">
+	<span class="w3-tag w3-yellow w3-xlarge">WORLD</span>
+	<span class="w3-tag w3-green w3-xlarge">PLAYER</span>
+	<span class="w3-tag w3-red w3-xlarge">ROOM</span>
+	<span class="w3-tag w3-blue w3-xlarge">OBJECT</span>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-striped" >
+		<tr>
+			<td class="tamedox-parameter">ACTION</td>
+			<td class="tamedox-parameter-type">GENERAL, OPEN, or TRANSITIVE action (depending on the element type).</td>
+			<td class="tamedox-parameter-description">The action that this block handles.</td>
+		</tr>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>When it is Called</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedox-block-type">onAction()</span> block gets called when a <strong>GENERAL</strong> or <strong>OPEN</strong> action
+		needs to be handled at the <span class="tamedox-element-type">world</span>, <span class="tamedox-element-type">player</span>, or
+		<span class="tamedox-element-type">room</span> element, or when a <strong>TRANSITIVE</strong> action needs to be handled on an
+		<span class="tamedox-element-type">object</span> element.
+	</p>
+	<p>
+		If a valid <span class="tamedox-block-type">onAction()</span> block for a TRANSITIVE action (on a valid <span class="tamedox-element-type">object</span>) 
+		is not found, TAME looks for <span class="tamedox-block-type">onUnhandledAction()</span> blocks to call (on the current <span class="tamedox-element-type">player</span>, 
+		if any, and then the <span class="tamedox-element-type">world</span>).
+	</p>
+	<p>
+		If a valid <span class="tamedox-block-type">onAction()</span> block for a GENERAL or OPEN action on the current <span class="tamedox-element-type">room</span>
+		is not found (or no current <span class="tamedox-element-type">room</span>), TAME then looks for a valid <span class="tamedox-block-type">onAction()</span>
+		block on the current <span class="tamedox-element-type">player</span>. If <em>that</em> is not found, (or no current <span class="tamedox-element-type">player</span>), 
+		TAME then looks for a valid <span class="tamedox-block-type">onAction()</span> block on the <span class="tamedox-element-type">world</span>. 
+		If <em>that</em> is not found, TAME looks for <span class="tamedox-block-type">onUnhandledAction()</span> blocks to call 
+		(on the current <span class="tamedox-element-type">player</span>, if any, and then the <span class="tamedox-element-type">world</span>).
+	</p>
+	<p>
+		Inheritance rules apply when searching for callable blocks, always!
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "OnAction Example" module_onaction_example blocks/onaction-example.tame ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a class="link" href="language-block-init.html">init()</a> &mdash; Called on context initialization, before <span class="tamedox-block-type">start()</span>.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+	</p>
+</div>
