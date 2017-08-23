@@ -1,0 +1,54 @@
+<h1>Start ( )</h1>
+<div class="w3-container">
+	The start block on the world. Called when the module is first initialized, 
+	after all <a href="language-block-init.html">init()</a> blocks are called.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Valid on Elements</h3>
+</div>
+<div class="w3-container">
+	<span class="w3-tag w3-yellow w3-xlarge">WORLD</span>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<em>No Parameters</em>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>When it is Called</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedox-block-type">start()</span> block gets called on the <span class="tamedox-element-type">world</span> element after all elements are 
+		<a href="language-block-init.html">initialized</a> (including <span class="tamedox-element-type">world</span>). It is called even
+		when no <span class="tamedox-block-type">init()</span> blocks exist to call.
+	</p>
+	<p>
+		The <span class="tamedox-block-type">start()</span> block gets called a total of <strong>one</strong> times throughout a module's execution,
+		if it exists.
+	</p>
+	<p>
+		The <span class="tamedox-element-type">world</span> is not required to have a <span class="tamedox-block-type">start()</span> block,
+		but it is strongly encouraged.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Init/Start Example" noop blocks/init-start-example.tame ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a class="link" href="language-block-init.html">init()</a> &mdash; Called on context initialization, before <span class="tamedox-block-type">start()</span>.<br/>
+	</p>
+</div>

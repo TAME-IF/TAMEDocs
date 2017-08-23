@@ -1,6 +1,6 @@
 <h1>Init ( )</h1>
 <div class="w3-container">
-	The initialization block of every element in the module. Called when the module is first initialized.
+	The initialization block of every element in the module. Called on each element when the module is first initialized.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -26,20 +26,20 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <strong>init()</strong> block gets called on each element when TAME needs to create a new context. 
+		The <span class="tamedox-block-type">init()</span> block gets called on each element when TAME needs to create a new context. 
 	</p>
 	<p>
-		The best thing to do in <strong>init()</strong> blocks are setting variables on the element it is initializing.
+		The best thing to do in <span class="tamedox-block-type">init()</span> blocks are setting variables on the element it is initializing.
 		You can theoretically do anything in these blocks, but may be better to set up object ownership and other 
 		enviromental things in the <a class="link" href="language-block-start.html">start()</a> block on the world, since it gets called after 
-		all <strong>init()</strong> blocks are called.
+		all <span class="tamedox-block-type">init()</span> blocks are called.
 	</p>
 	<p>
-		It is important to note that you <em>cannot</em> guarantee the order in which <strong>init()</strong> blocks are 
-		called on each element, and the order may vary depending on each implementation of TAME.
+		It is important to note that you <em>cannot</em> guarantee the order in which <span class="tamedox-block-type">init()</span> blocks are 
+		called on each element.
 	</p>
 	<p>
-		Elements are not required to have <strong>init()</strong> blocks. Inheritance rules still apply.
+		Elements are not required to have <span class="tamedox-block-type">init()</span> blocks. Inheritance rules still apply.
 	</p>
 </div>
 
@@ -55,7 +55,7 @@
 </div>
 <div class="w3-container">
 	<p>
-		<a class="link" href="language-block-start.html">start()</a> &mdash; Called after all <strong>init()</strong> blocks are called.<br/>
+		<a class="link" href="language-block-start.html">start()</a> &mdash; Called after all <span class="tamedox-block-type">init()</span> blocks are called.<br/>
 	</p>
 </div>
 
@@ -64,6 +64,12 @@
 </div>
 <div class="w3-container">
 	<p>
-		[[TECHNOWEENIE HORSESHIT]]
+		When we say that "you cannot guarantee the order in which <span class="tamedox-block-type">init()</span> blocks are called," this means
+		that you cannot rely on any element in TAME to initialize in the same order, or on any determined order in any implementation of TAME,
+		on <em>any</em> platform that TAME runs on.
+	</p>
+	<p>
+		A good guideline is to not write code that relies on the value of a variable on other elements, or relies on object ownership of other
+		elements, or any other element's context-specific state.
 	</p>
 </div>

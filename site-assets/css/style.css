@@ -131,10 +131,21 @@ IMG.nav-logo {
 }
 
 TABLE.tamedox-command-reference th:not(:last-child), 
-TABLE.tamedox-command-reference td:not(:last-child)
+TABLE.tamedox-command-reference td:not(:last-child),
+TABLE.tamedox-block-reference th:not(:last-child),
+TABLE.tamedox-block-reference td:not(:last-child)
 {
 	width: 1px;
 }
+
+.tamedox-element-type {
+	font-style: italic;
+}
+
+.tamedox-block-type {
+	font-weight: bold;
+}
+
 
 #tame-input {
 	font-family: "Courier New", monospace;
