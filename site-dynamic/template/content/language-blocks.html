@@ -1,0 +1,94 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<h3>Quick Reference</h3>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
+			<tr>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><a href="language-block-init.html">Init</a></td>
+				<td><em>None</em></td>
+				<td>Called at module context initialization on each element.</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-start.html">Start</a></td>
+				<td><em>None</em></td>
+				<td>Called after all elements initialize.</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-action.html">OnAction</a></td>
+				<td>ACTION</td>
+				<td>
+					Called when an action needs to be processed on a specific element. 
+					Action type decides the element entry point.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-action-with.html">OnActionWith</a></td>
+				<td>ACTION, OBJECT</td>
+				<td>Called when a ditransitive action needs to be processed with a specific object.</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-action-with-ancestor.html">OnActionWithAncestor</a></td>
+				<td>ACTION, OBJECT</td>
+				<td>
+					Called when a ditransitive action needs to be processed with a matched ancestor 
+					object (if <strong>OnActionWith</strong> is unhandled).
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-action-with-other.html">OnActionWithOther</a></td>
+				<td>ACTION, OBJECT</td>
+				<td>
+					Called when a ditransitive action needs to be processed with a matched ancestor 
+					object (if <strong>OnActionWith</strong> and <strong>OnActionWithAncestor</strong> is unhandled).
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-action-with-ancestor.html">OnModalAction</a></td>
+				<td>ACTION, STRING</td>
+				<td>
+					Called when a modal action needs to be processed with a specific mode.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-world-browse.html">OnWorldBrowse</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called when <a href="command-browse.html">Browse()</a> is called while this object is
+					owned by a world.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-room-browse.html">OnRoomBrowse</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called when <a href="command-browse.html">Browse()</a> is called while this object is
+					owned by a room.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-player-browse.html">OnPlayerBrowse</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called when <a href="command-browse.html">Browse()</a> is called while this object is
+					owned by a player.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-container-browse.html">OnContainerBrowse</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called when <a href="command-browse.html">Browse()</a> is called while this object is
+					owned by a container.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	FINISH THIS
+</div>
+
