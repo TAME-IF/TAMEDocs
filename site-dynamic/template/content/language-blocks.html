@@ -87,8 +87,78 @@
 					owned by a container.
 				</td>
 			</tr>
+			<tr>
+				<td><a href="language-block-on-forbidden-action.html">OnForbiddenAction</a></td>
+				<td><em>ACTION [optional]</em></td>
+				<td>
+					Called when an action forbidden by a player is processed.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-room-forbidden-action.html">OnRoomForbiddenAction</a></td>
+				<td><em>ACTION [optional]</em></td>
+				<td>
+					Called when an action forbidden by a room is processed.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-unhandled-action.html">OnUnhandledAction</a></td>
+				<td><em>ACTION [optional]</em></td>
+				<td>
+					Called when an action is not handled by the elements that should have handled it.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-unknown-command.html">OnUnknownCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called if an action is not interpreted.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-ambiguous-command.html">OnAmbiguousCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called if an interpreted action can have more than one possible object target based on the input.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-incomplete-command.html">OnIncompleteCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called if an interpreted action is missing a element that is expected, but not parsed.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-malformed-command.html">OnMalformedCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called if an interpreted action has a part that isn't found, or if a <em>strict</em> command
+					has more parsed than needed.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-successful-command.html">AfterSuccessfulCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called after a processed action due to a correctly-parsed input.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-failed-command.html">AfterFailedCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called after a processed action due to an incorrectly-parsed input.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="language-block-on-every-command.html">AfterEveryCommand</a></td>
+				<td><em>None</em></td>
+				<td>
+					Called after every processed action and after when <strong>AfterSuccessfulCommand</strong>
+					or <strong>AfterFailedCommand</strong> is called.
+				</td>
+			</tr>
 		</tbody>
 	</table>
-	FINISH THIS
 </div>
-
