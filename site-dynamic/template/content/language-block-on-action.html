@@ -1,7 +1,6 @@
 <h1>OnAction ( <em>ACTION</em> )</h1>
 <div class="w3-container">
-	The start block on the world. Called when the module is first initialized, 
-	after all <a href="language-block-init.html">init()</a> blocks are called.
+	A block that describes what to do when an element is the target of a valid action.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -51,6 +50,9 @@
 		(on the current <span class="tamedox-element-type">player</span>, if any, and then the <span class="tamedox-element-type">world</span>).
 	</p>
 	<p>
+		Non-strict <strong>DITRANSITIVE</strong> actions that lack a second object are treated as <strong>TRANSITIVE</strong> actions.
+	</p>
+	<p>
 		Inheritance rules apply when searching for callable blocks, always!
 	</p>
 </div>
@@ -67,7 +69,12 @@
 </div>
 <div class="w3-container">
 	<p>
-		<a class="link" href="language-block-init.html">init()</a> &mdash; Called on context initialization, before <span class="tamedox-block-type">start()</span>.<br/>
+		<a class="link" href="language-block-init.html">onActionWith()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object.<br/>
+		<a class="link" href="language-block-init.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
+		<a class="link" href="language-block-init.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
+		<a class="link" href="language-block-init.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
+		<a class="link" href="language-block-init.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
+		<a class="link" href="language-block-init.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
 	</p>
 </div>
 
@@ -76,5 +83,9 @@
 </div>
 <div class="w3-container">
 	<p>
+		The <span class="tamedox-block-type">onAction()</span> block is context sensitive involving the current <span class="tamedox-element-type">player</span>
+		or the current <span class="tamedox-element-type">room</span>. This is assessed when finding the relevant block to execute for the current
+		action being processed. This will affect program flow if <span class="tamedox-element-type">rooms</span> 
+		and <span class="tamedox-element-type">players</span> change.
 	</p>
 </div>
