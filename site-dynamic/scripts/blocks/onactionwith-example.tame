@@ -1,0 +1,45 @@
+action general a_quit named "quit", "exit";
+action ditransitive a_mix named "mix", "combine" uses conjunctions "with", "and";
+action strict ditransitive a_ask named "ask" uses conjunctions "about";
+action strict ditransitive a_give named "give" uses conjunctions "to";
+
+// All paint.
+object archetype o_paint
+{
+	function getColor()
+	{
+		// Override this!
+		return false;
+	}
+
+	// if treated like a transitive action (no second object).
+	onAction(a_mix)
+	{
+		textln("What am I mixing this with?");
+	}
+	
+	// if treated like a transitive action (no second object).
+	onAction(a_give)
+	{
+		textln("Who am I giving this to?");
+	}
+	
+}
+
+
+// All people.
+object archetype o_person
+{
+	// if treated like a transitive action (no second object).
+	onAction(a_ask)
+	{
+		textln("About what am I asking this person?")
+	}
+	
+}
+
+// It's a person named Bob!
+object o_bob : o_person named "bob"
+{
+	
+}
