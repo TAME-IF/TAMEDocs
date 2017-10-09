@@ -6,6 +6,7 @@ interpreter.html "The Interpreter" template/main.html
 tamescript.html "TAMEScript" template/main.html
 language-elements.html "TAMEScript Module Elements" template/main.html
 language-element-module.html "Module Element" template/main.html
+language-element-action.html "Action Element" template/main.html
 language-element-world.html "World Element" template/main.html
 language-element-player.html "Player Element" template/main.html
 language-element-room.html "Room Element" template/main.html

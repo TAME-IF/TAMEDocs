@@ -22,8 +22,8 @@
 		</tr>
 		<tr>
 			<td class="tamedox-parameter">OBJECT</td>
-			<td class="tamedox-parameter-type">GENERAL, OPEN, or TRANSITIVE action (depending on the element type).</td>
-			<td class="tamedox-parameter-description">The action that this block handles.</td>
+			<td class="tamedox-parameter-type">A non-archetype object.</td>
+			<td class="tamedox-parameter-description">The other object resolved in the interpreter (not the one this block appears on).</td>
 		</tr>
 	</table>
 </div>
@@ -33,7 +33,20 @@
 </div>
 <div class="w3-container">
 	<p>
-		[[FINISH THIS]]
+		The <span class="tamedox-block-type">onActionWith()</span> block is called when a <strong>DITRANSITIVE</strong> action
+		needs to be handled at a target <span class="tamedox-element-type">object</span> with another <span class="tamedox-element-type">object</span>.
+	</p>
+	<p>
+		DITRANSITIVE action handling is a little tricky - depending on whether or not the action is labelled <a href="language-element-action.html">strict</a>,
+		it will try both combinations of "object 1 on-action-with object 2" and "object 2 on-action-with object 1". 
+		Only the first interpreted object is used as the target element (including the "ancestor" and "other" handling blocks) if the action is <em>strict</em>.
+	</p>
+	<p>
+		If a valid <span class="tamedox-block-type">onActionWith()</span> block for a DITRANSITIVE action and target <span class="tamedox-element-type">object</span>
+		is not found, TAME looks for an <span class="tamedox-block-type">onActionWithAncestor()</span> block to call that matches. If that does not exist, 
+		it calls <span class="tamedox-block-type">onActionWithOther()</span>. 
+		And if that does not exist, TAME looks for <span class="tamedox-block-type">onUnhandledAction()</span> blocks to call (on the current <span class="tamedox-element-type">player</span>, 
+		if any, and then the <span class="tamedox-element-type">world</span>).
 	</p>
 	<p>
 		Inheritance rules apply when searching for callable blocks, always!
@@ -52,12 +65,12 @@
 </div>
 <div class="w3-container">
 	<p>
-		<a class="link" href="language-block-init.html">onAction()</a> &mdash; Called to handle an action with another object, or a <em>general</em> action on the current player or room.<br/>
-		<a class="link" href="language-block-init.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
-		<a class="link" href="language-block-init.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
-		<a class="link" href="language-block-init.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
-		<a class="link" href="language-block-init.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
-		<a class="link" href="language-block-init.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
+		<a class="link" href="language-block-on-action.html">onAction()</a> &mdash; Called to handle an action with another object, or a <em>general</em> action on the current player or room.<br/>
+		<a class="link" href="language-block-on-action-with-ancestor.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
+		<a class="link" href="language-block-on-action-with-other.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
+		<a class="link" href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
+		<a class="link" href="language-block-on-forbidden-action.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
+		<a class="link" href="language-block-on-room-forbidden-action.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
 	</p>
 </div>
 
@@ -66,6 +79,17 @@
 </div>
 <div class="w3-container">
 	<p>
-		[[FINISH THIS]]
+		The "first" and "second" <span class="tamedox-element-type">objects</span> are determined by the interpreter. The order still
+		matters even if the action is not <em>strict</em>. Both combinations in each case are executed even if one exists.
+		Both <span class="tamedox-block-type">onActionWith()</span> calls in this case need to not exist in order to continue on
+		to the <span class="tamedox-block-type">onActionWithAncestor()</span> calls.
+	</p>
+	<p>
+		The object test order is always first-onActionWith-second, then second-onActionWith-first.
+	</p>
+	<p>
+		"Forbidden" action checks are done before other targets are checked, but after the whole command is interpreted. For instance,
+		if a DITRANSITIVE action is parsed with one or more unknown objects, TAME considers it a "malformed action" before it gets to decide
+		if the action is forbidden by the current <span class="tamedox-element-type">player</span> or <span class="tamedox-element-type">room</span>.
 	</p>
 </div>

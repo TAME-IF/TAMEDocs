@@ -31,7 +31,7 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <span class="tamedox-block-type">onAction()</span> block gets called when a <strong>GENERAL</strong> or <strong>OPEN</strong> action
+		The <span class="tamedox-block-type">onAction()</span> block is called when a <strong>GENERAL</strong> or <strong>OPEN</strong> action
 		needs to be handled at the <span class="tamedox-element-type">world</span>, <span class="tamedox-element-type">player</span>, or
 		<span class="tamedox-element-type">room</span> element, or when a <strong>TRANSITIVE</strong> action needs to be handled on an
 		<span class="tamedox-element-type">object</span> element.
@@ -69,12 +69,12 @@
 </div>
 <div class="w3-container">
 	<p>
-		<a class="link" href="language-block-init.html">onActionWith()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object.<br/>
-		<a class="link" href="language-block-init.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
-		<a class="link" href="language-block-init.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
-		<a class="link" href="language-block-init.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
-		<a class="link" href="language-block-init.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
-		<a class="link" href="language-block-init.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
+		<a class="link" href="language-block-on-action-with.html">onActionWith()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object.<br/>
+		<a class="link" href="language-block-on-action-with-ancestor.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
+		<a class="link" href="language-block-on-action-with-other.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
+		<a class="link" href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
+		<a class="link" href="language-block-on-forbidden-action.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
+		<a class="link" href="language-block-on-room-forbidden-action.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
 	</p>
 </div>
 
@@ -87,5 +87,10 @@
 		or the current <span class="tamedox-element-type">room</span>. This is assessed when finding the relevant block to execute for the current
 		action being processed. This will affect program flow if <span class="tamedox-element-type">rooms</span> 
 		and <span class="tamedox-element-type">players</span> change.
+	</p>
+	<p>
+		"Forbidden" action checks are done before other targets are checked, but after the whole command is interpreted. For instance,
+		if a TRANSITIVE action is parsed with an unknown object, TAME considers it a "malformed action" before it gets to decide
+		if the action is forbidden by the current <span class="tamedox-element-type">player</span> or <span class="tamedox-element-type">room</span>.
 	</p>
 </div>
