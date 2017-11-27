@@ -53,7 +53,7 @@ command-asboolean.html "Command: AsBoolean" template/main.html
 command-asint.html "Command: AsInt" template/main.html
 command-asfloat.html "Command: AsFloat" template/main.html
 command-asstring.html "Command: AsString" template/main.html
-command-strlength.html "Command: StrLength" template/main.html
+command-length.html "Command: Length" template/main.html
 command-strconcat.html "Command: StrConcat" template/main.html
 command-strreplace.html "Command: StrReplace" template/main.html
 command-strreplacepattern.html "Command: StrReplacePattern" template/main.html
@@ -70,6 +70,13 @@ command-strlower.html "Command: StrLower" template/main.html
 command-strupper.html "Command: StrUpper" template/main.html
 command-strchar.html "Command: StrChar" template/main.html
 command-strtrim.html "Command: StrTrim" template/main.html
+command-listadd.html "Command: ListAdd" template/main.html
+command-listaddat.html "Command: ListAddAt" template/main.html
+command-listremove.html "Command: ListRemove" template/main.html
+command-listremoveat.html "Command: ListRemoveAt" template/main.html
+command-listconcat.html "Command: ListConcat" template/main.html
+command-listindex.html "Command: ListIndex" template/main.html
+command-listcontains.html "Command: ListContains" template/main.html
 command-floor.html "Command: Floor" template/main.html
 command-ceiling.html "Command: Ceiling" template/main.html
 command-round.html "Command: Round" template/main.html
