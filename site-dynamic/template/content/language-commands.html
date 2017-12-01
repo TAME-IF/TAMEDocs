@@ -3,6 +3,7 @@
 	<p>
 		<strong>NOTE:</strong> <em>VALUE</em>s that mention a sub-type denote that the input value is coerced/converted to that type before evaluation, or returned as that type.
 	</p>
+	<h4>Control</h4>
 	<table class="w3-table w3-striped tamedox-command-reference">
 		<thead>
 			<tr>
@@ -13,9 +14,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td colspan="4"><h4><strong>Control</strong></h4></td>
-			</tr>
 			<tr>
 				<td><a href="command-queueaction.html">QueueAction</a></td>
 				<td>ACTION</td>
@@ -52,9 +50,19 @@
 				<td><em>Nothing</em></td>
 				<td>Queues a ditransitive action <em>ACTION</em> with targets <em>OBJECT1</em> and <em>OBJECT2</em> to be executed once this one completes.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>Cues</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>Cues</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-addcue.html">AddCue</a></td>
 				<td>VALUE(STRING), VALUE(STRING)</td>
@@ -97,9 +105,19 @@
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("wait", VALUE)</em></td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>Values</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>Values</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-asboolean.html">AsBoolean</a></td>
 				<td>VALUE</td>
@@ -124,9 +142,19 @@
 				<td>VALUE(STRING)</td>
 				<td>Returns the string value of <em>VALUE</em>.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>String Operations</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>String Operations</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-strlength.html">StrLength</a></td>
 				<td>VALUE(STRING)</td>
@@ -229,9 +257,19 @@
 				<td>VALUE(STRING)</td>
 				<td>Returns <em>VALUE</em> with superfluous whitespace removed from both the start and end.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>List Operations</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>List Operations</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-listadd.html">ListAdd</a></td>
 				<td>VALUE1(LIST), VALUE2</td>
@@ -257,11 +295,36 @@
 				<td>Removes a value from a list, <em>VALUE1</em>, at index <em>VALUE2</em>. Returns the value removed, or <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td colspan="4">FINISH THIS</td>
+				<td><a href="command-listconcat.html">ListConcat</a></td>
+				<td>VALUE1(LIST), VALUE2(LIST)</td>
+				<td>VALUE(LIST)</td>
+				<td>Concatenates two lists (or two values as though they were lists) and returns a new list.</td>
 			</tr>
 			<tr>
-				<td colspan="4"><h4><strong>Mathematics</strong></h4></td>
+				<td><a href="command-listcontains.html">ListIndex</a></td>
+				<td>VALUE1(LIST), VALUE2</td>
+				<td>VALUE(INTEGER)</td>
+				<td>Returns the index of a value in the list (strict compare), or -1 if not found.</td>
 			</tr>
+			<tr>
+				<td><a href="command-listindex.html">ListContains</a></td>
+				<td>VALUE1(LIST), VALUE2</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>Returns <strong>TRUE</strong> if a value in the list exists (strict compare), or <strong>FALSE</strong> if not found.</td>
+			</tr>
+		</tbody>
+	</table>
+	<h4>Mathematics</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
+			<tr>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-floor.html">Floor</a></td>
 				<td>VALUE(FLOAT)</td>
@@ -358,9 +421,19 @@
 				<td>VALUE(FLOAT)</td>
 				<td>Returns a random Gaussian-distributed float from mean <em>VALUE1</em> and standard deviation <em>VALUE2</em>.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>Time</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>Time</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-time.html">Time</a></td>
 				<td><em>None</em></td>
@@ -397,9 +470,19 @@
 				<td>VALUE(STRING)</td>
 				<td>Returns a time value formatted into text. Format is similar to Java <a href="http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>Elements</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>Elements</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-objecthasname.html">ObjectHasName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
@@ -562,9 +645,19 @@
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> has no current room, <strong>FALSE</strong> otherwise.</td>
 			</tr>
+		</tbody>
+	</table>
+	<h4>Miscellaneous</h4>
+	<table class="w3-table w3-striped tamedox-command-reference">
+		<thead>
 			<tr>
-				<td colspan="4"><h4><strong>Miscellaneous</strong></h4></td>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Returns</th>
+				<th>Description</th>
 			</tr>
+		</thead>
+		<tbody>
 			<tr>
 				<td><a href="command-noop.html">NoOp</a></td>
 				<td><em>None</em></td>
