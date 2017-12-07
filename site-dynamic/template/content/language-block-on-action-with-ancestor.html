@@ -1,6 +1,6 @@
-<h1>OnActionWith ( <em>ACTION</em>, <em>OBJECT</em> )</h1>
+<h1>OnActionWithAncestor ( <em>ACTION</em>, <em>OBJECT</em> )</h1>
 <div class="w3-container">
-	A block that describes what to do when an element is the target of a valid ditransitive action with another specific object.
+	A block that describes what to do when an element is the target of a valid ditransitive action with another object's lineage.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -22,8 +22,8 @@
 		</tr>
 		<tr>
 			<td class="tamedox-parameter">OBJECT</td>
-			<td class="tamedox-parameter-type">A non-archetype object.</td>
-			<td class="tamedox-parameter-description">The other object resolved in the interpreter (not the one this block appears on).</td>
+			<td class="tamedox-parameter-type">Any object (including archetypes).</td>
+			<td class="tamedox-parameter-description">&nbsp;</td>
 		</tr>
 	</table>
 </div>
@@ -33,8 +33,10 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <span class="tamedox-block-type">onActionWith()</span> block is called when a <strong>DITRANSITIVE</strong> action
-		needs to be handled at a target <span class="tamedox-element-type">object</span> with another <span class="tamedox-element-type">object</span>.
+		The <span class="tamedox-block-type">onActionWithAncestor()</span> block is called when a <strong>DITRANSITIVE</strong> action 
+		would ordinarily call an <span class="tamedox-block-type">onActionWith()</span> block, but it is is passed over due to no match, 
+		and needs to be handled using one of the object's ancestors, searching backwards in the lineage starting from the interpreted 
+		object.
 	</p>
 	<!--[ include fragments/ditransitive-flow.html ]-->
 	<p>
@@ -55,7 +57,7 @@
 <div class="w3-container">
 	<p>
 		<a class="link" href="language-block-on-action.html">onAction()</a> &mdash; Called to handle an action with another object, or a <em>general</em> action on the current player or room.<br/>
-		<a class="link" href="language-block-on-action-with-ancestor.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
+		<a class="link" href="language-block-on-action-with.html">onActionWith()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object.<br/>
 		<a class="link" href="language-block-on-action-with-other.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
 		<a class="link" href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
 		<a class="link" href="language-block-on-forbidden-action.html">onForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
@@ -73,6 +75,7 @@
 	</p>
 	<p>
 		If not <em>strict</em>, the object test order is always first-onActionWith-second, then second-onActionWith-first.
+		Ancestor checks are the same way.
 	</p>
 	<p>
 		"Forbidden" action checks are done before other targets are checked, but after the whole command is interpreted. For instance,
