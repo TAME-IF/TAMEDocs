@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-    Copyright (c) 2015-2016 Matt Tropiano
-    All rights reserved. This program and the accompanying materials
-    are made available under the terms of the GNU Lesser Public License v2.1
-    which accompanies this distribution, and is available at
-    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
-   
-    Contributors:
-        Matt Tropiano - initial API and implementation
- -->
 <!DOCTYPE project>
 <!-- ====================================================================== 
-     Text Adventure Module Engine   
+     Text Adventure Module Engine Documentation 
      Matt Tropiano                                                                
      ====================================================================== -->
-<project name="build" default="compile">
+<project name="tamedox" default="compile">
 
 	<description>TAME</description>
 
@@ -34,8 +24,32 @@
 	<property name="project.classpath" value="${common.lib}${S}${common.io.lib}${S}${common.lang.lib}${S}${tame.lib}" />
 	
 	<import file="build-import.xml" />
+	<import file="build-dependencies.xml" />
 
 	<property name="tamedox.dir" value="${build.dir}/tamedox" />
+
+	<target name="dependency.common">
+		<git-export repository="https://github.com/BlackRookSoftware/Common" dest="${dependencies.dir}/Common" />
+		<ant antfile="${dependencies.dir}/Common/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	</target>
+	<target name="dependency.commonio">
+		<git-export repository="https://github.com/BlackRookSoftware/CommonIO" dest="${dependencies.dir}/CommonIO" />
+		<ant antfile="${dependencies.dir}/CommonIO/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	</target>
+	<target name="dependency.commonlang">
+		<git-export repository="https://github.com/BlackRookSoftware/CommonLang" dest="${dependencies.dir}/CommonLang" />
+		<ant antfile="${dependencies.dir}/CommonLang/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	</target>
+	<target name="dependency.tame">
+		<git-export repository="https://github.com/TAME-IF/TAME" dest="${dependencies.dir}/TAME" />
+		<ant antfile="${dependencies.dir}/TAME/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	</target>
+	<target name="dependency.properties">
+		<echo message="Writing to build.properties...." />
+		<echo message="dev.base=${dependencies.dir}&#10;" file="build.properties" append="true" />
+	</target>
+	<target name="dependencies" depends="init.dependencies, dependency.common, dependency.commonio, dependency.commonlang, dependency.tame, dependency.properties" description="Downloads and compiles the dependencies.">
+	</target>
 
 	<target name="compile" depends="init.compile" description="Compiles the project, including test classes.">
 		<javac 
