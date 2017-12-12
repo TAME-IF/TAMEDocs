@@ -53,6 +53,7 @@ command-asboolean.html "Command: AsBoolean" template/main.html
 command-asint.html "Command: AsInt" template/main.html
 command-asfloat.html "Command: AsFloat" template/main.html
 command-asstring.html "Command: AsString" template/main.html
+command-aslist.html "Command: AsList" template/main.html
 command-length.html "Command: Length" template/main.html
 command-strconcat.html "Command: StrConcat" template/main.html
 command-strreplace.html "Command: StrReplace" template/main.html
