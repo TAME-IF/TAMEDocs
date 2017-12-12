@@ -1,4 +1,4 @@
-package net.mtrop.tame.dox;
+package net.mtrop.tame.docs;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -31,7 +31,7 @@ import net.mtrop.tame.factory.TAMEScriptReader;
  * Generates TAME documentation.
  * @author Matthew Tropiano
  */
-public final class TAMEDoxGen 
+public final class TAMEDocsGen 
 {
 	/** Shorthand STDOUT. */
 	static final PrintStream out = System.out;

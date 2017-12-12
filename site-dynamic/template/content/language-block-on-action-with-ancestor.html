@@ -16,14 +16,14 @@
 <div class="w3-container">
 	<table class="w3-table w3-striped" >
 		<tr>
-			<td class="tamedox-parameter">ACTION</td>
-			<td class="tamedox-parameter-type">A DITRANSITIVE action.</td>
-			<td class="tamedox-parameter-description">The action that this block handles.</td>
+			<td class="tamedocs-parameter">ACTION</td>
+			<td class="tamedocs-parameter-type">A DITRANSITIVE action.</td>
+			<td class="tamedocs-parameter-description">The action that this block handles.</td>
 		</tr>
 		<tr>
-			<td class="tamedox-parameter">OBJECT</td>
-			<td class="tamedox-parameter-type">Any object (including archetypes).</td>
-			<td class="tamedox-parameter-description">&nbsp;</td>
+			<td class="tamedocs-parameter">OBJECT</td>
+			<td class="tamedocs-parameter-type">Any object (including archetypes).</td>
+			<td class="tamedocs-parameter-description">&nbsp;</td>
 		</tr>
 	</table>
 </div>
@@ -33,8 +33,8 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <span class="tamedox-block-type">onActionWithAncestor()</span> block is called when a <strong>DITRANSITIVE</strong> action 
-		would ordinarily call an <span class="tamedox-block-type">onActionWith()</span> block, but it is is passed over due to no match, 
+		The <span class="tamedocs-block-type">onActionWithAncestor()</span> block is called when a <strong>DITRANSITIVE</strong> action 
+		would ordinarily call an <span class="tamedocs-block-type">onActionWith()</span> block, but it is is passed over due to no match, 
 		and needs to be handled using one of the object's ancestors, searching backwards in the lineage starting from the interpreted 
 		object.
 	</p>
@@ -70,7 +70,7 @@
 </div>
 <div class="w3-container">
 	<p>
-		The "first" and "second" <span class="tamedox-element-type">objects</span> are determined by the interpreter. The order still
+		The "first" and "second" <span class="tamedocs-element-type">objects</span> are determined by the interpreter. The order still
 		matters even if the action is not <em>strict</em>. This stops when it finds a single relevant block.
 	</p>
 	<p>
@@ -80,6 +80,6 @@
 	<p>
 		"Forbidden" action checks are done before other targets are checked, but after the whole command is interpreted. For instance,
 		if a DITRANSITIVE action is parsed with one or more unknown objects, TAME considers it a "malformed action" before it gets to decide
-		if the action is forbidden by the current <span class="tamedox-element-type">player</span> or <span class="tamedox-element-type">room</span>.
+		if the action is forbidden by the current <span class="tamedocs-element-type">player</span> or <span class="tamedocs-element-type">room</span>.
 	</p>
 </div>

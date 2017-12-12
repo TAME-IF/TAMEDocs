@@ -4,14 +4,14 @@ var $Q1 = $Q1 || function(x)
 }
 
 var BodyElement = $Q1("body");
-var DocsSidebar = $Q1("#tamedox-sidebar");
+var DocsSidebar = $Q1("#tamedocs-sidebar");
 
-function tamedoxOpenBar()
+function tamedocsOpenBar()
 {
 	DocsSidebar.style.display = "block";
 }
 
-function tamedoxCloseBar() 
+function tamedocsCloseBar() 
 {
 	DocsSidebar.style.display = "none";
 }
