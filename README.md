@@ -1,6 +1,6 @@
-# TAME Dox
+# TAME Docs
 
-Copyright (c) 2015-2017 Matt Tropiano. All rights reserved.  
+Copyright (c) 2017-2018 Matt Tropiano. All rights reserved.  
 
 ### Required Libraries
 
@@ -34,6 +34,17 @@ To compile this project, type:
 
 To build TAME's documentation:
 
-	ant tamedox
+	ant tamedocs
 
-The build is placed in *build/tamedox* by default.
+The build is placed in `build/tamedocs` by default.
+
+### Other
+
+This program and the accompanying materials
+are made available under the terms of the GNU Lesser Public License v2.1
+which accompanies this distribution, and is available at
+http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+A copy of the LGPL should have been included in this release (LICENSE.txt).
+If it was not, please contact us for a copy, or to notify us of a distribution
+that has not included it. 
