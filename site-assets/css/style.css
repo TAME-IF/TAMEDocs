@@ -113,45 +113,45 @@ IMG.nav-logo {
     padding: 0.25em;
 }
 
-.tamedox-footer {
+.tamedocs-footer {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 	margin-top: 3em;
 	font-size:75%;
 }
 
-.tamedox-parameter {
+.tamedocs-parameter {
 	font-style: italic;
 	font-weight: 800;
 	white-space: nowrap;
 	width: 1px;
 }
-.tamedox-parameter-type {
+.tamedocs-parameter-type {
 	white-space: nowrap;
 	width: 1px;
 }
-.tamedox-parameter-description {
+.tamedocs-parameter-description {
 }
 
-TABLE.tamedox-command-reference th:not(:last-child), 
-TABLE.tamedox-command-reference td:not(:last-child),
-TABLE.tamedox-block-reference th:not(:last-child),
-TABLE.tamedox-block-reference td:not(:last-child)
+TABLE.tamedocs-command-reference th:not(:last-child), 
+TABLE.tamedocs-command-reference td:not(:last-child),
+TABLE.tamedocs-block-reference th:not(:last-child),
+TABLE.tamedocs-block-reference td:not(:last-child)
 {
 	width: 1px;
 }
 
-.tamedox-command-type {
+.tamedocs-command-type {
 	white-space: nowrap;
 	font-weight: bold;
 }
 
-.tamedox-element-type {
+.tamedocs-element-type {
 	white-space: nowrap;
 	font-style: italic;
 }
 
-.tamedox-block-type {
+.tamedocs-block-type {
 	white-space: nowrap;
 	font-weight: bold;
 }
