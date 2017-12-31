@@ -1,4 +1,4 @@
 /**
  * Contains main classes.
  */
-package net.mtrop.tame.docs;
+package com.tameif.tame.docs;

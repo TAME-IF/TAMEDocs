@@ -77,7 +77,7 @@
 
 	<target name="tamedocs" description="Creates TAME documentation HTML pages. Run 'compile' first!">
 		<delete dir="${tamedocs.dir}" includeemptydirs="true" casesensitive="false" /> 
-		<java classname="net.mtrop.tame.docs.TAMEDocsGen" classpath="${project.classpath}${S}${bin.dir}">
+		<java classname="com.tameif.tame.docs.TAMEDocsGen" classpath="${project.classpath}${S}${bin.dir}">
 			<arg value="${tamedocs.dir}" />
 		</java>
 	</target>

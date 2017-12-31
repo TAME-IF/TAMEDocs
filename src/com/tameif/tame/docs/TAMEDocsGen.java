@@ -7,7 +7,7 @@
  * 
  * See AUTHORS.TXT for full credits.
  ******************************************************************************/
-package net.mtrop.tame.docs;
+package com.tameif.tame.docs;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,13 +28,12 @@ import com.blackrook.commons.Common;
 import com.blackrook.commons.CommonTokenizer;
 import com.blackrook.commons.hash.HashMap;
 import com.blackrook.commons.linkedlist.Queue;
-
-import net.mtrop.tame.TAMEModule;
-import net.mtrop.tame.factory.TAMEJSExporter;
-import net.mtrop.tame.factory.TAMEJSExporterOptions;
-import net.mtrop.tame.factory.TAMEScriptIncluder;
-import net.mtrop.tame.factory.TAMEScriptParseException;
-import net.mtrop.tame.factory.TAMEScriptReader;
+import com.tameif.tame.TAMEModule;
+import com.tameif.tame.factory.TAMEJSExporter;
+import com.tameif.tame.factory.TAMEJSExporterOptions;
+import com.tameif.tame.factory.TAMEScriptIncluder;
+import com.tameif.tame.factory.TAMEScriptParseException;
+import com.tameif.tame.factory.TAMEScriptReader;
 
 /**
  * Generates TAME documentation.
