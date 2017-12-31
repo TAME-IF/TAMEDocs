@@ -13,7 +13,7 @@ Black Rook Common I/O 2.5.0+
 Black Rook Common Lang 2.9.1+  
 [https://github.com/BlackRookSoftware/CommonLang](https://github.com/BlackRookSoftware/CommonLang)
 
-TAME 1.0+ 
+TAME  
 [https://github.com/TAME-IF/TAME](https://github.com/TAME-IF/TAME)
 
 ### Introduction
