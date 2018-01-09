@@ -20,7 +20,9 @@ TAME
 
 This makes the TAME documentation pages.
 
-### Compiling with Ant
+### Compiling with Apache Ant
+
+First download and set up [Apache Ant](https://ant.apache.org/) if you haven't. 
 
 To download the dependencies for this project (if you didn't set that up yourself already), type:
 
@@ -32,7 +34,7 @@ To compile this project, type:
 
 	ant compile
 
-To build TAME's documentation:
+Then, to build TAME's documentation:
 
 	ant tamedocs
 
