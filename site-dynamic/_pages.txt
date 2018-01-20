@@ -63,7 +63,8 @@ command-strindex.html "Command: StrIndex" template/main.html
 command-strlastindex.html "Command: StrLastIndex" template/main.html
 command-strcontains.html "Command: StrContains" template/main.html
 command-strcontainspattern.html "Command: StrContainsPattern" template/main.html
-command-strcontainstoken.html "Command: StrContainsToken" template/main.html
+command-strsplit.html "Command: StrSplit" template/main.html
+command-strjoin.html "Command: StrJoin" template/main.html
 command-strstartswith.html "Command: StrStartsWith" template/main.html
 command-strendswith.html "Command: StrEndsWith" template/main.html
 command-substring.html "Command: SubString" template/main.html

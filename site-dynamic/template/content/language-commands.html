@@ -210,10 +210,16 @@
 				<td>Returns <strong>TRUE</strong> if RegEx <em>VALUE2</em> matches a part of <em>VALUE1</em>, or <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strcontainstoken.html">StrContainsToken</a></td>
+				<td><a href="command-strsplit.html">StrSplit</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
-				<td>VALUE(BOOLEAN)</td>
-				<td>Returns <strong>TRUE</strong> if token <em>VALUE2</em> is in <em>VALUE1</em> (case-insensitive), or <strong>FALSE</strong> if not.</td>
+				<td>VALUE(LIST)</td>
+				<td>Returns a list of strings that is the result of splitting <strong>VALUE1</strong> into tokens using <strong>VALUE2</strong> as the delimiter.</td>
+			</tr>
+			<tr>
+				<td><a href="command-strjoin.html">StrJoin</a></td>
+				<td>VALUE1(LIST), VALUE2(STRING)</td>
+				<td>VALUE(STRING)</td>
+				<td>Returns a string that is the result of joining the tokens in <strong>VALUE1</strong> using <strong>VALUE2</strong> as the string in between each.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strstartswith.html">StrStartsWith</a></td>
@@ -240,7 +246,7 @@
 				<td>Returns <em>VALUE</em> as a lower-case string. May be locale-specific.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strlower.html">StrUpper</a></td>
+				<td><a href="command-strupper.html">StrUpper</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns <em>VALUE</em> as a upper-case string. May be locale-specific.</td>
