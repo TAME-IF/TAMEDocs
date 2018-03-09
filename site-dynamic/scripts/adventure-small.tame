@@ -1,10 +1,16 @@
+module
+{
+	title = "A Small Adventure";
+	author = "Matthew Tropiano";
+	email = "email@somesite.com";
+}
+
 action general a_quit named "quit";
 action general a_look named "look around", "look", "l";
 action transitive a_take named "take", "pick up", "t", "p";
 action transitive a_examine named "look at", "examine", "x";
 action transitive a_open named "open", "o";
 action ditransitive a_use named "use" uses conjunctions "with", "and";
-
 
 // The KEY!
 object o_key named "key", "small key"
