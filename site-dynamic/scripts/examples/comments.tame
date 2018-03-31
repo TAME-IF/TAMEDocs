@@ -1,0 +1,16 @@
+/*
+ * This is the World.
+ */
+world
+{
+	/* This is a start block. */
+	start()
+	{
+		// I'm about to print something.
+		textln("Hello, comment world!");
+		
+		// Done printing. Time to quit.
+		quit;
+	}
+	
+}

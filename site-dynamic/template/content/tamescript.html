@@ -49,13 +49,116 @@
 /* You can even write them like this. */
 
 </code></pre>
+	Comments are useful for explaining sections of code or make markers around important parts. Of course, be careful
+	to not over-use them, like this example:
+</div>
+<div class="w3-container">
+<!--[ tamescript "Comment Example" module_tamescript_comments examples/comments.tame ]-->
 </div>
 
 <div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#values"><i class="link-stub fa fa-link"></i></a> 5.2. Values and Expressions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
+	<p>
+		In order to get anthing done in a TAME module, you'll probably be crafting <em>expressions</em> that change and 
+		manipulate <em>values</em>.
+	</p>
+	<h4>Values</h4>
+	<p>
+		Values in TAME are represented in several ways.
+	</p>
+	<p>
+		Booleans:
+	</p>
+<pre><code class="tame-example">
+	true
+	false
 	
+</code></pre>
+	<p>
+		Integers:
+	</p>
+<pre><code class="tame-example">
+	5
+	77
+	3679
+	20000
+	
+</code></pre>
+	<p>	
+		Hexadecimal Integers (integer-typed):
+	</p>
+<pre><code class="tame-example">
+	0x0
+	0x0ff
+	0x0343
+	0xc452
+	
+</code></pre>
+	<p>
+		Floating-point ("floats"):
+	</p>
+<pre><code class="tame-example">
+	3.4
+	2.0
+	0.08
+	3456.1234
+	
+</code></pre>
+	<p>
+		Exponented Floating-point (float-typed):
+	</p>
+<pre><code class="tame-example">
+	2e4
+	1.53e-3
+	
+</code></pre>
+	<p>
+		Strings:
+	</p>
+<pre><code class="tame-example">
+	"apple"
+	"pear"
+	"Buzz Aldrin"
+	
+</code></pre>
+	<p>
+		And some *abstract values* (these are technically floating-point, internally):
+	</p>
+<pre><code class="tame-example">
+	NaN
+	Infinity
+	
+</code></pre>
+	<h5>Expressions</h5>
+	<p>
+		Expressions are a means of combining values and operators in order to convey more complex values.
+		These are evaluated at execution time.
+	</p>
+	<p>
+		The values in expressions can be combined or manipulated using several <a href="operators.html">operators</a>.
+	</p>
+	<p>
+		<strong>Caution:</strong> Values of one type can be <em>promoted</em> implicitly to another type 
+		during evaluation, i.e. 5 will be promoted to a float (5.0) if combined with one (<kbd>5 + 6.0</kbd>, 
+		yields <kbd>11.0</kbd>, <kbd>3 + "apple"</kbd> yields <kbd>"3apple"</kbd>).
+	</p>
+	<p>
+		Some examples of expressions:
+	</p>
+<pre><code class="tame-example">
+	5 + 2
+	3.0 - 5.5
+	4 * 2.9
+	2.0 / 3.0
+	!5
+	-3.77
+	true | false
+	"apple" + "sauce"
+	"ice" + 9
+	
+</code></pre>
 </div>
 
 <div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
