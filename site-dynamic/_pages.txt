@@ -132,3 +132,27 @@ command-nocurrentroom.html "Command: NoCurrentRoom" template/main.html
 command-identity.html "Command: Identity" template/main.html
 command-header.html "Command: Header" template/main.html
 diagrams.html "TAME Execution Diagrams" template/main.html
+operators.html "TAMEScript Operators" template/main.html
+operators-absolute.html "TAMEScript Operator: Absolute" template/main.html
+operators-negate.html "TAMEScript Operator: Negate" template/main.html
+operators-logicalnot.html "TAMEScript Operator: Logical Not" template/main.html
+operators-addition.html "TAMEScript Operator: Addition" template/main.html
+operators-subtraction.html "TAMEScript Operator: Subtraction" template/main.html
+operators-multiplication.html "TAMEScript Operator: Multiplication" template/main.html
+operators-division.html "TAMEScript Operator: Division" template/main.html
+operators-modulo.html "TAMEScript Operator: Modulo" template/main.html
+operators-power.html "TAMEScript Operator: Power" template/main.html
+operators-and.html "TAMEScript Operator: And" template/main.html
+operators-or.html "TAMEScript Operator: Or" template/main.html
+operators-xor.html "TAMEScript Operator: XOr" template/main.html
+operators-equals.html "TAMEScript Operator: Equals" template/main.html
+operators-notequals.html "TAMEScript Operator: Not Equal" template/main.html
+operators-strictequals.html "TAMEScript Operator: Strict Equals" template/main.html
+operators-strictnotequals.html "TAMEScript Operator: Strict Not Equal" template/main.html
+operators-less.html "TAMEScript Operator: Less Than" template/main.html
+operators-lessequal.html "TAMEScript Operator: Less Than or Equal" template/main.html
+operators-greater.html "TAMEScript Operator: Greater Than" template/main.html
+operators-greaterequal.html "TAMEScript Operator: Greater than or Equal" template/main.html
+operators-ssand.html "TAMEScript Operator: Short-Circuit And" template/main.html
+operators-ssor.html "TAMEScript Operator: Short-Circuit Or" template/main.html
+operators-ternary.html "TAMEScript Operator: Ternary" template/main.html

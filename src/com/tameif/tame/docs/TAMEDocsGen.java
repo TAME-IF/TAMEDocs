@@ -4,7 +4,7 @@
  * are made available under the terms of the GNU Lesser Public License v2.1
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
- * 
+ *
  * See AUTHORS.TXT for full credits.
  ******************************************************************************/
 package com.tameif.tame.docs;
@@ -26,6 +26,7 @@ import java.util.Date;
 
 import com.blackrook.commons.Common;
 import com.blackrook.commons.CommonTokenizer;
+import com.blackrook.commons.Reflect;
 import com.blackrook.commons.hash.HashMap;
 import com.blackrook.commons.linkedlist.Queue;
 import com.tameif.tame.TAMEModule;
@@ -34,19 +35,21 @@ import com.tameif.tame.factory.TAMEJSExporterOptions;
 import com.tameif.tame.factory.TAMEScriptIncluder;
 import com.tameif.tame.factory.TAMEScriptParseException;
 import com.tameif.tame.factory.TAMEScriptReader;
+import com.tameif.tame.lang.ArithmeticOperator;
+import com.tameif.tame.lang.Value;
 
 /**
  * Generates TAME documentation.
  * @author Matthew Tropiano
  */
-public final class TAMEDocsGen 
+public final class TAMEDocsGen
 {
 	/** Shorthand STDOUT. */
 	static final PrintStream out = System.out;
 
 	/** Current time. */
 	static final String NOW_STRING = (new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
-	
+
 	/** Resource root. */
 	static final String RESOURCE_ROOT = "./site-dynamic";
 	/** Sidebar content. */
@@ -78,14 +81,60 @@ public final class TAMEDocsGen
 	static final String COMMAND_INCLUDE = "include";
 	/** Parse command: tamescript (name) (modulevarname) (file) */
 	static final String COMMAND_TAMESCRIPT = "tamescript";
+	/** Parse command: generate-arithmetic (operator name) */
+	static final String COMMAND_GENERATE = "generate-arithmetic";
 	/** Variable prefix. */
 	static final String VAR_PREFIX = "$";
+
+	/** Values to use for the arithmetic operator tables. */
+	static final Value[] TEST_VALUES = 
+	{
+		Value.create(false),
+		Value.create(true),
+		Value.create(Double.POSITIVE_INFINITY),
+		Value.create(Double.NEGATIVE_INFINITY),
+		Value.create(Double.NaN),
+		Value.create(0),
+		Value.create(0.0),
+		Value.create(10),
+		Value.create(3),
+		Value.create(10.0),
+		Value.create(3.0),
+		Value.create(10.5),
+		Value.create(3.5),
+		Value.create(-10),
+		Value.create(-3),
+		Value.create(-10.0),
+		Value.create(-3.0),
+		Value.create(-10.5),
+		Value.create(-3.5),
+		Value.create(""),
+		Value.create(" "),
+		Value.create("0"),
+		Value.create("0.0"),
+		Value.create("10"),
+		Value.create("3"),
+		Value.create("10.0"),
+		Value.create("3.0"),
+		Value.create("10.5"),
+		Value.create("3.5"),
+		Value.create("-10"),
+		Value.create("-3"),
+		Value.create("-10.0"),
+		Value.create("-3.0"),
+		Value.create("-10.5"),
+		Value.create("-3.5"),
+		Value.create("apple"),
+		Value.create("banana")
+	};
+	
+
 	
 	/** TAMEScript includer. */
 	static final TAMEScriptIncluder TAMESCRIPT_INCLUDER = new TAMEScriptIncluder()
 	{
 		@Override
-		public InputStream getIncludeResource(String path) throws IOException 
+		public InputStream getIncludeResource(String path) throws IOException
 		{
 			return new FileInputStream(new File(path));
 		}
@@ -94,7 +143,7 @@ public final class TAMEDocsGen
 		public String getNextIncludeResourceName(String streamName, String path) throws IOException
 		{
 			String streamParent = null;
-			int lidx = -1; 
+			int lidx = -1;
 			if ((lidx = streamName.lastIndexOf('/')) >= 0)
 				streamParent = streamName.substring(0, lidx + 1);
 
@@ -106,13 +155,13 @@ public final class TAMEDocsGen
 	static final TAMEJSExporterOptions TAMESCRIPT_JSEXPORTER_OPTIONS_ENGINE = new TAMEJSExporterOptions()
 	{
 		@Override
-		public boolean isPathOutputEnabled() 
+		public boolean isPathOutputEnabled()
 		{
 			return false;
 		}
-		
+
 		@Override
-		public String getWrapperName() 
+		public String getWrapperName()
 		{
 			return TAMEJSExporter.WRAPPER_ENGINE;
 		}
@@ -123,7 +172,7 @@ public final class TAMEDocsGen
 			return null;
 		}
 	};
-	
+
 	// Entry point.
 	public static void main(String[] args) throws Exception
 	{
@@ -133,7 +182,7 @@ public final class TAMEDocsGen
 			System.exit(1);
 			return;
 		}
-		
+
 		// Get outpath root.
 		String outPath = Common.removeEndingSequence(args[0], "/");
 		File outDir = new File(outPath);
@@ -149,22 +198,22 @@ public final class TAMEDocsGen
 			System.exit(2);
 			return;
 		}
-		
+
 		// Copy static pages.
 		copyStaticPages(outDir);
-		
+
 		// Export engine.
 		exportEngine(outPath);
 		// Export browser JS helper.
 		exportBrowserHandler(outPath);
-		
+
 		// Process pages.
 		processAllPages(outPath);
-		
+
 		out.println("Done!");
 	}
 
-	private static void processAllPages(String outPath) throws IOException 
+	private static void processAllPages(String outPath) throws IOException
 	{
 		for (String[] page : getPageList())
 		{
@@ -175,12 +224,12 @@ public final class TAMEDocsGen
 				out.println("ERROR: Could not create path for "+outFile.getPath());
 				continue;
 			}
-			
+
 			HashMap<String, String> variables = new HashMap<>();
 			variables.put("title", page[1]);
 			variables.put("content_page", "content/"+page[0]);
 			String template = page[2];
-			
+
 			PrintWriter pw = null;
 			try {
 				pw = new PrintWriter(outFile, "UTF-8");
@@ -207,7 +256,7 @@ public final class TAMEDocsGen
 			out.println("ERROR: Could not create path for "+outFile.getPath());
 			return false;
 		}
-		
+
 		InputStream in = null;
 		OutputStream out = null;
 		try {
@@ -218,7 +267,7 @@ public final class TAMEDocsGen
 			Common.close(in);
 			Common.close(out);
 		}
-		
+
 		return true;
 	}
 
@@ -230,7 +279,7 @@ public final class TAMEDocsGen
 			out.println("ERROR: Could not create path for "+outFile.getPath());
 			return false;
 		}
-		
+
 		TAMEJSExporter.export(outFile, null, TAMESCRIPT_JSEXPORTER_OPTIONS_ENGINE);
 		return true;
 	}
@@ -298,23 +347,23 @@ public final class TAMEDocsGen
 		final int STATE_START_TAG_MAYBE = 1;
 		final int STATE_TAG = 2;
 		final int STATE_END_TAG_MAYBE = 3;
-		
+
 		Reader reader = null;
 		InputStream in = null;
 		try {
 			in = new FileInputStream(new File(inPath));
 			StringBuilder tagPart = new StringBuilder();
 			StringBuilder tagContent = new StringBuilder();
-			reader = new InputStreamReader(in, "UTF-8");			
+			reader = new InputStreamReader(in, "UTF-8");
 			int state = STATE_PAGE;
 			int readChar = 0;
-			
+
 			while ((readChar = reader.read()) != -1)
 			{
 				char c = (char)readChar;
 				switch (state)
 				{
-					case STATE_PAGE: 
+					case STATE_PAGE:
 					{
 						if (c == TAG_START.charAt(0))
 						{
@@ -326,7 +375,7 @@ public final class TAMEDocsGen
 					}
 					break;
 
-					case STATE_START_TAG_MAYBE: 
+					case STATE_START_TAG_MAYBE:
 					{
 						if (c != TAG_START.charAt(tagPart.length()))
 						{
@@ -346,8 +395,8 @@ public final class TAMEDocsGen
 						}
 					}
 					break;
-					
-					case STATE_TAG: 
+
+					case STATE_TAG:
 					{
 						if (c == TAG_END.charAt(0))
 						{
@@ -392,7 +441,7 @@ public final class TAMEDocsGen
 		}
 
 	}
-	
+
 	/**
 	 * Potentially resolves a token variable.
 	 * @param inToken the input token.
@@ -412,6 +461,39 @@ public final class TAMEDocsGen
 		else
 			return inToken;
 	}
+
+	/**
+	 * Generates an arithmetic table for a specific operator.
+	 * @param writer the writer to write to.
+	 * @param operator the operator to generate a table for.
+	 */
+	private static void generateArithmeticTable(Writer writer, ArithmeticOperator operator) throws IOException
+	{
+		writer.write("<!-- Start generated table for: "+operator.name()+" -->\n");
+		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
+		if (operator.isBinary())
+		{
+			writer.write("<thead><tr><th>Value1</th><th>Operator</th><th>Value2</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				for (int j = 0; j < TEST_VALUES.length; j++)
+					writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td>"+operator.getSymbol()+"</td><td>"+TEST_VALUES[j]+"</td><td>&#61;</td><td>"+operator.doOperation(TEST_VALUES[i], TEST_VALUES[j])+"</td></tr>\n");
+
+			writer.write("</tbody>\n");
+		}
+		else
+		{
+			writer.write("<thead><tr><th>Operator</th><th>Value1</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+operator.getSymbol()+"</td><td>"+TEST_VALUES[i]+"</td><td>&#61;</td><td>"+operator.doOperation(TEST_VALUES[i])+"</td></tr>\n");
+
+			writer.write("</tbody>\n");
+		}
+		writer.write("</table>\n");
+	}
 	
 	/**
 	 * Interprets the contents of a parsed tag.
@@ -424,12 +506,12 @@ public final class TAMEDocsGen
 	{
 		String parentPath = inPath.substring(0, inPath.lastIndexOf('/') + 1);
 		CommonTokenizer tokenizer = new CommonTokenizer(tagContent);
-		
+
 		if (tokenizer.isEmpty())
 			return false;
-		
+
 		String command = tokenizer.nextToken();
-		
+
 		if (command.equalsIgnoreCase(COMMAND_SET))
 		{
 			String variableName = tokenizer.nextToken();
@@ -455,20 +537,35 @@ public final class TAMEDocsGen
 			parsePageResource(outPath, outFile, writer, parentPath + relativePath, pageContext);
 			return true;
 		}
+		else if (command.equalsIgnoreCase(COMMAND_GENERATE))
+		{
+			String name = resolveVariable(tokenizer.nextToken(), pageContext);
+			ArithmeticOperator operator = Reflect.createForType(name, ArithmeticOperator.class);
+			if (operator == null)
+			{
+				out.println("PROBLEM!!!! "+name+" is not an operator.");
+				writer.write("<pre>!!! "+name+" is not an operator !!!</pre>");
+			}
+			else
+			{
+				generateArithmeticTable(writer, operator);
+			}
+			return true;
+		}
 		else if (command.equalsIgnoreCase(COMMAND_TAMESCRIPT))
 		{
 			String headingName = resolveVariable(tokenizer.nextToken(), pageContext);
 			String moduleName = resolveVariable(tokenizer.nextToken(), pageContext);
 			String scriptPath = resolveVariable(tokenizer.nextToken(), pageContext);
-				
+
 			InputStream scriptIn = null;
 			String scriptFile = RESOURCE_SCRIPTROOT + scriptPath;
 			try {
-				
+
 				scriptIn = new FileInputStream(new File(scriptFile));
 				String scriptContent = Common.getTextualContents(scriptIn);
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
-				
+
 				writer.write("<div class=\"w3-example\">\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
@@ -478,15 +575,15 @@ public final class TAMEDocsGen
 				writer.write(scriptContent.replaceAll(">", "&gt;").replaceAll("<", "&lt;"));
 				writer.write("</code></pre>\n");
 				writer.write("</div>\n");
-				
+
 				String filePath = outPath + "/" + OUTPATH_JS_TAMEMODULE + moduleName + ".js";
-				
+
 				File jsFile = new File(filePath);
 				if (Common.createPathForFile(jsFile))
 					TAMEJSExporter.export(jsFile, module, new ModuleExporterOptions(moduleName));
 				else
 					out.println("!!! CANNOT EXPORT JS !!!");
-				
+
 				writer.write("<script type=\"text/javascript\" src=\"" + (OUTPATH_JS_TAMEMODULE + moduleName + ".js") + "\"></script>\n");
 			} catch (TAMEScriptParseException e) {
 				out.println("PROBLEM!!!! "+scriptFile+" not parsed!!");
@@ -505,13 +602,13 @@ public final class TAMEDocsGen
 			} finally {
 				Common.close(scriptIn);
 			}
-			
+
 			return true;
 		}
 
 		return false;
 	}
-	
+
 	/** Module Exporter Options. */
 	private static class ModuleExporterOptions implements TAMEJSExporterOptions
 	{
@@ -526,7 +623,7 @@ public final class TAMEDocsGen
 		{
 			return moduleName;
 		}
-		
+
 		@Override
 		public String getWrapperName()
 		{
@@ -538,7 +635,7 @@ public final class TAMEDocsGen
 		{
 			return false;
 		}
-		
+
 	}
 
 }
