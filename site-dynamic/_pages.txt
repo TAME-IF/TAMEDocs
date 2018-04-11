@@ -55,6 +55,7 @@ command-asfloat.html "Command: AsFloat" template/main.html
 command-asstring.html "Command: AsString" template/main.html
 command-aslist.html "Command: AsList" template/main.html
 command-length.html "Command: Length" template/main.html
+command-empty.html "Command: Empty" template/main.html
 command-strconcat.html "Command: StrConcat" template/main.html
 command-strreplace.html "Command: StrReplace" template/main.html
 command-strreplacepattern.html "Command: StrReplacePattern" template/main.html

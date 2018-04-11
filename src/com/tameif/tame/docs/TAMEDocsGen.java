@@ -81,8 +81,8 @@ public final class TAMEDocsGen
 	static final String COMMAND_INCLUDE = "include";
 	/** Parse command: tamescript (name) (modulevarname) (file) */
 	static final String COMMAND_TAMESCRIPT = "tamescript";
-	/** Parse command: generate-arithmetic (operator name) */
-	static final String COMMAND_GENERATE = "generate-arithmetic";
+	/** Parse command: generate-table (operator name) */
+	static final String COMMAND_GENERATE_TABLE = "generate-table";
 	/** Variable prefix. */
 	static final String VAR_PREFIX = "$";
 
@@ -463,14 +463,83 @@ public final class TAMEDocsGen
 	}
 
 	/**
+	 * Generates a table for some value stuff.
+	 * @param writer the writer to write to.
+	 * @param name the name of the table to generate.
+	 */
+	private static void generateTable(Writer writer, String name) throws IOException
+	{
+		writer.write("<!-- Start generated table for: " + name + " -->\n");
+		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
+		
+		ArithmeticOperator operator;
+		if ("boolean".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; BOOLEAN &gt; </td><td>"+Value.create(TEST_VALUES[i].asBoolean())+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ("integer".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; INTEGER &gt; </td><td>"+Value.create(TEST_VALUES[i].asLong())+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ("float".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; FLOAT &gt; </td><td>"+Value.create(TEST_VALUES[i].asDouble())+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ("string".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; STRING &gt; </td><td>"+Value.create(TEST_VALUES[i].asString())+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ("length".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; LENGTH &gt; </td><td>"+TEST_VALUES[i].length()+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ("empty".equalsIgnoreCase(name))
+		{
+			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<tbody>\n");
+			for (int i = 0; i < TEST_VALUES.length; i++)
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; EMPTY &gt; </td><td>"+Value.create(TEST_VALUES[i].isEmpty())+"</td></tr>\n");
+			writer.write("</tbody>\n");
+		}
+		else if ((operator = Reflect.createForType(name, ArithmeticOperator.class)) != null)
+		{
+			generateArithmeticTable(writer, operator);
+		}
+		else
+		{
+			out.println("PROBLEM!!!! "+name+" is not a table name.");
+			writer.write("<tr><th>!!! "+name+" is not a table name !!!</th></tr>");
+		}
+		writer.write("</table>\n");
+	}
+	
+	/**
 	 * Generates an arithmetic table for a specific operator.
 	 * @param writer the writer to write to.
 	 * @param operator the operator to generate a table for.
 	 */
 	private static void generateArithmeticTable(Writer writer, ArithmeticOperator operator) throws IOException
 	{
-		writer.write("<!-- Start generated table for: "+operator.name()+" -->\n");
-		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
 		if (operator.isBinary())
 		{
 			writer.write("<thead><tr><th>Value1</th><th>Operator</th><th>Value2</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
@@ -484,7 +553,7 @@ public final class TAMEDocsGen
 		}
 		else
 		{
-			writer.write("<thead><tr><th>Operator</th><th>Value1</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead><tr><th>Operator</th><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			
 			for (int i = 0; i < TEST_VALUES.length; i++)
@@ -492,7 +561,6 @@ public final class TAMEDocsGen
 
 			writer.write("</tbody>\n");
 		}
-		writer.write("</table>\n");
 	}
 	
 	/**
@@ -537,19 +605,10 @@ public final class TAMEDocsGen
 			parsePageResource(outPath, outFile, writer, parentPath + relativePath, pageContext);
 			return true;
 		}
-		else if (command.equalsIgnoreCase(COMMAND_GENERATE))
+		else if (command.equalsIgnoreCase(COMMAND_GENERATE_TABLE))
 		{
 			String name = resolveVariable(tokenizer.nextToken(), pageContext);
-			ArithmeticOperator operator = Reflect.createForType(name, ArithmeticOperator.class);
-			if (operator == null)
-			{
-				out.println("PROBLEM!!!! "+name+" is not an operator.");
-				writer.write("<pre>!!! "+name+" is not an operator !!!</pre>");
-			}
-			else
-			{
-				generateArithmeticTable(writer, operator);
-			}
+			generateTable(writer, name);
 			return true;
 		}
 		else if (command.equalsIgnoreCase(COMMAND_TAMESCRIPT))
