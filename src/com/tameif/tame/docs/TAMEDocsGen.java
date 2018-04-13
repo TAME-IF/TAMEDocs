@@ -125,10 +125,12 @@ public final class TAMEDocsGen
 		Value.create("-10.5"),
 		Value.create("-3.5"),
 		Value.create("apple"),
-		Value.create("banana")
+		Value.create("banana"),
+		Value.create("NaN"),
+		Value.create("infinity"),
+		Value.createEmptyList(),
+		Value.createList(Value.create(true), Value.create(3), Value.create(5.0), Value.create("orange"))
 	};
-	
-
 	
 	/** TAMEScript includer. */
 	static final TAMEScriptIncluder TAMESCRIPT_INCLUDER = new TAMEScriptIncluder()
