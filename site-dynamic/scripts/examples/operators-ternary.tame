@@ -1,0 +1,50 @@
+action general a_testtrue named "test true";
+action general a_testfalse named "test false";
+action general a_quit named "quit";
+
+world
+{
+	function firstResult()
+	{
+		textln("Calling first result: 10");
+		return 10;
+	}
+	
+	function secondResult()
+	{
+		textln("Calling second result: 20");
+		return 20;
+	}
+
+	function testExpressions(value)
+	{
+		textln("Passing " + value + "...");
+
+		textln(value + " ? \"apple\" : \"banana\"");
+		textln(value ? "apple" : "banana");
+
+		textln(value + " ? firstResult() : secondResult()");
+		textln(value ? firstResult() : secondResult());
+	}
+
+	onAction(a_testtrue)
+	{
+		testExpressions(true);
+	}
+
+	onAction(a_testfalse)
+	{
+		testExpressions(false);
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	start()
+	{
+		textln("Type \"test true\", \"test false\", or \"quit\".");
+	}
+	
+}
