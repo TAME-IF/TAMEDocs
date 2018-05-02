@@ -27,6 +27,7 @@
 	<import file="build-dependencies.xml" />
 
 	<property name="tamedocs.dir" value="${build.dir}/tamedocs" />
+	<property name="tamedocs.zip" value="${build.dir}/tamedocs.zip" />
 
 	<target name="dependency.common">
 		<git-export repository="https://github.com/BlackRookSoftware/Common" dest="${dependencies.dir}/Common" />
@@ -80,6 +81,11 @@
 		<java classname="com.tameif.tame.docs.TAMEDocsGen" classpath="${project.classpath}${S}${bin.dir}">
 			<arg value="${tamedocs.dir}" />
 		</java>
+	</target>
+	
+	<target name="zip.tamedocs" depends="tamedocs" description="Zips the created TAMEDOCS.">
+		<delete file="${tamedocs.zip}" />
+		<zip basedir="${tamedocs.dir}" destfile="${tamedocs.zip}" compress="true"></zip>
 	</target>
 
 </project>
