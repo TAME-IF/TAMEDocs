@@ -34,6 +34,9 @@
 	</p>
 </div>
 
+<!-- ============================== -->
+<!-- ====== Comments Section ====== -->
+<!-- ============================== -->
 <div id="comments" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#comments"><i class="link-stub fa fa-link"></i></a> 5.1. Comments <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
@@ -55,6 +58,9 @@
 <!--[ tamescript "Comment Example" module_tamescript_comments examples/comments.tame ]-->
 </div>
 
+<!-- ============================================ -->
+<!-- ====== Values and Expressions Section ====== -->
+<!-- ============================================ -->
 <div id="values" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#values"><i class="link-stub fa fa-link"></i></a> 5.2. Values and Expressions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
@@ -154,6 +160,30 @@
 			<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
 		</tbody>
 	</table>
+	<h3>Identifiers</h3>
+	<p>
+		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
+		Identifiers are alphanumeric (<kbd>0-9, A-Z, a-z</kbd>)plus the underscore character (<kbd>_</kbd>), but must NOT start with a number.
+	</p>
+	<p>
+		It is also important to note that identifiers are also <strong>case-insensitive!</strong> They also cannot share names with reserved keywords.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	x
+	abcd
+	DATA
+	Parameter1
+	this_is_an_identifier
+</code></pre>
+	<p>
+		These are some examples of illegal identifiers:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	0point		// starts with a number - parses as "bad number"
+	return		// keyword
+	not-good	// two identifiers with a dash delimiter between them
+	Mr.Person	// two identifiers with a dot delimiter between them
+</code></pre>
 	<h3>Expressions</h3>
 	<p>
 		Expressions are a means of combining values and operators in order to convey more complex values.
@@ -207,6 +237,9 @@
 </code></pre>
 </div>
 
+<!-- ================================ -->
+<!-- ====== Statements Section ====== -->
+<!-- ================================ -->
 <div id="statements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements and Commands <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
@@ -231,6 +264,14 @@
 	a = 1 + 2;		// assigns "a" the value 3.
 	b = a + 5;		// assigns "b" the value 8.
 	c = x;			// variable "x" does not refer to a value - assigns "c" to false.
+</code></pre>
+	<p>
+		Variables are also case-insensitive.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	val = 1 + 2;	// assigns ""val" the value 3.
+	b = VAL + 5;	// assigns "b" the value 8 ("val" and "VAL" resolve to the same value).
+	B = 9;			// assigns "B" the value 9 (overwrites "b" - "b" and "B" resolve to the same value).
 </code></pre>
 	<p>
 		By default, all variables are stored on the current context. If you want to assign a value to a variable that is <em>not</em> stored
@@ -265,6 +306,14 @@
 	clear x;		// clear x (persisted)
 	textln(x);		// adds a "text" cue: "false\n"
 </code></pre>
+	<p>
+		Variables can be referred to on other elements, and can be read or written to in the same way. To reference a variable
+		on another element, you specify the identifier of the element, then a dot (<kbd>.</kbd>), then the variable name.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	x			// this context's x
+	o_ball.x	// o_ball's x
+</code></pre>
 	<h3>Commands and Functions</h3>
 	<p>
 		<em>Commands</em> and <em>functions</em> can also be invoked in a statement, including commands that return something.
@@ -277,14 +326,100 @@
 	floor(5.6);					// Calculates the floor of 5.6 and returns it, but does nothing with it. 
 </code></pre>
 	<p>
-		Each of the <em>parameters</em> in a function or command are expressions. They can be either single values or complex
-		expressions that evaluate to a value. 
+		Each of the <em>parameters</em> in a function or a command (that accepts values) are expressions. 
+		They can be either single values or complex expressions that evaluate to a value. 
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	a = 5;									// assigns "a" the value 5.
 	textln("The value of \"a\" is " + a);	// adds a "text" cue: "The value of \"a\" is 5".
 	b = floor(10.5 * 6.7) / 3.0;			// calculate a bunch of things and store it in "b".
 </code></pre>
+</div>
+
+<!-- =============================== -->
+<!-- ====== Functions Section ====== -->
+<!-- =============================== -->
+<div id="functions" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.4. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		<em>Functions</em> are essentially commands that you define yourself. Functions consist of a series of commands executed in order, and return a
+		value at the end to the caller. They are referenced by name, and called the same way commands are, for the most part.   
+	</p>
+	<p>
+		The basic anatomy of a function is as follows:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	function name (parameter1, parameter2, ...)
+	{
+		// ... code goes here ...
+		return 1;		// optional return
+	} 
+</code></pre>
+	<p>
+		All functions start with the <kbd>function</kbd> keyword, then an identifier for the <strong>name</strong>, then
+		a comma-separated series of identifiers representing the values that were passed to it to be used in the body of the function.
+	</p>
+	<p>
+		All parameters in a function are considered <em>local</em> in the function body.
+	</p>
+	<p>
+		The <strong>return</strong> keyword terminates a function and returns the value of the expression after it.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	function one()
+	{
+		return 1;
+	} 
+
+	function double(x)
+	{
+		return x * 2;
+	} 
+
+	function diceRoll(n)
+	{
+		local i = irandom(n) + 1; 
+		return i;
+	}
+	
+	function printThings(a, b, c)
+	{
+		textln(a);
+		textln(b);
+		textln(c);
+	} 
+</code></pre>
+	<p>
+		Functions, unlike commands, always return a value, so if the end of a fuction is reached without hitting a <kbd>return</kbd>,
+		<kbd>false</kbd> is returned. 
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Function Example" module_func_example examples/functions.tame ]-->
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		Functions can be called from the element they are declared on, or from another element, but variables that are not 
+		declared <em>local</em> will be set on the context that the function was called from, except
+		if they belong to another element - it will then be set from the aspect of the originating element of the call.
+	</p>
+	<p>
+		To call another element's function, you specify the identifier of the element, then a dot (<kbd>.</kbd>), then the function call.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Function Example 2" module_func2_example examples/functions2.tame ]-->
+</div>
+
+<!-- ============================= -->
+<!-- ====== Control Section ====== -->
+<!-- ============================= -->
+<div id="control" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.5. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
 	<p>
 		Some keywords, like <kbd>quit</kbd>, are not commands or functions, but are <em>control keywords</em>. They do not have
 		parameters.
@@ -292,22 +427,6 @@
 <pre class="tame-example"><code data-language="tamescript">
 	quit;	// add a "quit" cue, and throw a "quit" interrupt. 
 </code></pre>
-</div>
-
-<div id="functions" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.4. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
-</div>
-<div class="w3-container" style="margin-top: 2em;">
-	<p>
-		<em>Functions</em> are essentially commands that you define yourself. Functions consist of a series of commands. 
-	</p>
-</div>
-
-<div id="control" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.5. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
-</div>
-<div class="w3-container" style="margin-top: 2em;">
-	
 </div>
 
 <div id="blocks" class="w3-panel w3-light-gray w3-card-2">

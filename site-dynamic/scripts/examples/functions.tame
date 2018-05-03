@@ -1,0 +1,23 @@
+world
+{
+	// This function doubles a value. 
+	function double(x)
+	{
+		return x * 2;
+	}
+	
+	start()
+	{
+		local a = 5;
+		textln("a is " + a);
+		a = double(a);
+		textln("a is " + a);
+		
+		// function names are case-insensitive
+		a = DoUbLe(a);
+		textln("a is " + a);
+		
+		quit;
+	}
+	
+}
