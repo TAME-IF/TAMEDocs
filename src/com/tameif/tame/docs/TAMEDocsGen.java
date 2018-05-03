@@ -632,7 +632,7 @@ public final class TAMEDocsGen
 				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>\n");
 				writer.write("\t<h4>"+headingName+"</h4>\n");
-				writer.write("<pre class=\"tame-example\"><code data-language=\"tamescript\">");
+				writer.write("<pre class=\"tame-example\"><code data-language=\"tamescript\">\n");
 				writer.write(scriptContent.replaceAll(">", "&gt;").replaceAll("<", "&lt;"));
 				writer.write("</code></pre>\n");
 				writer.write("</div>\n");

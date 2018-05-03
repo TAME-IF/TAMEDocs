@@ -34,20 +34,19 @@
 	</p>
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="comments" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#comments"><i class="link-stub fa fa-link"></i></a> 5.1. Comments <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<em>Comments</em> are skipped by the compiler and are used to elucidate sections of code that may be cryptic, or provide notes 
 	for sections of code. Comments can be on a single line, or across multiple lines, but there are different delimiters for each.
-<pre><code class="tame-example">
-// This is a single-line comment.
-/*
-	This is a multi
-	line comment.
-*/
-/* You can even write them like this. */
-
+<pre class="tame-example"><code data-language="tamescript">
+	// This is a single-line comment.
+	/*
+		This is a multi
+		line comment.
+	*/
+	/* You can even write them like this. */
 </code></pre>
 	Comments are useful for explaining sections of code or make markers around important parts. Of course, be careful
 	to not over-use them, like this example:
@@ -56,7 +55,7 @@
 <!--[ tamescript "Comment Example" module_tamescript_comments examples/comments.tame ]-->
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="values" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#values"><i class="link-stub fa fa-link"></i></a> 5.2. Values and Expressions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
@@ -64,74 +63,98 @@
 		In order to get anthing done in a TAME module, you'll probably be crafting <em>expressions</em> that change and 
 		manipulate <em>values</em>.
 	</p>
-	<h4>Values</h4>
+	<h3>Values</h3>
 	<p>
 		Values in TAME are represented in several ways.
 	</p>
 	<p>
 		Booleans:
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	true
 	false
-	
 </code></pre>
 	<p>
 		Integers:
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	5
 	77
 	3679
 	20000
-	
 </code></pre>
 	<p>	
 		Hexadecimal Integers (integer-typed):
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	0x0
 	0x0ff
 	0x0343
 	0xc452
-	
 </code></pre>
 	<p>
 		Floating-point ("floats"):
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	3.4
 	2.0
 	0.08
 	3456.1234
-	
 </code></pre>
 	<p>
 		Exponented Floating-point (float-typed):
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	2e4
 	1.53e-3
-	
 </code></pre>
 	<p>
 		Strings:
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	"apple"
 	"pear"
 	"Buzz Aldrin"
-	
 </code></pre>
 	<p>
 		And some *abstract values* (these are technically floating-point, internally):
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	NaN
 	Infinity
-	
 </code></pre>
-	<h5>Expressions</h5>
+	<h3>More About Strings</h3>
+	<p>
+		Literal strings (that is, values that are a set of characters bounded in double-quotes) are a little special - 
+		they may contain things called <em>"escape characters"</em> that allow you to put characters into them that
+		you would not ordinarily be able to add via your keyboard. An escape character starts with a backslash (<kbd>\</kbd>) followed
+		by a set of characters that define the output character. This is especially handy for adding double-quotes (since that would
+		make TAME's compiler think a string was being started or terminated). The TAMEScript compiler recognizes most C-like escape characters,
+		such as:
+	</p>
+	<table class="w3-table w3-striped w3-hoverable w3-border">
+		<thead>
+			<tr>
+				<th>Escape sequence</th>
+				<th>Output</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td>&#92;0</td><td>NULL character (UTF-16 0x0000)</td></tr>
+			<tr><td>&#92;b</td><td>Backspace</td></tr>
+			<tr><td>&#92;t</td><td>Tab</td></tr>
+			<tr><td>&#92;n</td><td>Newline</td></tr>
+			<tr><td>&#92;f</td><td>Form feed</td></tr>
+			<tr><td>&#92;r</td><td>Carriage Return</td></tr>
+			<tr><td>&#92;/</td><td>Forward slash</td></tr>
+			<tr><td>&#92;&quot;</td><td>Double quote</td></tr>
+			<tr><td>&#92;&#92;</td><td>Backslash</td></tr>
+			<tr><td>&#92;&#39;</td><td>Single quote</td></tr>
+			<tr><td>&#92;u<em>hhhh</em></td><td>UTF-16 character (where <em>hhhh</em> is 4 hex digits)</td></tr>
+			<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
+		</tbody>
+	</table>
+	<h3>Expressions</h3>
 	<p>
 		Expressions are a means of combining values and operators in order to convey more complex values.
 		These are evaluated at execution time.
@@ -147,7 +170,7 @@
 	<p>
 		Some examples of expressions:
 	</p>
-<pre><code class="tame-example">
+<pre class="tame-example"><code data-language="tamescript">
 	5 + 2
 	3.0 - 5.5
 	4 * 2.9
@@ -157,39 +180,144 @@
 	true | false
 	"apple" + "sauce"
 	"ice" + 9
-	
+	4 + 5 * 7.0
+</code></pre>
+	<p>
+		Expressions can consist of multiple values and operators, as well as commands and functions that return values:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	4 + min(0, 8)
+	floor(5.7) / 9.0
+	5 + 6 + 9 * 6
+</code></pre>
+	<p>
+		Expressions with more than one operator in them may be affected by <em>operator precedence</em>. Without additional
+		delimiters like parenthesis, expressions are evaluated as though they were normal math.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	3 + 4 * 6 		// 27. "*" has higher precedence than "+".
+	3 * 4 + 6 		// 18. "*" has higher precedence than "+".
+</code></pre>
+	<p>
+		In order to affect ordering, you can use parenthesis to delimit sub-expressions.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	3 * 4 + 6 		// 18. "*" has higher precedence than "+".
+	3 * (4 + 6) 	// 30. "4 + 6" is evaluated first, then "3 * 10".
 </code></pre>
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="statements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements and Commands <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
-	
+	<p>
+		Expressions are nice, but without any real directives, TAME would just be doing math! Enter <em>statements</em>. A statement is a single bit of code
+		that conveys a single step or task. All statements are terminated by semicolons (<kbd>;</kbd>). 
+	</p>
+	<h3>Assignments and Variables</h3>
+	<p>
+		The first type of statement is an <em>assignment</em>. Assignments define <em>variables</em> and their new values. A variable is stored at the 
+		<em>current context</em> level, and stores only one value.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = 1 + 2;		// assigns "a" the value 3.
+	b = 7.5 * 2;	// assigns "b" the value 15.0.
+</code></pre>
+	<p>
+		Variables can be used in expressions. Variables that are in expressions but have not been set to anything are <kbd>false</kbd>.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = 1 + 2;		// assigns "a" the value 3.
+	b = a + 5;		// assigns "b" the value 8.
+	c = x;			// variable "x" does not refer to a value - assigns "c" to false.
+</code></pre>
+	<p>
+		By default, all variables are stored on the current context. If you want to assign a value to a variable that is <em>not</em> stored
+		on the context, declare it <kbd>local</kbd>. Each assignment of that variable is still not stored.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	local x = 5;	// assigns "x" the value 5, but not persisted in the context.
+	textln(x);		// adds a "text" cue: "5\n"
+	x = 3;
+	textln(x);		// adds a "text" cue: "3\n"
+</code></pre>
+	<p>
+		You can remove a variable's assignment entirely using the <kbd>clear</kbd> keyword - the next use of that variable
+		will be treated as though nothing was stored in it, or that it didn't even exist!
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	x = 5;			// assigns "x" the value 5.
+	textln(x);		// adds a "text" cue: "5\n"
+	clear x;
+	textln(x);		// adds a "text" cue: "false\n"
+</code></pre>
+	<p>
+		It is possible to mix <strong>local</strong> and variables persisted on the context with the same name, but this is not advisable. 
+		TAME gives local variable values precedence, but will fall back to the persisted value if it is cleared. 
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	x = 5;			// assigns "x" the value 5.
+	local x = 7;	// assigns "x" the value 7.
+	textln(x);		// adds a "text" cue: "7\n"
+	clear x;		// clear local x
+	textln(x);		// adds a "text" cue: "5\n"
+	clear x;		// clear x (persisted)
+	textln(x);		// adds a "text" cue: "false\n"
+</code></pre>
+	<h3>Commands and Functions</h3>
+	<p>
+		<em>Commands</em> and <em>functions</em> can also be invoked in a statement, including commands that return something.
+		To invoke a command or function, you type the name of the function plus a list of <em>parameters</em> to pass to
+		it enclosed in parenthesis, each parameter separated by a comma.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	fix(5.6, 0);				// rounds 5.6 to the nearest whole number and returns it, but does nothing with it.
+	textln("Hello, world!");	// adds a "text" cue to the response with "Hello, world!\n" as its content. 
+	floor(5.6);					// Calculates the floor of 5.6 and returns it, but does nothing with it. 
+</code></pre>
+	<p>
+		Each of the <em>parameters</em> in a function or command are expressions. They can be either single values or complex
+		expressions that evaluate to a value. 
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = 5;									// assigns "a" the value 5.
+	textln("The value of \"a\" is " + a);	// adds a "text" cue: "The value of \"a\" is 5".
+	b = floor(10.5 * 6.7) / 3.0;			// calculate a bunch of things and store it in "b".
+</code></pre>
+	<p>
+		Some keywords, like <kbd>quit</kbd>, are not commands or functions, but are <em>control keywords</em>. They do not have
+		parameters.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	quit;	// add a "quit" cue, and throw a "quit" interrupt. 
+</code></pre>
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="functions" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.4. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
-	
+	<p>
+		<em>Functions</em> are essentially commands that you define yourself. Functions consist of a series of commands. 
+	</p>
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="control" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.5. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="blocks" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.6. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	
 </div>
 
-<div id="tamescript" class="w3-panel w3-light-gray w3-card-2">
+<div id="elements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#elements"><i class="link-stub fa fa-link"></i></a> 5.7. Defining Elements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">

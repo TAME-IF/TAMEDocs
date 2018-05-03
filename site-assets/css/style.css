@@ -75,13 +75,19 @@ li.group {
 }
  
 PRE[class*="tame-example"] {
-	background-color: #fff;
-	padding: 4px;
+	background-color: #fafafa;
+	padding: 8px;
 	max-height: 30em;
 	overflow-y: auto;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
+}
+
+PRE > CODE {
+	white-space: pre;
+    margin-top: -1.5em;
+    display: block;
 }
 
 IMG.main-logo {
