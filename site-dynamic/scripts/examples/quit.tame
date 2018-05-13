@@ -1,0 +1,13 @@
+world
+{
+	start()
+	{
+		textln("Doing stuff.");
+		textln("Quitting...");
+		quit;
+		
+		// Nothing after quit gets called - execution stops after it!
+		textln("Doing more stuff.");
+	}
+	
+}

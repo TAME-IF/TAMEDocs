@@ -6,6 +6,13 @@ world
 		return x * 2;
 	}
 	
+	// This function quadruples a value. 
+	function quadruple(x)
+	{
+		// functions can call other functions!
+		return double(x) + double(x);
+	}
+
 	start()
 	{
 		local a = 5;
@@ -17,6 +24,9 @@ world
 		a = DoUbLe(a);
 		textln("a is " + a);
 		
+		a = quadruple(a);
+		textln("a is " + a);
+
 		quit;
 	}
 	

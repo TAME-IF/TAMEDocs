@@ -1,0 +1,33 @@
+action open a_fact named "factorial" uses local number;
+action general a_quit named "quit";
+
+world
+{
+	// This function returns the factorial of a number. 
+	function factorial(x)
+	{
+		if (x <= 1)
+			return x;
+		else
+			return x * factorial(x - 1);
+	}
+
+	// "number" is the local variable
+	onAction(a_fact)
+	{
+		local n = AsInt(number);
+		textln(n + "! =" + factorial(n));
+	}
+	
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+	start()
+	{
+		textln("Type \"factorial\" and a number to compute the factorial of it.");
+		textln("Don't use too high of a number - a fatal error may occur, or values above 128 will cause integer overflows!");
+	}
+	
+}

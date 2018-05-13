@@ -336,15 +336,43 @@
 </code></pre>
 </div>
 
+<div id="blocks" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.4. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		A series of statements are encapsulated in <em>blocks</em>. Blocks define sections of significant code,
+		usually defining the conditions for when they get executed in TAME.
+	</p>
+	<p>
+		For example, in the following module, there are a series of blocks that get called in different situations.
+		Read up on <a href="language-blocks.html">all of the available blocks</a> to get an understanding of
+		how and when they can be called!
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Block Example" module_tamescript_blocks examples/blocks.tame ]-->
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		Blocks are called due to events or actions initiated by a user - you cannot invoke them directly.
+	</p>
+	<p>
+		You can explicitly see how and when blocks get called in TAME if you run the module with
+		<strong>tracing</strong> enabled (but this is just for debugging - tracing adds lots of)
+		cues to the response!
+	</p>
+</div>
+
 <!-- =============================== -->
 <!-- ====== Functions Section ====== -->
 <!-- =============================== -->
 <div id="functions" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.4. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.5. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
-		<em>Functions</em> are essentially commands that you define yourself. Functions consist of a series of commands executed in order, and return a
+		<em>Function</em> blocks are essentially "commands" that you define yourself and called in other code. Functions consist of a series of commands executed in order, and return a
 		value at the end to the caller. They are referenced by name, and called the same way commands are, for the most part.   
 	</p>
 	<p>
@@ -392,7 +420,7 @@
 	} 
 </code></pre>
 	<p>
-		Functions, unlike commands, always return a value, so if the end of a fuction is reached without hitting a <kbd>return</kbd>,
+		Functions, unlike commands, always return a value, so if the end of a function is reached without hitting a <kbd>return</kbd>,
 		<kbd>false</kbd> is returned. 
 	</p>
 </div>
@@ -412,28 +440,50 @@
 <div class="w3-container">
 <!--[ tamescript "Function Example 2" module_func2_example examples/functions2.tame ]-->
 </div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		TAMEScript also supports <em>recursive functions</em>. A recursive function is a function that calls
+		itself. This could be handy for mathematical functions that define their values using themselves, or
+		other such scenarios that would be useful.
+	</p>
+	<p>
+		Be warned though - TAME does not allow you to recurse to deeply in order to keep memory use down.
+		By default, this is a depth of <kbd>256</kbd>, but this can be overridden in 
+		<a href="element-module.html">module headers</a>.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Recursive Function Example" module_recfunc_example examples/function-recursive.tame ]-->
+</div>
 
 <!-- ============================= -->
 <!-- ====== Control Section ====== -->
 <!-- ============================= -->
 <div id="control" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.5. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.6. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
-		Some keywords, like <kbd>quit</kbd>, are not commands or functions, but are <em>control keywords</em>. They do not have
-		parameters.
+		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
+		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
-<pre class="tame-example"><code data-language="tamescript">
-	quit;	// add a "quit" cue, and throw a "quit" interrupt. 
-</code></pre>
+	<p>
+		Control keywords, like <kbd>quit</kbd>, are not commands or functions. They do not have parameters.
+		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
+		processing of the module and adds a "quit" cue to the response, telling the client to stop accepting
+		input and stopping user interaction (and clearing the module state as well).
+	</p>
+	<p>
+		There are no limits or rules as to where <strong>quit</strong> can be called, but to save you plenty of headaches, 
+		you should probably use it in one spot, which is when a user wants to end the module.
+	</p>
 </div>
-
-<div id="blocks" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.6. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+<div class="w3-container">
+<!--[ tamescript "Quit Example" module_quit_example examples/quit.tame ]-->
 </div>
 <div class="w3-container" style="margin-top: 2em;">
-	
+	<p>
+	</p>
 </div>
 
 <div id="elements" class="w3-panel w3-light-gray w3-card-2">

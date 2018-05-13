@@ -1,0 +1,45 @@
+action general a_quit named "quit";
+action transitive a_examine named "examine", "look at";
+
+// Define a "ball" object.
+object o_ball named "ball"
+{
+	// init() blocks are called on startup.
+	init()
+	{
+		// no code in this block.
+	}
+
+	// onAction() blocks on objects are called when objects are
+	// the target of a specific transitive action.
+	onAction(a_examine)
+	{
+		textln("Looks like a ball!");
+	}
+	
+}
+
+world
+{
+	// init() blocks are called on startup.
+	// Adds the ball to the world.
+	init()
+	{
+		giveObject(world, o_ball);
+	}
+	
+	// The world's start() block is called after all init() blocks are called.
+	start()
+	{
+		textln("Type \"quit\" to quit.");
+		textln("Type \"examine ball\" to examine the ball.");
+	}
+
+	// onAction() blocks on the world are called when specific general
+	// actions are performed.
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+}

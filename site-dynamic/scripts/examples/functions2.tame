@@ -28,8 +28,9 @@ world
 		textln("c_test.x is " + c_test.x); 
 		textln("y is " + y); 
 		textln("world.y is " + world.y); 
-		textln("c_test.y is " + c_test.y); 
-		
+		textln("c_test.y is " + c_test.y);
+		 
+		quit;
 	}
 	
 }
