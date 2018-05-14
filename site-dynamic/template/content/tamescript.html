@@ -449,7 +449,7 @@
 	<p>
 		Be warned though - TAME does not allow you to recurse to deeply in order to keep memory use down.
 		By default, this is a depth of <kbd>256</kbd>, but this can be overridden in 
-		<a href="element-module.html">module headers</a>.
+		<a href="language-element-module.html">module headers</a>.
 	</p>
 </div>
 <div class="w3-container">
@@ -467,6 +467,127 @@
 		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
+	<h3>If / Else</h3>
+	<p>
+		An <strong>if</strong> statement represents a branch in logic - if the expression in the parenthesis evaluates 
+		to <kbd>true</kbd> or something "true-equivalent," the subsequent block (delimited by curly braces) is executed.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    if (x == 4)
+    {
+        textln("x is 4!");
+    }
+</code></pre>
+	<p>
+		If an <strong>if</strong> statement is followed by an <strong>else</strong> block, that block will be executed instead,
+		if the expression is NOT true.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    if (x == 4)
+    {
+        textln("x is 4!");
+    }
+    else
+    {
+        textln("x is not 4!");
+    }
+</code></pre>
+	<p>
+		A block of after an "if" or "else" can have the braces omitted if it is just one statement.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    if (x == 4)
+        textln("x is 4!");
+    else
+        textln("x is not 4!");
+</code></pre>
+	<p>
+		For this reason, you can chain together if-elses...
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    if (x == 4)
+    {
+        textln("x is 4!");
+    }
+    else if (x == 5)
+    {
+        textln("x is 5!");
+    }
+    else
+    {
+        textln("x is neither 4 nor 5!");
+    }
+</code></pre>
+	<p>
+		...since this is equivalent:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    if (x == 4)
+    {
+        textln("x is 4!");
+    }
+    else 
+    {
+        if (x == 5)
+        {
+            textln("x is 5!");
+        }
+        else
+        {
+            textln("x is neither 4 nor 5!");
+        }
+    }
+</code></pre>
+	<h3>While Loops</h3>
+	<p>
+		A <strong>while</strong> loop executes a following block of statements as long as the expression in the 
+		parenthesis is still <kbd>true</kbd> or true-equivalent when the block completes.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    local x = 5;
+    // This code will loop 5 times.
+    while (x > 0)
+    {
+        textln("x is " + x);
+        x = x - 1;
+    }
+</code></pre>
+	<h3>For Loops</h3>
+	<p>
+		A <strong>for</strong> loop executes the following block of statements as long as the 
+		conditional expression is still `true` when the block completes.
+	</p>
+	<p>
+		<strong>For</strong> loops have an <em>initializer</em>, <em>conditional</em>, and <em>step</em> part enclosed in parenthesis that 
+		drives the loop. Each of these parts are separated by a semicolon (<kbd>;</kbd>), except for the last part.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    // This code will loop 10 times.
+    for (x = 0; x &lt; 10; x = x + 1)
+    {
+        textln("x is " + x);
+    }
+</code></pre>
+	<p>
+		Each part can be left out of a <strong>for</strong> loop, except for the conditional. The previous loop can be rewritten as:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+    x = 0;
+    for (; x &lt; 10;)
+    {
+        textln("x is " + x);
+        x = x + 1;
+    }
+</code></pre>
+	<p>
+		NOTE: As with any looping construct, there is always the risk of writing a loop that will never finish, creating an
+		<em>infinite loop</em>. TAME has a soft safeguard against this, where if it detects that a certain threshold of 
+		commands are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> commands).
+		This can be overridden in <a href="language-element-module.html">module headers</a>.
+	</p>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<h3>Quit</h3>
 	<p>
 		Control keywords, like <kbd>quit</kbd>, are not commands or functions. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
@@ -480,10 +601,6 @@
 </div>
 <div class="w3-container">
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tame ]-->
-</div>
-<div class="w3-container" style="margin-top: 2em;">
-	<p>
-	</p>
 </div>
 
 <div id="elements" class="w3-panel w3-light-gray w3-card-2">
