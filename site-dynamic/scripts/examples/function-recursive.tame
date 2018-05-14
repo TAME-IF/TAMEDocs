@@ -16,7 +16,7 @@ world
 	onAction(a_fact)
 	{
 		local n = AsInt(number);
-		textln(n + "! =" + factorial(n));
+		textln(n + "! = " + factorial(n));
 	}
 	
 	onAction(a_quit)

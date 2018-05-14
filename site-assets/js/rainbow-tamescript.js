@@ -39,7 +39,7 @@ Rainbow.extend('tamescript', [
 	},
     {
         name: 'keyword',
-        pattern: /\b(if|else|while|for|quit|end|break|continue|module|world|room|player|object|container|action|general|modal|transitive|ditransitive|open|restricted|named|tagged|modes|uses|conjunctions|determiners|forbids|allows|local|clear|archetype|function|return|this|override|extend|strict|reversed)\b/gi
+        pattern: /\b(if|else|while|for|quit|end|finish|break|continue|module|world|room|player|object|container|action|general|modal|transitive|ditransitive|open|restricted|named|tagged|modes|uses|conjunctions|determiners|forbids|allows|local|clear|archetype|function|return|this|override|extend|strict|reversed)\b/gi
     },
     {
         name: 'command',

@@ -359,8 +359,8 @@
 	</p>
 	<p>
 		You can explicitly see how and when blocks get called in TAME if you run the module with
-		<strong>tracing</strong> enabled (but this is just for debugging - tracing adds lots of)
-		cues to the response!
+		<strong>tracing</strong> enabled (but this is just for debugging - tracing adds lots of
+		cues to the response!).
 	</p>
 </div>
 
@@ -585,11 +585,9 @@
 		commands are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> commands).
 		This can be overridden in <a href="language-element-module.html">module headers</a>.
 	</p>
-</div>
-<div class="w3-container" style="margin-top: 2em;">
 	<h3>Quit</h3>
 	<p>
-		Control keywords, like <kbd>quit</kbd>, are not commands or functions. They do not have parameters.
+		Control keywords, like <strong>quit</strong>, are not commands or functions. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
 		processing of the module and adds a "quit" cue to the response, telling the client to stop accepting
 		input and stopping user interaction (and clearing the module state as well).
@@ -602,7 +600,32 @@
 <div class="w3-container">
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tame ]-->
 </div>
+<div class="w3-container">
+	<h3>Finish</h3>
+	<p>
+		The control keyword <strong>finish</strong> ends the currently-executing action (but continues processing queued actions). 
+		Like <em>quit</em>, there are no limits or rules as to where it can be used.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Finish Example" module_finish_example examples/finish.tame ]-->
+</div>
+<div class="w3-container">
+	<h3>End</h3>
+	<p>
+		The control keyword <strong>end</strong> ends the current major block (not sub blocks in control statements). Cannot
+		be used to end function calls - use <em>return</em> for that.
+		Like <em>quit</em> or <em>finish</em>, there are no limits or rules as to where it can be used.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "End Example" module_end_example examples/end.tame ]-->
+</div>
 
+
+<!-- ============================== -->
+<!-- ====== Elements Section ====== -->
+<!-- ================-============= -->
 <div id="elements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#elements"><i class="link-stub fa fa-link"></i></a> 5.7. Defining Elements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>

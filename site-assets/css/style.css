@@ -176,6 +176,8 @@ TABLE.tamedocs-block-reference td:not(:last-child)
 	font-family: "Courier New", monospace;
 	font-weight: 400;
 	line-height: 1em;
+	word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 /* For link hovering. */

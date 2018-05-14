@@ -171,31 +171,31 @@
 				<td><a href="command-strreplace.html">StrReplace</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrance of <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strreplacepattern.html">StrReplacePattern</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrance of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strreplacepatternall.html">StrReplacePatternAll</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing every occurrance of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing every occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strindex.html">StrIndex</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>Returns the index of the first occurrance of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
+				<td>Returns the index of the first occurrence of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strlastindex.html">StrLastIndex</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(INTEGER)</td>
-				<td>Returns the index of the last occurrance of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
+				<td>Returns the index of the last occurrence of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strcontains.html">StrContains</a></td>
@@ -237,7 +237,7 @@
 				<td><a href="command-substring.html">Substring</a></td>
 				<td>VALUE1(STRING), VALUE2(INTEGER), VALUE3(INTEGER)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns a part of a larger string <em>VALUE1</em>, from character index <em>VALUE2(INTEGER)</em> (inclusive), to index <em>VALUE3(INTEGER)</em> (exclusive).</td>
+				<td>Returns a part of a larger string <em>VALUE1</em>, from zero-based character index <em>VALUE2(INTEGER)</em> (inclusive), to index <em>VALUE3(INTEGER)</em> (exclusive).</td>
 			</tr>
 			<tr>
 				<td><a href="command-strlower.html">StrLower</a></td>
@@ -249,13 +249,13 @@
 				<td><a href="command-strupper.html">StrUpper</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns <em>VALUE</em> as a upper-case string. May be locale-specific.</td>
+				<td>Returns <em>VALUE</em> as an upper-case string. May be locale-specific.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strchar.html">StrChar</a></td>
 				<td>VALUE1(STRING), VALUE2(INTEGER)</td>
 				<td>VALUE(STRING)</td>
-				<td>Returns <em>VALUE</em> as a upper-case string. May be locale-specific.</td>
+				<td>Returns a string consisting of one character from <em>VALUE1</em> using <em>VALUE2</em> as the zero-based offset into the string.</td>
 			</tr>
 			<tr>
 				<td><a href="command-strtrim.html">StrTrim</a></td>
@@ -583,7 +583,7 @@
 				<td><a href="command-playercanaccessobject.html">PlayerCanAccessObject</a></td>
 				<td>PLAYER, OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
-				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
+				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> can access <em>OBJECT</em> in its current state, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
 				<td><a href="command-browse.html">Browse</a></td>

@@ -1,0 +1,34 @@
+action general a_test named "test";
+action general a_anotheraction;
+
+world
+{
+	onAction(a_test)
+	{
+		textln("Queueing another action...");
+		queueAction(a_anotheraction);
+		textln("Calling finish...");
+		finish;
+		
+		// Nothing after finish gets called - execution of the current action stops after it!
+		textln("Doing more stuff.");
+		
+	}
+
+	onAction(a_anotheraction)
+	{
+		textln("Doing another action.");
+	}
+
+	start()
+	{
+		textln("Type \"test\" to run the queued action example.");
+		
+		textln("Calling finish...");
+		finish;
+		
+		// Nothing after finish gets called - execution of the current action stops after it!
+		textln("Doing more stuff.");
+	}
+	
+}
