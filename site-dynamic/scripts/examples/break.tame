@@ -1,0 +1,25 @@
+action general a_test named "test";
+
+world
+{
+	onAction(a_test)
+	{
+		local i = 0;
+		local n = irandom(10);
+		textln("Loop will stop at " + n);
+		for (i = 0; i < 10; i = i + 1)
+		{
+			if (i === n)
+				break;
+			textln(i);
+		}
+		
+		textln("i is " + i);
+	}
+
+	start()
+	{
+		textln("Type \"test\" to run the break example.");
+	}
+	
+}

@@ -613,13 +613,22 @@
 <div class="w3-container">
 	<h3>End</h3>
 	<p>
-		The control keyword <strong>end</strong> ends the current major block (not sub blocks in control statements). Cannot
+		The control keyword <strong>end</strong> ends the current <em>major entry</em> block (not smaller blocks in control statements). Cannot
 		be used to end function calls - use <em>return</em> for that.
-		Like <em>quit</em> or <em>finish</em>, there are no limits or rules as to where it can be used.
 	</p>
 </div>
 <div class="w3-container">
 <!--[ tamescript "End Example" module_end_example examples/end.tame ]-->
+</div>
+<div class="w3-container">
+	<h3>Break</h3>
+	<p>
+		The <strong>break</strong> keyword ends the current looping block (<strong>while</strong> and <strong>for</strong>).
+		This does not "restore" any variable values or states - it just escapes the loop.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Break Example" module_break_example examples/break.tame ]-->
 </div>
 
 
