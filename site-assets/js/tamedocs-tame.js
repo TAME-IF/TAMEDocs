@@ -120,16 +120,6 @@ var TAMEHandler = new TAMEBrowserHandler(TAME,
 		ContinueDiv.style.display = "none";
 	},
 	
-	"onInfoCue": function(content)
-	{
-		tamePrintln("INFO: "+content);
-	},
-	
-	"onTipCue": function(content)
-	{
-		tamePrintln("(TIP: "+content+")");
-	},
-	
 	"onErrorCue": function(content)
 	{
 		tamePrintln("\n !ERROR!: "+content);

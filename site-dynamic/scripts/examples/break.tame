@@ -4,7 +4,7 @@ world
 {
 	onAction(a_test)
 	{
-		local i = 0;
+		local i;
 		local n = irandom(10);
 		textln("Loop will stop at " + n);
 		for (i = 0; i < 10; i = i + 1)
