@@ -44,7 +44,7 @@ ul a:visited {
 }
 
 a, a:visited {
-	text-decoration: none;
+    text-decoration: underline;
 	color: #009688;
 }
 

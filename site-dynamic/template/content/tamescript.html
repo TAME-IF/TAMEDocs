@@ -284,6 +284,15 @@
 	textln(x);		// adds a "text" cue: "3\n"
 </code></pre>
 	<p>
+		Local declarations don't need an assignment - just declaring it initializes it to <kbd>false</kbd>. 
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	local x;		// assigns "x" the value false, but not persisted in the context.
+	textln(x);		// adds a "text" cue: "false\n"
+	x = 3;
+	textln(x);		// adds a "text" cue: "3\n"
+</code></pre>
+	<p>
 		You can remove a variable's assignment entirely using the <kbd>clear</kbd> keyword - the next use of that variable
 		will be treated as though nothing was stored in it, or that it didn't even exist!
 	</p>
@@ -640,3 +649,7 @@
 <div class="w3-container">
 <!--[ tamescript "Continue Example" module_continue_example examples/continue.tame ]-->
 </div>
+
+<!--[ set prev_page interpreter.html ]-->
+<!--[ set next_page language-elements.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->
