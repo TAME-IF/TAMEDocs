@@ -85,7 +85,7 @@
 	
 	<target name="zip.tamedocs" depends="tamedocs" description="Zips the created TAMEDOCS.">
 		<delete file="${tamedocs.zip}" />
-		<zip basedir="${tamedocs.dir}" destfile="${tamedocs.zip}" compress="true"></zip>
+		<zip basedir="${tamedocs.dir}" destfile="${tamedocs.zip}" level="9" compress="true"></zip>
 	</target>
 
 </project>
