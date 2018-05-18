@@ -22,10 +22,13 @@
 <div class="w3-container">
 	<p>
 		Input into TAME is usually a user-typed string like:
-		<pre>pick up lamp
-look at dog
-scream
+	</p>
+<pre>
+	pick up lamp
+	look at dog
+	scream
 </pre>
+	<p>
 		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
 		and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
 		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the user somehow.
@@ -40,12 +43,14 @@ scream
 <div class="w3-container">
 	<p>
 		Every TAME request gets a <strong>Response</strong>. The Response contains things like:
-		<ul>
-			<li>How long it took to interpret the input.</li>
-			<li>How long it took to process the request.</li>
-			<li>How many commands called to complete the full request.</li>
-			<li>The list of Cues returned.</li>
-		</ul>
+	</p>
+	<ul>
+		<li>How long it took to interpret the input.</li>
+		<li>How long it took to process the request.</li>
+		<li>How many commands called to complete the full request.</li>
+		<li>The list of Cues returned.</li>
+	</ul>
+	<p>
 		After the response is received, the Shell has to do something wih it. Each of the <strong>Cues</strong> in the Response 
 		is something for the Shell to do, <em>in the order that they are read from the list</em>, before it can send input again. 
 		Not every TAME Shell can or should handle these Cues, but there are a few types of Cues that ALL Shells need to

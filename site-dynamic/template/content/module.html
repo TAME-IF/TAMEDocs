@@ -20,22 +20,7 @@
 	<h2><a href="#objects"><i class="link-stub fa fa-link"></i></a> 3.1 Objects <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col s12 m6">
-			<p>
-				The most-used element in a module are <strong>objects</strong>. These can be moved between all of the object containers 
-				(<em>world</em>, <em>player</em>, <em>room</em>, <em>container</em>) and is the common element
-				that is targeted by actions.
-			</p>
-			<p>
-				Where <em>objects</em> are contained dictate their <em>accessibility</em>, as well as the current player
-				or room. The currently <em>accessible</em> objects also affect how user input is interpreted.
-			</p>
-		</div>
-		<div class="w3-center w3-col s12 m6">
-			<img class="w3-image" src="images/diagram-objects.svg"/>
-		</div>
-	</div>
+	<!--[ include fragments/module-object.html ]-->
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -44,22 +29,7 @@
 	<h2><a href="#world"><i class="link-stub fa fa-link"></i></a> 3.2 World <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col s12 m6">
-			<p>
-				Every module contains one <strong>world</strong>. The world is the main abstraction of the concept of <em>everything</em>.
-			</p>
-			<p>
-				The world can also hold <strong>objects</strong> that are <em>accessible</em> to all players (even if no player is set). 
-				While nothing is specifically connected to it, it is a primary context that you can count on existing, and contains entry 
-				points that are executed every request, or after the module initializes. All actions and failure to execute 
-				actions fall through to this for handling. 
-			</p>
-		</div>
-		<div class="w3-center w3-col s12 m6">
-			<img class="w3-image" src="images/diagram-world.svg"/>
-		</div>
-	</div>
+	<!--[ include fragments/module-world.html ]-->
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -68,28 +38,7 @@
 	<h2><a href="#players"><i class="link-stub fa fa-link"></i></a> 3.3 Players <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col s12 m6">
-			<p>
-				Not to be confused with users, the ones typing the input, the <strong>player</strong> is the representation
-				of the current viewpoint in the world. The purpose of the player is to define or constrain what is currently visible 
-				in terms of actions or objects. 
-			</p>
-			<p>
-				Players can also hold <strong>objects</strong>. The objects held by a player are <em>accessible</em> so long
-				as that player is current. Players also handle failed actions and other input errors before they are 
-				passed onto the world. You can also restrict the actions that a player can use.
-			</p>
-			<p>
-				Players also can have a current <strong>room</strong>, which further controls what
-				the player can both do and interact with. A TAME module is not required to have a player, but without players, you
-				cannot set the current room. 
-			</p>
-		</div>
-		<div class="w3-center w3-col s12 m6">
-			<img class="w3-image" src="images/diagram-players.svg"/>
-		</div>
-	</div>
+	<!--[ include fragments/module-player.html ]-->
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -98,23 +47,7 @@
 	<h2><a href="#rooms"><i class="link-stub fa fa-link"></i></a> 3.4 Rooms <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col s12 m6">
-			<p>
-				<strong>Rooms</strong> are little abstractions of environment between which players are moved. 
-			</p>
-			<p>
-				Rooms can contain <strong>objects</strong>. Objects in a <strong>room</strong> are <em>accessible</em> as long as the room is current on 
-				the current <strong>player</strong>.
-			</p>
-			<p>
-				Rooms can also restrict what actions can be used in them, much like players.
-			</p>
-		</div>
-		<div class="w3-center w3-col s12 m6">
-			<img class="w3-image" src="images/diagram-rooms.svg"/>
-		</div>
-	</div>
+	<!--[ include fragments/module-room.html ]-->
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -123,23 +56,7 @@
 	<h2><a href="#containers"><i class="link-stub fa fa-link"></i></a> 3.5 Containers <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col s12 m6">
-			<p>
-				<strong>Containers</strong>, much like <strong>rooms</strong> and players, and the <strong>world</strong>,
-				can contain <strong>objects</strong> and variable context. However, nothing in a container is
-				<em>accessible</em>.
-			</p>
-			<p>
-				Containers are useful for containing objects that need to be tagged or bulk-moved to other containers,
-				or keeping track of other object-like things that could be useful, like objective lists or the like,
-				since they can be browsed like any other thing that can contain objects.
-			</p>
-		</div>
-		<div class="w3-center w3-col s12 m6">
-			<img class="w3-image" src="images/diagram-containers.svg"/>
-		</div>
-	</div>
+	<!--[ include fragments/module-container.html ]-->
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -148,80 +65,7 @@
 	<h2><a href="#actions"><i class="link-stub fa fa-link"></i></a> 3.6 Actions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<p>
-		The way that the user is able to make stuff happen is through <strong>Actions</strong>. Each
-		action has a set of names, and there are different types of actions that influence how they get
-		interpreted or how a command is expected to be completed.
-	</p>
-	<p>
-		There are 5 action types: <strong>General</strong>, <strong>Modal</strong>, <strong>Open</strong>, <strong>Transitive</strong>, 
-		and <strong>Ditransitive</strong>.
-	</p>
-	<!------------------------------>
-	<div class="w3-panel w3-light-gray w3-card-1">
-		<h3>General</h3>
-	</div>
-	<p>
-		<strong>General</strong> actions are actions that do not require any additional references to objects or other things in the world
-		in order to do things. General actions are things like:
-		<pre>look around
-yell
-inventory
-</pre>
-		...stuff that can just be done to nothing in particular ("yell" is <em>general</em>. "yell at bob" is <em>transitive</em>).
-	</p>
-	<!------------------------------>
-	<div class="w3-panel w3-light-gray w3-card-1">
-		<h3>Transitive</h3>
-	</div>
-	<p>
-		<strong>Transitive</strong> actions are actions that require an object in order to perform it. The object just needs to be <em>accessible</em>
-		to the current player (or in the <em>world</em> if no player).
-		<pre>pick up key
-look at lamp
-open door
-</pre>
-		...where <em>key</em>, <em>lamp</em>, and <em>door</em> are names of objects in the module.
-	</p>
-	<!------------------------------>
-	<div class="w3-panel w3-light-gray w3-card-1">
-		<h3>Ditransitive</h3>
-	</div>
-	<p>
-		<strong>Ditransitive</strong> actions are actions that require <em>two</em> objects in order to perform it. The objects need to be <em>accessible</em>
-		to the current player (or in the <em>world</em> if no player). Ditransitive actions are treated as normal <strong>transitive</strong> actions if only <em>one</em>
-		object is used, though. The words or phrases that separate the two objects are called "conjunctions," and are declared with the action.
-		<pre>use key with door
-give bottle to hermit
-stab monster with sword
-</pre>
-		...where <em>with</em> and <em>to</em> are conjunctions, and <em>key</em>, <em>bottle</em>, <em>sword</em>, <em>hermit</em>, <em>monster</em>, and <em>door</em> are names of objects in the module.
-	</p>
-	<!------------------------------>
-	<div class="w3-panel w3-light-gray w3-card-1">
-		<h3>Modal</h3>
-	</div>
-	<p>
-		<strong>Modal</strong> actions are actions that require a <em>mode</em>, or rather, take specific arguments (called "modes") that are not related to
-		anything in the world. Things like:
-		<pre>go west
-look up
-walk east
-</pre>
-		...where <em>west</em>, <em>up</em>, and <em>east</em> do not refer to objects in the world, but are specific enough for TAME to check the validity of.
-	</p>
-	<!------------------------------>
-	<div class="w3-panel w3-light-gray w3-card-1">
-		<h3>Open</h3>
-	</div>
-	<p>
-		Here's where things can get tricky - <strong>Open</strong> actions are actions that, after it is parsed, accept EVERYTHING after it. The stuff that is typed in is saved to a local
-		variable of the module writer's choosing called a "target," where it can be parsed for specific phrases or tokens.
-		<pre>say open sesame
-</pre>
-		...where <em>say</em> is the action and <em>open sesame</em> is the <strong>target</strong>. WARNING: Text that is passed along is 
-		sanitized, so what the user literally inputs may not be the exact same thing as what is parsed!
-	</p>
+	<!--[ include fragments/module-action.html ]-->
 </div>
 
 <!--[ set prev_page systems.html ]-->
