@@ -4,87 +4,41 @@
 	interpreted or how a command is expected to be completed.
 </p>
 <p>
-	There are 5 action types: <strong>General</strong>, <strong>Modal</strong>, <strong>Open</strong>, <strong>Transitive</strong>, 
-	and <strong>Ditransitive</strong>.
+	There are 5 action types: <strong>General</strong>, <strong>Transitive</strong>, <strong>Ditransitive</strong>, 
+	<strong>Modal</strong>, and <strong>Open</strong>.
 </p>
 
-<!------------------------------>
 <div class="w3-panel w3-light-gray w3-card-1">
 	<h3>General</h3>
 </div>
-<p>
-	<strong>General</strong> actions are actions that do not require any additional references to objects or other things in the world
-	in order to do things. General actions are things like:
-</p>
-<pre>
-	look around
-	yell
-	inventory
-</pre>
-<p>
-	...stuff that can just be done to nothing in particular ("yell" is <em>general</em>. "yell at bob" is <em>transitive</em>).
-</p>
-<!------------------------------>
+<div class="w3-container">
+	<!--[ include module-action-general.html ]-->
+</div>
+
 <div class="w3-panel w3-light-gray w3-card-1">
 	<h3>Transitive</h3>
 </div>
-<p>
-	<strong>Transitive</strong> actions are actions that require an object in order to perform it. The object just needs to be <em>accessible</em>
-	to the current player (or in the <em>world</em> if no player).
-</p>
-<pre>
-	pick up key
-	look at lamp
-	open door
-</pre>
-<p>
-	...where <em>key</em>, <em>lamp</em>, and <em>door</em> are names of objects in the module.
-</p>
-<!------------------------------>
+<div class="w3-container">
+	<!--[ include module-action-transitive.html ]-->
+</div>
+
 <div class="w3-panel w3-light-gray w3-card-1">
 	<h3>Ditransitive</h3>
 </div>
-<p>
-	<strong>Ditransitive</strong> actions are actions that require <em>two</em> objects in order to perform it. The objects need to be <em>accessible</em>
-	to the current player (or in the <em>world</em> if no player). Ditransitive actions are treated as normal <strong>transitive</strong> actions if only <em>one</em>
-	object is used, though. The words or phrases that separate the two objects are called "conjunctions," and are declared with the action.
-<p>
-<pre>
-	use key with door
-	give bottle to hermit
-	stab monster with sword
-</pre>
-<p>
-	...where <em>with</em> and <em>to</em> are conjunctions, and <em>key</em>, <em>bottle</em>, <em>sword</em>, <em>hermit</em>, <em>monster</em>, and <em>door</em> are names of objects in the module.
-</p>
-<!------------------------------>
+<div class="w3-container">
+	<!--[ include module-action-ditransitive.html ]-->
+</div>
+
 <div class="w3-panel w3-light-gray w3-card-1">
 	<h3>Modal</h3>
 </div>
-<p>
-	<strong>Modal</strong> actions are actions that require a <em>mode</em>, or rather, take specific arguments (called "modes") that are not related to
-	anything in the world. Things like:
-</p>
-<pre>
-	go west
-	look up
-	walk east
-</pre>
-<p>
-	...where <em>west</em>, <em>up</em>, and <em>east</em> do not refer to objects in the world, but are specific enough for TAME to check the validity of.
-</p>
-<!------------------------------>
+<div class="w3-container">
+	<!--[ include module-action-modal.html ]-->
+</div>
+
 <div class="w3-panel w3-light-gray w3-card-1">
 	<h3>Open</h3>
 </div>
-<p>
-	Here's where things can get tricky - <strong>Open</strong> actions are actions that, after it is parsed, accept EVERYTHING after it. The stuff that is typed in is saved to a local
-	variable of the module writer's choosing called a "target," where it can be parsed for specific phrases or tokens.
-</p>
-<pre>
-	say open sesame
-</pre>
-<p>
-	...where <em>say</em> is the action and <em>open sesame</em> is the <strong>target</strong>. WARNING: Text that is passed along is 
-	sanitized, so what the user literally inputs may not be the exact same thing as what is parsed!
-</p>
+<div class="w3-container">
+	<!--[ include module-action-open.html ]-->
+</div>

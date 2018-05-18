@@ -1,0 +1,11 @@
+<p>
+	Here's where things can get tricky - <strong>Open</strong> actions are actions that, after it is parsed, accept EVERYTHING after it. The stuff that is typed in is saved to a local
+	variable of the module writer's choosing called a "target," where it can be parsed for specific phrases or tokens.
+</p>
+<pre>
+	say open sesame
+</pre>
+<p>
+	...where <em>say</em> is the action and <em>open sesame</em> is the <strong>target</strong>. WARNING: Text that is passed along is 
+	sanitized, so what the user literally inputs may not be the exact same thing as what is parsed!
+</p>
