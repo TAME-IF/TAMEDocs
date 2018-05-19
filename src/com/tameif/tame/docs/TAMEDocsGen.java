@@ -477,7 +477,7 @@ public final class TAMEDocsGen
 		ArithmeticOperator operator;
 		if ("boolean".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; BOOLEAN &gt; </td><td>"+Value.create(TEST_VALUES[i].asBoolean())+"</td></tr>\n");
@@ -485,7 +485,7 @@ public final class TAMEDocsGen
 		}
 		else if ("integer".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; INTEGER &gt; </td><td>"+Value.create(TEST_VALUES[i].asLong())+"</td></tr>\n");
@@ -493,7 +493,7 @@ public final class TAMEDocsGen
 		}
 		else if ("float".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; FLOAT &gt; </td><td>"+Value.create(TEST_VALUES[i].asDouble())+"</td></tr>\n");
@@ -501,7 +501,7 @@ public final class TAMEDocsGen
 		}
 		else if ("string".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; STRING &gt; </td><td>"+Value.create(TEST_VALUES[i].asString())+"</td></tr>\n");
@@ -509,7 +509,7 @@ public final class TAMEDocsGen
 		}
 		else if ("length".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; LENGTH &gt; </td><td>"+TEST_VALUES[i].length()+"</td></tr>\n");
@@ -517,7 +517,7 @@ public final class TAMEDocsGen
 		}
 		else if ("empty".equalsIgnoreCase(name))
 		{
-			writer.write("<thead><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; EMPTY &gt; </td><td>"+Value.create(TEST_VALUES[i].isEmpty())+"</td></tr>\n");
@@ -544,7 +544,7 @@ public final class TAMEDocsGen
 	{
 		if (operator.isBinary())
 		{
-			writer.write("<thead><tr><th>Value1</th><th>Operator</th><th>Value2</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Value1</th><th>Operator</th><th>Value2</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			
 			for (int i = 0; i < TEST_VALUES.length; i++)
@@ -555,7 +555,7 @@ public final class TAMEDocsGen
 		}
 		else
 		{
-			writer.write("<thead><tr><th>Operator</th><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
+			writer.write("<thead class=\"w3-teal\"><tr><th>Operator</th><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			
 			for (int i = 0; i < TEST_VALUES.length; i++)

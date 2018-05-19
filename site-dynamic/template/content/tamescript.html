@@ -139,7 +139,7 @@
 		such as:
 	</p>
 	<table class="w3-table w3-striped w3-hoverable w3-border">
-		<thead>
+		<thead class="w3-teal">
 			<tr>
 				<th>Escape sequence</th>
 				<th>Output</th>
@@ -163,7 +163,7 @@
 	<h3 id="identifiers">Identifiers</h3>
 	<p>
 		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
-		Identifiers are alphanumeric (<kbd>0-9, A-Z, a-z</kbd>)plus the underscore character (<kbd>_</kbd>), but must NOT start with a number.
+		Identifiers are alphanumeric (<kbd>0-9, A-Z, a-z</kbd>) plus the underscore character (<kbd>_</kbd>), but must NOT start with a number.
 	</p>
 	<p>
 		It is also important to note that identifiers are also <strong>case-insensitive!</strong> They also cannot share names with reserved keywords.
@@ -184,7 +184,7 @@
 	not-good	// two identifiers with a dash delimiter between them
 	Mr.Person	// two identifiers with a dot delimiter between them
 </code></pre>
-	<h3>Expressions</h3>
+	<h3 id="expressions">Expressions</h3>
 	<p>
 		Expressions are a means of combining values and operators in order to convey more complex values.
 		These are evaluated at execution time.
@@ -476,7 +476,7 @@
 		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
-	<h3>If / Else</h3>
+	<h3 id="if-else">If / Else</h3>
 	<p>
 		An <strong>if</strong> statement represents a branch in logic - if the expression in the parenthesis evaluates 
 		to <kbd>true</kbd> or something "true-equivalent," the subsequent block (delimited by curly braces) is executed.
@@ -547,7 +547,7 @@
         }
     }
 </code></pre>
-	<h3>While Loops</h3>
+	<h3 id="while-loop">While Loops</h3>
 	<p>
 		A <strong>while</strong> loop executes a following block of statements as long as the expression in the 
 		parenthesis is still <kbd>true</kbd> or true-equivalent when the block completes.
@@ -561,7 +561,7 @@
         x = x - 1;
     }
 </code></pre>
-	<h3>For Loops</h3>
+	<h3 id="for-loop">For Loops</h3>
 	<p>
 		A <strong>for</strong> loop executes the following block of statements as long as the 
 		conditional expression is still `true` when the block completes.
@@ -610,7 +610,7 @@
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tame ]-->
 </div>
 <div class="w3-container">
-	<h3>Finish</h3>
+	<h3 id="finish-keyword">Finish</h3>
 	<p>
 		The control keyword <strong>finish</strong> ends the currently-executing action (but continues processing queued actions). 
 		Like <em>quit</em>, there are no limits or rules as to where it can be used.
@@ -620,7 +620,7 @@
 <!--[ tamescript "Finish Example" module_finish_example examples/finish.tame ]-->
 </div>
 <div class="w3-container">
-	<h3>End</h3>
+	<h3 id="end-keyword">End</h3>
 	<p>
 		The control keyword <strong>end</strong> ends the current <em>major entry</em> block (not smaller blocks in control statements). Cannot
 		be used to end function calls - use <em>return</em> for that.
@@ -630,7 +630,7 @@
 <!--[ tamescript "End Example" module_end_example examples/end.tame ]-->
 </div>
 <div class="w3-container">
-	<h3>Break</h3>
+	<h3 id="break-keyword">Break</h3>
 	<p>
 		The <strong>break</strong> keyword ends the current looping block (<strong>while</strong> and <strong>for</strong>).
 		This does not "restore" any variable values or states - it just escapes the loop.
@@ -640,7 +640,7 @@
 <!--[ tamescript "Break Example" module_break_example examples/break.tame ]-->
 </div>
 <div class="w3-container">
-	<h3>Continue</h3>
+	<h3 id="continue-keyword">Continue</h3>
 	<p>
 		The <strong>continue</strong> keyword stops the current loop iteration in looping control blocks (<strong>while</strong> and <strong>for</strong>),
 		which re-evaluates the conditional, and in <strong>for</strong> loops, also performs the stepping statement first. 
@@ -649,6 +649,72 @@
 <div class="w3-container">
 <!--[ tamescript "Continue Example" module_continue_example examples/continue.tame ]-->
 </div>
+
+
+<!-- ==================================== -->
+<!-- ====== Other Keywords Section ====== -->
+<!-- ==================================== -->
+<div id="other-keywords" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#other-keywords"><i class="link-stub fa fa-link"></i></a> 5.7. Other Keywords <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		There are a few other keywords that have special use in TAMEScript that don't quite fit into the other categories.
+	</p>
+</div>
+<div class="w3-container">
+	<h3 id="world-keyword">World</h3>
+	<p>
+		While <strong>world</strong> is used to mark the declaration of the world, it is used as the singular main identifier
+		to refer to the world as an element in command calls.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "World Example" module_world_example examples/world.tame ]-->
+</div>
+<div class="w3-container">
+	<h3 id="player-keyword">Player</h3>
+	<p>
+		While <strong>player</strong> is used to mark the declaration of players, can be used as an identifier to
+		mean "the current player." If there is no current player at the moment it is resolved, a <kbd>FATAL</kbd> error 
+		is thrown, so check for it using <a href="command-nocurrentplayer.html">NoCurrentPlayer()</a> if it is a 
+		possibility in your module.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Player Example" module_player_example examples/player.tame ]-->
+</div>
+<div class="w3-container">
+	<h3 id="room-keyword">Room</h3>
+	<p>
+		While <strong>room</strong> is used to mark the declaration of rooms, can be used as an identifier to
+		mean "the current room." If there is no current room at the moment it is resolved, a <kbd>FATAL</kbd> error 
+		is thrown, so check for it using <a href="command-nocurrentroom.html">NoCurrentRoom(...)</a> if it is a 
+		possibility in your module. Remember: the current room is a state maintained by the current player.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Room Example" module_room_example examples/room.tame ]-->
+</div>
+<div class="w3-container">
+	<h3 id="this-keyword">This</h3>
+	<p>
+		The <strong>this</strong> keyword is a tricky one: it is used to refer to the element belonging to
+		the <em>current context</em>. This means that <strong>this</strong> can be several different types,
+		but you can count on its type to be the same as the element that contains the block of code that it
+		is resolved in (for example, if it is used in an <a href="language-block-on-action.html">onAction()</a>
+		block on an <em>object</em>, its type is considered to be <em>object</em>).
+	</p>
+	<p>
+		This is especially important when using <a href="language-inheritance.html">inheritance</a> in defining objects. 
+		Since <strong>this</strong> means "the element that belongs to the current context," that means that it may 
+		not necessarily refer to the element that the code is written on.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "This Example" module_this_example examples/this.tame ]-->
+</div>
+
 
 <!--[ set prev_page interpreter.html ]-->
 <!--[ set next_page language-elements.html ]-->

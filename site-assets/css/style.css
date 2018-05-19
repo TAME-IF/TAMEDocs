@@ -73,7 +73,14 @@ li.group {
     margin-top: 0.5em;
     line-height: 1.25em;
 }
- 
+
+KBD {
+	background-color: #616161;
+	color: white;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
 PRE {
 	-moz-tab-size: 4;
 	-o-tab-size: 4;

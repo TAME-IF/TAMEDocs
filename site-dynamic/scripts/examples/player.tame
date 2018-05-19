@@ -1,0 +1,74 @@
+action general a_switchplayer1 named "switch 1";
+action general a_switchplayer2 named "switch 2";
+action general a_inc named "increment";
+action general a_dec named "decrement";
+action general a_quit named "quit"; 
+
+player p_player1
+{
+	init()
+	{
+		count = 0;
+	}
+}
+
+player p_player2
+{
+	init()
+	{
+		count = 0;
+	}
+}
+
+world
+{
+	function printPlayer()
+	{
+		textln("current player is " + identity(player));
+		textln("player.count is " + player.count);
+	}
+	
+	onAction(a_switchplayer1)	
+	{
+		setPlayer(p_player1);
+	}
+
+	onAction(a_switchplayer2)
+	{
+		setPlayer(p_player2);
+	}
+
+	onAction(a_inc)	
+	{
+		textln("Incrementing player.count...");
+		player.count = player.count + 1;
+	}
+
+	onAction(a_dec)
+	{
+		textln("Decrementing player.count...");
+		player.count = player.count - 1;
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	start()
+	{
+		setPlayer(p_player1);
+		textln("Type \"switch 1\" to switch to player 1.");
+		textln("Type \"switch 2\" to switch to player 2");
+		textln("Type \"increment\" to increment player.count");
+		textln("Type \"decrement\" to decrement player.count");
+		textln("Type \"quit\" to quit.");
+		printPlayer();
+	}
+	
+	afterSuccessfulCommand()
+	{
+		printPlayer();
+	}
+	
+}

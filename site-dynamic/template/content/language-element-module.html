@@ -8,7 +8,7 @@
 <div id="declaration" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container">
+<div class="w3-container" style="margin-top:2em;">
 <pre class="tame-example"><code data-language="tamescript">
 	module
 	{
@@ -17,8 +17,8 @@
 	}
 </code></pre>
 </div>
-<div class="w3-container">
-	<table class="w3-table w3-border w3-striped">
+<div class="w3-container" style="margin-top:2em;">
+	<table class="w3-table">
 		<tbody>
 			<tr>
 				<td>[VALUE]</td>
@@ -57,7 +57,7 @@
 		change over time as more changes/standards are proposed):
 	</p>
 	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
-		<thead>
+		<thead class=\"w3-teal\">
 			<tr>
 				<th>Key</th>
 				<th>Type (expected)</th>
@@ -113,7 +113,7 @@
 		The following are header keys that influence TAME:
 	</p>
 	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
-		<thead>
+		<thead class="w3-teal">
 			<tr>
 				<th>Key</th>
 				<th>Type (expected)</th>
@@ -127,7 +127,7 @@
 				<td>integer</td>
 				<td><kbd>100000</kbd></td>
 				<td>
-					How many commands can be executed by TAME in one request before it stops with a <kbd>fatal</kbd> error.
+					How many commands can be executed by TAME in one request before it stops with a <kbd>FATAL</kbd> error.
 					This is for proactively detecting infinite loops.<br/><br/>If this value is 0 or less, the default is enforced. 
 				</td>
 			</tr>
@@ -136,7 +136,7 @@
 				<td>integer</td>
 				<td><kbd>256</kbd></td>
 				<td>
-					The legal function depth that TAME can call in one request before it stops with a <kbd>fatal</kbd> error.
+					The legal function depth that TAME can call in one request before it stops with a <kbd>FATAL</kbd> error.
 					This is for proactively preventing call stack overflows in the implementation.<br/><br/>If this value is 0 or less, the default is enforced. 
 				</td>
 			</tr>
