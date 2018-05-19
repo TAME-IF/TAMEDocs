@@ -7,6 +7,11 @@ tamescript.html "TAMEScript" template/main.html
 language-elements.html "TAMEScript Module Elements" template/main.html
 language-element-module.html "Module Element" template/main.html
 language-element-action.html "Action Element" template/main.html
+language-element-action-general.html "General Actions" template/main.html
+language-element-action-transitive.html "Transitive Actions" template/main.html
+language-element-action-ditransitive.html "Ditransitive Actions" template/main.html
+language-element-action-modal.html "Modal Actions" template/main.html
+language-element-action-open.html "Open Actions" template/main.html
 language-element-world.html "World Element" template/main.html
 language-element-player.html "Player Element" template/main.html
 language-element-room.html "Room Element" template/main.html

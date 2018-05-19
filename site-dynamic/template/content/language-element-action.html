@@ -8,11 +8,6 @@
 		Not TAME, though! You can make nearly any string into an action able to be parsed by the interpreter,
 		but that also means that if it isn't declared, TAME doesn't know about it.
 	</p>
-</div>
-<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
-</div>
-<div class="w3-container">
 	<p>
 		All actions have the same declaration pattern, but differ slightly with each main type.
 		As stated earlier in the documentation, there are 5 action types: <strong>General</strong>, 
@@ -22,6 +17,14 @@
 		Action declarations contain no executable code. Code associated with actions are handled on other elements.
 	</p>
 </div>
+<div class="w3-container w3-center" style="margin-top:2em;">
+	<a class="w3-button w3-xlarge w3-red" href="language-element-action-general.html">General</a>
+	<a class="w3-button w3-xlarge w3-orange" href="language-element-action-transitive.html">Transitive</a>
+	<a class="w3-button w3-xlarge w3-yellow" href="language-element-action-ditransitive.html">Ditransitive</a>
+	<a class="w3-button w3-xlarge w3-green" href="language-element-action-modal.html">Modal</a>
+	<a class="w3-button w3-xlarge w3-blue" href="language-element-action-open.html">Open</a>
+</div>
+
 <!--
 <div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
@@ -80,150 +83,6 @@
 </div>
 -->
 
-<!-- GENERAL ACTIONS -->
-<div id="#general" class="w3-panel w3-light-gray w3-card-1">
-	<h3>General</h3>
-</div>
-<div class="w3-container">
-	<!--[ include fragments/module-action-general.html ]-->
-</div>
-<div class="w3-container">
-<pre class="tame-example"><code data-language="tamescript">
-	action [MODIFIERS] general [IDENTIFIER] [NAME_CLAUSE] ;
-</code></pre>
-</div>
-<div class="w3-container">
-	<table class="w3-table">
-		<tbody>
-			<tr>
-				<td>[MODIFIERS]</td>
-				<td>
-					An optional declaration of one or more additional modifiers for action behavior.<br/>
-					<br/>
-					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
-					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
-					restricted.<br/>
-					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
-					<em>general</em> actions do not tolerate additional things typed at the interpreter past the
-					parsed action.
-				</td>
-			</tr>
-			<tr>
-				<td>[IDENTIFIER]</td>
-				<td>
-					An internal <a href="tamescript.html#identifiers">identifier</a> that represents this
-					action in the rest of TAMEScript. This is used to find what entry blocks throughout the
-					code should be executed when a name associated with this action is parsed by the interpreter
-					or when a specific action is queued by another command. This identifier must not be used to
-					describe another element.
-				</td>
-			</tr>
-			<tr>
-				<td>[NAME_CLAUSE]</td>
-				<td>
-					The keyword <kbd>named</kbd> followed by a comma-delimited list of strings that the
-					interpreter is supposed to associate with this action. The compiler does not check for
-					name duplicates - equivalent names overwrite their association. Names, internally, are 
-					sanitized to what the interpreter accepts.<br/>
-					<br/>
-					This clause is <em>optional</em> - if no names are declared, this is not parse-able in the
-					interpreter. Leaving this out is a way to make "private" actions.
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<div class="w3-container">
-	<p>
-		The following are a few examples of general action declarations:
-	</p>
-</div>
-<div class="w3-container">
-<pre class="tame-example"><code data-language="tamescript">
-	action general a_quit named "quit";
-	action general a_look named "look", "look around", "l";
-	action strict general a_yell named "yell";
-	action restricted general a_optionA named "a";
-	action general a_refresh;
-</code></pre>
-</div>
-<div class="w3-container">
-	<p>
-		General actions are handled by the current <strong>room</strong>, the current 
-		<strong>player</strong>, or the <strong>world</strong> typically via the <a href="language-block-on-action.html">onAction()</a> block
-		on those elements. If that block does not exist, a different block may be called to handle it.
-	</p>
-</div>
-
-
-<!-- TRANSITIVE ACTIONS -->
-<div id="#transitive" class="w3-panel w3-light-gray w3-card-1">
-	<h3>Transitive</h3>
-</div>
-<div class="w3-container">
-	<!--[ include fragments/module-action-transitive.html ]-->
-</div>
-<div class="w3-container">
-<pre class="tame-example"><code data-language="tamescript">
-	action [MODIFIERS] transitive [IDENTIFIER] [NAME_CLAUSE] ;
-</code></pre>
-</div>
-<div class="w3-container">
-	<table class="w3-table">
-		<tbody>
-			<tr>
-				<td>[MODIFIERS]</td>
-				<td>
-					An optional declaration of one or more additional modifiers for action behavior.<br/>
-					<br/>
-					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
-					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
-					restricted.<br/>
-					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
-					<em>transitive</em> actions do not tolerate additional things typed at the interpreter past a
-					valid parsed object after the action.
-				</td>
-			</tr>
-			<tr>
-				<td>[IDENTIFIER]</td>
-				<td>
-					An internal <a href="tamescript.html#identifiers">identifier</a> that represents this
-					action in the rest of TAMEScript. This is used to find what entry blocks throughout the
-					code should be executed when a name associated with this action is parsed by the interpreter
-					or when a specific action is queued by another command. This identifier must not be used to
-					describe another element.
-				</td>
-			</tr>
-			<tr>
-				<td>[NAME_CLAUSE]</td>
-				<td>
-					The keyword <kbd>named</kbd> followed by a comma-delimited list of strings that the
-					interpreter is supposed to associate with this command. The compiler does not check for
-					name duplicates - equivalent names overwrite their association. Names, internally, are 
-					sanitized to what the interpreter accepts.<br/>
-					<br/>
-					This clause is <em>optional</em> - if no names are declared, this is not parse-able in the
-					interpreter. Leaving this out is a way to make "private" actions.
-				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-<div class="w3-container">
-	<p>
-		The following are a few examples of transitive action declarations:
-	</p>
-</div>
-<div class="w3-container">
-<pre class="tame-example"><code data-language="tamescript">
-	action transitive a_kick named "kick";
-	action transitive a_take named "take", "pick up", "t";
-	action transitive a_examine named "examine", "look at", "x";
-	action restricted transitive a_choose named "choose";
-	action transitive a_assign;
-</code></pre>
-</div>
-
 <!--[ set prev_page language-element-module.html ]-->
-<!--[ set next_page language-element-world.html ]-->
+<!--[ set next_page language-element-action-general.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->
