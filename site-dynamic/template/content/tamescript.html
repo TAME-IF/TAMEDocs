@@ -160,7 +160,7 @@
 			<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
 		</tbody>
 	</table>
-	<h3>Identifiers</h3>
+	<h3 id="identifiers">Identifiers</h3>
 	<p>
 		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
 		Identifiers are alphanumeric (<kbd>0-9, A-Z, a-z</kbd>)plus the underscore character (<kbd>_</kbd>), but must NOT start with a number.
@@ -458,7 +458,7 @@
 	<p>
 		Be warned though - TAME does not allow you to recurse to deeply in order to keep memory use down.
 		By default, this is a depth of <kbd>256</kbd>, but this can be overridden in 
-		<a href="language-element-module.html">module headers</a>.
+		<a href="language-element-module.html#special">module headers</a>.
 	</p>
 </div>
 <div class="w3-container">
@@ -592,7 +592,7 @@
 		NOTE: As with any looping construct, there is always the risk of writing a loop that will never finish, creating an
 		<em>infinite loop</em>. TAME has a soft safeguard against this, where if it detects that a certain threshold of 
 		commands are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> commands).
-		This can be overridden in <a href="language-element-module.html">module headers</a>.
+		This can be overridden in <a href="language-element-module.html#special">module headers</a>.
 	</p>
 	<h3>Quit</h3>
 	<p>

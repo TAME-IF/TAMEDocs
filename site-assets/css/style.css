@@ -142,11 +142,24 @@ IMG.nav-logo {
 .tamedocs-parameter-description {
 }
 
+TABLE.tamedocs-command-reference th, 
+TABLE.tamedocs-command-reference td,
+TABLE.tamedocs-block-reference th,
+TABLE.tamedocs-block-reference td,
+TABLE.tamedocs-key-reference th,
+TABLE.tamedocs-key-reference td
+{
+	vertical-align: text-top;
+}
+
 TABLE.tamedocs-command-reference th:not(:last-child), 
 TABLE.tamedocs-command-reference td:not(:last-child),
 TABLE.tamedocs-block-reference th:not(:last-child),
-TABLE.tamedocs-block-reference td:not(:last-child)
+TABLE.tamedocs-block-reference td:not(:last-child),
+TABLE.tamedocs-key-reference th:not(:last-child),
+TABLE.tamedocs-key-reference td:not(:last-child)
 {
+	white-space: nowrap;
 	width: 1px;
 }
 
@@ -164,7 +177,6 @@ TABLE.tamedocs-block-reference td:not(:last-child)
 	white-space: nowrap;
 	font-weight: bold;
 }
-
 
 #tame-input {
 	font-family: "Courier New", monospace;

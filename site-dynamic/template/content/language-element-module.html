@@ -1,0 +1,149 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		In every TAME module, there can be a section called a <em>header</em> that describes metadata related to the
+		module, or additional instructions for the engine to follow. This is represented in TAMEScript as
+		a section called <strong>"module"</strong> that is a series of key-value pairs.
+	</p>
+</div>
+<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	module
+	{
+		key = [VALUE];
+		...
+	}
+</code></pre>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-border w3-striped">
+		<tbody>
+			<tr>
+				<td>[VALUE]</td>
+				<td>Any value for the corresponding key.</td>
+			</tr>
+		</tbody>
+	</table>
+	<p>
+		All values are stored as <em>strings</em> in the module - if they are read with a utility or
+		retrieved in the module via the command <a href="command-header.html">header()</a>, it is
+		returned as a string. The programs or implementations that read them can convert them to an expected
+		type, though - if the value associated with the key is supposed to be an integer, TAME will try to 
+		parse it as one.
+	</p>
+	<p>
+		A sample module header would look like:
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	module
+	{
+		title = "A Sample Module";
+		author = "Matthew Tropiano";
+		email = "matttropiano@email.net";
+		web = "https://tame-if.com";
+		twitter = "@ModuleMaker";
+		ifid = "12345678-ABCD-EF90-1234-567890ABCDEF";
+	}
+</code></pre>
+</div>
+<div class="w3-container">
+	<p>
+		Since the TAME header can contain any kind of metadata for modules, the following keys are considered
+		<em>standardized</em> for most systems that wish to use module metadata in a meaningful way (this may
+		change over time as more changes/standards are proposed):
+	</p>
+	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
+		<thead>
+			<tr>
+				<th>Key</th>
+				<th>Type (expected)</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>title</td>
+				<td>string</td>
+				<td>The formal title of the module.</td>
+			</tr>
+			<tr>
+				<td>author</td>
+				<td>string</td>
+				<td>The author of the module's name/pseudonym.</td>
+			</tr>
+			<tr>
+				<td>email</td>
+				<td>string</td>
+				<td>The author's E-mail address.</td>
+			</tr>
+			<tr>
+				<td>web</td>
+				<td>string</td>
+				<td>The author's main web site.</td>
+			</tr>
+			<tr>
+				<td>twitter</td>
+				<td>string</td>
+				<td>The author's Twitter handle.</td>
+			</tr>
+			<tr>
+				<td>ifid</td>
+				<td>string</td>
+				<td>This module's <a href="https://babel.ifarchive.org/">IFID</a> number.</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="special" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#special"><i class="link-stub fa fa-link"></i></a> Special Headers <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		Although headers are intended to be purely informational, there are a few headers intended to be read
+		by TAME implementations in order to alter certain run-time behavior. These key/value pairs are
+		considered <em>optional,</em> but they MUST be supported by certified implementations of TAME.
+		The defaults listed MUST be the accepted values if the keys are missing or the values are invalid or
+		not able to be parsed. 
+	</p>
+	<p>
+		The following are header keys that influence TAME:
+	</p>
+	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
+		<thead>
+			<tr>
+				<th>Key</th>
+				<th>Type (expected)</th>
+				<th>Default</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>tame_runaway_max</td>
+				<td>integer</td>
+				<td><kbd>100000</kbd></td>
+				<td>
+					How many commands can be executed by TAME in one request before it stops with a <kbd>fatal</kbd> error.
+					This is for proactively detecting infinite loops.<br/><br/>If this value is 0 or less, the default is enforced. 
+				</td>
+			</tr>
+			<tr>
+				<td>tame_funcdepth_max</td>
+				<td>integer</td>
+				<td><kbd>256</kbd></td>
+				<td>
+					The legal function depth that TAME can call in one request before it stops with a <kbd>fatal</kbd> error.
+					This is for proactively preventing call stack overflows in the implementation.<br/><br/>If this value is 0 or less, the default is enforced. 
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>	
+
+<!--[ set prev_page language-elements.html ]-->
+<!--[ set next_page language-element-action.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->
