@@ -131,6 +131,13 @@ IMG.nav-logo {
     padding: 0.25em;
 }
 
+.tamedocs-sidebar-hilite {
+	color: #fff !important;
+	background-color: #616161 !important;
+	padding: 2px;
+	border-radius: 4px;
+}
+
 .tamedocs-footer {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;

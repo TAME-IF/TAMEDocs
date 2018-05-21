@@ -37,19 +37,51 @@ function tamedocsCloseBar()
 	DocsSidebar.style.display = "none";
 }
 
-var LASTSIDEBAR_ELEM = null;
+// Courtesy of https://stackoverflow.com/users/7173/jason
+function tamedocsSelect(elementId)
+{
+	const element = document.getElementById(elementId);
+
+    if (document.body.createTextRange) 
+    {
+        const range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+    } 
+    else if (window.getSelection) 
+    {
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } 
+    else 
+    {
+        console.warn("Could not select text in node: Unsupported browser.")
+    }
+}
+
+function tamedocsClipboard(elementId)
+{
+	var elem = $Q1(elementId);
+	tamedocsSelect(elementId);
+	if (document.execCommand)
+		document.execCommand('copy');
+}
 
 // For sidebar highlight.
+var LASTSIDEBAR_ELEM = null;
 function tamedocsSidebarUpdate (location)
 {
 	if (location)
 		location = location.substring(location.lastIndexOf('/') + 1, location.length);
 	var elem = DocsSidebar.querySelector('a[href="'+location+'"]');
 	if (LASTSIDEBAR_ELEM)
-		tamedocsRemoveClass(LASTSIDEBAR_ELEM, 'w3-dark-gray');
+		tamedocsRemoveClass(LASTSIDEBAR_ELEM, 'tamedocs-sidebar-hilite');
 	if (elem)
 	{
-		tamedocsAddClass(elem, 'w3-dark-gray');
+		tamedocsAddClass(elem, 'tamedocs-sidebar-hilite');
 		if (elem.scrollIntoView)
 			elem.scrollIntoView();
 	}

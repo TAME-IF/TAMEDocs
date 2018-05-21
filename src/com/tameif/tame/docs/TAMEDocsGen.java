@@ -628,7 +628,7 @@ public final class TAMEDocsGen
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
 
 				writer.write("<div class=\"w3-example\">\n");
-				// writer.write("\t<button id=\"tame-"+moduleName+"-maximize\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"maximizeExample('code-"+moduleName+"', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
+				writer.write("\t<button id=\"tame-"+moduleName+"-clipboard\" class=\"w3-button w3-blue button-launch\" style=\"float:right;\" onclick=\"tamedocsClipboard('code-"+moduleName+"')\"><i class=\"fa fa-clipboard\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>\n");
