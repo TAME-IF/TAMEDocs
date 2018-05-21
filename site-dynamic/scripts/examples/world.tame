@@ -48,12 +48,12 @@ world
 		textln("Type \"increment\" to increment world.x");
 		textln("Type \"decrement\" to decrement world.x");
 		textln("Type \"quit\" to quit.");
-		textln("world.x is " + x);
 	}
 	
 	afterSuccessfulCommand()
 	{
 		// call the container's function.
+		textln("world.x is " + x);
 		c_test.checkWorld();
 	}
 	

@@ -1,0 +1,104 @@
+action transitive a_take named "take";
+action general a_quit named "quit"; 
+
+object archetype o_ball
+{
+	onAction(a_take)
+	{
+		if (hasObject(player, this))
+			textln("The current player already has this.");
+		else
+		{
+			giveObject(player, this);
+			textln("Taken.");
+		}
+	}
+	
+}
+
+object o_red_ball : o_ball named "red ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A red ball.");
+	}
+
+	onPlayerBrowse()
+	{
+		textln("A red ball.");
+	}
+}
+
+object o_blue_ball : o_ball named "blue ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A blue ball.");
+	}
+
+	onPlayerBrowse()
+	{
+		textln("A blue ball.");
+	}
+}
+
+object o_green_ball : o_ball named "green ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A green ball.");
+	}
+
+	onPlayerBrowse()
+	{
+		textln("A green ball.");
+	}
+}
+
+player p_main
+{
+}
+
+world
+{
+	init()
+	{
+		setPlayer(p_main);
+		giveObject(world, o_red_ball);
+		giveObject(world, o_blue_ball);
+		giveObject(world, o_green_ball);
+	}
+
+	function browseAll()
+	{
+		textln("The current player has:");
+		if (objectCount(player) > 0)
+			browse(player);
+		else
+			textln("NOTHING");
+			
+		textln("The world has:");
+		if (objectCount(world) > 0)
+			browse(world);
+		else
+			textln("NOTHING");
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	start()
+	{
+		textln("Use \"take\" to take items.");
+		textln("Type \"quit\" to quit.");
+		browseAll();
+	}
+	
+	afterSuccessfulCommand()
+	{
+		browseAll();
+	}
+	
+}

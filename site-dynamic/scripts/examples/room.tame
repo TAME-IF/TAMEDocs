@@ -1,0 +1,61 @@
+action modal a_go named "go" uses modes "north", "south";
+action general a_quit named "quit"; 
+
+// prototype
+room r_southroom;
+
+room r_northroom 
+{
+	onModalAction(a_go, "south")
+	{
+		setRoom(player, r_southroom);
+	}
+	
+	onModalAction(a_go, "north")
+	{
+		textln("Cannot go north.");
+	}
+}
+
+extend room r_southroom 
+{
+	onModalAction(a_go, "south")
+	{
+		textln("Cannot go south.");
+	}
+	
+	onModalAction(a_go, "north")
+	{
+		setRoom(player, r_northroom);
+	}
+}
+
+player p_main
+{
+}
+
+world
+{
+	init()
+	{
+		setPlayer(p_main);
+		setRoom(player, r_northroom);
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	start()
+	{
+		textln("Type \"go north\" or \"go south\".");
+		textln("Type \"quit\" to quit.");
+	}
+	
+	afterSuccessfulCommand()
+	{
+		// "room" is current room.
+		textln("Current room is " + identity(room));
+	}
+}
