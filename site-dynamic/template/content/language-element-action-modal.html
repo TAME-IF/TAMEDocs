@@ -17,9 +17,6 @@
 				<td>
 					An optional declaration of one or more additional modifiers for action behavior.<br/>
 					<br/>
-					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
-					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
-					restricted.<br/>
 					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
 					<em>modal</em> actions do not tolerate additional things typed at the interpreter past a
 					valid parsed mode after the action.
@@ -68,7 +65,7 @@
 <div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	action modal a_go named "go", "travel" uses modes "north", "south", "west", "east";
-	action strict restricted modal a_select named "select" uses modes "1", "2", "3";
+	action strict modal a_select named "select" uses modes "1", "2", "3";
 	action modal a_update uses modes "items", "people";
 </code></pre>
 </div>

@@ -17,9 +17,6 @@
 				<td>
 					An optional declaration of one or more additional modifiers for action behavior.<br/>
 					<br/>
-					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
-					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
-					restricted.<br/>
 					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
 					<em>transitive</em> actions do not tolerate additional things typed at the interpreter past a
 					valid parsed object after the action.
@@ -60,7 +57,7 @@
 	action transitive a_kick named "kick";
 	action transitive a_take named "take", "pick up", "t";
 	action transitive a_examine named "examine", "look at", "x";
-	action restricted transitive a_choose named "choose";
+	action transitive a_choose named "choose";
 	action transitive a_assign;
 </code></pre>
 </div>

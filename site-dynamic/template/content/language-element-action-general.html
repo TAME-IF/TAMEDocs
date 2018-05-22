@@ -17,9 +17,6 @@
 				<td>
 					An optional declaration of one or more additional modifiers for action behavior.<br/>
 					<br/>
-					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
-					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
-					restricted.<br/>
 					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
 					<em>general</em> actions do not tolerate additional things typed at the interpreter past the
 					parsed action.
@@ -60,7 +57,6 @@
 	action general a_quit named "quit";
 	action general a_look named "look", "look around", "l";
 	action strict general a_yell named "yell";
-	action restricted general a_optionA named "a";
 	action general a_refresh;
 </code></pre>
 </div>

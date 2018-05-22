@@ -73,8 +73,6 @@
 		<a class="link" href="language-block-on-action-with-ancestor.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another non-specific object.<br/>
 		<a class="link" href="language-block-on-action-with-other.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
 		<a class="link" href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
-		<a class="link" href="language-block-on-room-forbidden-action.html">onRoomForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current room.<br/>
-		<a class="link" href="language-block-on-player-forbidden-action.html">onPlayerForbiddenAction()</a> &mdash; Called if a command is valid, but an action is disallowed by the current player.<br/>
 	</p>
 </div>
 
@@ -87,10 +85,5 @@
 		or the current <span class="tamedocs-element-type">room</span>. This is assessed when finding the relevant block to execute for the current
 		action being processed. This will affect program flow if <span class="tamedocs-element-type">rooms</span> 
 		and <span class="tamedocs-element-type">players</span> change.
-	</p>
-	<p>
-		"Forbidden" action checks are done before other targets are checked, but after the whole command is interpreted. For instance,
-		if a TRANSITIVE action is parsed with an unknown object, TAME considers it a "malformed action" before it gets to decide
-		if the action is forbidden by the current <span class="tamedocs-element-type">player</span> or <span class="tamedocs-element-type">room</span>.
 	</p>
 </div>
