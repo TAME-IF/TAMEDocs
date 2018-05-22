@@ -1,0 +1,78 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<!--[ include fragments/module-world.html ]-->
+</div>
+<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+<pre class="tame-example"><code data-language="tamescript">
+	world
+	{
+		/** Lifecycle */
+		init() { ... }
+		start() { ... }
+		afterSuccessfulCommand() { ... }
+		afterFailedCommand() { ... }
+		afterEveryCommand() { ... }
+
+		/** Events */
+		onAction(action) { ... }
+		onModalAction(action, mode) { ... }
+		onUnhandledAction() { ... }
+		onUnhandledAction(action) { ... }
+		onUnknownCommand() { ... }
+		onMalformedCommand() { ... }
+		onMalformedCommand(action) { ... }
+		onIncompleteCommand() { ... }
+		onIncompleteCommand(action) { ... }
+		onAmbiguousCommand() { ... }
+		onAmbiguousCommand(action) { ... }
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<p>
+		Every TAME module contains one <strong>world</strong>. It is represented in TAMEScript as a section 
+		called <strong>"world"</strong>, which contains a series of blocks that the world needs to handle.
+	</p>
+	<p>
+		The smallest TAME module (that does something) can be this small:
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Hello World" module_intro_helloworld helloworld.tame ]-->
+</div>
+
+<div id="entry-blocks" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#entry-blocks"><i class="link-stub fa fa-link"></i></a> Entry Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+		<thead class="w3-teal">
+			<tr>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[ include fragments/block-tablerow-init.html ]-->
+			<!--[ include fragments/block-tablerow-start.html ]-->
+			<!--[ include fragments/block-tablerow-after-successful-command.html ]-->
+			<!--[ include fragments/block-tablerow-after-failed-command.html ]-->
+			<!--[ include fragments/block-tablerow-after-every-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-modal-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-unhandled-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-unknown-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-malformed-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-incomplete-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-ambiguous-command.html ]-->
+		</tbody>
+	</table>
+</div>
+
+
+<!--[ set prev_page language-element-action-open.html ]-->
+<!--[ set next_page language-element-object.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->

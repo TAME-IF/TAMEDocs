@@ -1,12 +1,12 @@
 <div class="w3-container" style="margin-top: 2em;">
-	<!--[ include fragments/module-action-transitive.html ]-->
+	<!--[ include fragments/module-action-open.html ]-->
 </div>
 <div id="declaration" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top:2em;">
 <pre class="tame-example"><code data-language="tamescript">
-	action [MODIFIERS] transitive [IDENTIFIER] [NAME_CLAUSE] ;
+	action [MODIFIERS] open [IDENTIFIER] [NAME_CLAUSE] [LOCAL_CLAUSE] ;
 </code></pre>
 </div>
 <div class="w3-container">
@@ -20,9 +20,6 @@
 					<kbd>restricted</kbd>: Denotes that this action is available only in situations that
 					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
 					restricted.<br/>
-					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
-					<em>transitive</em> actions do not tolerate additional things typed at the interpreter past a
-					valid parsed object after the action.
 				</td>
 			</tr>
 			<tr>
@@ -47,30 +44,38 @@
 					interpreter. Leaving this out is a way to make "private" actions.
 				</td>
 			</tr>
+			<tr>
+				<td>[LOCAL_CLAUSE]</td>
+				<td>
+					After the list of action names, the keywords <kbd>uses local</kbd> are required as well
+					as an identifier that the interpreter uses as the local variable to write what the use typed 
+					after the action. NOTE: The input is sanitized to how the interpreter parses text!<br/> 
+					<br/>
+					<em>Unlike</em> the [NAME_CLAUSE], this is still mandatory.
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
 <div class="w3-container">
 	<p>
-		The following are a few examples of transitive action declarations:
+		The following are a few examples of open action declarations:
 	</p>
 </div>
 <div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
-	action transitive a_kick named "kick";
-	action transitive a_take named "take", "pick up", "t";
-	action transitive a_examine named "examine", "look at", "x";
-	action restricted transitive a_choose named "choose";
-	action transitive a_assign;
+	action open a_say named "say", "shout" uses local phrase;
+	action open a_ask_about named "ask about" uses local topic;
 </code></pre>
 </div>
 <div class="w3-container">
 	<p>
-		Transitive actions are handled by the object that is targeted, via the <a href="language-block-on-action.html">onAction()</a> block
-		on that object. If that block does not exist, a different block may be called to handle it.
+		Open actions are handled by the current <strong>room</strong>, the current <strong>player</strong>, or the 
+		<strong>world</strong>, via the <a href="language-block-on-action.html">onAction()</a> block
+		on that element. If that block does not exist, a different block may be called to handle it.
 	</p>
 </div>
 
-<!--[ set prev_page language-element-action-general.html ]-->
-<!--[ set next_page language-element-action-ditransitive.html ]-->
+<!--[ set prev_page language-element-action-modal.html ]-->
+<!--[ set next_page language-element-world.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->

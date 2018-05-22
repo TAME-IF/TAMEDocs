@@ -9,156 +9,26 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><a href="language-block-init.html">Init</a></td>
-				<td><em>None</em></td>
-				<td>Called at module context initialization on each element.</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-start.html">Start</a></td>
-				<td><em>None</em></td>
-				<td>Called after all elements initialize.</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-action.html">OnAction</a></td>
-				<td>ACTION</td>
-				<td>
-					Called when an action needs to be processed on a specific element. 
-					Action type decides the element entry point.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-action-with.html">OnActionWith</a></td>
-				<td>ACTION, OBJECT</td>
-				<td>Called when a ditransitive action needs to be processed with a specific object.</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-action-with-ancestor.html">OnActionWithAncestor</a></td>
-				<td>ACTION, OBJECT</td>
-				<td>
-					Called when a ditransitive action needs to be processed with a matched ancestor 
-					object (if <strong>OnActionWith</strong> is unhandled).
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-action-with-other.html">OnActionWithOther</a></td>
-				<td>ACTION</td>
-				<td>
-					Called when a ditransitive action needs to be processed with any other 
-					object (if <strong>OnActionWith</strong> and <strong>OnActionWithAncestor</strong> is unhandled).
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-action-with-ancestor.html">OnModalAction</a></td>
-				<td>ACTION, STRING</td>
-				<td>
-					Called when a modal action needs to be processed with a specific mode.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-world-browse.html">OnWorldBrowse</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called when <a href="command-browse.html">Browse()</a> is called while this object is
-					owned by a world.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-room-browse.html">OnRoomBrowse</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called when <a href="command-browse.html">Browse()</a> is called while this object is
-					owned by a room.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-player-browse.html">OnPlayerBrowse</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called when <a href="command-browse.html">Browse()</a> is called while this object is
-					owned by a player.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-container-browse.html">OnContainerBrowse</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called when <a href="command-browse.html">Browse()</a> is called while this object is
-					owned by a container.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-forbidden-action.html">OnForbiddenAction</a></td>
-				<td><em>ACTION [optional]</em></td>
-				<td>
-					Called when an action forbidden by a player is processed.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-room-forbidden-action.html">OnRoomForbiddenAction</a></td>
-				<td><em>ACTION [optional]</em></td>
-				<td>
-					Called when an action forbidden by a room is processed.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-unhandled-action.html">OnUnhandledAction</a></td>
-				<td><em>ACTION [optional]</em></td>
-				<td>
-					Called when an action is not handled by the elements that should have handled it.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-unknown-command.html">OnUnknownCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called if an action is not interpreted.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-ambiguous-command.html">OnAmbiguousCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called if an interpreted action can have more than one possible object target based on the input.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-incomplete-command.html">OnIncompleteCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called if an interpreted action is missing a element that is expected, but not parsed.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-malformed-command.html">OnMalformedCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called if an interpreted action has a part that isn't found, or if a <em>strict</em> command
-					has more parsed than needed.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-successful-command.html">AfterSuccessfulCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called after a processed action due to a correctly-parsed input.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-failed-command.html">AfterFailedCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called after a processed action due to an incorrectly-parsed input.
-				</td>
-			</tr>
-			<tr>
-				<td><a href="language-block-on-every-command.html">AfterEveryCommand</a></td>
-				<td><em>None</em></td>
-				<td>
-					Called after every processed action and after when <strong>AfterSuccessfulCommand</strong>
-					or <strong>AfterFailedCommand</strong> is called.
-				</td>
-			</tr>
+			<!--[ include fragments/block-tablerow-init.html ]-->
+			<!--[ include fragments/block-tablerow-start.html ]-->
+			<!--[ include fragments/block-tablerow-on-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with-ancestor.html ]-->
+			<!--[ include fragments/block-tablerow-on-modal-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-world-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-room-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-player-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-container-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-room-forbidden-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-player-forbidden-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-unhandled-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-unknown-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-ambiguous-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-incomplete-command.html ]-->
+			<!--[ include fragments/block-tablerow-on-malformed-command.html ]-->
+			<!--[ include fragments/block-tablerow-after-successful-command.html ]-->
+			<!--[ include fragments/block-tablerow-after-failed-command.html ]-->
+			<!--[ include fragments/block-tablerow-after-every-command.html ]-->
 		</tbody>
 	</table>
 </div>

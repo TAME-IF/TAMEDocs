@@ -1,7 +1,10 @@
 <div class="w3-container" style="margin-top: 2em;">
 	<!--[ include fragments/module-action-ditransitive.html ]-->
 </div>
-<div class="w3-container">
+<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top:2em;">
 <pre class="tame-example"><code data-language="tamescript">
 	action [MODIFIERS] ditransitive [IDENTIFIER] [NAME_CLAUSE] ;
 </code></pre>
@@ -58,6 +61,9 @@
 	</table>
 </div>
 <div class="w3-container">
+	<p>
+		Non-strict <strong>ditransitive</strong> actions that lack a second object are treated as <a href="language-element-action-transitive.html">transitive</a> actions.
+	</p>
 	<p>
 		The following are a few examples of transitive action declarations:
 	</p>

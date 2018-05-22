@@ -1,12 +1,12 @@
 <div class="w3-container" style="margin-top: 2em;">
-	<!--[ include fragments/module-action-transitive.html ]-->
+	<!--[ include fragments/module-action-modal.html ]-->
 </div>
 <div id="declaration" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top:2em;">
 <pre class="tame-example"><code data-language="tamescript">
-	action [MODIFIERS] transitive [IDENTIFIER] [NAME_CLAUSE] ;
+	action [MODIFIERS] modal [IDENTIFIER] [NAME_CLAUSE] [MODES_CLAUSE] ;
 </code></pre>
 </div>
 <div class="w3-container">
@@ -21,8 +21,8 @@
 					<em>explicitly</em> allow it to be used and interpreted. By default, actions are not 
 					restricted.<br/>
 					<kbd>strict</kbd>: Apply "strict behavior" to the handling of this action. "Strict"
-					<em>transitive</em> actions do not tolerate additional things typed at the interpreter past a
-					valid parsed object after the action.
+					<em>modal</em> actions do not tolerate additional things typed at the interpreter past a
+					valid parsed mode after the action.
 				</td>
 			</tr>
 			<tr>
@@ -47,30 +47,39 @@
 					interpreter. Leaving this out is a way to make "private" actions.
 				</td>
 			</tr>
+			<tr>
+				<td>[MODES_CLAUSE]</td>
+				<td>
+					After the list of action names, the keywords <kbd>uses modes</kbd> are required as well
+					as a comma-delimited list of strings that the interpreter uses as valid modes for 
+					the action.<br/>
+					<br/>
+					<em>Unlike</em> the [NAME_CLAUSE], this is still mandatory.
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
 <div class="w3-container">
 	<p>
-		The following are a few examples of transitive action declarations:
+		The following are a few examples of modal action declarations:
 	</p>
 </div>
 <div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
-	action transitive a_kick named "kick";
-	action transitive a_take named "take", "pick up", "t";
-	action transitive a_examine named "examine", "look at", "x";
-	action restricted transitive a_choose named "choose";
-	action transitive a_assign;
+	action modal a_go named "go", "travel" uses modes "north", "south", "west", "east";
+	action strict restricted modal a_select named "select" uses modes "1", "2", "3";
+	action modal a_update uses modes "items", "people";
 </code></pre>
 </div>
 <div class="w3-container">
 	<p>
-		Transitive actions are handled by the object that is targeted, via the <a href="language-block-on-action.html">onAction()</a> block
-		on that object. If that block does not exist, a different block may be called to handle it.
+		Modal actions are handled by the current <strong>room</strong>, the current <strong>player</strong>, or the 
+		<strong>world</strong>, via the <a href="language-block-on-modal-action.html">onModalAction(...)</a> block
+		on that element. If that block does not exist, a different block will be called to handle it.
 	</p>
 </div>
 
-<!--[ set prev_page language-element-action-general.html ]-->
-<!--[ set next_page language-element-action-ditransitive.html ]-->
+<!--[ set prev_page language-element-action-ditransitive.html ]-->
+<!--[ set next_page language-element-action-open.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->
