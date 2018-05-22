@@ -29,8 +29,6 @@ language-block-on-world-browse.html "OnWorldBrowse Element Block" template/main.
 language-block-on-room-browse.html "OnRoomBrowse Element Block" template/main.html
 language-block-on-player-browse.html "OnPlayerBrowse Element Block" template/main.html
 language-block-on-container-browse.html "OnContainerBrowse Element Block" template/main.html
-language-block-on-forbidden-action.html "OnForbiddenAction Element Block" template/main.html
-language-block-on-room-forbidden-action.html "OnRoomForbiddenAction Element Block" template/main.html
 language-block-on-unhandled-action.html "OnUnhandledAction Element Block" template/main.html
 language-block-on-unknown-command.html "OnUnknownCommand Element Block" template/main.html
 language-block-on-ambiguous-command.html "OnAmbiguousCommand Element Block" template/main.html
