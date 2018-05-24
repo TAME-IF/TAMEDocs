@@ -8,14 +8,14 @@
 <pre class="tame-example"><code data-language="tamescript">
 	world
 	{
-		/** Lifecycle */
+		/* Lifecycle */
 		init() { ... }
 		start() { ... }
 		afterSuccessfulCommand() { ... }
 		afterFailedCommand() { ... }
 		afterEveryCommand() { ... }
 
-		/** Events */
+		/* Events */
 		onAction(action) { ... }
 		onModalAction(action, mode) { ... }
 		onUnhandledAction() { ... }
@@ -72,6 +72,36 @@
 	</table>
 </div>
 
+<div id="archetyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#archetyping"><i class="link-stub fa fa-link"></i></a> Archetyping <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		There is only one <strong>world</strong> element, so it cannot be made into an <em>archetype</em>.
+	</p>
+</div>
+
+<div id="prototyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#prototyping"><i class="link-stub fa fa-link"></i></a> Prototyping and Extending <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		The <strong>world</strong> is omnipresent and known to the TAMEScript compiler, so you don't 
+		need to prototype it in order to "use it later."
+	</p>
+	<p>
+		However, if you have already declared it and wish to add to it later in code (also not recommended), 
+		you'll need to <em>extend</em> it like other elements using the <strong>extend</strong> keyword.
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	extend world
+	{
+		/* ...stuff goes here... */
+	}
+</code></pre>
+</div>
 
 <!--[ set prev_page language-element-action-open.html ]-->
 <!--[ set next_page language-element-object.html ]-->

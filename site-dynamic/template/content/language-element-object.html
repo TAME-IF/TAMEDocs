@@ -1,0 +1,179 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<!--[ include fragments/module-object.html ]-->
+</div>
+<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+<pre class="tame-example"><code data-language="tamescript">
+	object [INDENTIFIER] [INHERITANCE_CLAUSE] [NAME_CLAUSE] [TAG_CLAUSE] [DETERMINER_CLAUSE]
+	{
+		/* Lifecycle */
+		init() { ... }
+
+		/* Events */
+		onAction(action) { ... }
+		onActionWith(action, object) { ... }
+		onActionWithAncestor(action, object) { ... }
+		onActionWithOther(action) { ... }
+		onRoomBrowse(action) { ... }
+		onPlayerBrowse(action) { ... }
+		onWorldBrowse(action) { ... }
+		onContainerBrowse(action) { ... }
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<table class="w3-table">
+		<tbody>
+			<tr>
+				<td>[IDENTIFIER]</td>
+				<td>
+					An internal <a href="tamescript.html#identifiers">identifier</a> that represents this
+					object in the rest of TAMEScript. This is used to find what entry blocks throughout the
+					code should be executed when this object is parsed by the interpreter or when a specific 
+					action is queued by another command. This identifier must not be used to describe another
+					element.
+				</td>
+			</tr>
+			<tr>
+				<td>[INHERITANCE_CLAUSE]</td>
+				<td>
+					If this object inherits entry points and functions from another object, you declare its
+					parent object by adding a colon (<kbd>:</kbd>) plus the identifier of the parent object.
+				</td>
+			</tr>
+			<tr>
+				<td>[NAME_CLAUSE]</td>
+				<td>
+					The keyword <kbd>named</kbd> followed by a comma-delimited list of strings that the
+					interpreter is supposed to associate with this object at initial state. Objects can share
+					names, but without distinct names to refer to an object as, more than one accessible object
+					referred by the same name will cause <em>ambiguous command</em> errors.<br/>
+					<br/>
+					This clause is <em>optional</em> - if no names are declared, this object is not parse-able
+					in the interpreter until names and added to it (via <a href="command-addobjectname.html">AddObjectName()</a>).
+					An object's <em>determiners</em> affect what names get assigned to this object, as well.
+				</td>
+			</tr>
+			<tr>
+				<td>[TAG_CLAUSE]</td>
+				<td>
+					The keyword <kbd>tagged</kbd> followed by a comma-delimited list of strings that TAME
+					assigns as tags to this particular object at initial state.<br/>
+					<br/>
+					This clause is <em>optional</em> - if no tags are declared, they can still be added later 
+					(via <a href="command-addobjecttag.html">AddObjectTag()</a>).
+				</td>
+			</tr>
+			<tr>
+				<td>[DETERMINER_CLAUSE]</td>
+				<td>
+					The keywords <kbd>uses determiners</kbd> followed by a comma-delimited list of strings that TAME
+					assigns as determiners to this particular object at initial state.<br/>
+					<br/>
+					A <em>determiner</em> is an optional prefix added to object names to make them parse-able in
+					the interpreter. For example, if an object had the determiner <strong>the</strong> and the name <strong>book</strong>,
+					The names associated are "book" and "the book".<br/>
+					<br/>
+					This clause is <em>optional</em>. Determiners cannot be added later in module execution.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="entry-blocks" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#entry-blocks"><i class="link-stub fa fa-link"></i></a> Entry Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+		<thead class="w3-teal">
+			<tr>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[ include fragments/block-tablerow-init.html ]-->
+			<!--[ include fragments/block-tablerow-on-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with-ancestor.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with-other.html ]-->
+			<!--[ include fragments/block-tablerow-on-world-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-room-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-player-browse.html ]-->
+			<!--[ include fragments/block-tablerow-on-container-browse.html ]-->
+		</tbody>
+	</table>
+</div>
+
+<div id="archetyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#archetyping"><i class="link-stub fa fa-link"></i></a> Archetyping <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		The keyword <strong>archetype</strong> can be used to create objects that have common functions and entry points
+		to share among similar objects. Archetyped objects can inherit from other parent objects and archetyped objects,
+		but do not specify <em>names</em>, <em>tags</em>, nor <em>determiners</em>, since they are not "real" objects.
+	</p>
+	<p>
+		Archetyped objects also cannot be used in commands as through they were real elements. Archetypes also do not hold
+		a context state, nor is their context state saved. 
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object archetype [INDENTIFIER] [INHERITANCE_CLAUSE]
+	{
+		/* Lifecycle */
+		init() { ... }
+
+		/* Events */
+		onAction(action) { ... }
+		onActionWith(action, object) { ... }
+		onActionWithAncestor(action, object) { ... }
+		onActionWithOther(action) { ... }
+		onRoomBrowse(action) { ... }
+		onPlayerBrowse(action) { ... }
+		onWorldBrowse(action) { ... }
+		onContainerBrowse(action) { ... }
+	}
+</code></pre>
+</div>
+
+<div id="prototyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#prototyping"><i class="link-stub fa fa-link"></i></a> Prototyping and Extending <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		TAMEScript's compiler is single-pass: it parses through the module code once, so if the compiler
+		encounters an object identifier that has not been declared yet, it may need to be <em>prototyped</em>.
+	</p>
+	<p>
+		Prototyping an object is essentially declaring an object, but with a semicolon after its main
+		declaration instead of a declaration body wrapped in curly-braces (<kbd>{ }</kbd>). A parent object,
+		names, tags, and determiners, if any, will still need to be declared here.
+	</p>
+	<p>
+		If you have already declared an object as a prototype (or with a declaration body) and wish to add to it later in code, 
+		you'll need to <em>extend</em> it using the <strong>extend</strong> keyword. When using	<strong>extend</strong>, 
+		you cannot change its lineage (parent) or its initial names, tags, or determiners.
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_ball named "ball";
+	
+	extend object o_ball
+	{
+		/* ...stuff goes here... */
+	}
+</code></pre>
+</div>
+
+
+<!--[ set prev_page language-element-world.html ]-->
+<!--[ set next_page language-element-player.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->
