@@ -4,7 +4,7 @@ Copyright (c) 2017-2018 Matt Tropiano. All rights reserved.
 
 ### Required Libraries
 
-Black Rook Commons 2.31.0+  
+Black Rook Commons 2.31.4+  
 [https://github.com/BlackRookSoftware/Common](https://github.com/BlackRookSoftware/Common)
 
 Black Rook Common I/O 2.5.0+  
@@ -13,7 +13,7 @@ Black Rook Common I/O 2.5.0+
 Black Rook Common Lang 2.9.1+  
 [https://github.com/BlackRookSoftware/CommonLang](https://github.com/BlackRookSoftware/CommonLang)
 
-TAME  
+TAME 
 [https://github.com/TAME-IF/TAME](https://github.com/TAME-IF/TAME)
 
 ### Introduction
@@ -40,7 +40,7 @@ Then, to build TAME's documentation:
 
 The build is placed in `build/tamedocs` by default.
 
-### Other
+### Licensing
 
 This program and the accompanying materials
 are made available under the terms of the GNU Lesser Public License v2.1
