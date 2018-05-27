@@ -119,8 +119,8 @@ IMG.tame-diagram {
  
 IMG.nav-logo {
     display: inline;
-    width: 134px;
-    height: 77px;
+    width: 128px;
+    height: auto;
 }
  
 .tame-sidebar {

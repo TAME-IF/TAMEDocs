@@ -5,6 +5,7 @@ var $Q1 = $Q1 || function(x)
 
 var BodyElement = $Q1("body");
 var DocsSidebar = $Q1("#tamedocs-sidebar");
+var DocsSearchbar = $Q1("#tamedocs-search-input");
 
 function tamedocsAddClass(elem, name)
 {
@@ -68,6 +69,69 @@ function tamedocsClipboard(elementId)
 	tamedocsSelect(elementId);
 	if (document.execCommand)
 		document.execCommand('copy');
+}
+
+function tamedocsSearchUpdate()
+{
+	var input = DocsSearchbar.value;
+	console.log(tamedocsSearch(input));
+}
+
+function tamedocsOpenSearchBar()
+{
+	DocsSearchbar.style.display = "inline";
+}
+
+function tamedocsCloseSearchBar() 
+{
+	DocsSearchbar.style.display = "none";
+}
+
+function tamedocsSearch(input)
+{
+	var tokenList = [];
+	var searchTokens = input.trim().split(/\s+/);
+	for (let x in searchTokens)
+	{
+		let p = searchTokens[x];
+		let t = TAMEDOCS_SEARCH_INDEX['partials'][p];
+		if (t) for (let i in t)
+			tokenList.push(t[i]);
+		else if (TAMEDOCS_SEARCH_INDEX['tokenDensity'][p])
+			tokenList.push(p);
+	}
+	
+	var output = null;
+	for (let i in tokenList)
+	{
+		let stuff = [];
+		let token = tokenList[i];
+		let pageList = TAMEDOCS_SEARCH_INDEX['tokenDensity'][token];
+		
+		for (let page in pageList)
+		{
+			let score = pageList[page];
+			stuff.push({"token":token, "title":TAMEDOCS_SEARCH_INDEX['pages'][page], "page":page, "relevance": score});
+		}
+		
+		output = (output) ? output.concat(stuff) : stuff;
+	}
+	
+	if (!output)
+		output = [];
+	
+	// sort by closest relevance.
+	output.sort(function(a,b){
+		if (a.token === b.token)
+			return b.relevance - a.relevance; 
+		else
+			return a.token.length - b.token.length;
+	});
+
+	// truncate to 20 results.
+	output.length = Math.min(output.length, 20);
+
+	return output;
 }
 
 // For sidebar highlight.

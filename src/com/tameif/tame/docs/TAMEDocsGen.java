@@ -12,6 +12,7 @@ package com.tameif.tame.docs;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,9 +27,15 @@ import java.util.Date;
 
 import com.blackrook.commons.Common;
 import com.blackrook.commons.CommonTokenizer;
+import com.blackrook.commons.ObjectPair;
 import com.blackrook.commons.Reflect;
+import com.blackrook.commons.hash.CaseInsensitiveHash;
+import com.blackrook.commons.hash.CountMap;
 import com.blackrook.commons.hash.HashMap;
+import com.blackrook.commons.hash.HashedHashMap;
 import com.blackrook.commons.linkedlist.Queue;
+import com.blackrook.lang.json.JSONObject;
+import com.blackrook.lang.json.JSONWriter;
 import com.tameif.tame.TAMEModule;
 import com.tameif.tame.factory.TAMEJSExporter;
 import com.tameif.tame.factory.TAMEJSExporterOptions;
@@ -68,8 +75,10 @@ public final class TAMEDocsGen
 	static final String OUTPATH_JS_TAMEENGINE = OUTPATH_JS + "TAME.js";
 	/** Output directory for generated JS engine. */
 	static final String OUTPATH_JS_BROWSERHANDLER = OUTPATH_JS + "TAMEBrowserHandler.js";
-	/** Output directory for generated JS module. */
+	/** Output directory for generated JS modules. */
 	static final String OUTPATH_JS_TAMEMODULE = OUTPATH_JS + "modules/";
+	/** Output directory for generated search index data. */
+	static final String OUTPATH_JS_SEARCHINDEX = OUTPATH_JS + "searchindex.js";
 
 	/** Parse command: set variable. */
 	static final String COMMAND_SET = "set";
@@ -85,7 +94,22 @@ public final class TAMEDocsGen
 	static final String COMMAND_GENERATE_TABLE = "generate-table";
 	/** Variable prefix. */
 	static final String VAR_PREFIX = "$";
-
+	
+	/** Common English tokens. */
+	static final CaseInsensitiveHash INDEX_COMMON_TOKENS = new CaseInsensitiveHash() {{
+		BufferedReader br = null;
+		try {
+			br = Common.openTextStream(Common.openResource("com/tameif/tame/docs/resources/index-common.txt"));
+			String s;
+			while ((s = br.readLine()) != null)
+				put(s.trim());
+		} catch (IOException e) {
+			throw new RuntimeException("Could not load common index token list!", e);
+		} finally {
+			Common.close(br);
+		}
+	}};
+	
 	/** Values to use for the arithmetic operator tables. */
 	static final Value[] TEST_VALUES = 
 	{
@@ -209,15 +233,21 @@ public final class TAMEDocsGen
 		// Export browser JS helper.
 		exportBrowserHandler(outPath);
 
+		Iterable<String[]> pageList = getPageList();
+		
 		// Process pages.
-		processAllPages(outPath);
+		processAllPages(outPath, pageList);
+
+		// Build local index.
+		out.println("Indexing...");
+		generateIndex(outPath, pageList);
 
 		out.println("Done!");
 	}
 
-	private static void processAllPages(String outPath) throws IOException
+	private static void processAllPages(String outPath, Iterable<String[]> pageList) throws IOException
 	{
-		for (String[] page : getPageList())
+		for (String[] page : pageList)
 		{
 			boolean error = false;
 			File outFile = new File(outPath + "/" + page[0]);
@@ -246,6 +276,218 @@ public final class TAMEDocsGen
 				Common.close(pw);
 				if (error)
 					outFile.delete();
+			}
+		}
+	}
+
+	private static boolean generateIndex(String outPath, Iterable<String[]> pageList)
+	{
+		CountMap<String> tokenToAppearances = new CountMap<>();
+		HashMap<String, CountMap<String>> tokenToFileAppearances = new HashMap<>();
+		HashedHashMap<String, String> partialToTokens = new HashedHashMap<>();
+		
+		// scan HTML files in output folder.
+		File outputDirectory = new File(outPath);
+		for (File file : outputDirectory.listFiles((f)->{
+			String fn = f.getName(); 
+			return fn.length() > 5 && fn.substring(fn.length() - 5, fn.length()).equalsIgnoreCase(".html");
+		}))
+		{
+			BufferedReader reader = null;
+			try {
+				reader = Common.openTextFile(file);
+				generateIndexScanForFile(file.getName(), reader, tokenToAppearances, tokenToFileAppearances, partialToTokens);
+			} catch (IOException e) {
+				out.println("Cannot open "+file.getPath()+" for indexing!");
+				e.printStackTrace(out);
+			} finally {
+				Common.close(reader);
+			}
+		}
+
+		HashMap<String, HashMap<String, Float>> tokenToFileDensity = new HashMap<>();
+		for (ObjectPair<String, CountMap<String>> pair : tokenToFileAppearances)
+		{
+			String token = pair.getKey();
+			
+			HashMap<String, Float> map;
+			if ((map = tokenToFileDensity.get(token)) == null)
+				tokenToFileDensity.put(token, map = new HashMap<>());
+			
+			for (ObjectPair<String, Integer> c : pair.getValue())
+			{
+				String file = c.getKey();
+				float appearances = (float)c.getValue();
+				map.put(file, appearances / tokenToAppearances.getCount(token));
+			}
+		}
+		
+		HashMap<String, String> fileToTitle = new HashMap<>();
+		for (String[] page : pageList)
+			fileToTitle.put(page[0], page[1]);
+		
+		JSONObject index = JSONObject.createEmptyObject();
+		index.addMember("partials", partialToTokens);
+		index.addMember("pages", fileToTitle);
+		index.addMember("tokenDensity", tokenToFileDensity);
+		
+		PrintWriter pw = null;
+		try {
+			pw = new PrintWriter(new FileOutputStream(new File(outPath + "/" + OUTPATH_JS_SEARCHINDEX)), true);
+			pw.println("var TAMEDOCS_SEARCH_INDEX = ");
+			JSONWriter.writeJSON(index, pw);
+			pw.println(";");
+		} catch (FileNotFoundException e) {
+			out.println("Cannot open "+OUTPATH_JS_SEARCHINDEX+" for writing a search index!");
+			e.printStackTrace(out);
+		} catch (IOException e) {
+			out.println("Cannot write to "+OUTPATH_JS_SEARCHINDEX+" for the search index!");
+			e.printStackTrace(out);
+		} finally {
+			Common.close(pw);
+		}
+		
+		return true;
+	}
+
+	// This relies on HTML being well-formed!
+	private static void generateIndexScanForFile(
+		String fileName, 
+		Reader reader, 
+		CountMap<String> tokenToAppearances, 
+		HashMap<String, CountMap<String>> tokenToFile, 
+		HashedHashMap<String, String> partialToTokens
+	) throws IOException 
+	{
+		StringBuilder token = new StringBuilder();
+		
+		final int STATE_INIT = 0;
+		final int STATE_WHITESPACE = 1;
+		final int STATE_TOKEN = 2;
+		final int STATE_HTML = 3;
+		final int STATE_ENTITY = 4;
+		int state = STATE_INIT;
+		
+		int r;
+		while ((r = reader.read()) != -1)
+		{
+			char c = (char)r;
+			
+			switch (state)
+			{
+				case STATE_INIT:
+				{
+					if (Character.isWhitespace(c))
+						state = STATE_WHITESPACE;
+					else if (c == '<')
+						state = STATE_HTML;
+					else if (c == '&')
+						state = STATE_ENTITY;
+					else if (Character.isAlphabetic(c) || Character.isIdeographic(c))
+					{
+						token.append(c);
+						state = STATE_TOKEN;
+					}
+				}
+				break;
+				
+				case STATE_WHITESPACE:
+				{
+					if (Character.isAlphabetic(c) || Character.isIdeographic(c))
+					{
+						token.append(c);
+						state = STATE_TOKEN;
+					}
+					else if (c == '<')
+						state = STATE_HTML;
+					else if (c == '&')
+						state = STATE_ENTITY;
+				}
+				break;
+
+				case STATE_TOKEN:
+				{
+					if (c != '-' && !Character.isAlphabetic(c) && !Character.isIdeographic(c))
+					{
+						// Flush token.
+						generateIndexScanForToken(fileName, token.toString(), tokenToAppearances, tokenToFile, partialToTokens);
+						token.delete(0, token.length());
+
+						if (Character.isWhitespace(c))
+							state = STATE_WHITESPACE;
+						else if (c == '<')
+							state = STATE_HTML;
+						else if (c == '&')
+							state = STATE_ENTITY;
+						else
+							state = STATE_INIT;
+					}
+					else
+						token.append(c);
+				}
+				break;
+				
+				case STATE_HTML:
+				{
+					if (c == '>')
+						state = STATE_INIT;
+				}
+				break;
+
+				case STATE_ENTITY:
+				{
+					if (c == ';')
+						state = STATE_INIT;
+				}
+				break;
+			}
+			
+		}
+		
+		// Flush token.
+		if (token.length() > 0)
+		{
+			generateIndexScanForToken(fileName, token.toString(), tokenToAppearances, tokenToFile, partialToTokens);
+			token.delete(0, token.length());
+		}
+	}
+
+	private static void generateIndexScanForToken(
+		String fileName, 
+		String token, 
+		CountMap<String> tokenToAppearances, 
+		HashMap<String, CountMap<String>> tokenToFile, 
+		HashedHashMap<String, String> partialToTokens
+	)
+	{
+		if (token.length() < 3)
+			return;
+		if (INDEX_COMMON_TOKENS.contains(token))
+			return;
+		
+		token = token.toLowerCase();
+		
+		boolean makePartials = tokenToAppearances.getCount(token) <= 0;
+		tokenToAppearances.give(token);
+		
+		CountMap<String> map;
+		if ((map = tokenToFile.get(token)) == null)
+			tokenToFile.put(token, (map = new CountMap<>()));
+		map.give(fileName);
+	
+		// partials, min 3 characters.
+		if (makePartials)
+		{
+			for (int x = 3; x < token.length(); x++)
+			{
+				/*
+				for (int i = 0; i + x <= token.length(); i++)
+				{
+					String partial = token.substring(i, i + x);
+					partialToTokens.add(partial, token);
+				}
+				*/
+				partialToTokens.add(token.substring(0, x), token);
 			}
 		}
 	}
