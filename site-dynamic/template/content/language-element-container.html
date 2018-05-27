@@ -1,0 +1,112 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<!--[ include fragments/module-container.html ]-->
+</div>
+<div id="declaration" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#declaration"><i class="link-stub fa fa-link"></i></a> Declaration <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+<pre class="tame-example"><code data-language="tamescript">
+	container [INDENTIFIER] [INHERITANCE_CLAUSE]
+	{
+		/* Lifecycle */
+		init() { ... }
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<table class="w3-table">
+		<tbody>
+			<tr>
+				<td>[IDENTIFIER]</td>
+				<td>
+					An internal <a href="tamescript.html#identifiers">identifier</a> that represents this
+					container in the rest of TAMEScript. This identifier must not be used to describe another
+					element.
+				</td>
+			</tr>
+			<tr>
+				<td>[INHERITANCE_CLAUSE]</td>
+				<td>
+					If this container inherits entry points and functions from another container, you declare its
+					parent container by adding a colon (<kbd>:</kbd>) plus the identifier of the parent container.
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="entry-blocks" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#entry-blocks"><i class="link-stub fa fa-link"></i></a> Entry Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+		<thead class="w3-teal">
+			<tr>
+				<th>Command Name</th>
+				<th>Arguments</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!--[ include fragments/block-tablerow-init.html ]-->
+		</tbody>
+	</table>
+</div>
+
+<div id="archetyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#archetyping"><i class="link-stub fa fa-link"></i></a> Archetyping <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		The keyword <strong>archetype</strong> can be used to create containers that have common functions and entry points
+		to share among similar containers. Archetyped containers can inherit from other parent containers and archetyped containers.
+	</p>
+	<p>
+		Archetyped containers also cannot be used in commands as through they were real elements. Archetypes also do not hold
+		a context state, nor is their context state saved. 
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	container archetype [INDENTIFIER] [INHERITANCE_CLAUSE]
+	{
+		/* Lifecycle */
+		init() { ... }
+	}
+</code></pre>
+</div>
+
+<div id="prototyping" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#prototyping"><i class="link-stub fa fa-link"></i></a> Prototyping and Extending <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		TAMEScript's compiler is single-pass: it parses through the module code once, so if the compiler
+		encounters a container identifier that has not been declared yet, it may need to be <em>prototyped</em>.
+	</p>
+	<p>
+		Prototyping a container is essentially declaring a container, but with a semicolon after its main
+		declaration instead of a declaration body wrapped in curly-braces (<kbd>{ }</kbd>). 
+		A parent container to inherit from, if any, will need to be declared here.
+	</p>
+	<p>
+		If you have already declared a container as a prototype (or with a declaration body) and wish to add to it later in code, 
+		you'll need to <em>extend</em> it using the <strong>extend</strong> keyword. When using	<strong>extend</strong>, 
+		you cannot change its lineage (parent).
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	container c_todolist;
+	
+	extend container c_todolist
+	{
+		/* ...stuff goes here... */
+	}
+</code></pre>
+</div>
+
+
+<!--[ set prev_page language-element-room.html ]-->
+<!--[ set next_page language-inheritance.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->

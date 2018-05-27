@@ -20,23 +20,35 @@
 		<!-- Main -->
 		<div class="w3-main" style="margin-left:320px">
 			<div class="w3-container w3-teal" id="top">
-				<div class="w3-hide-large w3-hide-xlarge">
+				<!-- Header on Large/XLarge -->
+				<div class="w3-cell w3-cell-bottom w3-hide-medium w3-hide-small w3-padding-16">
+					<img class="nav-logo" src="images/tame-logo-white.svg" /> 
+					<span style="font-size:200%;white-space:nowrap;"><!--[ print $title ]--></span>
+				</div>
+
+				<!-- Header on Medium/Small -->
+				<div class="w3-hide-xlarge w3-hide-large">
 					<div class="w3-cell w3-cell-middle w3-padding">
-						<button class="w3-button w3-teal w3-xlarge" onclick="tamedocsOpenBar()">
+						<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenBar()">
 							<i class="fa fa-bars fa-3x"></i>
 						</button>
 					</div>
-					<div class="w3-cell w3-cell-bottom w3-padding">
-						<img class="nav-logo" src="images/tame-logo-white.svg" /><br/>
+					<!-- Header on Medium -->
+					<div class="w3-hide-small w3-cell w3-cell-bottom w3-padding-16">
+						<img class="nav-logo" src="images/tame-logo-white.svg" />
 						<span style="font-size:200%"><!--[ print $title ]--></span>
 					</div>
-				</div>
-				<div class="w3-cell w3-cell-bottom w3-hide-medium w3-hide-small w3-padding-16">
-					<img class="nav-logo" src="images/tame-logo-white.svg" /> 
-					<span style="font-size:200%"><!--[ print $title ]--></span>
+					<!-- Header on Small -->
+					<div class="w3-hide-medium w3-cell w3-cell-bottom w3-padding-16">
+						<img class="nav-logo" src="images/tame-logo-white.svg" />
+					</div>
 				</div>
 			</div>
 			<div class="w3-container">
+				<!-- Header on Small -->
+				<div class="w3-hide-xlarge w3-hide-large w3-hide-medium w3-center">
+					<h2><strong><!--[ print $title ]--></strong></h2>
+				</div>
 				
 				<!-- Content  -->
 				<!--[ include $content_page ]-->
