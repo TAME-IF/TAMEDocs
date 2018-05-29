@@ -20,41 +20,40 @@
 		<!-- Main -->
 		<div class="w3-main" style="margin-left:320px">
 			<div class="w3-container w3-teal" id="top">
-				<!-- Header on Large/XLarge -->
-				<div class="w3-cell-row w3-hide-medium w3-hide-small">
-					<div class="w3-cell w3-cell-bottom w3-hide-medium w3-hide-small w3-padding-16">
-						<img class="nav-logo" src="images/tame-logo-white.svg" /> 
-						<span style="font-size:200%;white-space:nowrap;"><!--[ print $title ]--></span>
-					</div>
+				<div id="tamedocs-search" class="w3-right">
+					<!--[ include main-search.html ]-->
 				</div>
-				<!-- Header on Medium -->
-				<div class="w3-cell-row w3-hide-xlarge w3-hide-large w3-hide-small">
-					<div class="w3-cell w3-cell-bottom w3-padding-16">
-						<div class="w3-left">
-							<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenBar()">
-								<i class="fa fa-bars fa-3x"></i>
-							</button>
+				<div class="w3-left">
+					<!-- Header on Large/XLarge -->
+					<div class="w3-cell-row w3-hide-medium w3-hide-small">
+						<div class="w3-cell w3-cell-bottom w3-hide-medium w3-hide-small w3-padding-16">
+							<img class="nav-logo" src="images/tame-logo-white.svg" /> 
+							<span style="font-size:200%;white-space:nowrap;"><!--[ print $title ]--></span>
 						</div>
-						<img class="nav-logo" src="images/tame-logo-white.svg" />
-						<span style="font-size:200%"><!--[ print $title ]--></span>
 					</div>
-				</div>
-				<!-- Header on Small -->
-				<div class="w3-cell-row w3-hide-xlarge w3-hide-large w3-hide-medium">
-					<div class="w3-cell w3-cell-bottom w3-padding-16">
-						<div class="w3-left">
-							<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenBar()">
-								<i class="fa fa-bars fa-3x"></i>
-							</button>
+					<!-- Header on Medium -->
+					<div class="w3-cell-row w3-hide-xlarge w3-hide-large w3-hide-small">
+						<div class="w3-cell w3-cell-bottom w3-padding-16">
+							<div class="w3-left">
+								<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenBar()">
+									<i class="fa fa-bars fa-3x"></i>
+								</button>
+							</div>
+							<img class="nav-logo" src="images/tame-logo-white.svg" />
+							<span style="font-size:200%"><!--[ print $title ]--></span>
 						</div>
-						<img class="nav-logo" src="images/tame-logo-white.svg" />
 					</div>
-				</div>
-				<div class="w3-right">
-					<input id="tamedocs-search-input" style="display:none;" type="text" placeholder="Search..." value="" onkeypress="tamedocsSearchUpdate()" onblur="tamedocsCloseSearchBar()"/>
-					<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenSearchBar()">
-						<i class="fa fa-search fa-2x"></i>
-					</button>
+					<!-- Header on Small -->
+					<div class="w3-cell-row w3-hide-xlarge w3-hide-large w3-hide-medium">
+						<div class="w3-cell w3-cell-bottom w3-padding-16">
+							<div class="w3-left">
+								<button class="w3-button w3-teal w3-large" onclick="tamedocsOpenBar()">
+									<i class="fa fa-bars fa-3x"></i>
+								</button>
+							</div>
+							<img class="nav-logo" src="images/tame-logo-white.svg" />
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="w3-container">
@@ -69,8 +68,14 @@
 				<!-- Footer  -->
 				<!--[ include main-footer.html ]-->
 			</div>
+			<!-- Search Box -->
+			<div id="tame-search-results">
+				<ul id="tame-search-result-list">
+				</ul>
+			</div>
 		</div>
 		
+
 		<!-- TAME Modal -->
 		<div id="tame-modal" class="w3-modal" style="padding-top:50px;">
 			<div class="w3-modal-content w3-animate-top w3-card-12">

@@ -3,9 +3,58 @@ var $Q1 = $Q1 || function(x)
 	return document.querySelector(x);
 }
 
+// text: text in node
+var $DOMText = function(text)
+{
+	return document.createTextNode(text);
+};
+
+// name: tagname
+// attribs: object {attrname: 'value'}
+// children: array of elements/nodes to append in order
+var $DOMNew = function(name, attribs, children)
+{
+	let out = document.createElement(name);
+	if (attribs) for (let a in attribs) if (attribs.hasOwnProperty(a))
+	{
+		let attrObj = document.createAttribute(a);
+		attrObj.value = attribs[a];
+		out.setAttributeNode(attrObj);
+	}
+	if (children) for (let i = 0; i < children.length; i++)
+		out.appendChild(children[i]);
+	
+	return out;
+};
+
+// clears the descendants of an element.
+// returns the element passed in
+var $DOMClear = function(element) 
+{
+	while (element.firstChild)
+		element.removeChild(element.firstChild);
+	return element;
+};
+
+// clears the descendants of an element and appends new children.
+// returns the element passed in
+var $DOMReFill = function(element, newchildren)
+{
+	$DOMClear(element);
+	for (let i = 0; i < newchildren.length; i++)
+		element.appendChild(newchildren[i]);
+	return element;
+}
+
+/** Important Elements ***************************************************/
+
 var BodyElement = $Q1("body");
 var DocsSidebar = $Q1("#tamedocs-sidebar");
 var DocsSearchbar = $Q1("#tamedocs-search-input");
+var DocsSearchResultBox = $Q1("#tame-search-results");
+var DocsSearchResults = $Q1("#tame-search-result-list");
+
+/*************************************************************************/
 
 function tamedocsAddClass(elem, name)
 {
@@ -65,7 +114,6 @@ function tamedocsSelect(elementId)
 
 function tamedocsClipboard(elementId)
 {
-	var elem = $Q1(elementId);
 	tamedocsSelect(elementId);
 	if (document.execCommand)
 		document.execCommand('copy');
@@ -74,7 +122,38 @@ function tamedocsClipboard(elementId)
 function tamedocsSearchUpdate()
 {
 	var input = DocsSearchbar.value;
-	console.log(tamedocsSearch(input));
+	var result = tamedocsSearch(input, 20);
+	tamedocsSearchResultUpdate(result);
+	DocsSearchResultBox.style.display = result.length > 0 ? "inline" : "none";
+}
+
+function tamedocsSearchResultUpdate(result)
+{
+	var elems = [];
+	
+	for (let r = 0; r < result.length; r++)
+	{
+		elems.push(
+			$DOMNew('li', null, [
+				$DOMNew('a', {"href":result[r].page}, [
+					$DOMText(result[r].token),
+					$DOMNew('span', null, [
+						$DOMText(result[r].title + ": " + result[r].page)
+					])
+				])
+			])
+		);
+	}
+	
+	$DOMReFill(DocsSearchResults, elems);
+}
+
+function tamedocsToggleSearchBar()
+{
+	if (DocsSearchbar.style.display === "inline")
+		tamedocsCloseSearchBar();
+	else if (DocsSearchbar.style.display === "none")
+		tamedocsOpenSearchBar();
 }
 
 function tamedocsOpenSearchBar()
@@ -85,20 +164,24 @@ function tamedocsOpenSearchBar()
 function tamedocsCloseSearchBar() 
 {
 	DocsSearchbar.style.display = "none";
+	DocsSearchResultBox.style.display = "none";
 }
 
-function tamedocsSearch(input)
+function tamedocsSearch(input, limit)
 {
+	if (DocsSearchbar.style.display !== "inline")
+		return [];
+	
 	var tokenList = [];
 	var searchTokens = input.trim().split(/\s+/);
 	for (let x in searchTokens)
 	{
 		let p = searchTokens[x];
 		let t = TAMEDOCS_SEARCH_INDEX['partials'][p];
-		if (t) for (let i in t)
-			tokenList.push(t[i]);
-		else if (TAMEDOCS_SEARCH_INDEX['tokenDensity'][p])
+		if (TAMEDOCS_SEARCH_INDEX['tokenDensity'][p])
 			tokenList.push(p);
+		else if (t) for (let i in t)
+			tokenList.push(t[i]);
 	}
 	
 	var output = null;
@@ -128,8 +211,8 @@ function tamedocsSearch(input)
 			return a.token.length - b.token.length;
 	});
 
-	// truncate to 20 results.
-	output.length = Math.min(output.length, 20);
+	// truncate to [limit] results.
+	output.length = Math.min(output.length, limit);
 
 	return output;
 }

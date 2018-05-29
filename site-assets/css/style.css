@@ -211,6 +211,40 @@ TABLE.tamedocs-key-reference td:not(:last-child)
     white-space: pre-wrap;
 }
 
+#tame-search-results {
+	display: none;
+    position: absolute;
+    top: 2.5em;
+    right: 4px;
+    box-shadow: 0 4px 4px #888;
+}
+#tame-search-results > ul {
+    list-style: none;
+    border: solid 1px #ddd;
+    background-color: #eee;
+	padding-left: 0.25em;
+	margin: 0;
+}
+#tame-search-results > ul > li:not(:last-child) {
+    border-bottom-color: #bbb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+#tame-search-results > ul > li > a {
+	padding: 4px;
+    display: block;
+}
+#tame-search-results > ul > li > a:hover {
+    text-decoration: none;
+    background-color: #dadada;
+}
+#tame-search-results > ul > li > a > span {
+    display: block;
+    font-size: 85%;
+    color: #808080;
+}
+
+
 /* For link hovering. */
 .link-stub {
 	color: #ccc;
