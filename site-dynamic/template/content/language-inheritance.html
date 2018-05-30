@@ -1,0 +1,87 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		Since you can have multiple elements that more than likely have the same types of characteristics
+		or behavior with certain actions, it might be useful to define them hierarchically. TAMEScript has a 
+		mechanism to define these relationships, called <strong>inheritance</strong>.
+	</p>
+	<p>
+		Elements in TAME (that are not the <strong>world</strong>) can specify a <em>parent</em> element of the same type to 
+		inherit the defined blocks and functions from:
+	</p>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_car named "car"
+	{
+		init()
+		{
+			driven = false;
+		}
+	
+		onAction(a_drive)
+		{
+			if (driven)
+				textln("I already drove it.");
+			else
+				textln("You drive the car. Wheee!");
+			driven = true;
+		}
+
+		onAction(a_examine)
+		{
+			textln("Looks like a car.");
+		}
+
+	}
+
+	object o_sedan : o_car named "sedan", "car"
+	{
+		override onAction(a_examine)
+		{
+			textln("Looks like a sedan.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<p>
+		In the above example, the object <kbd>o_sedan</kbd> inherits from <kbd>o_car</kbd>. The object <kbd>o_sedan</kbd>
+		is now functionally equivalent to:
+	</p>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_sedan named "sedan", "car"
+	{
+		init()
+		{
+			driven = false;
+		}
+	
+		onAction(a_drive)
+		{
+			if (driven)
+				textln("I already drove it.");
+			else
+				textln("You drive the car. Wheee!");
+			driven = true;
+		}
+
+		onAction(a_examine)
+		{
+			textln("Looks like a sedan.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="override">Override</h3>
+	<p>
+		<!-- FINISH -->
+	</p>
+</div>
+
+
+<!--[ set prev_page language-element-container.html ]-->
+<!--[ set next_page language-blocks.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->

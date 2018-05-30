@@ -17,6 +17,7 @@ language-element-player.html "Player Element" template/main.html
 language-element-room.html "Room Element" template/main.html
 language-element-container.html "Container Element" template/main.html
 language-element-object.html "Object Element" template/main.html
+language-inheritance.html "Inheritance" template/main.html
 language-blocks.html "TAMEScript Module Element Blocks" template/main.html
 language-block-init.html "Init Element Block" template/main.html
 language-block-start.html "Start Element Block" template/main.html
