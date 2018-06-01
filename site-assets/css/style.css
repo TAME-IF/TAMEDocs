@@ -89,11 +89,18 @@ PRE {
 	tab-size: 4;
 }
 
-PRE[class*="tame-example"] {
+PRE.tame-example {
 	background-color: #fafafa;
 	padding: 8px;
-	max-height: 30em;
 	overflow-y: auto;
+	border: solid 1px #e0e0e0;
+	border-left: solid 4px #e0e0e0;
+}
+
+PRE.tame-example.example-scroll {
+	background-color: #fcfcfc;
+	border: none;
+	max-height: 30em;
 }
 
 PRE > CODE {

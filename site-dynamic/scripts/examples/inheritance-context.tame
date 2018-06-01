@@ -1,0 +1,60 @@
+action general a_quit named "quit";
+action transitive a_use named "use";
+
+// All doors.
+object archetype o_door
+{
+	init()
+	{
+		opened = true;
+	}
+	
+	function getStateName()
+	{
+		return opened ? "OPEN" : "CLOSED";
+	}
+
+	onAction(a_use)
+	{
+		opened = !opened;
+	}
+
+}
+
+object o_red_door : o_door named "red door", "door"
+{	
+	onWorldBrowse()
+	{
+		textln("The red door is "+getStateName()+".");
+	}
+}
+
+object o_blue_door : o_door named "blue door", "door"
+{	
+	onWorldBrowse()
+	{
+		textln("The blue door is "+getStateName()+".");
+	}
+}
+
+world
+{
+	start()
+	{
+		giveObject(world, o_red_door);
+		giveObject(world, o_blue_door);
+		textln("You can USE the doors.");
+		browse(world);
+	}
+	
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+	afterEveryCommand()
+	{
+		browse(world);
+	}
+	
+}

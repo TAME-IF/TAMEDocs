@@ -875,7 +875,7 @@ public final class TAMEDocsGen
 				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
 				writer.write("\t<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>\n");
 				writer.write("\t<h4>"+headingName+"</h4>\n");
-				writer.write("<pre class=\"tame-example\"><code data-language=\"tamescript\" id=\"code-"+moduleName+"\">\n");
+				writer.write("<pre class=\"tame-example example-scroll\"><code data-language=\"tamescript\" id=\"code-"+moduleName+"\">\n");
 				writer.write(scriptContent.replaceAll(">", "&gt;").replaceAll("<", "&lt;"));
 				writer.write("</code></pre>\n");
 				writer.write("</div>\n");
@@ -896,12 +896,12 @@ public final class TAMEDocsGen
 				writer.write("<div class=\"w3-container w3-padding-4\">");
 				writer.write("<h3>"+scriptFile+"</h3>");
 				writer.write("<h5>"+e.getClass().getSimpleName()+"</h5>");
-				writer.write("<pre>"+e.getLocalizedMessage()+"</pre>");
+				writer.write("<pre style=\"white-space: pre-line;\">"+e.getLocalizedMessage()+"</pre>");
 				writer.write("</div>");
 				writer.write("</div>");
 				return false;
 			} catch (IOException e) {
-				writer.write("<pre>!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>");
+				writer.write("<pre style=\"white-space: pre-line;\">!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>");
 				return false;
 			} finally {
 				Common.close(scriptIn);

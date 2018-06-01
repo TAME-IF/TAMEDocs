@@ -9,7 +9,7 @@
 		inherit the defined blocks and functions from:
 	</p>
 </div>
-<div class="w3-container" style="margin-top:2em;">
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	object o_car named "car"
 	{
@@ -43,16 +43,18 @@
 	}
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top:2em;">
+<div class="w3-container">
 	<p>
 		In the above example, the object <kbd>o_sedan</kbd> inherits from <kbd>o_car</kbd>. The object <kbd>o_sedan</kbd>
-		is now functionally equivalent to:
+		is now functionally and structurally equivalent to:
 	</p>
 </div>
-<div class="w3-container" style="margin-top:2em;">
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	object o_sedan named "sedan", "car"
 	{
+		/* Inherited stuff starts here */
+	
 		init()
 		{
 			driven = false;
@@ -67,6 +69,8 @@
 			driven = true;
 		}
 
+		/*******************************/
+	
 		onAction(a_examine)
 		{
 			textln("Looks like a sedan.");
@@ -75,10 +79,94 @@
 </code></pre>
 </div>
 <div class="w3-container" style="margin-top:2em;">
+	<p>
+		There is no limit to how deep an inheritable hierarchy can go, but it's still best to use identifiers
+		and schemes that make sense in order to keep it from being overwhelming. 
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_allobjects;
+	object o_keys : o_allobjects;
+	object o_orange_key : o_keys;
+	object o_blue_key : o_keys;
+
+	room r_allrooms;
+	room r_livingroom : r_allrooms;
+	room r_bedroom : r_allrooms;
+	room r_master_bedroom : r_bedroom;
+</code></pre>
+</div>
+
+
+<div class="w3-container" style="margin-top:2em;">
 	<h3 id="override">Override</h3>
 	<p>
-		<!-- FINISH -->
+		In an example earlier on this page, one of the entry blocks was changed in the <em>child</em> object of <kbd>o_car</kbd>.
+		In order to denote that it is being replaced, the new function or entry block must be prefixed with the <strong>override</strong>
+		keyword.
 	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	room r_livingroom
+	{
+		function examineRoom()
+		{
+			textln("You are in the living room.");
+		}
+
+		onAction(a_lookaround)
+		{
+			examineRoom();
+		}
+	
+	}
+	
+	room r_cozylivingroom : r_livingroom
+	{
+		override function examineRoom()
+		{
+			textln("You are in the COZY living room.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container">
+	<p>
+		<strong>NOTE:</strong> If you attempt to define an existing entry point or function within an element's lineage <em>without</em> 
+		using <strong>override</strong>, the TAMEScript compiler will give you an error. 
+	</p>
+</div>
+
+
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="archetype">Archetype</h3>
+	<p>
+		The keyword <strong>archetype</strong> can be used to create elements that do not hold a context, but instead have
+		common functions and entry points among its descendants. <em>Archetypes</em> can also inherit from other elements of the same type. 
+		Archetyping is useful when you have multiple elements with similar behavior, with small changes among its children.
+	</p>
+	<p>
+		For example, if you have a set of keys, it might be preferable to create an archetype <em>key</em> that all keys inherit
+		from, and the only thing different would be the material or look (since you can check types).
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Archetype Example" module_archetype_key_example examples/archetype-key.tame ]-->
+</div>
+
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="contexts">A Clarification on Contexts</h3>
+	<p>
+		Note that just because an element can inherit functions and entry blocks from other elements, it does NOT
+		inherit context variables or treat context variables as though they are shared in the hierarchy - each element
+		(that is NOT an <em>archetype</em>) still has its own context. This means that nothing at <em>runtime</em> is shared,
+		<em>only the code that executes.</em>
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Context Example" module_inheritance_context_example examples/inheritance-context.tame ]-->
 </div>
 
 

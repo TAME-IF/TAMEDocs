@@ -345,8 +345,55 @@
 </code></pre>
 </div>
 
+<div id="lists" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#lists"><i class="link-stub fa fa-link"></i></a> 5.4. Lists <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		TAME has a list data structure for storing a contiguous set of values. A new list is declared by
+		putting a list of comma-delimited values or expressions in between square brackets (<kbd>[ ]</kbd>).
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [1, 2, 3, 4, 5];	// assigns a new list of 5 values to "a".
+	b = [];					// assigns a new empty list to "b".
+</code></pre>
+	<p>
+		Lists in TAME can contain different types of values in one list, including other lists!
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [1, "two", 3.0, false, [1, 2, 3]];	// assigns a new list of 5 values to "a".
+</code></pre>
+	<p>
+		Getting the value in a list entails writing the identifier assigned to a list, then the
+		index of the desired value in brackets (zero-based - 0 is the first index). If the identifier does not refer to
+		a list, or the index is not a valid index, <strong>false</strong> is returned. The index is read as an integer,
+		so the index can be an expression that results in a value.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [100, 200, 300, 400, 500];	// assigns a new list of 5 values to "a".
+	b = a[0];						// assigns 100 to "b".
+	c = a[3];						// assigns 300 to "c".
+	d = a[9];						// assigns false to "d".
+</code></pre>
+	<p>
+		Setting the value in a list entails assigning that identifier and bracketed index to a value, like any other
+		variable. If the identifier is not a list, nothing happens. 
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [0, 0, 0, 0, 0];		// assigns a new list of 5 values to "a".
+	a[0] = 3;					// list is now [3, 0, 0, 0, 0]
+	a[2] = 5;					// list is now [3, 0, 5, 0, 0]
+	a[a[0]] = 4;				// list is now [3, 0, 5, 4, 0]
+	a[-1] = 5;					// list is now [3, 0, 5, 4, 0] (not changed)
+	a[1] = ["apple", "banana"];	// list is now [3, ["apple", "banana"], 5, 4, 0]
+</code></pre>
+	<p>
+		There are also a lot of <a href="language-commands.html#list-operations">commands</a> associated with list manipulation. 
+	</p>
+</div>
+
 <div id="blocks" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.4. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.5. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
@@ -377,7 +424,7 @@
 <!-- ====== Functions Section ====== -->
 <!-- =============================== -->
 <div id="functions" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.5. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.6. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
@@ -469,7 +516,7 @@
 <!-- ====== Control Section ====== -->
 <!-- ============================= -->
 <div id="control" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.6. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.7. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
@@ -594,7 +641,7 @@
 		commands are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> commands).
 		This can be overridden in <a href="language-element-module.html#special">module headers</a>.
 	</p>
-	<h3>Quit</h3>
+	<h3 id="quit-keyword">Quit</h3>
 	<p>
 		Control keywords, like <strong>quit</strong>, are not commands or functions. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
@@ -655,7 +702,7 @@
 <!-- ====== Other Keywords Section ====== -->
 <!-- ==================================== -->
 <div id="other-keywords" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#other-keywords"><i class="link-stub fa fa-link"></i></a> 5.7. Other Keywords <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#other-keywords"><i class="link-stub fa fa-link"></i></a> 5.8. Other Keywords <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
