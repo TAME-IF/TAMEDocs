@@ -1,6 +1,8 @@
 <h1>OnActionWith ( <em>ACTION</em>, <em>OBJECT</em> )</h1>
 <div class="w3-container">
-	A block that describes what to do when an element is the target of a valid ditransitive action with another specific object.
+	A block that describes what to do when an <strong>object</strong> is the target of a valid 
+	<strong>ditransitive</strong> action with another specific object, or when a <strong>transitive</strong>
+	action is unhandled by the target <strong>object</strong> (falling through to the current room/player).
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -16,7 +18,7 @@
 	<h3>Parameters</h3>
 </div>
 <div class="w3-container">
-	<table class="w3-table w3-striped" >
+	<table class="w3-table w3-striped">
 		<tr>
 			<td class="tamedocs-parameter">ACTION</td>
 			<td class="tamedocs-parameter-type">A DITRANSITIVE action.</td>
@@ -34,12 +36,14 @@
 	<h3>When it is Called</h3>
 </div>
 <div class="w3-container">
+	<h3>Ditransitive Actions</h3>
 	<p>
 		The <span class="tamedocs-block-type">onActionWith()</span> block is called when a <strong>DITRANSITIVE</strong> action
 		needs to be handled at a target <span class="tamedocs-element-type">object</span> with another <span class="tamedocs-element-type">object</span>.
 	</p>
 	<!--[ include fragments/ditransitive-flow.html ]-->
-	<p>
+	<h3>Transitive Actions</h3>
+	<p style="margin-top:2em;">
 		<a href="tamescript.html#inheritance">Inheritance</a> rules apply when searching for callable blocks, always!
 	</p>
 </div>
