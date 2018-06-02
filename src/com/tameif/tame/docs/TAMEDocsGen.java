@@ -94,7 +94,9 @@ public final class TAMEDocsGen
 	static final String COMMAND_GENERATE_TABLE = "generate-table";
 	/** Variable prefix. */
 	static final String VAR_PREFIX = "$";
-	
+	/** NOINDEX tag. */
+	static final String TAG_NOINDEX = "<!--:NOINDEX:-->";
+
 	/** Common English tokens. */
 	static final CaseInsensitiveHash INDEX_COMMON_TOKENS = new CaseInsensitiveHash() {{
 		BufferedReader br = null;
@@ -360,12 +362,16 @@ public final class TAMEDocsGen
 	) throws IOException 
 	{
 		StringBuilder token = new StringBuilder();
+		StringBuilder tag = new StringBuilder();
 		
 		final int STATE_INIT = 0;
 		final int STATE_WHITESPACE = 1;
 		final int STATE_TOKEN = 2;
-		final int STATE_HTML = 3;
-		final int STATE_ENTITY = 4;
+		final int STATE_MAYBE_NOINDEX = 3;
+		final int STATE_MAYBE_REINDEX = 4;
+		final int STATE_HTML = 5;
+		final int STATE_ENTITY = 6;
+		final int STATE_NOINDEX = 7;
 		int state = STATE_INIT;
 		
 		int r;
@@ -380,7 +386,11 @@ public final class TAMEDocsGen
 					if (Character.isWhitespace(c))
 						state = STATE_WHITESPACE;
 					else if (c == '<')
-						state = STATE_HTML;
+					{
+						state = STATE_MAYBE_NOINDEX;
+						tag.delete(0, tag.length());
+						tag.append('<');
+					}
 					else if (c == '&')
 						state = STATE_ENTITY;
 					else if (Character.isAlphabetic(c) || Character.isIdeographic(c))
@@ -399,7 +409,11 @@ public final class TAMEDocsGen
 						state = STATE_TOKEN;
 					}
 					else if (c == '<')
-						state = STATE_HTML;
+					{
+						state = STATE_MAYBE_NOINDEX;
+						tag.delete(0, tag.length());
+						tag.append('<');
+					}
 					else if (c == '&')
 						state = STATE_ENTITY;
 				}
@@ -416,7 +430,11 @@ public final class TAMEDocsGen
 						if (Character.isWhitespace(c))
 							state = STATE_WHITESPACE;
 						else if (c == '<')
-							state = STATE_HTML;
+						{
+							state = STATE_MAYBE_NOINDEX;
+							tag.delete(0, tag.length());
+							tag.append('<');
+						}
 						else if (c == '&')
 							state = STATE_ENTITY;
 						else
@@ -427,6 +445,45 @@ public final class TAMEDocsGen
 				}
 				break;
 				
+				case STATE_MAYBE_NOINDEX:
+				{
+					if (c == TAG_NOINDEX.charAt(tag.length()))
+					{
+						tag.append(c);
+						if (tag.length() == TAG_NOINDEX.length())
+							state = STATE_NOINDEX;
+					}
+					else if (c == '>')
+						state = STATE_INIT;
+					else
+						state = STATE_HTML;
+				}
+				break;
+
+				case STATE_NOINDEX:
+				{
+					if (c == '<')
+					{
+						state = STATE_MAYBE_REINDEX;
+						tag.delete(0, tag.length());
+						tag.append('<');
+					}
+				}
+				break;
+
+				case STATE_MAYBE_REINDEX:
+				{
+					if (c == TAG_NOINDEX.charAt(tag.length()))
+					{
+						tag.append(c);
+						if (tag.length() == TAG_NOINDEX.length())
+							state = STATE_INIT;
+					}
+					else
+						state = STATE_NOINDEX;
+				}
+				break;
+
 				case STATE_HTML:
 				{
 					if (c == '>')
@@ -715,7 +772,8 @@ public final class TAMEDocsGen
 	{
 		writer.write("<!-- Start generated table for: " + name + " -->\n");
 		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
-		
+		writer.write(TAG_NOINDEX);
+
 		ArithmeticOperator operator;
 		if ("boolean".equalsIgnoreCase(name))
 		{
@@ -775,6 +833,7 @@ public final class TAMEDocsGen
 			writer.write("<tr><th>!!! "+name+" is not a table name !!!</th></tr>");
 		}
 		writer.write("</table>\n");
+		writer.write(TAG_NOINDEX);
 	}
 	
 	/**
