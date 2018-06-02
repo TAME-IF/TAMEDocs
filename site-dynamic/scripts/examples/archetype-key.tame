@@ -13,7 +13,7 @@ object archetype o_examinables
 		textln("[EXAMINE FIRST]");
 	}
 	
-	// called on first examine.
+	// called on subsequent examine.
 	// override this.
 	function examineAgain()
 	{

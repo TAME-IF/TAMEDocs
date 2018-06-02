@@ -390,6 +390,52 @@
 	<p>
 		There are also a lot of <a href="language-commands.html#list-operations">commands</a> associated with list manipulation. 
 	</p>
+	<p>
+		Since lists can contain other lists, they can be accessed using a second index after resolving the first (this can
+		be many lists deep beyond just two).
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [[1, 2], [9, 10], ["orange", "pear", "peach"]], 16, 17];	// assigns a new list of 5 values to "a".
+	b = a[0]					// assigns "b" a reference to the list [1,2]
+	c = a[1][0];				// assigns 9 to "b"
+	d = a[3][0];				// a[3] is not a list - assigns false to d
+</code></pre>
+	<h3 id="references" style="margin-top:1.5em;">Lists and References</h3>
+	<p>
+		Lists are a little special. Whereas most values are treated as single, quantifiable values that can be converted
+		and changed to other types, a list is a collection of values, and are maintained by a <em>reference</em>. This means
+		that when a list is assigned to another variable, the <em>reference</em> to that list is assigned. The list's values
+		are not copied, like what happens to a regular value.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [1, 2, 3, 4, 5];	// creates a new list with values, and assigns its reference to "a".
+	b = a;					// assign the reference to "a" to "b"
+</code></pre>
+	<p>
+		In the above example, both <kbd>a</kbd> and <kbd>b</kbd> point to the <em>exact same list</em>. If the contents of
+		the list changes, it'll be reflected in both variables.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [1, 2, 3, 4, 5];	// creates a new list with values, and assigns its reference to "a".
+	b = a;					// assign the reference to "a" to "b"
+	b[0] = 7;				// index 0 of the list referenced by "b" is now 7.
+	c = a[0];				// assign 7 to "c".
+</code></pre>
+	<p>
+		Equality among lists is not deep. If you test if one list is equal to another, it compares
+		the <em>reference,</em> not the values inside.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = [1, 2, 3, 4, 5];	// creates a new list with values, and assigns its reference to "a".
+	b = a;					// assign the reference to "a" to "b"
+	c = [1, 2, 3, 4, 5];	// creates a new list with values, and assigns its reference to "c".
+	
+	a == b					// this is true
+	a == c					// this is false (different reference)
+</code></pre>
+	<p>
+		You will need to write a function if you need to compare the contents of two lists.
+	</p>
 </div>
 
 <div id="blocks" class="w3-panel w3-light-gray w3-card-2">
@@ -760,6 +806,176 @@
 </div>
 <div class="w3-container">
 <!--[ tamescript "This Example" module_this_example examples/this.tame ]-->
+</div>
+
+<div id="inheritance" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.9. Inheritance <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		Since you can have multiple elements that more than likely have the same types of characteristics
+		or behavior with certain actions, it might be useful to define them hierarchically. TAMEScript has a 
+		mechanism to define these relationships, called <strong>inheritance</strong>.
+	</p>
+	<p>
+		Elements in TAME (that are not the <strong>world</strong>) can specify a <em>parent</em> element of the same type to 
+		inherit the defined blocks and functions from:
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_car named "car"
+	{
+		init()
+		{
+			driven = false;
+		}
+	
+		onAction(a_drive)
+		{
+			if (driven)
+				textln("I already drove it.");
+			else
+				textln("You drive the car. Wheee!");
+			driven = true;
+		}
+
+		onAction(a_examine)
+		{
+			textln("Looks like a car.");
+		}
+
+	}
+
+	object o_sedan : o_car named "sedan", "car"
+	{
+		override onAction(a_examine)
+		{
+			textln("Looks like a sedan.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container">
+	<p>
+		In the above example, the object <kbd>o_sedan</kbd> inherits from <kbd>o_car</kbd>. The object <kbd>o_sedan</kbd>
+		is now functionally and structurally equivalent to:
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_sedan named "sedan", "car"
+	{
+		/* Inherited stuff starts here */
+	
+		init()
+		{
+			driven = false;
+		}
+	
+		onAction(a_drive)
+		{
+			if (driven)
+				textln("I already drove it.");
+			else
+				textln("You drive the car. Wheee!");
+			driven = true;
+		}
+
+		/*******************************/
+	
+		onAction(a_examine)
+		{
+			textln("Looks like a sedan.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<p>
+		There is no limit to how deep an inheritable hierarchy can go, but it's still best to use identifiers
+		and schemes that make sense in order to keep it from being overwhelming. 
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	object o_allobjects;
+	object o_keys : o_allobjects;
+	object o_orange_key : o_keys;
+	object o_blue_key : o_keys;
+
+	room r_allrooms;
+	room r_livingroom : r_allrooms;
+	room r_bedroom : r_allrooms;
+	room r_master_bedroom : r_bedroom;
+</code></pre>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="override">Override</h3>
+	<p>
+		In an example earlier on this page, one of the entry blocks was changed in the <em>child</em> object of <kbd>o_car</kbd>.
+		In order to denote that it is being replaced, the new function or entry block must be prefixed with the <strong>override</strong>
+		keyword.
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	room r_livingroom
+	{
+		function examineRoom()
+		{
+			textln("You are in the living room.");
+		}
+
+		onAction(a_lookaround)
+		{
+			examineRoom();
+		}
+	
+	}
+	
+	room r_cozylivingroom : r_livingroom
+	{
+		override function examineRoom()
+		{
+			textln("You are in the COZY living room.");
+		}
+	}
+</code></pre>
+</div>
+<div class="w3-container">
+	<p>
+		<strong>NOTE:</strong> If you attempt to define an existing entry point or function within an element's lineage <em>without</em> 
+		using <strong>override</strong>, the TAMEScript compiler will give you an error. 
+	</p>
+</div>
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="archetype">Archetype</h3>
+	<p>
+		The keyword <strong>archetype</strong> can be used to create elements that do not hold a context, but instead have
+		common functions and entry points among its descendants. <em>Archetypes</em> can also inherit from other elements of the same type. 
+		Archetyping is useful when you have multiple elements with similar behavior, with small changes among its children.
+	</p>
+	<p>
+		For example, if you have a set of keys, it might be preferable to create an archetype <em>key</em> that all keys inherit
+		from, and the only thing different would be the material or look (since you can check types).
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Archetype Example" module_archetype_key_example examples/archetype-key.tame ]-->
+</div>
+
+<div class="w3-container" style="margin-top:2em;">
+	<h3 id="contexts">A Clarification on Contexts</h3>
+	<p>
+		Note that just because an element can inherit functions and entry blocks from other elements, it does NOT
+		inherit context variables or treat context variables as though they are shared in the hierarchy - each element
+		(that is NOT an <em>archetype</em>) still has its own context. This means that nothing at <em>runtime</em> is shared,
+		<em>only the code that executes.</em>
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Context Example" module_inheritance_context_example examples/inheritance-context.tame ]-->
 </div>
 
 
