@@ -34,6 +34,59 @@
 	</p>
 </div>
 
+<div class="w3-container" style="margin-top: 2em;">
+	<h3>Module Style</h3>
+	<p>
+		TAMEScript is also a free-form language. Its delimiters are symbols and operators and whitespace, but amount of the
+		whitespace is not significant.
+	</p>
+	<p>
+		The "Hello World" module on the intro page is written like this...
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	world
+	{
+		start()
+		{
+			textln("Hello, world!");
+		}
+	}
+</code></pre>
+	<p>
+		...but it acts no differently if it were written like this:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	world { start
+	(
+		)	    {
+			textln				(
+	"Hello, world!"
+		)			;	}
+			}
+</code></pre>
+	<p>
+		...or like this:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	world{start(){textln("Hello, world!");}}
+</code></pre>
+	<p>
+		But then again, you'd probably want to write it in a manner that is readable to others and yourself.
+	</p>
+</div>
+
+<div class="w3-container" style="margin-top: 2em;">
+	<h3>A Note About Notation and Style in This Documentation</h3>
+	<p>
+		In this documentation, the examples use the <a target="_blank" href="https://en.wikipedia.org/wiki/Indentation_style#Allman_style">Allman Bracing Style</a> and
+		the identifiers that refer to elements are in a format similar to <a target="_blank" href="https://en.wikipedia.org/wiki/Hungarian_notation">Hungarian Notation</a>,
+		where the identifier is prefixed with a character denoting its type (<kbd>a_</kbd> for "action", <kbd>o_</kbd> for "object", etc.).
+	</p>
+	<p>
+		These are not hard-and-fast rules for writing modules - if it is readable, it works.
+	</p>
+</div>
+
 <!-- ============================== -->
 <!-- ====== Comments Section ====== -->
 <!-- ============================== -->
