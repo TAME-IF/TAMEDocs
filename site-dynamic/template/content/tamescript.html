@@ -1,4 +1,4 @@
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		<strong>TAMEScript</strong> is the language that all TAME modules are written in. Through TAMEScript,
 		the world, its elements, the viewpoints, the actions the user can take, and how things interact based
@@ -11,7 +11,7 @@
 <div class="w3-container">
 <!--[ tamescript "A Small Adventure" module_intro_adventure_small adventure-small.tame ]-->
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		The <a href="language-element-module.html">module header</a> is first declared, which describes this module
 		using a series of key-value pairs - its title, author, and basic contact information. The header may also
@@ -34,7 +34,7 @@
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>Module Style</h3>
 	<p>
 		TAMEScript is also a free-form language. Its delimiters are symbols and operators and whitespace, but amount of the
@@ -75,7 +75,7 @@
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>A Note About Notation and Style in This Documentation</h3>
 	<p>
 		In this documentation, the examples use the <a target="_blank" href="https://en.wikipedia.org/wiki/Indentation_style#Allman_style">Allman Bracing Style</a> and
@@ -93,7 +93,7 @@
 <div id="comments" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#comments"><i class="link-stub fa fa-link"></i></a> 5.1. Comments <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<em>Comments</em> are skipped by the compiler and are used to elucidate sections of code that may be cryptic, or provide notes 
 	for sections of code. Comments can be on a single line, or across multiple lines, but there are different delimiters for each.
 <pre class="tame-example"><code data-language="tamescript">
@@ -117,7 +117,7 @@
 <div id="values" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#values"><i class="link-stub fa fa-link"></i></a> 5.2. Values and Expressions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		In order to get anything done in a TAME module, you'll probably be crafting <em>expressions</em> that change and 
 		manipulate <em>values</em>.
@@ -296,7 +296,7 @@
 <div id="statements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements and Commands <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		Expressions are nice, but without any real directives, TAME would just be doing math! Enter <em>statements</em>. A statement is a single bit of code
 		that conveys a single step or task. All statements are terminated by semicolons (<kbd>;</kbd>). 
@@ -401,7 +401,7 @@
 <div id="lists" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#lists"><i class="link-stub fa fa-link"></i></a> 5.4. Lists <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		TAME has a list data structure for storing a contiguous set of values. A new list is declared by
 		putting a list of comma-delimited values or expressions in between square brackets (<kbd>[ ]</kbd>).
@@ -494,7 +494,7 @@
 <div id="blocks" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.5. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		A series of statements are encapsulated in <em>blocks</em>. Blocks define sections of significant code,
 		usually defining the conditions for when they get executed in TAME.
@@ -525,7 +525,7 @@
 <div id="functions" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.6. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		<em>Function</em> blocks are essentially "commands" that you define yourself and called in other code. Functions consist of a series of commands executed in order, and return a
 		value at the end to the caller. They are referenced by name, and called the same way commands are, for the most part.   
@@ -582,7 +582,7 @@
 <div class="w3-container">
 <!--[ tamescript "Function Example" module_func_example examples/functions.tame ]-->
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		Functions can be called from the element they are declared on, or from another element, but variables that are not 
 		declared <em>local</em> will be set on the context that the function was called from, except
@@ -595,7 +595,7 @@
 <div class="w3-container">
 <!--[ tamescript "Function Example 2" module_func2_example examples/functions2.tame ]-->
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		TAMEScript also supports <em>recursive functions</em>. A recursive function is a function that calls
 		itself. This could be handy for mathematical functions that define their values using themselves, or
@@ -617,7 +617,7 @@
 <div id="control" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.7. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
@@ -803,7 +803,7 @@
 <div id="other-keywords" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#other-keywords"><i class="link-stub fa fa-link"></i></a> 5.8. Other Keywords <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		There are a few other keywords that have special use in TAMEScript that don't quite fit into the other categories.
 	</p>
@@ -864,7 +864,7 @@
 <div id="inheritance" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.9. Inheritance <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		Since you can have multiple elements that more than likely have the same types of characteristics
 		or behavior with certain actions, it might be useful to define them hierarchically. TAMEScript has a 
@@ -944,7 +944,7 @@
 	}
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top:2em;">
+<div class="w3-container" style="margin-top: 1em;">
 	<p>
 		There is no limit to how deep an inheritable hierarchy can go, but it's still best to use identifiers
 		and schemes that make sense in order to keep it from being overwhelming. 
