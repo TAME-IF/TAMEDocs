@@ -83,9 +83,13 @@
 	</target>
 
 	<target name="tamedocs" description="Creates TAME documentation HTML pages. Run 'compile' first!">
-		<delete dir="${tamedocs.dir}" includeemptydirs="true" casesensitive="false" /> 
+		<delete dir="${tamedocs.dir}" includeemptydirs="true" casesensitive="false" />
+		<echo message="${tame.version}" />
+		<echo message="${tame.docs.revision}" />
 		<java classname="com.tameif.tame.docs.TAMEDocsGen" classpath="${project.classpath}${S}${bin.dir}">
 			<arg value="${tamedocs.dir}" />
+			<sysproperty key="tame.version" value="${tame.version}" />
+			<sysproperty key="tame.docs.revision" value="${tame.docs.revision}" />
 		</java>
 	</target>
 	

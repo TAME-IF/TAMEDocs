@@ -94,6 +94,10 @@ public final class TAMEDocsGen
 	static final String COMMAND_GENERATE_TABLE = "generate-table";
 	/** Variable prefix. */
 	static final String VAR_PREFIX = "$";
+	/** Environment Variable prefix. */
+	static final String ENVVAR_PREFIX = "%";
+	/** System Property Variable prefix. */
+	static final String PROPVAR_PREFIX = "&";
 	/** NOINDEX tag. */
 	static final String TAG_NOINDEX = "<!--:NOINDEX:-->";
 
@@ -758,6 +762,16 @@ public final class TAMEDocsGen
 				return pageContext.get(var);
 			else
 				return inToken;
+		}
+		else if (inToken.startsWith(ENVVAR_PREFIX))
+		{
+			String var = inToken.substring(ENVVAR_PREFIX.length());
+			return System.getenv(var);
+		}
+		else if (inToken.startsWith(PROPVAR_PREFIX))
+		{
+			String var = inToken.substring(PROPVAR_PREFIX.length());
+			return System.getProperty(var, inToken);
 		}
 		else
 			return inToken;
