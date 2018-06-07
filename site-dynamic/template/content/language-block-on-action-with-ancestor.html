@@ -41,6 +41,16 @@
 		object.
 	</p>
 	<!--[ include fragments/ditransitive-flow.html ]-->
+	<h3>Transitive Actions</h3>
+	<p>
+		The <span class="tamedocs-block-type">onActionWithAncestor()</span> block is called on a <span class="tamedocs-element-type">room</span>, 
+		<span class="tamedocs-element-type">player</span>, or <span class="tamedocs-element-type">world</span> when a <strong>transitive</strong>
+		action needs to handle a target <span class="tamedocs-element-type">object</span>, but an <span class="tamedocs-block-type">onAction()</span>
+		block does not exist on the target object, or a matching <span class="tamedocs-block-type">onActionWith()</span> block didn't 
+		exist on the <span class="tamedocs-element-type">room</span>, <span class="tamedocs-element-type">player</span>, or 
+		<span class="tamedocs-element-type">world</span>.
+	</p>
+	<!--[ include fragments/transitive-fallback-flow.html ]-->
 	<p style="margin-top:2em;">
 		<a href="tamescript.html#inheritance">Inheritance</a> rules apply when searching for callable blocks, always!
 	</p>
