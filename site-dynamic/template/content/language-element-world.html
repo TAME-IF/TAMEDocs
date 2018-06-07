@@ -17,6 +17,9 @@
 
 		/* Events */
 		onAction(action) { ... }
+		onActionWith(action, object) { ... }
+		onActionWithAncestor(action, object) { ... }
+		onActionWithOther(action) { ... }
 		onModalAction(action, mode) { ... }
 		onUnhandledAction() { ... }
 		onUnhandledAction(action) { ... }
@@ -62,6 +65,9 @@
 			<!--[ include fragments/block-tablerow-after-failed-command.html ]-->
 			<!--[ include fragments/block-tablerow-after-every-command.html ]-->
 			<!--[ include fragments/block-tablerow-on-action.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with-ancestor.html ]-->
+			<!--[ include fragments/block-tablerow-on-action-with-other.html ]-->
 			<!--[ include fragments/block-tablerow-on-modal-action.html ]-->
 			<!--[ include fragments/block-tablerow-on-unhandled-action.html ]-->
 			<!--[ include fragments/block-tablerow-on-unknown-command.html ]-->
