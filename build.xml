@@ -32,6 +32,9 @@
 	<property name="tamedocs.dir" value="${build.dir}/tamedocs" />
 	<property name="tamedocs.zip" value="${build.dir}/tamedocs.zip" />
 
+	<property name="tame.version" value="SNAPSHOT" />
+	<property name="tame.docs.revision" value="SNAPSHOT" />
+	
 	<target name="dependency.common">
 		<git-export repository="https://github.com/BlackRookSoftware/Common" dest="${dependencies.dir}/Common" />
 		<ant antfile="${dependencies.dir}/Common/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
@@ -84,8 +87,6 @@
 
 	<target name="tamedocs" description="Creates TAME documentation HTML pages. Run 'compile' first!">
 		<delete dir="${tamedocs.dir}" includeemptydirs="true" casesensitive="false" />
-		<echo message="${tame.version}" />
-		<echo message="${tame.docs.revision}" />
 		<java classname="com.tameif.tame.docs.TAMEDocsGen" classpath="${project.classpath}${S}${bin.dir}">
 			<arg value="${tamedocs.dir}" />
 			<sysproperty key="tame.version" value="${tame.version}" />
