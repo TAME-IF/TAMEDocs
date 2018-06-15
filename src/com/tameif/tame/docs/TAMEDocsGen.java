@@ -17,7 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.Reader;
@@ -236,8 +235,6 @@ public final class TAMEDocsGen
 
 		// Export engine.
 		exportEngine(outPath);
-		// Export browser JS helper.
-		exportBrowserHandler(outPath);
 
 		Iterable<String[]> pageList = getPageList();
 		
@@ -551,29 +548,6 @@ public final class TAMEDocsGen
 				partialToTokens.add(token.substring(0, x), token);
 			}
 		}
-	}
-
-	private static boolean exportBrowserHandler(String outPath) throws IOException
-	{
-		File outFile = new File(outPath + "/" + OUTPATH_JS_BROWSERHANDLER);
-		if (!Common.createPathForFile(outFile))
-		{
-			out.println("ERROR: Could not create path for "+outFile.getPath());
-			return false;
-		}
-
-		InputStream in = null;
-		OutputStream out = null;
-		try {
-			in = Common.openResource("tamejs/html/TAMEBrowserHandler.js");
-			out = new FileOutputStream(outFile);
-			Common.relay(in, out);
-		} finally {
-			Common.close(in);
-			Common.close(out);
-		}
-
-		return true;
 	}
 
 	private static boolean exportEngine(String outPath) throws IOException

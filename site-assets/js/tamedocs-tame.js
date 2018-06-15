@@ -81,8 +81,8 @@ function tameDebugResponse(response)
 }
 
 
-var TAMEHandler = new TAMEBrowserHandler(TAME,
-{
+var TAMEHandler = TAME.newBrowserHandler({
+	
 	"print": tamePrint,
 	
 	"onStart": function()
