@@ -917,11 +917,13 @@ public final class TAMEDocsGen
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
 
 				writer.write("<div class=\"w3-example\">\n");
-				writer.write("\t<button id=\"tame-"+moduleName+"-clipboard\" class=\"w3-button w3-blue button-launch\" style=\"float:right;\" onclick=\"tamedocsClipboard('code-"+moduleName+"')\"><i class=\"fa fa-clipboard\"></i></button>\n");
-				writer.write("\t<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>\n");
-				writer.write("\t<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>\n");
-				writer.write("\t<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" style=\"float:right;\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>\n");
-				writer.write("\t<h4>"+headingName+"</h4>\n");
+				writer.write("\t<div class=\"w3-margin-top\" style=\"float:right;\">");
+				writer.write("<button id=\"tame-"+moduleName+"\" class=\"w3-button w3-green button-launch\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>");
+				writer.write("<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>");
+				writer.write("<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>");
+				writer.write("<button id=\"tame-"+moduleName+"-clipboard\" class=\"w3-button w3-blue button-launch\" onclick=\"tamedocsClipboard('code-"+moduleName+"')\"><i class=\"fa fa-clipboard\"></i></button>");
+				writer.write("</div>\n");
+				writer.write("\t<h3>"+headingName+"</h3>\n");
 				writer.write("<pre class=\"tame-example example-scroll\"><code data-language=\"tamescript\" id=\"code-"+moduleName+"\">\n");
 				writer.write(scriptContent.replaceAll(">", "&gt;").replaceAll("<", "&lt;"));
 				writer.write("</code></pre>\n");
