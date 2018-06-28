@@ -1,0 +1,215 @@
+action modal a_move named "move", "go" uses modes "north", "south", "west", "east";
+action general a_look named "look", "look around", "look at room";
+action general a_quit named "quit";
+action transitive a_examine named "examine", "look at";
+action transitive a_use named "use";
+
+// The ORB!
+object o_orb named "orb"
+{
+	init()
+	{
+		// Pick a room.
+		roomid = irandom(4) + 1;
+	}
+
+	function isCorrectRoom()
+	{
+		return room.id == roomid;
+	}
+	
+	onAction(a_examine)
+	{
+		if (isCorrectRoom())
+			textln("The orb is starting to glow!");
+		else
+			textln("The orb is doing nothing.");
+	}
+
+	onAction(a_use)
+	{
+		if (isCorrectRoom())
+		{
+			textln("You teleport out of the adventure!");
+			quit;
+		}
+		else
+			textln("Nothing happens. Must not be the correct room.");
+	}
+}
+
+// Declare rooms here because we'll need to reference them immediately in r_center.
+room r_south;
+room r_north;
+room r_east;
+room r_west;
+
+room r_center
+{
+	init()
+	{
+		id = 0;
+	}
+
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the center room.");
+	}
+
+	onModalAction(a_move, "north")
+	{
+		setRoom(player, r_north);
+	}
+
+	onModalAction(a_move, "south")
+	{
+		setRoom(player, r_south);
+	}
+
+	onModalAction(a_move, "west")
+	{
+		setRoom(player, r_west);
+	}
+
+	onModalAction(a_move, "east")
+	{
+		setRoom(player, r_east);
+	}
+}
+
+// Filling out the rooms here.
+extend room r_south
+{
+	init()
+	{
+		id = 1;
+	}
+
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the south room.");
+	}
+
+	onModalAction(a_move, "north")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_north
+{
+	init()
+	{
+		id = 2;
+	}
+
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the north room.");
+	}
+
+	onModalAction(a_move, "south")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_east
+{
+	init()
+	{
+		id = 3;
+	}
+
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the east room.");
+	}
+
+	onModalAction(a_move, "west")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_west
+{
+	init()
+	{
+		id = 4;
+	}
+
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the west room.");
+	}
+
+	onModalAction(a_move, "east")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+// Our intrepid... hero?
+player p_guy
+{
+	onBadAction(a_move)
+	{
+		textln("That is not a valid direction to travel! (north, south, east, west)");
+	}
+
+	onUnhandledAction()
+	{
+		textln("Can't do that.");
+	}
+
+	onMalformedCommand(a_move)
+	{
+		textln("Can't go that way.");
+	}
+	
+	onMalformedCommand()
+	{
+		textln("Can't do that.");
+	}
+	
+	onIncompleteCommand()
+	{
+		textln("You should probably complete that thought.");
+	}
+
+}
+
+world
+{
+	onAction(a_quit)
+	{
+		textln("Quitting.");
+		quit;
+	}
+
+	start()
+	{
+		// init player.
+		setPlayer(p_guy);
+		setRoom(p_guy, r_center);
+		giveObject(player, o_orb);
+
+		// Kick us off. afterRequest() is not called after start().
+		queueAction(a_look);
+		queueActionObject(a_examine, o_orb);
+
+		textln("The ORB that you are carrying reacts to a certain room.");
+		textln("Using the ORB in this state will help you escape.");
+		textln("");
+		textln("Type \"move\" or \"go\" and a compass direction.");
+		textln("Type \"quit\" to quit.");
+	}
+
+	afterSuccessfulCommand()
+	{
+		queueAction(a_look);
+		queueActionObject(a_examine, o_orb);
+	}
+	
+}

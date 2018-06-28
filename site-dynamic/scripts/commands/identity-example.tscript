@@ -1,0 +1,57 @@
+action transitive a_identify named "identify";
+action general a_quit named "quit";
+
+object archetype o_object
+{
+	onAction(a_identify)
+	{
+		textln(identity(this));
+	}
+}
+
+object o_ballred : o_object named "red ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A red ball is here.");
+	}
+}
+
+object o_ballblue : o_object named "blue ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A blue ball is here.");
+	}
+}
+
+object o_ballyellow : o_object named "yellow ball", "ball"
+{
+	onWorldBrowse()
+	{
+		textln("A yellow ball is here.");
+	}
+}
+
+world
+{
+	init()
+	{
+		giveObject(this, o_ballred);
+		giveObject(this, o_ballblue);
+		giveObject(this, o_ballyellow);
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+	start()
+	{
+		textln("Type \"identify\" and a ball type, and you'll get something back like:");
+		textln(identity(o_ballred));
+		textln("");
+		browse(this);
+	}
+}

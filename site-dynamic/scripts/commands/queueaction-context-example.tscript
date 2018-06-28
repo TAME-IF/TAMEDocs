@@ -1,0 +1,140 @@
+action modal a_move named "move", "go" uses modes "north", "south", "west", "east";
+action general a_quit named "quit";
+
+/*
+	Name not required for invoking through other commands -
+	Unnamed actions are just not callable via user input.
+*/
+action general a_look;
+
+// Declare rooms here because we'll need to reference them immediately in r_center.
+room r_south;
+room r_north;
+room r_east;
+room r_west;
+
+room r_center
+{
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the center room.");
+	}
+
+	onModalAction(a_move, "north")
+	{
+		setRoom(player, r_north);
+	}
+
+	onModalAction(a_move, "south")
+	{
+		setRoom(player, r_south);
+	}
+
+	onModalAction(a_move, "west")
+	{
+		setRoom(player, r_west);
+	}
+
+	onModalAction(a_move, "east")
+	{
+		setRoom(player, r_east);
+	}
+}
+
+// Filling out the rooms here.
+extend room r_south
+{
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the south room.");
+	}
+
+	onModalAction(a_move, "north")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_north
+{
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the north room.");
+	}
+
+	onModalAction(a_move, "south")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_east
+{
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the east room.");
+	}
+
+	onModalAction(a_move, "west")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_west
+{
+	onAction(a_look)
+	{
+		textln("Looks like I'm in the west room.");
+	}
+
+	onModalAction(a_move, "east")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+// Our intrepid... hero?
+player p_guy
+{
+	onFailedAction(a_move)
+	{
+		textln("Can't go that way.");
+	}
+	
+	onBadAction(a_move)
+	{
+		textln("That is not a valid direction to travel! (north, south, east, west)");
+	}
+
+}
+
+world
+{
+	onAction(a_quit)
+	{
+		textln("Quitting.");
+		quit;
+	}
+
+	start()
+	{
+		// init player.
+		setPlayer(p_guy);
+		setRoom(p_guy, r_center);
+
+		// Kick us off. afterRequest() is not called after start().
+		queueAction(a_look);
+
+		textln("Type \"move\" or \"go\" and a compass direction.");
+		textln("Type \"quit\" to quit.");
+
+	}
+	
+	afterSuccessfulCommand()
+	{
+		// Queued actions do not "remember" the context in which they were called (this is pretty useful, though).
+		queueAction(a_look);
+	}
+	
+}
