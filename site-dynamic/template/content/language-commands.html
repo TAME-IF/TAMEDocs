@@ -142,6 +142,29 @@
 				<td>VALUE(STRING)</td>
 				<td>Returns the string value of <em>VALUE</em>.</td>
 			</tr>
+			<tr>
+				<td><a href="command-length.html">Length</a></td>
+				<td>VALUE</td>
+				<td>VALUE(INTEGER)</td>
+				<td>
+					Returns the length of <em>VALUE</em>. 
+					If numeric/boolean, this returns <strong>1</strong>. 
+					If string, the length of the string in characters is returned.
+					If list, the the amount of elements in the list is returned.
+				</td>
+			</tr>
+			<tr>
+				<td><a href="command-empty.html">Empty</a></td>
+				<td>VALUE</td>
+				<td>VALUE(BOOLEAN)</td>
+				<td>
+					Returns <strong>TRUE</strong> if <em>VALUE</em> is considered "empty."
+					If boolean and false, this returns <strong>TRUE</strong>. 
+					If numeric and 0, this returns <strong>TRUE</strong>. 
+					If string and <a href="command-strtrim.html">trimmed</a> to <a href="command-length.html">length</a> 0, this returns <strong>TRUE</strong>.
+					If list and <a href="command-length.html">length</a> 0, this returns <strong>TRUE</strong>.
+				</td>
+			</tr>
 		</tbody>
 	</table>
 	<h3>String Operations</h3>
@@ -155,12 +178,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><a href="command-strlength.html">StrLength</a></td>
-				<td>VALUE(STRING)</td>
-				<td>VALUE(INTEGER)</td>
-				<td>Returns the amount of characters in the string representation of <em>VALUE</em>.</td>
-			</tr>
 			<tr>
 				<td><a href="command-strconcat.html">StrConcat</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
@@ -550,7 +567,7 @@
 				<td>Removes <em>OBJECT</em> from its current owner.</td>
 			</tr>
 			<tr>
-				<td><a href="command-removeobjectswithtag.html">MoveObjectsWithTag</a></td>
+				<td><a href="command-moveobjectswithtag.html">MoveObjectsWithTag</a></td>
 				<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>

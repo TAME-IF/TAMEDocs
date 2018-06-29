@@ -78,6 +78,8 @@ public final class TAMEDocsGen
 	static final String OUTPATH_JS_TAMEMODULE = OUTPATH_JS + "modules/";
 	/** Output directory for generated search index data. */
 	static final String OUTPATH_JS_SEARCHINDEX = OUTPATH_JS + "searchindex.js";
+	/** Output directory for missing page data. */
+	static final String OUTPATH_JS_MISSINGPAGE = OUTPATH_JS + "missingpages.js";
 
 	/** Parse command: set variable. */
 	static final String COMMAND_SET = "set";
@@ -238,6 +240,9 @@ public final class TAMEDocsGen
 
 		Iterable<String[]> pageList = getPageList();
 		
+		// Scan existing pages.
+		scanExistingPages(outPath, pageList);
+		
 		// Process pages.
 		processAllPages(outPath, pageList);
 
@@ -246,6 +251,35 @@ public final class TAMEDocsGen
 		generateIndex(outPath, pageList);
 
 		out.println("Done!");
+	}
+	
+	private static void scanExistingPages(String outPath, Iterable<String[]> pageList)
+	{
+		JSONObject index = JSONObject.createEmptyArray();
+
+		for (String[] page : pageList)
+		{
+			String parent = new File(RESOURCE_ROOT + "/" + page[2]).getParent();
+			if (!(new File(parent + "/content/" + page[0]).exists()))
+				index.append(JSONObject.create(page[0]));
+		}
+		
+		PrintWriter pw = null;
+		try {
+			pw = new PrintWriter(new FileOutputStream(new File(outPath + "/" + OUTPATH_JS_MISSINGPAGE)), true);
+			pw.println("var TAMEDOCS_MISSINGPAGES = ");
+			JSONWriter.writeJSON(index, pw);
+			pw.println(";");
+		} catch (FileNotFoundException e) {
+			out.println("Cannot open "+OUTPATH_JS_SEARCHINDEX+" for writing a search index!");
+			e.printStackTrace(out);
+		} catch (IOException e) {
+			out.println("Cannot write to "+OUTPATH_JS_SEARCHINDEX+" for the search index!");
+			e.printStackTrace(out);
+		} finally {
+			Common.close(pw);
+		}
+
 	}
 
 	private static void processAllPages(String outPath, Iterable<String[]> pageList) throws IOException
@@ -919,11 +953,11 @@ public final class TAMEDocsGen
 				writer.write("<div class=\"w3-example\">\n");
 				
 				writer.write("\t<div class=\"w3-right\" style=\"margin-top:12px\">");
-				writer.write("<button id=\"tame-"+moduleName+"\" class=\"w3-hide-small w3-button w3-green button-launch\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>");
-				writer.write("<button id=\"tame-"+moduleName+"\" class=\"w3-hide-medium w3-hide-large w3-hide-xlarge w3-button w3-green button-launch\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">&#9654;</button>");
-				writer.write("<button id=\"tame-"+moduleName+"-debug\" class=\"w3-button w3-yellow button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>");
-				writer.write("<button id=\"tame-"+moduleName+"-trace\" class=\"w3-button w3-red button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>");
-				writer.write("<button id=\"tame-"+moduleName+"-clipboard\" class=\"w3-button w3-blue button-launch\" onclick=\"tamedocsClipboard('code-"+moduleName+"')\"><i class=\"fa fa-clipboard\"></i></button>");
+				writer.write("<button class=\"w3-hide-small w3-button w3-green button-launch\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">Play Example</button>");
+				writer.write("<button class=\"w3-hide-medium w3-hide-large w3-hide-xlarge w3-button w3-green button-launch\" onclick=\"tameStartExample('"+headingName+"', "+moduleName+")\">&#9654;</button>");
+				writer.write("<button class=\"w3-button w3-yellow button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug)', "+moduleName+", true)\"><i class=\"fa fa-bug\"></i></button>");
+				writer.write("<button class=\"w3-button w3-red button-launch\" onclick=\"tameStartExample('"+headingName+" (Debug and Trace)', "+moduleName+", true, true)\"><i class=\"fa fa-bug\"></i></button>");
+				writer.write("<button class=\"w3-button w3-blue button-launch\" onclick=\"tamedocsClipboard('code-"+moduleName+"')\"><i class=\"fa fa-clipboard\"></i></button>");
 				writer.write("</div>\n");
 
 				writer.write("\t<h3>"+headingName+"</h3>\n");

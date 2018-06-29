@@ -53,6 +53,15 @@ a:hover {
 	color: #009688;
 }
 
+a.missing {
+	color:#c00000;
+}
+
+a.missing:hover {
+	color:#c00000;
+	text-decoration: underline;
+}
+
 ul.sidebar-list {
     list-style-type: none;
     padding-left: 0;

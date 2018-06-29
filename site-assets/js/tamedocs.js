@@ -3,6 +3,11 @@ var $Q1 = $Q1 || function(x)
 	return document.querySelector(x);
 }
 
+var $Q = $Q || function(x)
+{
+	return document.querySelectorAll(x);
+}
+
 // text: text in node
 var $DOMText = function(text)
 {

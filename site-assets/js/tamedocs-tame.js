@@ -205,4 +205,11 @@ BodyElement.onload = function()
 		}
 	});
 	
+	for (let i = 0; i < TAMEDOCS_MISSINGPAGES.length; i++)
+	{
+		let elems = $Q('a[href^="'+TAMEDOCS_MISSINGPAGES[i]+'"]');
+		for (let x = 0; x < elems.length; x++)
+			tamedocsAddClass(elems[x], 'missing');
+	}
+	
 };
