@@ -1,0 +1,133 @@
+action general a_quit named "quit";
+action general a_look;
+
+action modal a_go named "go", "move", "travel" uses modes "west", "north", "east", "south";
+
+// Room prototypes.
+room r_west;
+room r_east;
+room r_north;
+room r_south;
+
+room r_center
+{
+	onAction(a_look)
+	{
+		textln("This looks like the center room.");
+		textln("I can go west, east, north, or south.");
+	}
+	
+	onModalAction(a_go, "west")
+	{
+		setRoom(player, r_west);
+	}
+	
+	onModalAction(a_go, "east")
+	{
+		setRoom(player, r_east);
+	}
+	
+	onModalAction(a_go, "south")
+	{
+		setRoom(player, r_south);
+	}
+	
+	onModalAction(a_go, "north")
+	{
+		setRoom(player, r_north);
+	}
+	
+}
+
+extend room r_west
+{
+	onAction(a_look)
+	{
+		textln("This looks like the west room.");
+		textln("I can go east.");
+	}
+	
+	onModalAction(a_go, "east")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_east
+{
+	onAction(a_look)
+	{
+		textln("This looks like the east room.");
+		textln("I can go west.");
+	}
+	
+	onModalAction(a_go, "west")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_north
+{
+	onAction(a_look)
+	{
+		textln("This looks like the north room.");
+		textln("I can go south.");
+	}
+	
+	onModalAction(a_go, "south")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+extend room r_south
+{
+	onAction(a_look)
+	{
+		textln("This looks like the south room.");
+		textln("I can go north.");
+	}
+	
+	onModalAction(a_go, "north")
+	{
+		setRoom(player, r_center);
+	}
+}
+
+player p_main
+{
+	onUnhandledAction(a_go)
+	{
+		textln("Can't go that way.");
+	}
+	
+	onIncompleteCommand(a_go)
+	{
+		textln("I need to GO a compass direction.");
+		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+	}
+}
+
+world
+{	
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	start()
+	{
+		setRoom(p_main, r_center);
+		setPlayer(p_main);
+		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+		textln("Type \"quit\".");
+		queueAction(a_look);
+	}
+	
+	afterSuccessfulCommand()
+	{
+		queueAction(a_look);
+	}
+	
+}

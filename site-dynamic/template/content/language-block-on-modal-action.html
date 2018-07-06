@@ -1,0 +1,81 @@
+<h1>OnModalAction ( <em>ACTION</em>, <em>STRING</em> )</h1>
+<div class="w3-container">
+	A block that describes what to do when a modal action <strong>object</strong> is the target 
+	of a valid <strong>transitive</strong> action, or when a <strong>general</strong> or <strong>open</strong>
+	action needs handling.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Valid on Elements</h3>
+</div>
+<div class="w3-container">
+	<a href="language-element-world.html"><span class="w3-tag w3-yellow w3-xlarge">WORLD</span></a>
+	<a href="language-element-player.html"><span class="w3-tag w3-green w3-xlarge">PLAYER</span></a>
+	<a href="language-element-room.html"><span class="w3-tag w3-red w3-xlarge">ROOM</span></a>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-striped" >
+		<tr>
+			<td class="tamedocs-parameter">ACTION</td>
+			<td class="tamedocs-parameter-type">A modal action.</td>
+			<td class="tamedocs-parameter-description">The action that this block handles.</td>
+		</tr>
+		<tr>
+			<td class="tamedocs-parameter">STRING</td>
+			<td class="tamedocs-parameter-type">The action's mode.</td>
+			<td class="tamedocs-parameter-description">The specific mode that this block handles, interpreted from the input.</td>
+		</tr>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>When it is Called</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedocs-block-type">onModalAction()</span> block is called when a <strong>modal</strong> action needs to be handled.
+		A valid <span class="tamedocs-block-type">onModalAction()</span> block for the associated action and mode on the current 
+		<span class="tamedocs-element-type">room</span>, then <span class="tamedocs-element-type">player</span>, then the 
+		<span class="tamedocs-element-type">world</span>. 
+	</p>
+	<p>
+		If <em>that</em> does not exist, TAME looks for <span class="tamedocs-block-type">onUnhandledAction()</span> blocks to call (on 
+		the current <span class="tamedocs-element-type">player</span>, if any, and then the <span class="tamedocs-element-type">world</span>).
+	</p>
+	<p>
+		<a href="tamescript.html#inheritance">Inheritance</a> rules apply when searching for callable blocks, always!
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "OnModalAction Example" module_onmodalaction_example blocks/onmodalaction-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a class="link" href="language-block-on-action.html">onAction()</a> &mdash; Called to handle an action with another object, or a <em>general</em> action on the current player or room.<br/>
+		<a class="link" href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedocs-block-type">onAction()</span> block is context sensitive involving the current <span class="tamedocs-element-type">player</span>
+		or the current <span class="tamedocs-element-type">room</span>. This is assessed when finding the relevant block to execute for the current
+		action being processed. This will affect program flow if <span class="tamedocs-element-type">rooms</span> 
+		and <span class="tamedocs-element-type">players</span> change.
+	</p>
+</div>

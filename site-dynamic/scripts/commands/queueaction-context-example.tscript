@@ -97,7 +97,7 @@ extend room r_west
 // Our intrepid... hero?
 player p_guy
 {
-	onFailedAction(a_move)
+	onMalformedCommand(a_move)
 	{
 		textln("Can't go that way.");
 	}
