@@ -1,7 +1,7 @@
 	<p>
 		Initializing a context is wrapped in one <a href="systems.html">request-response loop</a>. The response cues that come back are the result of all 
-		<span class="tamedocs-block-type">init()</span> blocks plus <span class="tamedocs-block-type">start()</span>. All commands 
-		executed contribute towards the command and function call limits, which is TAME's soft protection against infinite loops 
+		<span class="tamedocs-block-type">init()</span> blocks plus <span class="tamedocs-block-type">start()</span>. All operations 
+		executed contribute towards the operations and function depth limits, which is TAME's soft protection against infinite loops 
 		and stack overflows. This may vary by implementation, but the author can override these in the 
 		<a href="language-element-module.html#special">module header</a>.
 	</p>

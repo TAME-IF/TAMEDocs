@@ -29,7 +29,7 @@
 	</p>
 	<p>
 		Each of those elements contain <a href="language-blocks.html">blocks</a>, which are entry points for executing
-		logic, and the blocks are made up of <strong>statements</strong> and <a href="language-commands.html">commands</a> that
+		logic, and the blocks are made up of <strong>statements</strong> and <a href="language-functions.html">functions</a> that
 		manipulate the context and return information.
 	</p>
 </div>
@@ -266,7 +266,7 @@
 	4 + 5 * 7.0
 </code></pre>
 	<p>
-		Expressions can consist of multiple values and operators, as well as commands and functions that return values:
+		Expressions can consist of multiple values and operators, as well as functions that return values:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	4 + min(0, 8)
@@ -294,7 +294,7 @@
 <!-- ====== Statements Section ====== -->
 <!-- ================================ -->
 <div id="statements" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements and Commands <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container" style="margin-top: 1em;">
 	<p>
@@ -376,10 +376,10 @@
 	x			// this context's x
 	o_ball.x	// o_ball's x
 </code></pre>
-	<h3>Commands and Functions</h3>
+	<h3>Calling Functions</h3>
 	<p>
-		<em>Commands</em> and <em>functions</em> can also be invoked in a statement, including commands that return something.
-		To invoke a command or function, you type the name of the function plus a list of <em>parameters</em> to pass to
+		<em>Functions</em> can also be invoked in a statement, including functions that return something.
+		To invoke a function, you type the name of the function plus a list of <em>parameters</em> to pass to
 		it enclosed in parenthesis, each parameter separated by a comma.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
@@ -388,7 +388,7 @@
 	floor(5.6);					// Calculates the floor of 5.6 and returns it, but does nothing with it. 
 </code></pre>
 	<p>
-		Each of the <em>parameters</em> in a function or a command (that accepts values) are expressions. 
+		Each of the <em>parameters</em> in a function (that accepts values) are expressions. 
 		They can be either single values or complex expressions that evaluate to a value. 
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
@@ -441,7 +441,7 @@
 	a[1] = ["apple", "banana"];	// list is now [3, ["apple", "banana"], 5, 4, 0]
 </code></pre>
 	<p>
-		There are also a lot of <a href="language-commands.html#list-operations">commands</a> associated with list manipulation. 
+		There are also a lot of <a href="language-functions.html#list-operations">functions</a> associated with list manipulation. 
 	</p>
 	<p>
 		Since lists can contain other lists, they can be accessed using a second index after resolving the first (this can
@@ -527,8 +527,8 @@
 </div>
 <div class="w3-container" style="margin-top: 1em;">
 	<p>
-		<em>Function</em> blocks are essentially "commands" that you define yourself and called in other code. Functions consist of a series of commands executed in order, and return a
-		value at the end to the caller. They are referenced by name, and called the same way commands are, for the most part.   
+		<em>Function</em> blocks consist of a series of statements executed in order, and return a value at the end to the caller.
+		They are referenced by name, and called the same way the built-in, predefined functions are.    
 	</p>
 	<p>
 		The basic anatomy of a function is as follows:
@@ -575,7 +575,7 @@
 	} 
 </code></pre>
 	<p>
-		Functions, unlike commands, always return a value, so if the end of a function is reached without hitting a <kbd>return</kbd>,
+		Functions defined in TAMEScript always return a value, so if the end of a function is reached without hitting a <kbd>return</kbd>,
 		<kbd>false</kbd> is returned. 
 	</p>
 </div>
@@ -737,15 +737,15 @@
 	<p>
 		NOTE: As with any looping construct, there is always the risk of writing a loop that will never finish, creating an
 		<em>infinite loop</em>. TAME has a soft safeguard against this, where if it detects that a certain threshold of 
-		commands are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> commands).
+		operations are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> operations).
 		This can be overridden in <a href="language-element-module.html#special">module headers</a>.
 	</p>
 	<h3 id="quit-keyword">Quit</h3>
 	<p>
-		Control keywords, like <strong>quit</strong>, are not commands or functions. They do not have parameters.
+		Control keywords, like <strong>quit</strong>, are not function statements. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
 		processing of the module and adds a "quit" cue to the response, telling the client to stop accepting
-		input and stopping user interaction (and clearing the module state as well).
+		input and stopping user interaction (and clearing the module context state as well).
 	</p>
 	<p>
 		There are no limits or rules as to where <strong>quit</strong> can be called, but to save you plenty of headaches, 
@@ -812,7 +812,7 @@
 	<h3 id="world-keyword">World</h3>
 	<p>
 		While <strong>world</strong> is used to mark the declaration of the world, it is used as the singular main identifier
-		to refer to the world as an element in command calls.
+		to refer to the world as an element in function calls.
 	</p>
 </div>
 <div class="w3-container">
@@ -823,7 +823,7 @@
 	<p>
 		While <strong>player</strong> is used to mark the declaration of players, it can be used as an identifier to
 		mean "the current player." If there is no current player at the moment it is resolved, a <kbd>FATAL</kbd> error 
-		is thrown, so check for it using <a href="command-nocurrentplayer.html">NoCurrentPlayer()</a> if it is a 
+		is thrown, so check for it using <a href="function-nocurrentplayer.html">NoCurrentPlayer()</a> if it is a 
 		possibility in your module.
 	</p>
 </div>
@@ -835,7 +835,7 @@
 	<p>
 		While <strong>room</strong> is used to mark the declaration of rooms, it can be used as an identifier to
 		mean "the current room." If there is no current room at the moment it is resolved, a <kbd>FATAL</kbd> error 
-		is thrown, so check for it using <a href="command-nocurrentroom.html">NoCurrentRoom(...)</a> if it is a 
+		is thrown, so check for it using <a href="function-nocurrentroom.html">NoCurrentRoom(...)</a> if it is a 
 		possibility in your module. Remember: the current room is a state maintained by the current player.
 	</p>
 </div>

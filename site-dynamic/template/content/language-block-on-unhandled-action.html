@@ -1,4 +1,4 @@
-<h1>OnAction ( <em>ACTION</em> )</h1>
+<h1>OnUnhandledAction ( <em>ACTION</em> )</h1>
 <div class="w3-container">
 	A block that describes what to do when an <strong>object</strong> is the target 
 	of a valid <strong>transitive</strong> action, or when a <strong>general</strong> or <strong>open</strong>
@@ -22,7 +22,7 @@
 	<table class="w3-table w3-striped" >
 		<tr>
 			<td class="tamedocs-parameter">ACTION</td>
-			<td class="tamedocs-parameter-type">GENERAL, OPEN, or TRANSITIVE action (depending on the element type).</td>
+			<td class="tamedocs-parameter-type">Any ACTION type, <em>OPTIONAL</em>.</td>
 			<td class="tamedocs-parameter-description">The action that this block handles.</td>
 		</tr>
 	</table>
@@ -87,10 +87,10 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <span class="tamedocs-block-type">onAction()</span> block is context sensitive involving the current <span class="tamedocs-element-type">player</span>
-		or the current <span class="tamedocs-element-type">room</span>. This is assessed when finding the relevant block to execute for the current
-		action being processed. This will affect program flow if <span class="tamedocs-element-type">rooms</span> 
-		and <span class="tamedocs-element-type">players</span> change.
+		The <span class="tamedocs-block-type">onAction()</span> block is context sensitive involving the 
+		current <span class="tamedocs-element-type">player</span>. 
+		This is assessed when finding the relevant block to execute for the current action being processed. 
+		This will affect program flow <span class="tamedocs-element-type">players</span> change.
 	</p>
 	<!--[ include fragments/block-success.html ]-->
 </div>
