@@ -1,8 +1,6 @@
 <h1>OnUnhandledAction ( <em>ACTION</em> )</h1>
 <div class="w3-container">
-	A block that describes what to do when an <strong>object</strong> is the target 
-	of a valid <strong>transitive</strong> action, or when a <strong>general</strong> or <strong>open</strong>
-	action needs handling.
+	A block that describes what to do when an action is unhandled by all blocks that would normally handle an action.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -11,8 +9,6 @@
 <div class="w3-container">
 	<a href="language-element-world.html"><span class="w3-tag w3-yellow w3-xlarge">WORLD</span></a>
 	<a href="language-element-player.html"><span class="w3-tag w3-green w3-xlarge">PLAYER</span></a>
-	<a href="language-element-room.html"><span class="w3-tag w3-red w3-xlarge">ROOM</span></a>
-	<a href="language-element-object.html"><span class="w3-tag w3-blue w3-xlarge">OBJECT</span></a>
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -32,35 +28,16 @@
 	<h3>When it is Called</h3>
 </div>
 <div class="w3-container">
-	<h3>General or Open Actions</h3>
 	<p>
-		The <span class="tamedocs-block-type">onAction()</span> block is called when a <strong>general</strong> or <strong>open</strong> action
-		needs to be handled at the <span class="tamedocs-element-type">world</span>, <span class="tamedocs-element-type">player</span>, or
-		<span class="tamedocs-element-type">room</span> element.
-	</p>
-	<p>
-		If a valid <span class="tamedocs-block-type">onAction()</span> block for a general or open action on the current <span class="tamedocs-element-type">room</span>
-		is not found (or no current <span class="tamedocs-element-type">room</span>), TAME then looks for a valid <span class="tamedocs-block-type">onAction()</span>
-		block on the current <span class="tamedocs-element-type">player</span>. If <em>that</em> is not found, (or no current <span class="tamedocs-element-type">player</span>), 
-		TAME then looks for a valid <span class="tamedocs-block-type">onAction()</span> block on the <span class="tamedocs-element-type">world</span>. 
-		If <em>that</em> is not found, TAME looks for <span class="tamedocs-block-type">onUnhandledAction()</span> blocks to call 
-		(on the current <span class="tamedocs-element-type">player</span>, if any, and then the <span class="tamedocs-element-type">world</span>).
-	</p>
-	<p>
-		Then if <em>that</em> is not found, an <kbd>ERROR</kbd> cue is added to the <strong>Response</strong>.
-	</p>
-	<h3>Transitive Actions</h3>
-	<p>
-		The <span class="tamedocs-block-type">onAction()</span> block is called when a <strong>transitive</strong> action needs to be handled on an 
-		<span class="tamedocs-element-type">object</span> element.
-	</p>
-	<!--[ include fragments/transitive-fallback-flow.html ]-->
-	<p>
-		Non-strict <strong>ditransitive</strong> actions that lack a second object are treated as <a href="language-element-action-transitive.html">transitive</a> actions.
+		The <span class="tamedocs-block-type">onUnhandledAction()</span> block is called after all blocks that would ordinarily
+		handle an action are not found. Unhandled actions are handled by the <span class="tamedocs-element-type">player</span> and then
+		the <span class="tamedocs-element-type">world</span>, prioritizing a specific action over an 
+		<span class="tamedocs-block-type">onUnhandledAction()</span> that does not specify an action.
 	</p>
 	<p style="margin-top:2em;">
 		<a href="tamescript.html#inheritance">Inheritance</a> rules apply when searching for callable blocks, always!
 	</p>
+	<!--[ include fragments/block-success.html ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -75,10 +52,10 @@
 </div>
 <div class="w3-container">
 	<p>
+		<a href="language-block-on-action.html">onAction()</a> &mdash; Called to handle an action with another object, or a <em>general</em> action on the current player or room.<br/>
 		<a href="language-block-on-action-with.html">onActionWith()</a> &mdash; Called by <em>ditransitive</em> or <em>transitive</em> actions for handling an action with another object.<br/>
 		<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor()</a> &mdash; Called by <em>ditransitive</em> or <em>transitive</em> actions for handling an action with another non-specific object.<br/>
 		<a href="language-block-on-action-with-other.html">onActionWithOther()</a> &mdash; Called by <em>ditransitive</em> or <em>transitive</em> actions for handling an action with another object after no specific entry points exist.<br/>
-		<a href="language-block-on-unhandled-action.html">onUnhandledAction()</a> &mdash; Called if a command is valid, but an action is unhandled.<br/>
 	</p>
 </div>
 
@@ -92,5 +69,4 @@
 		This is assessed when finding the relevant block to execute for the current action being processed. 
 		This will affect program flow <span class="tamedocs-element-type">players</span> change.
 	</p>
-	<!--[ include fragments/block-success.html ]-->
 </div>

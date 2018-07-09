@@ -33,43 +33,43 @@
 	</p>
 	<p>
 		TAME always parses input in this manner:
-		<ul>
-			<li><strong>Attempt to parse an Action.</strong> Then, depending on the kind of action:</li>
-			<li>If the action type is <strong>GENERAL</strong>,
-				<ul><li><strong>Stop.</strong></li></ul>
-			</li>
-			<li>If the action type is <strong>OPEN</strong>,
-				<ul>
-					<li><strong>Scan the rest of the input.</strong> Pass it along with the action.</li>
-					<li><strong>Stop.</strong></li>
-				</ul>
-			</li>
-			<li>If the action type is <strong>MODAL</strong>,
-				<ul>
-					<li><strong>Attempt to parse a Mode.</strong></li>
-					<li><strong>Stop.</strong></li>
-				</ul>
-			</li>
-			<li>If the action type is <strong>TRANSITIVE</strong>,
-				<ul>
-					<li><strong>Attempt to parse an Object.</strong></li>
-					<li><strong>Stop.</strong></li>
-				</ul>
-			</li>
-			<li>If the action type is <strong>DITRANSITIVE</strong>,
-				<ul>
-					<li><strong>Attempt to parse an Object.</strong></li>
-					<li><strong>Attempt to parse a Conjunction.</strong></li>
-					<li>
-						<strong>If nothing to parse,</strong>
-						<ul><li><strong>Stop.</strong></li></ul>
-					</li>
-					<li><strong>Attempt to parse a second Object.</strong></li>
-					<li><strong>Stop.</strong></li>
-				</ul>
-			</li>
-		</ul>
 	</p>
+	<ul>
+		<li><strong>Attempt to parse an Action.</strong> Then, depending on the kind of action:</li>
+		<li>If the action type is <strong>GENERAL</strong>,
+			<ul><li><strong>Stop.</strong></li></ul>
+		</li>
+		<li>If the action type is <strong>OPEN</strong>,
+			<ul>
+				<li><strong>Scan the rest of the input.</strong> Pass it along with the action.</li>
+				<li><strong>Stop.</strong></li>
+			</ul>
+		</li>
+		<li>If the action type is <strong>MODAL</strong>,
+			<ul>
+				<li><strong>Attempt to parse a Mode.</strong></li>
+				<li><strong>Stop.</strong></li>
+			</ul>
+		</li>
+		<li>If the action type is <strong>TRANSITIVE</strong>,
+			<ul>
+				<li><strong>Attempt to parse an Object.</strong></li>
+				<li><strong>Stop.</strong></li>
+			</ul>
+		</li>
+		<li>If the action type is <strong>DITRANSITIVE</strong>,
+			<ul>
+				<li><strong>Attempt to parse an Object.</strong></li>
+				<li><strong>Attempt to parse a Conjunction.</strong></li>
+				<li>
+					<strong>If nothing to parse,</strong>
+					<ul><li><strong>Stop.</strong></li></ul>
+				</li>
+				<li><strong>Attempt to parse a second Object.</strong></li>
+				<li><strong>Stop.</strong></li>
+			</ul>
+		</li>
+	</ul>
 	<p>
 		TAME's interpreter is a <em>greedy</em> interpreter, and this affects how words and phrases are
 		matched to actions and objects.
@@ -88,26 +88,33 @@
 	</p>
 	<p>
 		For example, if the input was:
-		<pre>look at wooden table</pre>
+	</p>
+	<pre>look at wooden table</pre>
+	<p>
 		And "look" and "look at" are actions, and "wooden table" is an object, in a <strong>lazy</strong> interpreter:
-		<ul>
-			<li>Check if "look" is an action.</li>
-			<li>Since it is, stop.</li>
-			<li>Continue parse with "at wooden table".</li>
-		</ul>
+	</p>
+	<p>
+	<ul>
+		<li>Check if "look" is an action.</li>
+		<li>Since it is, stop.</li>
+		<li>Continue parse with "at wooden table".</li>
+	</ul>
+	<p>
 		But in a <strong>greedy</strong> interpreter:
-		<ul>
-			<li>Check if "look" is an action.</li>
-			<li>Since it is, mark "look" as a match.</li>
-			<li>Check if "look at" is an action.</li>
-			<li>Since it is, mark "look at" as a match.</li>
-			<li>Check if "look at wooden" is an action.</li>
-			<li>It is not - continue scan.</li>
-			<li>Check if "look at wooden table" is an action.</li>
-			<li>It is not - continue scan.</li>
-			<li>Reached end of input tokens. Best match for action was "look at".</li>
-			<li>Continue parse with "wooden table"</li>
-		</ul>
+	</p>
+	<ul>
+		<li>Check if "look" is an action.</li>
+		<li>Since it is, mark "look" as a match.</li>
+		<li>Check if "look at" is an action.</li>
+		<li>Since it is, mark "look at" as a match.</li>
+		<li>Check if "look at wooden" is an action.</li>
+		<li>It is not - continue scan.</li>
+		<li>Check if "look at wooden table" is an action.</li>
+		<li>It is not - continue scan.</li>
+		<li>Reached end of input tokens. Best match for action was "look at".</li>
+		<li>Continue parse with "wooden table"</li>
+	</ul>
+	<p>
 		This greedy scan still happens for each subsequent match, including action <em>modes</em>, <em>conjunctions</em> and accessible <em>objects</em>.
 	</p>
 </div>

@@ -180,8 +180,8 @@ IMG.min-nav-logo {
 .tamedocs-parameter-description {
 }
 
-TABLE.tamedocs-command-reference th, 
-TABLE.tamedocs-command-reference td,
+TABLE.tamedocs-function-reference th, 
+TABLE.tamedocs-function-reference td,
 TABLE.tamedocs-block-reference th,
 TABLE.tamedocs-block-reference td,
 TABLE.tamedocs-key-reference th,
@@ -190,8 +190,8 @@ TABLE.tamedocs-key-reference td
 	vertical-align: text-top;
 }
 
-TABLE.tamedocs-command-reference th:not(:last-child), 
-TABLE.tamedocs-command-reference td:not(:last-child),
+TABLE.tamedocs-function-reference th:not(:last-child), 
+TABLE.tamedocs-function-reference td:not(:last-child),
 TABLE.tamedocs-block-reference th:not(:last-child),
 TABLE.tamedocs-block-reference td:not(:last-child),
 TABLE.tamedocs-key-reference th:not(:last-child),
@@ -201,7 +201,7 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 	width: 1px;
 }
 
-.tamedocs-command-type {
+.tamedocs-function-type {
 	white-space: nowrap;
 	font-weight: bold;
 }

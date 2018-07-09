@@ -27,7 +27,7 @@
 		</tbody>
 	</table>
 	<p>
-		All values are stored as <em>strings</em> in the module - if they are read with a utility or
+		All header values are stored as <em>strings</em> in the module - if they are read with a utility or
 		retrieved in the module via the command <a href="function-header.html">header()</a>, it is
 		returned as a string. The programs or implementations that read them can convert them to an expected
 		type, though - if the value associated with the key is supposed to be an integer, TAME will try to 
@@ -127,7 +127,7 @@
 				<td>integer</td>
 				<td><kbd>100000</kbd></td>
 				<td>
-					How many commands can be executed by TAME in one request before it stops with a <kbd>FATAL</kbd> error.
+					How many operations can be executed by TAME in one request before it stops with a <kbd>FATAL</kbd> error.
 					This is for proactively detecting infinite loops.<br/><br/>If this value is 0 or less, the default is enforced. 
 				</td>
 			</tr>

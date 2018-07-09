@@ -4,7 +4,7 @@
 		<strong>NOTE:</strong> <em>VALUE</em>s that mention a sub-type denote that the input value is coerced/converted to that type before evaluation, or returned as that type.
 	</p>
 	<h3>Control</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -15,37 +15,37 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-queueaction.html">QueueAction</a></td>
+				<td><a href="function-queueaction.html">QueueAction</a></td>
 				<td>ACTION</td>
 				<td><em>Nothing</em></td>
 				<td>Queues a general action <em>ACTION</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
-				<td><a href="command-queueactionstring.html">QueueActionString</a></td>
+				<td><a href="function-queueactionstring.html">QueueActionString</a></td>
 				<td>ACTION, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Queues an open action <em>ACTION</em> with target <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
-				<td><a href="command-queueactionobject.html">QueueActionObject</a></td>
+				<td><a href="function-queueactionobject.html">QueueActionObject</a></td>
 				<td>ACTION, OBJECT</td>
 				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> with target <em>OBJECT</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
-				<td><a href="command-queueactionforobjectsin.html">QueueActionForObjectsIn</a></td>
+				<td><a href="function-queueactionforobjectsin.html">QueueActionForObjectsIn</a></td>
 				<td>ACTION, OBJECT-CONTAINER</td>
 				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT-CONTAINER</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
-				<td><a href="command-queueactionfortaggedobjectsin.html">QueueActionForTaggedObjectsIn</a></td>
+				<td><a href="function-queueactionfortaggedobjectsin.html">QueueActionForTaggedObjectsIn</a></td>
 				<td>ACTION, OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Queues a transitive/ditransitive action <em>ACTION</em> for each object in <em>OBJECT-CONTAINER</em> with tag <em>VALUE</em> to be executed once this one completes.</td>
 			</tr>
 			<tr>
-				<td><a href="command-queueactionobject2.html">QueueActionObject2</a></td>
+				<td><a href="function-queueactionobject2.html">QueueActionObject2</a></td>
 				<td>ACTION, OBJECT1, OBJECT2</td>
 				<td><em>Nothing</em></td>
 				<td>Queues a ditransitive action <em>ACTION</em> with targets <em>OBJECT1</em> and <em>OBJECT2</em> to be executed once this one completes.</td>
@@ -53,7 +53,7 @@
 		</tbody>
 	</table>
 	<h3>Cues</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -64,43 +64,43 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-addcue.html">AddCue</a></td>
+				<td><a href="function-addcue.html">AddCue</a></td>
 				<td>VALUE(STRING), VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Adds a <em>VALUE</em> cue to the response with content <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-text.html">Text</a></td>
+				<td><a href="function-text.html">Text</a></td>
 				<td>VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("text", VALUE)</em></td>
 			</tr>
 			<tr>
-				<td><a href="command-textln.html">Textln</a></td>
+				<td><a href="function-textln.html">Textln</a></td>
 				<td>VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("text", VALUE + "\n")</em></td>
 			</tr>
 			<tr>
-				<td><a href="command-textf.html">Textf</a></td>
+				<td><a href="function-textf.html">Textf</a></td>
 				<td>VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("textf", VALUE)</em></td>
 			</tr>
 			<tr>
-				<td><a href="command-textfln.html">Textfln</a></td>
+				<td><a href="function-textfln.html">Textfln</a></td>
 				<td>VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("textf", VALUE + "\n")</em></td>
 			</tr>
 			<tr>
-				<td><a href="command-pause.html">Pause</a></td>
+				<td><a href="function-pause.html">Pause</a></td>
 				<td><em>None</em></td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("pause", "")</em></td>
 			</tr>
 			<tr>
-				<td><a href="command-wait.html">Wait</a></td>
+				<td><a href="function-wait.html">Wait</a></td>
 				<td>VALUE(INTEGER)</td>
 				<td><em>Nothing</em></td>
 				<td>Convenience for <em>AddCue("wait", VALUE)</em></td>
@@ -108,7 +108,7 @@
 		</tbody>
 	</table>
 	<h3>Values</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -119,31 +119,31 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-asboolean.html">AsBoolean</a></td>
+				<td><a href="function-asboolean.html">AsBoolean</a></td>
 				<td>VALUE</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns the boolean value of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-asint.html">AsInt</a></td>
+				<td><a href="function-asint.html">AsInt</a></td>
 				<td>VALUE</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the integer value of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-asfloat.html">AsFloat</a></td>
+				<td><a href="function-asfloat.html">AsFloat</a></td>
 				<td>VALUE</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the floating-point value of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-asstring.html">AsString</a></td>
+				<td><a href="function-asstring.html">AsString</a></td>
 				<td>VALUE</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the string value of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-length.html">Length</a></td>
+				<td><a href="function-length.html">Length</a></td>
 				<td>VALUE</td>
 				<td>VALUE(INTEGER)</td>
 				<td>
@@ -154,21 +154,21 @@
 				</td>
 			</tr>
 			<tr>
-				<td><a href="command-empty.html">Empty</a></td>
+				<td><a href="function-empty.html">Empty</a></td>
 				<td>VALUE</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>
 					Returns <strong>TRUE</strong> if <em>VALUE</em> is considered "empty."
 					If boolean and false, this returns <strong>TRUE</strong>. 
 					If numeric and 0, this returns <strong>TRUE</strong>. 
-					If string and <a href="command-strtrim.html">trimmed</a> to <a href="command-length.html">length</a> 0, this returns <strong>TRUE</strong>.
-					If list and <a href="command-length.html">length</a> 0, this returns <strong>TRUE</strong>.
+					If string and <a href="function-strtrim.html">trimmed</a> to <a href="function-length.html">length</a> 0, this returns <strong>TRUE</strong>.
+					If list and <a href="function-length.html">length</a> 0, this returns <strong>TRUE</strong>.
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<h3>String Operations</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -179,103 +179,103 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-strconcat.html">StrConcat</a></td>
+				<td><a href="function-strconcat.html">StrConcat</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the resultant string of sticking two strings together: <em>VALUE1</em> and <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strreplace.html">StrReplace</a></td>
+				<td><a href="function-strreplace.html">StrReplace</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strreplacepattern.html">StrReplacePattern</a></td>
+				<td><a href="function-strreplacepattern.html">StrReplacePattern</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strreplacepatternall.html">StrReplacePatternAll</a></td>
+				<td><a href="function-strreplacepatternall.html">StrReplacePatternAll</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the resultant string of taking <em>VALUE1</em> and replacing every occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strindex.html">StrIndex</a></td>
+				<td><a href="function-strindex.html">StrIndex</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the index of the first occurrence of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strlastindex.html">StrLastIndex</a></td>
+				<td><a href="function-strlastindex.html">StrLastIndex</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the index of the last occurrence of <em>VALUE2</em> in <em>VALUE1</em>, or <strong>-1</strong> if not found.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strcontains.html">StrContains</a></td>
+				<td><a href="function-strcontains.html">StrContains</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>VALUE2</em> is in <em>VALUE1</em>, or <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strcontainspattern.html">StrContainsPattern</a></td>
+				<td><a href="function-strcontainspattern.html">StrContainsPattern</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if RegEx <em>VALUE2</em> matches a part of <em>VALUE1</em>, or <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strsplit.html">StrSplit</a></td>
+				<td><a href="function-strsplit.html">StrSplit</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(LIST)</td>
 				<td>Returns a list of strings that is the result of splitting <strong>VALUE1</strong> into tokens using <strong>VALUE2</strong> as the delimiter.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strjoin.html">StrJoin</a></td>
+				<td><a href="function-strjoin.html">StrJoin</a></td>
 				<td>VALUE1(LIST), VALUE2(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns a string that is the result of joining the tokens in <strong>VALUE1</strong> using <strong>VALUE2</strong> as the string in between each.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strstartswith.html">StrStartsWith</a></td>
+				<td><a href="function-strstartswith.html">StrStartsWith</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if string <em>VALUE1</em> starts with string <em>VALUE2</em>, or <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strendswith.html">StrEndsWith</a></td>
+				<td><a href="function-strendswith.html">StrEndsWith</a></td>
 				<td>VALUE1(STRING), VALUE2(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if string <em>VALUE1</em> ends with string <em>VALUE2</em>, or <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-substring.html">Substring</a></td>
+				<td><a href="function-substring.html">Substring</a></td>
 				<td>VALUE1(STRING), VALUE2(INTEGER), VALUE3(INTEGER)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns a part of a larger string <em>VALUE1</em>, from zero-based character index <em>VALUE2(INTEGER)</em> (inclusive), to index <em>VALUE3(INTEGER)</em> (exclusive).</td>
 			</tr>
 			<tr>
-				<td><a href="command-strlower.html">StrLower</a></td>
+				<td><a href="function-strlower.html">StrLower</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns <em>VALUE</em> as a lower-case string. May be locale-specific.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strupper.html">StrUpper</a></td>
+				<td><a href="function-strupper.html">StrUpper</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns <em>VALUE</em> as an upper-case string. May be locale-specific.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strchar.html">StrChar</a></td>
+				<td><a href="function-strchar.html">StrChar</a></td>
 				<td>VALUE1(STRING), VALUE2(INTEGER)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns a string consisting of one character from <em>VALUE1</em> using <em>VALUE2</em> as the zero-based offset into the string.</td>
 			</tr>
 			<tr>
-				<td><a href="command-strtrim.html">StrTrim</a></td>
+				<td><a href="function-strtrim.html">StrTrim</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns <em>VALUE</em> with superfluous whitespace removed from both the start and end.</td>
@@ -283,7 +283,7 @@
 		</tbody>
 	</table>
 	<h3 id="list-operations">List Operations</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -294,43 +294,43 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-listadd.html">ListAdd</a></td>
+				<td><a href="function-listadd.html">ListAdd</a></td>
 				<td>VALUE1(LIST), VALUE2</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Adds <em>VALUE2</em> to a list, <em>VALUE1</em>, returns <strong>TRUE</strong> if added, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-listaddat.html">ListAddAt</a></td>
+				<td><a href="function-listaddat.html">ListAddAt</a></td>
 				<td>VALUE1(LIST), VALUE2, VALUE3(INTEGER)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Adds <em>VALUE2</em> to a list, <em>VALUE1</em>, at index <em>VALUE3</em>, returns <strong>TRUE</strong> if added, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-listremove.html">ListRemove</a></td>
+				<td><a href="function-listremove.html">ListRemove</a></td>
 				<td>VALUE1(LIST), VALUE2</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Removes <em>VALUE2</em> from a list, <em>VALUE1</em>, returns <strong>TRUE</strong> if removed, <strong>FALSE</strong> otherwise (strict compare).</td>
 			</tr>
 			<tr>
-				<td><a href="command-listremoveat.html">ListRemoveAt</a></td>
+				<td><a href="function-listremoveat.html">ListRemoveAt</a></td>
 				<td>VALUE1(LIST), VALUE2(INTEGER)</td>
 				<td>VALUE</td>
 				<td>Removes a value from a list, <em>VALUE1</em>, at index <em>VALUE2</em>. Returns the value removed, or <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-listconcat.html">ListConcat</a></td>
+				<td><a href="function-listconcat.html">ListConcat</a></td>
 				<td>VALUE1(LIST), VALUE2(LIST)</td>
 				<td>VALUE(LIST)</td>
 				<td>Concatenates two lists (or two values as though they were lists) and returns a new list.</td>
 			</tr>
 			<tr>
-				<td><a href="command-listcontains.html">ListIndex</a></td>
+				<td><a href="function-listcontains.html">ListIndex</a></td>
 				<td>VALUE1(LIST), VALUE2</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the index of a value in the list (strict compare), or -1 if not found.</td>
 			</tr>
 			<tr>
-				<td><a href="command-listindex.html">ListContains</a></td>
+				<td><a href="function-listindex.html">ListContains</a></td>
 				<td>VALUE1(LIST), VALUE2</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if a value in the list exists (strict compare), or <strong>FALSE</strong> if not found.</td>
@@ -338,7 +338,7 @@
 		</tbody>
 	</table>
 	<h3>Mathematics</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -349,97 +349,97 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-floor.html">Floor</a></td>
+				<td><a href="function-floor.html">Floor</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the mathematical floor of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-ceiling.html">Ceiling</a></td>
+				<td><a href="function-ceiling.html">Ceiling</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the mathematical ceiling of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-round.html">Round</a></td>
+				<td><a href="function-round.html">Round</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns <em>VALUE</em> rounded to the nearest whole number (banker's rounding).</td>
 			</tr>
 			<tr>
-				<td><a href="command-fix.html">Fix</a></td>
+				<td><a href="function-fix.html">Fix</a></td>
 				<td>VALUE1(FLOAT), VALUE2(INTEGER)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns <em>VALUE1</em> rounded to the nearest digit place denoted by <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-fix.html">Sqrt</a></td>
+				<td><a href="function-fix.html">Sqrt</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the square root of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-pi.html">PI</a></td>
+				<td><a href="function-pi.html">PI</a></td>
 				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the value of the mathematical constant Pi (&pi;).</td>
 			</tr>
 			<tr>
-				<td><a href="command-e.html">E</a></td>
+				<td><a href="function-e.html">E</a></td>
 				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the value of Euler's Number.</td>
 			</tr>
 			<tr>
-				<td><a href="command-sin.html">sin</a></td>
+				<td><a href="function-sin.html">sin</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the mathematical Sine of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-cos.html">cos</a></td>
+				<td><a href="function-cos.html">cos</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the mathematical Cosine of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-tan.html">tan</a></td>
+				<td><a href="function-tan.html">tan</a></td>
 				<td>VALUE(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns the mathematical Tangent of <em>VALUE</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-min.html">min</a></td>
+				<td><a href="function-min.html">min</a></td>
 				<td>VALUE1, VALUE2</td>
 				<td>VALUE</td>
 				<td>Returns the <em>comparative minimum</em> of <em>VALUE1</em> and <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-max.html">max</a></td>
+				<td><a href="function-max.html">max</a></td>
 				<td>VALUE1, VALUE2</td>
 				<td>VALUE</td>
 				<td>Returns the <em>comparative maximum</em> of <em>VALUE1</em> and <em>VALUE2</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-clamp.html">Clamp</a></td>
+				<td><a href="function-clamp.html">Clamp</a></td>
 				<td>VALUE1(FLOAT), VALUE2(FLOAT), VALUE3(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns <em>VALUE1</em> clamped between the range of <em>VALUE2</em> and <em>VALUE3</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-random.html">IRandom</a></td>
+				<td><a href="function-random.html">IRandom</a></td>
 				<td>VALUE(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns a random integer from 0 up to <em>VALUE</em> (but not <em>VALUE</em>).</td>
 			</tr>
 			<tr>
-				<td><a href="command-frandom.html">FRandom</a></td>
+				<td><a href="function-frandom.html">FRandom</a></td>
 				<td><em>None</em></td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns a random float from 0.0 (inclusive) to 1.0 (exclusive).</td>
 			</tr>
 			<tr>
-				<td><a href="command-grandom.html">GRandom</a></td>
+				<td><a href="function-grandom.html">GRandom</a></td>
 				<td>VALUE1(FLOAT), VALUE2(FLOAT)</td>
 				<td>VALUE(FLOAT)</td>
 				<td>Returns a random Gaussian-distributed float from mean <em>VALUE1</em> and standard deviation <em>VALUE2</em>.</td>
@@ -447,7 +447,7 @@
 		</tbody>
 	</table>
 	<h3>Time</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -458,37 +458,37 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-time.html">Time</a></td>
+				<td><a href="function-time.html">Time</a></td>
 				<td><em>None</em></td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the current system time as an integer value (milliseconds since UNIX Epoch).</td>
 			</tr>
 			<tr>
-				<td><a href="command-seconds.html">Seconds</a></td>
+				<td><a href="function-seconds.html">Seconds</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the amount of seconds between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
-				<td><a href="command-minutes.html">Minutes</a></td>
+				<td><a href="function-minutes.html">Minutes</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the amount of minutes between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
-				<td><a href="command-hours.html">Hours</a></td>
+				<td><a href="function-hours.html">Hours</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the amount of hours between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
-				<td><a href="command-days.html">Days</a></td>
+				<td><a href="function-days.html">Days</a></td>
 				<td>VALUE1(INTEGER), VALUE2(INTEGER)</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns the amount of days between two times (rounded down). Input is assumed to be milliseconds.</td>
 			</tr>
 			<tr>
-				<td><a href="command-formattime.html">FormatTime</a></td>
+				<td><a href="function-formattime.html">FormatTime</a></td>
 				<td>VALUE1(INTEGER), VALUE2(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns a time value formatted into text. Format is similar to Java <a href="http://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html">SimpleDateFormat</a>.</td>
@@ -496,7 +496,7 @@
 		</tbody>
 	</table>
 	<h3>Elements</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -507,163 +507,163 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-objecthasname.html">ObjectHasName</a></td>
+				<td><a href="function-objecthasname.html">ObjectHasName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> can be referred to as <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-objecthastag.html">ObjectHasTag</a></td>
+				<td><a href="function-objecthastag.html">ObjectHasTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> has a tag called <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 			</tr>
 			<tr>
-				<td><a href="command-addobjectname.html">AddObjectName</a></td>
+				<td><a href="function-addobjectname.html">AddObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Adds a name <em>VALUE</em> to <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
-				<td><a href="command-addobjecttag.html">AddObjectTag</a></td>
+				<td><a href="function-addobjecttag.html">AddObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Adds a tag called <em>VALUE</em> to <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-addobjecttagtoallin.html">AddObjectTagToAllIn</a></td>
+				<td><a href="function-addobjecttagtoallin.html">AddObjectTagToAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Adds a tag called <em>VALUE</em> to all objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-removeobjectname.html">RemoveObjectName</a></td>
+				<td><a href="function-removeobjectname.html">RemoveObjectName</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Removes a name <em>VALUE</em> from <em>OBJECT</em>. Affected by determiners.</td>
 			</tr>
 			<tr>
-				<td><a href="command-removeobjecttag.html">RemoveObjectTag</a></td>
+				<td><a href="function-removeobjecttag.html">RemoveObjectTag</a></td>
 				<td>OBJECT, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Removes a tag called <em>VALUE</em> from <em>OBJECT</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-removeobjecttagfromallin.html">RemoveObjectTagFromAllIn</a></td>
+				<td><a href="function-removeobjecttagfromallin.html">RemoveObjectTagFromAllIn</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Removes all tags called <em>VALUE</em> from objects in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-giveobject.html">GiveObject</a></td>
+				<td><a href="function-giveobject.html">GiveObject</a></td>
 				<td>OBJECT-CONTAINER, OBJECT</td>
 				<td><em>Nothing</em></td>
 				<td>Sets the ownership of <em>OBJECT</em> to <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-removeobject.html">RemoveObject</a></td>
+				<td><a href="function-removeobject.html">RemoveObject</a></td>
 				<td>OBJECT</td>
 				<td><em>Nothing</em></td>
 				<td>Removes <em>OBJECT</em> from its current owner.</td>
 			</tr>
 			<tr>
-				<td><a href="command-moveobjectswithtag.html">MoveObjectsWithTag</a></td>
+				<td><a href="function-moveobjectswithtag.html">MoveObjectsWithTag</a></td>
 				<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-objectcount.html">ObjectCount</a></td>
+				<td><a href="function-objectcount.html">ObjectCount</a></td>
 				<td>OBJECT-CONTAINER</td>
 				<td>VALUE(INTEGER)</td>
 				<td>Returns how many objects are in <em>OBJECT-CONTAINER</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-hasobject.html">HasObject</a></td>
+				<td><a href="function-hasobject.html">HasObject</a></td>
 				<td>OBJECT-CONTAINER, OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>OBJECT-CONTAINER</em> is the owner of <em>OBJECT</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-objecthasnoowner.html">ObjectHasNoOwner</a></td>
+				<td><a href="function-objecthasnoowner.html">ObjectHasNoOwner</a></td>
 				<td>OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> does not have an owner, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-playerisinroom.html">PlayerIsInRoom</a></td>
+				<td><a href="function-playerisinroom.html">PlayerIsInRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-playercanaccessobject.html">PlayerCanAccessObject</a></td>
+				<td><a href="function-playercanaccessobject.html">PlayerCanAccessObject</a></td>
 				<td>PLAYER, OBJECT</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> can access <em>OBJECT</em> in its current state, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-browse.html">Browse</a></td>
+				<td><a href="function-browse.html">Browse</a></td>
 				<td>OBJECT-CONTAINER</td>
 				<td><em>Nothing</em></td>
 				<td>For each object in <em>OBJECT-CONTAINER</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
-				<td><a href="command-browsetagged.html">BrowseTagged</a></td>
+				<td><a href="function-browsetagged.html">BrowseTagged</a></td>
 				<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 				<td><em>Nothing</em></td>
 				<td>For each object in <em>OBJECT-CONTAINER</em> with tag <em>VALUE</em>, execute the proper "browse" block for it.</td>
 			</tr>
 			<tr>
-				<td><a href="command-setplayer.html">SetPlayer</a></td>
+				<td><a href="function-setplayer.html">SetPlayer</a></td>
 				<td>PLAYER</td>
 				<td><em>Nothing</em></td>
 				<td>Sets the current player to <em>PLAYER</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-setroom.html">SetRoom</a></td>
+				<td><a href="function-setroom.html">SetRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td><em>Nothing</em></td>
 				<td>Sets the current room on <em>PLAYER</em> to <em>ROOM</em>. Clears <em>PLAYER</em>'s room stack, first.</td>
 			</tr>
 			<tr>
-				<td><a href="command-pushroom.html">PushRoom</a></td>
+				<td><a href="function-pushroom.html">PushRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td><em>Nothing</em></td>
 				<td>Pushes <em>ROOM</em> room on <em>PLAYER</em>'s current room stack.</td>
 			</tr>
 			<tr>
-				<td><a href="command-poproom.html">PopRoom</a></td>
+				<td><a href="function-poproom.html">PopRoom</a></td>
 				<td>PLAYER</td>
 				<td><em>Nothing</em></td>
 				<td>Restores the previous room on <em>PLAYER</em>'s current room stack. Error if no room.</td>
 			</tr>
 			<tr>
-				<td><a href="command-swaproom.html">SwapRoom</a></td>
+				<td><a href="function-swaproom.html">SwapRoom</a></td>
 				<td>PLAYER, ROOM</td>
 				<td><em>Nothing</em></td>
 				<td>Swaps the current room with <em>ROOM</em> on <em>PLAYER</em>'s current room stack. The rest of the stack is unaffected.</td>
 			</tr>
 			<tr>
-				<td><a href="command-currentplayeris.html">CurrentPlayerIs</a></td>
+				<td><a href="function-currentplayeris.html">CurrentPlayerIs</a></td>
 				<td>PLAYER</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if the current player is <em>PLAYER</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-nocurrentplayer.html">NoCurrentPlayer</a></td>
+				<td><a href="function-nocurrentplayer.html">NoCurrentPlayer</a></td>
 				<td><em>None</em></td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if no current player is set, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-currentroomis.html">CurrentRoomIs</a></td>
+				<td><a href="function-currentroomis.html">CurrentRoomIs</a></td>
 				<td>PLAYER, ROOM</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if the current room for <em>PLAYER</em> is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 			<tr>
-				<td><a href="command-nocurrentroom.html">NoCurrentRoom</a></td>
+				<td><a href="function-nocurrentroom.html">NoCurrentRoom</a></td>
 				<td>PLAYER</td>
 				<td>VALUE(BOOLEAN)</td>
 				<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> has no current room, <strong>FALSE</strong> otherwise.</td>
@@ -671,7 +671,7 @@
 		</tbody>
 	</table>
 	<h3>Miscellaneous</h3>
-	<table class="w3-table w3-striped w3-border tamedocs-command-reference">
+	<table class="w3-table w3-striped w3-border tamedocs-function-reference">
 		<thead class="w3-teal">
 			<tr>
 				<th>Command Name</th>
@@ -682,19 +682,19 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td><a href="command-noop.html">NoOp</a></td>
+				<td><a href="function-noop.html">NoOp</a></td>
 				<td><em>None</em></td>
 				<td><em>Nothing</em></td>
 				<td>Does nothing.</td>
 			</tr>
 			<tr>
-				<td><a href="command-identity.html">Identity</a></td>
+				<td><a href="function-identity.html">Identity</a></td>
 				<td>ELEMENT</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the internal identity of <em>ELEMENT</em>.</td>
 			</tr>
 			<tr>
-				<td><a href="command-header.html">Header</a></td>
+				<td><a href="function-header.html">Header</a></td>
 				<td>VALUE(STRING)</td>
 				<td>VALUE(STRING)</td>
 				<td>Returns the value of the module header called <em>VALUE</em>.</td>
