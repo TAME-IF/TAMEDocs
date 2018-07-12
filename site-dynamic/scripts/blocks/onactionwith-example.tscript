@@ -306,7 +306,7 @@ world
 
 	onUnknownCommand()
 	{
-		textln("I don't understand.");
+		textln("I can't do that.");
 	}
 
 	afterSuccessfulCommand()
