@@ -1,0 +1,69 @@
+<h1>OnIncompleteCommand ( <em>ACTION</em> )</h1>
+<div class="w3-container">
+	A block that describes what to do when a valid action is parsed from the input, but subsequent modes, objects, or conjunctions are absent.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Valid on Elements</h3>
+</div>
+<div class="w3-container">
+	<a href="language-element-world.html"><span class="w3-tag w3-yellow w3-xlarge">WORLD</span></a>
+	<a href="language-element-player.html"><span class="w3-tag w3-green w3-xlarge">PLAYER</span></a>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-striped" >
+		<tr>
+			<td class="tamedocs-parameter">ACTION</td>
+			<td class="tamedocs-parameter-type">Any ACTION type, <em>OPTIONAL</em>.</td>
+			<td class="tamedocs-parameter-description">The action that this block handles.</td>
+		</tr>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>When it is Called</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedocs-block-type">OnIncompleteCommand()</span> block is called when the interpreter can parse a valid
+		<span class="tamedocs-element-type">action</span> from the interpreted input by name, but is missing a critical part of
+		the action, such as an <span class="tamedocs-element-type">object</span> or <span class="tamedocs-element-type">objects</span> 
+		in a transitive or ditransitive action, or a mode in a modal action.
+	</p>
+	<p>
+		When TAME needs to execute this block, it searches for it on the current <span class="tamedocs-element-type">player</span>,
+		then the <span class="tamedocs-element-type">world</span>. It will prioritize the blocks that declare a specific action over
+		ones that don't.
+	</p>
+	<p>
+		<a href="tamescript.html#inheritance">Inheritance</a> rules apply when searching for callable blocks, always!
+	</p>
+	<!--[ include fragments/block-failure.html ]-->
+	<p>
+		<strong>NOTE:</strong> This is very different from handling a <span class="tamedocs-block-type">OnMalformedCommand()</span> block - the malformed command block
+		is executed when there is an interpretable token where a mode, object, or conjunction would be, and the 
+		<span class="tamedocs-block-type">OnIncompleteCommand()</span> block is called if it is completely absent.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Incomplete Command Example" module_onactionwith_example blocks/onactionwith-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The <span class="tamedocs-block-type">OnIncompleteCommand()</span> block is context sensitive involving the 
+		current <span class="tamedocs-element-type">player</span>. This is assessed when finding the relevant block 
+		to execute for the current action being processed. This will affect program flow when <span class="tamedocs-element-type">players</span> change.
+	</p>
+</div>
