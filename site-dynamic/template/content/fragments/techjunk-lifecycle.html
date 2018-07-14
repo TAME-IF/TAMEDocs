@@ -1,0 +1,34 @@
+	<p>
+		The "lifecycle blocks" (<a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a>, 
+		<a href="language-block-after-failed-command.html">afterFailedCommand()</a>, and 
+		<a href="language-block-after-every-command.html">afterEveryCommand()</a>) always run through the list of
+		enqueued commands (added via <a href="function-queueaction.html">queueAction()</a>, <a href="function-queueactionobject.html">queueActionObject()</a>,
+		<a href="function-queueactionstring.html">queueActionString()</a>, <a href="function-queueactionobject2.html">queueActionObject2()</a>,
+		<a href="function-queueactionforobjectsin.html">queueActionForObjectsIn()</a>, <a href="function-queueactionfortaggedobjectsin.html">queueActionForTaggedObjectsIn()</a>) after the
+		initial handling of the parsed command.
+	</p>
+	<p>
+		TAME's general flow of handling commands are:
+	</p>
+	<ul>
+		<li>Interpret <strong>Input</strong>.</li>
+		<li>
+			<span>If "successful command",</span>
+			<ul>
+				<li>Enqueue <strong>Command</strong>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+				<li>Call <a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+			</ul> 
+			<span>Else (failed command),</span>
+			<ul>
+				<li>Call appropriate block.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+				<li>Call <a href="language-block-after-failed-command.html">afterFailedCommand()</a>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+			</ul> 
+		</li>
+		<li>Call <a href="language-block-after-every-command.html">afterEveryCommand()</a>.</li>
+		<li>Process all <strong>Queued Commands</strong>.</li>
+	</ul>
+	
