@@ -1,6 +1,6 @@
-<h1>AfterSuccessfulCommand ( )</h1>
+<h1>AfterEveryCommand ( )</h1>
 <div class="w3-container">
-	A block that describes what to do after a "successful command" is processed.
+	A block that describes what to do after every command is processed.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -22,9 +22,8 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <span class="tamedocs-block-type">AfterSuccessfulCommand()</span> block on the <span class="tamedocs-element-type">world</span>
-		element is called after a "successful command" (and the first set of enqueued commands during its execution) are processed. Generally,
-		a "successful command" is a command that is processed that is the result of a valid interpreted action (no errors, no "unknown" names).
+		The <span class="tamedocs-block-type">AfterEveryCommand()</span> block on the <span class="tamedocs-element-type">world</span>
+		element is called after the successful/failed blocks (and the sets of enqueued commands after each) are called, if any.
 	</p>
 </div>
 
@@ -40,8 +39,8 @@
 </div>
 <div class="w3-container">
 	<p>
+		<a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a> &mdash; "Lifecycle" block: called if interpretation succeeds.<br/>
 		<a href="language-block-after-failed-command.html">afterFailedCommand()</a> &mdash; "Lifecycle" block: called if interpretation fails.<br/>
-		<a href="language-block-after-every-command.html">afterEveryCommand()</a> &mdash; "Lifecycle" block: called after every command.
 	</p>
 </div>
 

@@ -29,17 +29,17 @@ hr {
 	margin: 20px 0;
 }
 
-ul a, ul a:visited {
+ul.sidebar-list a, ul.sidebar-list a:visited {
 	color: #000;
     text-decoration: none;
 }
  
-ul a:hover {
+ul.sidebar-list a:hover {
 	color: #000;
     text-decoration: underline;
 }
 
-ul a:visited {
+ul.sidebar-list a:visited {
 	color: #000;
 }
 
@@ -54,12 +54,12 @@ a:hover {
 }
 
 a.missing {
-	color:#c00000;
+	color:#c00000 !important;
 }
 
 a.missing:hover {
-	color:#c00000;
-	text-decoration: underline;
+	color:#c00000 !important;
+	text-decoration: underline !important;
 }
 
 ul.sidebar-list {
