@@ -3,7 +3,7 @@ action general a_quit named "quit", "exit";
 action transitive a_talk named "talk to";
 action transitive a_examine named "examine", "look at", "x";
 
-action ditransitive a_mix named "mix", "combine" uses conjunctions "with", "and";
+action strict ditransitive a_mix named "mix", "combine" uses conjunctions "with", "and";
 action strict reversed ditransitive a_give named "give" uses conjunctions "to";
 
 module
@@ -21,18 +21,6 @@ object archetype o_paint
 		return false;
 	}
 
-	// if treated like a transitive action (no second object).
-	onAction(a_mix)
-	{
-		textln("What am I mixing this with?");
-	}
-	
-	// if treated like a transitive action (no second object).
-	onAction(a_give)
-	{
-		textln("Who am I giving this to?");
-	}
-	
 	// On mix with any other paint-category item.
 	onActionWithAncestor(a_mix, o_paint)
 	{
