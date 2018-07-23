@@ -201,6 +201,11 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 	width: 1px;
 }
 
+.w3-table {
+	overflow-x: auto;
+	display: block;
+}
+
 .tamedocs-function-type {
 	white-space: nowrap;
 	font-weight: bold;

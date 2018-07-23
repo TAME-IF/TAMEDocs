@@ -102,6 +102,7 @@
 			<!--[ include fragments/block-tablerow-on-action-with.html ]-->
 			<!--[ include fragments/block-tablerow-on-action-with-ancestor.html ]-->
 			<!--[ include fragments/block-tablerow-on-action-with-other.html ]-->
+			<!--[ include fragments/block-tablerow-on-element-browse.html ]-->
 			<!--[ include fragments/block-tablerow-on-world-browse.html ]-->
 			<!--[ include fragments/block-tablerow-on-room-browse.html ]-->
 			<!--[ include fragments/block-tablerow-on-player-browse.html ]-->
@@ -136,10 +137,11 @@
 		onActionWith(action, object) { ... }
 		onActionWithAncestor(action, object) { ... }
 		onActionWithOther(action) { ... }
-		onRoomBrowse(action) { ... }
-		onPlayerBrowse(action) { ... }
-		onWorldBrowse(action) { ... }
-		onContainerBrowse(action) { ... }
+		onElementBrowse(element) { ... }
+		onRoomBrowse() { ... }
+		onPlayerBrowse() { ... }
+		onWorldBrowse() { ... }
+		onContainerBrowse() { ... }
 	}
 </code></pre>
 </div>
