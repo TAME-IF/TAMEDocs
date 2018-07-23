@@ -201,11 +201,6 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 	width: 1px;
 }
 
-.w3-table {
-	overflow-x: auto;
-	display: block;
-}
-
 .tamedocs-function-type {
 	white-space: nowrap;
 	font-weight: bold;
@@ -280,3 +275,8 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 .w3-panel:hover .link-stub {
 	color: #000;
 }
+
+.w3-table {
+	overflow-x: auto;
+}
+
