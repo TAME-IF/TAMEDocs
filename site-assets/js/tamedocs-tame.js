@@ -28,7 +28,7 @@ function tamePrint(text)
 {
 	if (!text)
 		return;
-	OutputBox.innerHTML = OutputBox.innerHTML + text;
+	OutputBox.appendChild($DOMNew('span',{},[$DOMText(text)]));
 	OutputDiv.scrollTop = OutputDiv.scrollHeight;
 }
 
@@ -53,8 +53,8 @@ function withEscChars(text)
 
 function tameDebugHandleCue(cue) 
 {
+	tamePrintln('['+cue.type+'] '+withEscChars(cue.content));
 	var type = cue.type.toLowerCase();
-	tamePrintln('['+type+'] '+withEscChars(cue.content));
 	if (type === 'quit' || type === 'fatal')
 		TameStop = true;
 	return true;
