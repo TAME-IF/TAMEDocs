@@ -25,11 +25,11 @@ language-block-on-action-with.html "OnActionWith Block" template/main.html
 language-block-on-action-with-ancestor.html "OnActionWithAncestor Block" template/main.html
 language-block-on-action-with-other.html "OnActionWithOther Block" template/main.html
 language-block-on-modal-action.html "OnModalAction Block" template/main.html
+language-block-on-element-browse.html "OnElementBrowse Block" template/main.html
 language-block-on-world-browse.html "OnWorldBrowse Block" template/main.html
 language-block-on-room-browse.html "OnRoomBrowse Block" template/main.html
 language-block-on-player-browse.html "OnPlayerBrowse Block" template/main.html
 language-block-on-container-browse.html "OnContainerBrowse Block" template/main.html
-language-block-on-element-browse.html "OnElementBrowse Block" template/main.html
 language-block-on-unhandled-action.html "OnUnhandledAction Block" template/main.html
 language-block-on-unknown-command.html "OnUnknownCommand Block" template/main.html
 language-block-on-ambiguous-command.html "OnAmbiguousCommand Block" template/main.html
