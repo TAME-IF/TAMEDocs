@@ -1,0 +1,169 @@
+action transitive a_take named "pick up", "take", "grab";
+action transitive a_drop named "drop";
+action modal a_goto named "go to", "goto" uses modes "red room", "yellow room", "weird room", "white room";
+action general a_quit named "quit";
+action general a_lookaround;
+
+room archetype r_colored_room
+{
+	function getColorType()
+	{
+		return "weird";
+	}
+
+	onAction(a_lookaround)
+	{
+		textln("This room has a "+getColorType()+" color.");
+	}
+}
+
+room r_red_room : r_colored_room
+{
+	override function getColorType()
+	{
+		return "red";
+	}
+}
+
+room r_yellow_room : r_colored_room
+{
+	override function getColorType()
+	{
+		return "yellow";
+	}
+}
+
+room r_white_room : r_colored_room
+{
+	override function getColorType()
+	{
+		return "white";
+	}
+}
+
+room r_weird_room
+{
+	onAction(a_lookaround)
+	{
+		textln("You cannot grasp the form of the room.");
+	}
+}
+
+object o_ball named "ball";
+
+player p_main
+{
+	onModalAction(a_goto, "red room")
+	{
+		setRoom(player, r_red_room);
+	}
+	
+	onModalAction(a_goto, "yellow room")
+	{
+		setRoom(player, r_yellow_room);
+	}
+	
+	onModalAction(a_goto, "white room")
+	{
+		setRoom(player, r_white_room);
+	}
+	
+	onModalAction(a_goto, "weird room")
+	{
+		setRoom(player, r_weird_room);
+	}
+	
+}
+
+extend object o_ball
+{
+	onAction(a_drop)
+	{
+		if (!hasObject(player, o_ball))
+			textln("I don't have the ball.");
+		else
+		{
+			giveObject(room, o_ball);
+			textln("I dropped the ball.");
+		}
+	}
+	
+	onAction(a_take)
+	{
+		if (hasObject(player, this))
+			textln("I already have this.");
+		else
+		{
+			giveObject(player, this);
+			textln("Taken.");
+		}
+	}
+
+	onElementBrowse(r_red_room)
+	{
+		textln("A ball is here on the ground. It looks red.");
+	}
+
+	onElementBrowse(r_yellow_room)
+	{
+		textln("A ball is here on the ground. It looks yellow.");
+	}
+	
+	// archetype room.
+	onElementBrowse(r_colored_room)
+	{
+		textln("A ball is here on the ground. It is a non-specific color.");
+	}
+	
+	onRoomBrowse()
+	{
+		textln("A ball is here.");
+	}
+	
+	onPlayerBrowse()
+	{
+		textln("I have a ball.");
+	}
+	
+	onWorldBrowse()
+	{
+		textln("A ball is omnipresent.");
+	}
+	
+}
+
+world
+{
+	init()
+	{
+		giveObject(world, o_ball);
+		setPlayer(p_main);
+		setRoom(p_main, r_red_room);
+	}
+
+	function doTurn()
+	{
+		browse(room);
+		browse(player);
+		browse(world);
+		queueAction(a_lookaround);
+	}
+	
+	start()
+	{
+		textln("Move between rooms with \"go to\" and the name of a room (\"red\", \"yellow\", \"weird\", \"white\")");
+		textln("Pick up things with \"take\" or \"pick up\".");
+		doTurn();
+	}
+	
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+	afterSuccessfulCommand()
+	{
+		doTurn();
+	}
+	
+}
