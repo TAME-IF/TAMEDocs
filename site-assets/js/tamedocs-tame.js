@@ -64,7 +64,7 @@ function tameDebugResponse(response)
 {
 	tamePrintln('Interpret time: '+(response.interpretNanos/1000000.0)+' ms');
 	tamePrintln('Request time: '+(response.requestNanos/1000000.0)+' ms');
-	tamePrintln('Commands: '+response.commandsExecuted);
+	tamePrintln('Commands: '+response.operationsExecuted);
 	tamePrintln('Cues: '+response.responseCues.length);
 
 	for (i in response.responseCues) if (response.responseCues.hasOwnProperty(i))
