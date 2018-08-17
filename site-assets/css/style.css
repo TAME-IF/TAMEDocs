@@ -168,7 +168,6 @@ IMG.min-nav-logo {
 }
 
 .tamedocs-parameter {
-	font-style: italic;
 	font-weight: 800;
 	white-space: nowrap;
 	width: 1px;
@@ -268,12 +267,17 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 
 
 /* For link hovering. */
+
+i.link-stub {
+	color: #000;
+}
+
 .link-stub {
-	color: #ccc;
+	visibility: hidden;
 }
 
 .w3-panel:hover .link-stub {
-	color: #000;
+	visibility: inherit;
 }
 
 .w3-table {

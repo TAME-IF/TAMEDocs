@@ -1,0 +1,64 @@
+<h1>Header ( <em>KEY</em> )</h1>
+<div class="w3-container">
+	Returns the value of a module header field as a string value.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-striped" >
+		<tr>
+			<td class="tamedocs-parameter">KEY</td>
+			<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+			<td class="tamedocs-parameter-description">The name of the header key. Interpreted as string, even if it isn't.</td>
+		</tr>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns (one of the following)</h3>
+</div>
+<div class="w3-container">
+	<table class="w3-table w3-striped" >
+		<tr>
+			<td class="tamedocs-parameter">VALUE(STRING)</td>
+			<td class="tamedocs-parameter-description">The corresponding value for the key.</td>
+		</tr>
+		<tr>
+			<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+			<td class="tamedocs-parameter-description"><strong>FALSE</strong>, if no corresponding key.</td>
+		</tr>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This fetches the value of a module header as a string, or <strong>FALSE</strong> if the provided key
+		does not have a corresponding value. 
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Header Example" module_header_example functions/header-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function is mostly for debugging purposes. It may be a bad idea to make decisions based on the values that
+		this function may return.
+	</p>
+	<p>
+		Headers are stored as strings in the module no matter how they are declared in TAMEScript. They must be parsed
+		into a different type if they need to be something other than a string.
+	</p>
+</div>

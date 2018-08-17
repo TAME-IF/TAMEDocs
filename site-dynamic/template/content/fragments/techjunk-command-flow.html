@@ -1,0 +1,25 @@
+	<p>
+		TAME's general flow of handling commands are:
+	</p>
+	<ul>
+		<li>Interpret <strong>Input</strong>.</li>
+		<li>
+			<span>If "successful command",</span>
+			<ul>
+				<li>Enqueue <strong>Command</strong>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+				<li>Call <a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+			</ul> 
+			<span>Else (failed command),</span>
+			<ul>
+				<li>Call appropriate block.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+				<li>Call <a href="language-block-after-failed-command.html">afterFailedCommand()</a>.</li>
+				<li>Process all <strong>Queued Commands</strong>.</li>
+			</ul> 
+		</li>
+		<li>Call <a href="language-block-after-every-command.html">afterEveryCommand()</a>.</li>
+		<li>Process all <strong>Queued Commands</strong>.</li>
+	</ul>
+	

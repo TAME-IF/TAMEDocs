@@ -2,7 +2,7 @@ module
 {
 	title = "The Header Example";
 	author = "Matt Tropiano";
-	email = "mtropiano@gmail.com";
+	email = "mtropiano@emailsite.com";
 }
 
 world
