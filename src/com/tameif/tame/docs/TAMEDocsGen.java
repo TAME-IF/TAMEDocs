@@ -793,8 +793,8 @@ public final class TAMEDocsGen
 	private static void generateTable(Writer writer, String name) throws IOException
 	{
 		writer.write("<!-- Start generated table for: " + name + " -->\n");
+		writer.write(TAG_NOINDEX+"\n");
 		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
-		writer.write(TAG_NOINDEX);
 
 		ArithmeticOperator operator;
 		if ("boolean".equalsIgnoreCase(name))
@@ -855,7 +855,7 @@ public final class TAMEDocsGen
 			writer.write("<tr><th>!!! "+name+" is not a table name !!!</th></tr>");
 		}
 		writer.write("</table>\n");
-		writer.write(TAG_NOINDEX);
+		writer.write(TAG_NOINDEX+"\n");
 	}
 	
 	/**
@@ -944,12 +944,12 @@ public final class TAMEDocsGen
 
 			InputStream scriptIn = null;
 			String scriptFile = RESOURCE_SCRIPTROOT + scriptPath;
+			writer.write("\n"+TAG_NOINDEX+"\n");			
 			try {
 
 				scriptIn = new FileInputStream(new File(scriptFile));
 				String scriptContent = Common.getTextualContents(scriptIn);
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
-
 				writer.write("<div class=\"w3-example\">\n");
 				
 				writer.write("\t<div class=\"w3-right\" style=\"margin-top:12px\">");
@@ -987,12 +987,12 @@ public final class TAMEDocsGen
 				writer.write("</div>");
 				return false;
 			} catch (IOException e) {
-				writer.write("<pre style=\"white-space: pre-line;\">!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>");
+				writer.write("<pre style=\"white-space: pre-line;\">!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>\n");
 				return false;
 			} finally {
 				Common.close(scriptIn);
 			}
-
+			writer.write("\n"+TAG_NOINDEX+"\n");			
 			return true;
 		}
 
