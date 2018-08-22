@@ -160,4 +160,4 @@ operators-greaterequal.html "Operator: Greater than or Equal" template/main.html
 operators-ssand.html "Operator: Short-Circuit And" template/main.html
 operators-ssor.html "Operator: Short-Circuit Or" template/main.html
 operators-ternary.html "Operator: Ternary" template/main.html
-diagrams.html "TAME Execution Diagrams" template/main.html
+diagrams.html "TAME Execution Flow" template/main.html

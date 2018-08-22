@@ -1,0 +1,167 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<div id="initialize" class="flow-diagram">
+		<div class="title">Initialize:</div>
+		<div class="content">
+			<ul>
+				<li>For each ELEMENT in MODULE,
+					<ul>
+						<li>If RESOLVE <a href="language-block-init.html">ELEMENT.init()</a>,
+							<ul>
+								<li>CALL <a href="language-block-init.html">ELEMENT.init()</a>.</li>
+							</ul>
+						<li>Loop FOR.</li>
+					</ul>
+				</li>
+				<li>If RESOLVE <a href="language-block-start.html">world.start()</a>,
+					<ul>
+						<li>CALL <a href="language-block-start.html">world.start()</a>.</li>
+					</ul>
+				</li>
+				<li>CALL <a href="#successful-parse">[Successful Parse]</a>.</li>
+				<li>Return.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="command-loop" class="flow-diagram">
+		<div class="title">COMMAND Loop:</div>
+		<div class="content">
+			<ul>
+				<li>WHILE Command Queue is not empty,
+					<ul>
+						<li>COMMAND = Dequeue Command Queue.</li>
+						<li>Process COMMAND.</li>
+						<li>Loop WHILE.</li>
+					</ul>
+				</li>
+				<li>Return.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="successful-parse" class="flow-diagram">
+		<div class="title">Successful Parse:</div>
+		<div class="content">
+			<ul>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If RESOLVE <a href="language-block-after-successful-command.html">world.afterSuccessfulCommand()</a>,
+					<ul>
+						<li>CALL <a href="language-block-after-successful-command.html">world.afterSuccessfulCommand()</a>.</li>
+						<li>Return.</li>
+					</ul>
+				</li>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If RESOLVE <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>,
+					<ul>
+						<li>CALL <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>.</li>
+						<li>Return.</li>
+					</ul>
+				</li>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>Return.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="failed-parse" class="flow-diagram">
+		<div class="title">Failed Parse:</div>
+		<div class="content">
+			<ul>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If RESOLVE <a href="language-block-after-failed-command.html">world.afterFailedCommand()</a>,
+					<ul>
+						<li>CALL <a href="language-block-after-failed-command.html">world.afterFailedCommand()</a>.</li>
+						<li>Return.</li>
+					</ul>
+				</li>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If RESOLVE <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>,
+					<ul>
+						<li>CALL <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>.</li>
+						<li>Return.</li>
+					</ul>
+				</li>
+				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>Return.</li>
+			</ul>
+		</div>
+	</div>
+	<!--
+	UNKNOWN Command:
+		If current player is set,
+			If RESOLVE player.onUnknownCommand(),
+				CALL player.onUnknownCommand().
+				Return.
+		If RESOLVE world.onUnknownCommand(),
+			CALL world.onUnknownCommand().
+			Return.
+		Add ERROR cue: UNKNOWN.
+		Return.
+	
+	MALFORMED Command:
+		If current player is set,
+			If RESOLVE player.onMalformedCommandBlock(ACTION),
+				CALL player.onMalformedCommandBlock(ACTION).
+				Return.
+			If RESOLVE player.onMalformedCommandBlock(),
+				CALL player.onMalformedCommandBlock(),
+				Return.
+		If RESOLVE world.onMalformedCommandBlock(ACTION),
+			CALL world.onMalformedCommandBlock(ACTION).
+			Return.
+		If RESOLVE world.onMalformedCommandBlock(),
+			CALL world.onMalformedCommandBlock(),
+			Return.
+		Add ERROR cue: MALFORMED.
+		Return.
+	
+	INCOMPLETE Command:
+		If current player is set,
+			If RESOLVE player.onIncompleteCommandBlock(ACTION),
+				CALL RESOLVE player.onIncompleteCommandBlock(ACTION).
+				Return.
+			If RESOLVE player.onIncompleteCommandBlock(),
+				CALL player.onIncompleteCommandBlock().
+				Return.
+		If RESOLVE world.onIncompleteCommandBlock(ACTION),
+			CALL world.onIncompleteCommandBlock(ACTION).
+			Return.
+		If RESOLVE world.onIncompleteCommandBlock(),
+			CALL world.onIncompleteCommandBlock().
+			Return.
+		Add ERROR cue: INCOMPLETE.
+		Return.
+	
+	AMBIGUOUS Command:
+		If current player is set,
+			If RESOLVE player.onAmbiguousCommandBlock(ACTION),
+				CALL player.onAmbiguousCommandBlock(ACTION).
+				Return.
+			If RESOLVE player.onAmbiguousCommandBlock(),
+				CALL player.onAmbiguousCommandBlock().
+				Return.
+		If RESOLVE world.onAmbiguousCommandBlock(ACTION),
+			CALL world.onAmbiguousCommandBlock(ACTION).
+			Return.
+		If RESOLVE world.onAmbiguousCommandBlock(),
+			CALL world.onAmbiguousCommandBlock().
+			Return.
+		Add ERROR cue: AMBIGUOUS.
+		Return.
+	
+	UNHANDLED Action:
+		If current player is set,
+			If RESOLVE player.onUnhandledAction(ACTION),
+				CALL player.onUnhandledAction(ACTION). 
+				Return.
+			If RESOLVE player.onUnhandledAction(),
+				CALL player.onUnhandledAction().
+				Return.
+		If RESOLVE world.onUnhandledAction(ACTION),
+			CALL world.onUnhandledAction(ACTION).
+			Return.
+		If RESOLVE world.onUnhandledAction(),
+			CALL world.onUnhandledAction().
+			Return.
+		Add ERROR cue: UNHANDLED.
+		Return. 
+	 -->
+	
+</div>

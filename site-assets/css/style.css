@@ -83,6 +83,29 @@ li.group {
     line-height: 1.25em;
 }
 
+div.flow-diagram {
+	margin-bottom: 1em;
+	overflow-x: auto;
+}
+
+div.flow-diagram div.title {
+	font-weight: 800;
+	background-color:#ccc;
+	padding: 8px;
+	padding-bottom: 4px;
+}
+
+div.flow-diagram div.content {
+	background-color:#eee;
+	padding: 8px;
+	padding-top: 4px;
+}
+
+div.flow-diagram div.content ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
 KBD {
 	background-color: #616161;
 	color: white;
