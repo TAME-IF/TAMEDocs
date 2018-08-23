@@ -324,8 +324,10 @@
 				<li>Else If <strong>ACTION</strong> Type is <strong>TRANSITIVE</strong>,
 					<ul>
 						<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
-						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action.html">onAction(ACTION)</a>.
+						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action.html">onAction(ACTION)</a>,
 							<ul>
+								<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onAction(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
 						<li>If current room is set,
