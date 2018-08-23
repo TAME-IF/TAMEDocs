@@ -388,9 +388,28 @@
 								</li>
 							</ul>
 						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
 							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>CALL</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+						<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+							<ul>
+								<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+									<ul>
+										<li><strong>CALL</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+								<li>Loop <strong>WHILE</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
 								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
