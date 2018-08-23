@@ -85,7 +85,6 @@ li.group {
 
 div.flow-diagram {
 	margin-bottom: 1em;
-	overflow-x: auto;
 }
 
 div.flow-diagram div.title {
@@ -102,6 +101,8 @@ div.flow-diagram div.content {
 }
 
 div.flow-diagram div.content ul {
+    list-style-type: none;
+    padding-left: 2em;
 	margin-top: 0;
 	margin-bottom: 0;
 }

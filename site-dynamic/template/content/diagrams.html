@@ -3,22 +3,203 @@
 		<div class="title">Initialize:</div>
 		<div class="content">
 			<ul>
-				<li>For each ELEMENT in MODULE,
+				<li><strong>FOR</strong> each ELEMENT in MODULE,
 					<ul>
-						<li>If RESOLVE <a href="language-block-init.html">ELEMENT.init()</a>,
+						<li>If <strong>RESOLVE</strong> ELEMENT.<a href="language-block-init.html">init()</a>,
 							<ul>
-								<li>CALL <a href="language-block-init.html">ELEMENT.init()</a>.</li>
+								<li><strong>CALL</strong> ELEMENT.<a href="language-block-init.html">init()</a>.</li>
 							</ul>
-						<li>Loop FOR.</li>
+						<li>Loop <strong>FOR</strong>.</li>
 					</ul>
 				</li>
-				<li>If RESOLVE <a href="language-block-start.html">world.start()</a>,
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-start.html">start()</a>,
 					<ul>
-						<li>CALL <a href="language-block-start.html">world.start()</a>.</li>
+						<li><strong>CALL</strong> world.<a href="language-block-start.html">start()</a>.</li>
 					</ul>
 				</li>
-				<li>CALL <a href="#successful-parse">[Successful Parse]</a>.</li>
-				<li>Return.</li>
+				<li><strong>CALL</strong> <a href="#successful-parse">[Successful Parse]</a>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="interpret" class="flow-diagram">
+		<div class="title">Interpret:</div>
+		<div class="content">
+			<ul>
+				<li><strong>ACTION</strong> = Read action.</li>
+				<li>If bad action,
+					<ul>
+						<li><strong>CALL</strong> <a href="#unknown-command">[UNKNOWN Command]</a>.</li>
+						<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> type is <strong>GENERAL</strong>,
+					<ul>
+						<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+							<ul>
+								<li>If more tokens,
+									<ul>
+										<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Enqueue <strong>COMMAND(ACTION)</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> type is <strong>OPEN</strong>,
+					<ul>
+						<li>If no more tokens,
+							<ul>
+								<li><strong>CALL</strong> <a href="#incomplete-command">[INCOMPLETE Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>OPENSTRING</strong> = Accumulate tokens.</li>
+						<li>Enqueue <strong>COMMAND(ACTION, OPENSTRING)</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> type is <strong>MODAL</strong>,
+					<ul>
+						<li>If no more tokens,
+							<ul>
+								<li><strong>CALL</strong> <a href="#incomplete-command">[INCOMPLETE Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>MODE</strong> = Read mode.</li>
+						<li>If bad mode,
+							<ul>
+								<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+							<ul>
+								<li>If more tokens,
+									<ul>
+										<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Enqueue <strong>COMMAND(ACTION, MODE)</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> type is <strong>TRANSITIVE</strong>,
+					<ul>
+						<li>If no more tokens,
+							<ul>
+								<li><strong>CALL</strong> <a href="#incomplete-command">[INCOMPLETE Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>OBJECT1</strong> = Read object.</li>
+						<li>If best match refers to more than one object,
+							<ul>
+								<li><strong>CALL</strong> <a href="#ambiguous-command">[AMBIGUOUS Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>Else If unknown object,
+							<ul>
+								<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+							<ul>
+								<li>If more tokens,
+									<ul>
+										<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Enqueue <strong>COMMAND(ACTION, OBJECT1)</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> type is <strong>DITRANSITIVE</strong>,
+					<ul>
+						<li>If no more tokens,
+							<ul>
+								<li><strong>CALL</strong> <a href="#incomplete-command">[INCOMPLETE Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>OBJECT1</strong> = Read object.</li>
+						<li>If best match refers to more than one object,
+							<ul>
+								<li><strong>CALL</strong> <a href="#ambiguous-command">[AMBIGUOUS Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>Else If unknown object,
+							<ul>
+								<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+								<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If no more tokens,
+							<ul>
+								<li>Enqueue <strong>COMMAND(ACTION, OBJECT1)</strong> (treat as transitive action).</li>
+							</ul>
+						</li>
+						<li>Else,
+							<ul>
+								<li>Read conjugate.</li>
+								<li>If bad conjugate,
+									<ul>
+										<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>If no more tokens,
+									<ul>
+										<li><strong>CALL</strong> <a href="#incomplete-command">[INCOMPLETE Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>OBJECT2</strong> = Read object.</li>
+								<li>If best match refers to more than one object,
+									<ul>
+										<li><strong>CALL</strong> <a href="#ambiguous-command">[AMBIGUOUS Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>Else If unknown object,
+									<ul>
+										<li><strong>CALL</strong> <a href="#malformed-command">[MALFORMED Command]</a>.</li>
+										<li><strong>CALL</strong> <a href="#failed-parse">[Failed Parse]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>Enqueue <strong>COMMAND(ACTION, OBJECT1, OBJECT2)</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><strong>CALL</strong> <a href="#successful-parse">[Successful Parse]</a>.</li>
+				<li><strong>Return</strong>.</li>
 			</ul>
 		</div>
 	</div>
@@ -26,14 +207,328 @@
 		<div class="title">COMMAND Loop:</div>
 		<div class="content">
 			<ul>
-				<li>WHILE Command Queue is not empty,
+				<li><strong>WHILE</strong> Command Queue is not empty,
 					<ul>
 						<li>COMMAND = Dequeue Command Queue.</li>
-						<li>Process COMMAND.</li>
-						<li>Loop WHILE.</li>
+						<li><strong>CALL</strong> <a href="#process-command">[Process COMMAND]</a>.</li>
+						<li>Loop <strong>WHILE</strong>.</li>
 					</ul>
 				</li>
-				<li>Return.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="process-command" class="flow-diagram">
+		<div class="title">Process COMMAND:</div>
+		<div class="content">
+			<ul>
+				<li><strong>ACTION</strong> = <strong>COMMAND</strong>.ACTION.</li>
+				<li>If <strong>ACTION</strong> Type is <strong>GENERAL</strong>,
+					<ul>
+						<li>If current room is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
+									<ul>
+										<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If current player is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+							<ul>
+								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> Type is <strong>OPEN</strong>,
+					<ul>
+						<li>Set local <strong>ACTION</strong>.TARGET to <strong>COMMAND</strong>.STRING.</li>
+						<li>If current room is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
+									<ul>
+										<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If current player is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+							<ul>
+								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> Type is <strong>MODAL</strong>,
+					<ul>
+						<li><strong>MODE</strong> = <strong>COMMAND</strong>.STRING.</li>
+						<li>If current room is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+									<ul>
+										<li><strong>CALL</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If current player is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+							<ul>
+								<li><strong>CALL</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> Type is <strong>TRANSITIVE</strong>,
+					<ul>
+						<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
+						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action.html">onAction(ACTION)</a>.
+							<ul>
+							</ul>
+						</li>
+						<li>If current room is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+									<ul>
+										<li><strong>CALL</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+									<ul>
+										<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+											<ul>
+												<li><strong>CALL</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+										<li>Loop <strong>WHILE</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+									<ul>
+										<li><strong>CALL</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If current player is set,
+							<ul>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+									<ul>
+										<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+											<ul>
+												<li><strong>CALL</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+										<li>Loop <strong>WHILE</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+							<ul>
+								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> Type is <strong>DITRANSITIVE</strong>,
+					<ul>
+						<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
+						<li><strong>OBJECT2</strong> = <strong>COMMAND</strong>.OBJECT2.</li>
+						<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+							<ul>
+								<li>If <strong>ACTION</strong> is <strong>REVERSED</strong>,
+									<ul>
+										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+										<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+											<ul>
+												<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+													<ul>
+														<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+														<li><strong>Return</strong>.</li>
+													</ul>
+												</li>
+												<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+												<li>Loop <strong>WHILE</strong>.</li>
+											</ul>
+										</li>
+										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>Else,
+									<ul>
+										<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>OBJECT2</strong>.PARENT.</li>
+										<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+											<ul>
+												<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+													<ul>
+														<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+														<li><strong>Return</strong>.</li>
+													</ul>
+												</li>
+												<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+												<li>Loop <strong>WHILE</strong>.</li>
+											</ul>
+										</li>
+										<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>Else,
+							<ul>
+								<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>OBJECT2</strong>.PARENT.</li>
+								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+									<ul>
+										<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+										<li>Loop <strong>WHILE</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+									<ul>
+										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+											<ul>
+												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+												<li><strong>Return</strong>.</li>
+											</ul>
+										</li>
+										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+										<li>Loop <strong>WHILE</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>Else,
+					<ul>
+						<li>Throw <strong>INTERNAL ERROR</strong>.</li>
+					</ul>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -41,22 +536,22 @@
 		<div class="title">Successful Parse:</div>
 		<div class="content">
 			<ul>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>If RESOLVE <a href="language-block-after-successful-command.html">world.afterSuccessfulCommand()</a>,
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a>,
 					<ul>
-						<li>CALL <a href="language-block-after-successful-command.html">world.afterSuccessfulCommand()</a>.</li>
-						<li>Return.</li>
+						<li><strong>CALL</strong> world.<a href="language-block-after-successful-command.html">afterSuccessfulCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>If RESOLVE <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>,
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-after-every-command.html">afterEveryCommand()</a>,
 					<ul>
-						<li>CALL <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>.</li>
-						<li>Return.</li>
+						<li><strong>CALL</strong> world.<a href="language-block-after-every-command.html">afterEveryCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>Return.</li>
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li><strong>Return</strong>.</li>
 			</ul>
 		</div>
 	</div>
@@ -64,104 +559,196 @@
 		<div class="title">Failed Parse:</div>
 		<div class="content">
 			<ul>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>If RESOLVE <a href="language-block-after-failed-command.html">world.afterFailedCommand()</a>,
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-after-failed-command.html">afterFailedCommand()</a>,
 					<ul>
-						<li>CALL <a href="language-block-after-failed-command.html">world.afterFailedCommand()</a>.</li>
-						<li>Return.</li>
+						<li><strong>CALL</strong> world.<a href="language-block-after-failed-command.html">afterFailedCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>If RESOLVE <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>,
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-after-every-command.html">afterEveryCommand()</a>,
 					<ul>
-						<li>CALL <a href="language-block-after-every-command.html">world.afterEveryCommand()</a>.</li>
-						<li>Return.</li>
+						<li><strong>CALL</strong> world.<a href="language-block-after-every-command.html">afterEveryCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
-				<li>CALL <a href="#command-loop">[COMMAND Loop]</a>.</li>
-				<li>Return.</li>
+				<li><strong>CALL</strong> <a href="#command-loop">[COMMAND Loop]</a>.</li>
+				<li><strong>Return</strong>.</li>
 			</ul>
 		</div>
 	</div>
-	<!--
-	UNKNOWN Command:
-		If current player is set,
-			If RESOLVE player.onUnknownCommand(),
-				CALL player.onUnknownCommand().
-				Return.
-		If RESOLVE world.onUnknownCommand(),
-			CALL world.onUnknownCommand().
-			Return.
-		Add ERROR cue: UNKNOWN.
-		Return.
-	
-	MALFORMED Command:
-		If current player is set,
-			If RESOLVE player.onMalformedCommandBlock(ACTION),
-				CALL player.onMalformedCommandBlock(ACTION).
-				Return.
-			If RESOLVE player.onMalformedCommandBlock(),
-				CALL player.onMalformedCommandBlock(),
-				Return.
-		If RESOLVE world.onMalformedCommandBlock(ACTION),
-			CALL world.onMalformedCommandBlock(ACTION).
-			Return.
-		If RESOLVE world.onMalformedCommandBlock(),
-			CALL world.onMalformedCommandBlock(),
-			Return.
-		Add ERROR cue: MALFORMED.
-		Return.
-	
-	INCOMPLETE Command:
-		If current player is set,
-			If RESOLVE player.onIncompleteCommandBlock(ACTION),
-				CALL RESOLVE player.onIncompleteCommandBlock(ACTION).
-				Return.
-			If RESOLVE player.onIncompleteCommandBlock(),
-				CALL player.onIncompleteCommandBlock().
-				Return.
-		If RESOLVE world.onIncompleteCommandBlock(ACTION),
-			CALL world.onIncompleteCommandBlock(ACTION).
-			Return.
-		If RESOLVE world.onIncompleteCommandBlock(),
-			CALL world.onIncompleteCommandBlock().
-			Return.
-		Add ERROR cue: INCOMPLETE.
-		Return.
-	
-	AMBIGUOUS Command:
-		If current player is set,
-			If RESOLVE player.onAmbiguousCommandBlock(ACTION),
-				CALL player.onAmbiguousCommandBlock(ACTION).
-				Return.
-			If RESOLVE player.onAmbiguousCommandBlock(),
-				CALL player.onAmbiguousCommandBlock().
-				Return.
-		If RESOLVE world.onAmbiguousCommandBlock(ACTION),
-			CALL world.onAmbiguousCommandBlock(ACTION).
-			Return.
-		If RESOLVE world.onAmbiguousCommandBlock(),
-			CALL world.onAmbiguousCommandBlock().
-			Return.
-		Add ERROR cue: AMBIGUOUS.
-		Return.
-	
-	UNHANDLED Action:
-		If current player is set,
-			If RESOLVE player.onUnhandledAction(ACTION),
-				CALL player.onUnhandledAction(ACTION). 
-				Return.
-			If RESOLVE player.onUnhandledAction(),
-				CALL player.onUnhandledAction().
-				Return.
-		If RESOLVE world.onUnhandledAction(ACTION),
-			CALL world.onUnhandledAction(ACTION).
-			Return.
-		If RESOLVE world.onUnhandledAction(),
-			CALL world.onUnhandledAction().
-			Return.
-		Add ERROR cue: UNHANDLED.
-		Return. 
-	 -->
-	
+	<div id="unknown-command" class="flow-diagram">
+		<div class="title">UNKNOWN Command:</div>
+		<div class="content">
+			<ul>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-unknown-command.html">onUnknownCommand()</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-unknown-command.html">onUnknownCommand()</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-unknown-command.html">onUnknownCommand()</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-unknown-command.html">onUnknownCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Add <strong>ERROR</strong> cue: <strong>UNKNOWN</strong>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="malformed-command" class="flow-diagram">
+		<div class="title">MALFORMED Command:</div>
+		<div class="content">
+			<ul>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-malformed-command.html">onMalformedCommand(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-malformed-command.html">onMalformedCommand(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-malformed-command.html">onMalformedCommand()</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-malformed-command.html">onMalformedCommand()</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-malformed-command.html">onMalformedCommand(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-malformed-command.html">onMalformedCommand(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-malformed-command.html">onMalformedCommand()</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-malformed-command.html">onMalformedCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Add <strong>ERROR</strong> cue: <strong>MALFORMED</strong>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="incomplete-command" class="flow-diagram">
+		<div class="title">INCOMPLETE Command:</div>
+		<div class="content">
+			<ul>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-incomplete-command.html">onIncompleteCommand(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-incomplete-command.html">onIncompleteCommand(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-incomplete-command.html">onIncompleteCommand()</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-incomplete-command.html">onIncompleteCommand()</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-incomplete-command.html">onIncompleteCommand(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-incomplete-command.html">onIncompleteCommand(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-incomplete-command.html">onIncompleteCommand()</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-incomplete-command.html">onIncompleteCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Add <strong>ERROR</strong> cue: <strong>INCOMPLETE</strong>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="ambiguous-command" class="flow-diagram">
+		<div class="title">AMBIGUOUS Command:</div>
+		<div class="content">
+			<ul>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand()</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand()</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand()</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-ambiguous-command.html">onAmbiguousCommand()</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Add <strong>ERROR</strong> cue: <strong>AMBIGUOUS</strong>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="unhandled-action" class="flow-diagram">
+		<div class="title">UNHANDLED Action:</div>
+		<div class="content">
+			<ul>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-unhandled-action.html">onUnhandledAction(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-unhandled-action.html">onUnhandledAction(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-unhandled-action.html">onUnhandledAction()</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-unhandled-action.html">onUnhandledAction()</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-unhandled-action.html">onUnhandledAction(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-unhandled-action.html">onUnhandledAction(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-unhandled-action.html">onUnhandledAction()</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-unhandled-action.html">onUnhandledAction()</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Add <strong>ERROR</strong> cue: <strong>UNHANDLED</strong>.</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
 </div>
