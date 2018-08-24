@@ -225,181 +225,171 @@
 				<li><strong>ACTION</strong> = <strong>COMMAND</strong>.ACTION.</li>
 				<li>If <strong>ACTION</strong> Type is <strong>GENERAL</strong>,
 					<ul>
-						<li>If current room is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
-									<ul>
-										<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If current player is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
-									<ul>
-										<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
-							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-								<li><strong>Return</strong>.</li>
-							</ul>
-						</li>
-						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>CALL</strong> <a href="#general-action">[General ACTION]</a>.</li>
 						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
 				<li>Else If <strong>ACTION</strong> Type is <strong>OPEN</strong>,
 					<ul>
-						<li>Set local <strong>ACTION</strong>.TARGET to <strong>COMMAND</strong>.STRING.</li>
-						<li>If current room is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
-									<ul>
-										<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If current player is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
-									<ul>
-										<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
-							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
-								<li><strong>Return</strong>.</li>
-							</ul>
-						</li>
-						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>CALL</strong> <a href="#open-action">[Open ACTION]</a>.</li>
 						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
 				<li>Else If <strong>ACTION</strong> Type is <strong>MODAL</strong>,
 					<ul>
-						<li><strong>MODE</strong> = <strong>COMMAND</strong>.STRING.</li>
-						<li>If current room is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
-									<ul>
-										<li><strong>CALL</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If current player is set,
-							<ul>
-								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
-									<ul>
-										<li><strong>CALL</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
-							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
-								<li><strong>Return</strong>.</li>
-							</ul>
-						</li>
-						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>CALL</strong> <a href="#modal-action">[Modal ACTION]</a>.</li>
 						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
 				<li>Else If <strong>ACTION</strong> Type is <strong>TRANSITIVE</strong>,
 					<ul>
-						<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
-						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action.html">onAction(ACTION)</a>,
+						<li><strong>CALL</strong> <a href="#transitive-action">[Transitive ACTION]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else If <strong>ACTION</strong> Type is <strong>DITRANSITIVE</strong>,
+					<ul>
+						<li><strong>CALL</strong> <a href="#ditransitive-action">[Ditransitive ACTION]</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>Else,
+					<ul>
+						<li>Throw <strong>INTERNAL ERROR</strong>.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="general-action" class="flow-diagram">
+		<div class="title">General ACTION:</div>
+		<div class="content">
+			<ul>
+				<li>If current room is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
 							<ul>
-								<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onAction(ACTION)</a>.</li>
+								<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
 								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
-						<li>If current room is set,
+					</ul>
+				</li>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
 							<ul>
-								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
-									<ul>
-										<li><strong>CALL</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
-								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
-									<ul>
-										<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
-											<ul>
-												<li><strong>CALL</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
-										<li>Loop <strong>WHILE</strong>.</li>
-									</ul>
-								</li>
-								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
-									<ul>
-										<li><strong>CALL</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
+								<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
-						<li>If current player is set,
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="open-action" class="flow-diagram">
+		<div class="title">Open ACTION:</div>
+		<div class="content">
+			<ul>
+				<li>Set local <strong>ACTION</strong>.TARGET to <strong>COMMAND</strong>.STRING.</li>
+				<li>If current room is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action.html">onAction(ACTION),</a>
 							<ul>
-								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
-									<ul>
-										<li><strong>CALL</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
-								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
-									<ul>
-										<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
-											<ul>
-												<li><strong>CALL</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
-										<li>Loop <strong>WHILE</strong>.</li>
-									</ul>
-								</li>
-								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
-									<ul>
-										<li><strong>CALL</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
+								<li><strong>CALL</strong> room.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+					</ul>
+				</li>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action.html">onAction(ACTION),</a>
 							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+								<li><strong>CALL</strong> player.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action.html">onAction(ACTION),</a>
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-action.html">onAction(ACTION).</a></li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="modal-action" class="flow-diagram">
+		<div class="title">Modal ACTION:</div>
+		<div class="content">
+			<ul>
+				<li><strong>MODE</strong> = <strong>COMMAND</strong>.STRING.</li>
+				<li>If current room is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+							<ul>
+								<li><strong>CALL</strong> room.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE),</a>
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-modal-action.html">onModalAction(ACTION, MODE).</a></li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="transitive-action" class="flow-diagram">
+		<div class="title">Transitive ACTION:</div>
+		<div class="content">
+			<ul>
+				<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
+				<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action.html">onAction(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onAction(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li>If current room is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+							<ul>
+								<li><strong>CALL</strong> room.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
 								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
 						<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
 						<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
 							<ul>
-								<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+								<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
 									<ul>
-										<li><strong>CALL</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+										<li><strong>CALL</strong> room.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
 										<li><strong>Return</strong>.</li>
 									</ul>
 								</li>
@@ -407,84 +397,109 @@
 								<li>Loop <strong>WHILE</strong>.</li>
 							</ul>
 						</li>
-						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+						<li>If <strong>RESOLVE</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
 							<ul>
-								<li><strong>CALL</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+								<li><strong>CALL</strong> room.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
 								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
-						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+					</ul>
+				</li>
+				<li>If current player is set,
+					<ul>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+						<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+							<ul>
+								<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+									<ul>
+										<li><strong>CALL</strong> player.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+								<li>Loop <strong>WHILE</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> player.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
 						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
-				<li>Else If <strong>ACTION</strong> Type is <strong>DITRANSITIVE</strong>,
+				<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+				<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
 					<ul>
-						<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
-						<li><strong>OBJECT2</strong> = <strong>COMMAND</strong>.OBJECT2.</li>
-						<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+						<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
 							<ul>
-								<li>If <strong>ACTION</strong> is <strong>REVERSED</strong>,
+								<li><strong>CALL</strong> world.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+						<li>Loop <strong>WHILE</strong>.</li>
+					</ul>
+				</li>
+				<li>If <strong>RESOLVE</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+					<ul>
+						<li><strong>CALL</strong> world.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+						<li><strong>Return</strong>.</li>
+					</ul>
+				</li>
+				<li><strong>Return</strong>.</li>
+			</ul>
+		</div>
+	</div>
+	<div id="ditransitive-action" class="flow-diagram">
+		<div class="title">Ditransitive ACTION:</div>
+		<div class="content">
+			<ul>
+				<li><strong>OBJECT1</strong> = <strong>COMMAND</strong>.OBJECT1.</li>
+				<li><strong>OBJECT2</strong> = <strong>COMMAND</strong>.OBJECT2.</li>
+				<li>If <strong>ACTION</strong> is <strong>STRICT</strong>,
+					<ul>
+						<li>If <strong>ACTION</strong> is <strong>REVERSED</strong>,
+							<ul>
+								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
 									<ul>
-										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
-											<ul>
-												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
-										<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
-											<ul>
-												<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
-													<ul>
-														<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
-														<li><strong>Return</strong>.</li>
-													</ul>
-												</li>
-												<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
-												<li>Loop <strong>WHILE</strong>.</li>
-											</ul>
-										</li>
-										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
-											<ul>
-												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
 										<li><strong>Return</strong>.</li>
 									</ul>
 								</li>
-								<li>Else,
+								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
 									<ul>
-										<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>,
+										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
 											<ul>
-												<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>.</li>
+												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
 												<li><strong>Return</strong>.</li>
 											</ul>
 										</li>
-										<li><strong>ANCESTOR</strong> = <strong>OBJECT2</strong>.PARENT.</li>
-										<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
-											<ul>
-												<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
-													<ul>
-														<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
-														<li><strong>Return</strong>.</li>
-													</ul>
-												</li>
-												<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
-												<li>Loop <strong>WHILE</strong>.</li>
-											</ul>
-										</li>
-										<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
-											<ul>
-												<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+										<li>Loop <strong>WHILE</strong>.</li>
+									</ul>
+								</li>
+								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
 										<li><strong>Return</strong>.</li>
 									</ul>
 								</li>
+								<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+								<li><strong>Return</strong>.</li>
 							</ul>
 						</li>
 						<li>Else,
@@ -492,12 +507,6 @@
 								<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>,
 									<ul>
 										<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
-									<ul>
-										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
 										<li><strong>Return</strong>.</li>
 									</ul>
 								</li>
@@ -514,28 +523,9 @@
 										<li>Loop <strong>WHILE</strong>.</li>
 									</ul>
 								</li>
-								<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
-								<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
-									<ul>
-										<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
-											<ul>
-												<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
-												<li><strong>Return</strong>.</li>
-											</ul>
-										</li>
-										<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
-										<li>Loop <strong>WHILE</strong>.</li>
-									</ul>
-								</li>
 								<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
 									<ul>
 										<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
-										<li><strong>Return</strong>.</li>
-									</ul>
-								</li>
-								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
-									<ul>
-										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
 										<li><strong>Return</strong>.</li>
 									</ul>
 								</li>
@@ -547,7 +537,58 @@
 				</li>
 				<li>Else,
 					<ul>
-						<li>Throw <strong>INTERNAL ERROR</strong>.</li>
+						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>,
+							<ul>
+								<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT2)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>,
+							<ul>
+								<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with.html">onActionWith(ACTION, OBJECT1)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>ANCESTOR</strong> = <strong>OBJECT2</strong>.PARENT.</li>
+						<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+							<ul>
+								<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+								<li>Loop <strong>WHILE</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>ANCESTOR</strong> = <strong>OBJECT1</strong>.PARENT.</li>
+						<li><strong>WHILE</strong> ANCESTOR is NOT NULL:
+							<ul>
+								<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>,
+									<ul>
+										<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-ancestor.html">onActionWithAncestor(ACTION, ANCESTOR)</a>.</li>
+										<li><strong>Return</strong>.</li>
+									</ul>
+								</li>
+								<li><strong>ANCESTOR</strong> = <strong>ANCESTOR</strong>.PARENT.</li>
+								<li>Loop <strong>WHILE</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> OBJECT1.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li>If <strong>RESOLVE</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>,
+							<ul>
+								<li><strong>CALL</strong> OBJECT2.<a href="language-block-on-action-with-other.html">onActionWithOther(ACTION)</a>.</li>
+								<li><strong>Return</strong>.</li>
+							</ul>
+						</li>
+						<li><strong>CALL</strong> <a href="#unhandled-action">[UNHANDLED Action]</a>.</li>
+						<li><strong>Return</strong>.</li>
 					</ul>
 				</li>
 			</ul>
