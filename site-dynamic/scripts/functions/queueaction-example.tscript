@@ -18,7 +18,7 @@ world
 	
 	onAction(a_quit)
 	{
-		textln("Quitting. Note that afterRequest() does not get called.");
+		textln("Quitting. Note that the lifecycle blocks do not get called.");
 		quit;
 	}
 

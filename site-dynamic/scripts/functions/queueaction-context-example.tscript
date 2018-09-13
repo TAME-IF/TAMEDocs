@@ -97,12 +97,12 @@ extend room r_west
 // Our intrepid... hero?
 player p_guy
 {
-	onMalformedCommand(a_move)
+	onUnhandledAction(a_move)
 	{
 		textln("Can't go that way.");
 	}
 	
-	onBadAction(a_move)
+	onMalformedCommand(a_move)
 	{
 		textln("That is not a valid direction to travel! (north, south, east, west)");
 	}
@@ -113,7 +113,7 @@ world
 {
 	onAction(a_quit)
 	{
-		textln("Quitting.");
+		textln("Quitting. Note that the lifecycle blocks do not get called.");
 		quit;
 	}
 
