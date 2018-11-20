@@ -124,7 +124,7 @@ world
 		setRoom(p_guy, r_center);
 
 		// Kick us off. afterRequest() is not called after start().
-		queueAction(a_look);
+		queue a_look;
 
 		textln("Type \"move\" or \"go\" and a compass direction.");
 		textln("Type \"quit\" to quit.");
@@ -134,7 +134,7 @@ world
 	afterSuccessfulCommand()
 	{
 		// Queued actions do not "remember" the context in which they were called (this is pretty useful, though).
-		queueAction(a_look);
+		queue a_look;
 	}
 	
 }

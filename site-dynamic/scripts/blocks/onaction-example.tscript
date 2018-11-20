@@ -130,6 +130,6 @@ world
 		giveObject(room, o_ball);
 		giveObject(room, o_thing);
 		browse(room);
-		queueAction(a_identifyself);
+		queue a_identifyself;
 	}
 }

@@ -196,8 +196,8 @@ world
 		giveObject(player, o_orb);
 
 		// Kick us off. afterRequest() is not called after start().
-		queueAction(a_look);
-		queueActionObject(a_examine, o_orb);
+		queue a_look;
+		queue a_examine, o_orb;
 
 		textln("The ORB that you are carrying reacts to a certain room.");
 		textln("Using the ORB in this state will help you escape.");
@@ -208,8 +208,8 @@ world
 
 	afterSuccessfulCommand()
 	{
-		queueAction(a_look);
-		queueActionObject(a_examine, o_orb);
+		queue a_look;
+		queue a_examine, o_orb;
 	}
 	
 }

@@ -28,19 +28,19 @@ world
 	onModalAction(a_switch, "english")
 	{
 		language = "english";
-		queueAction(a_saysomething);
+		queue a_saysomething;
 	}
 	
 	onModalAction(a_switch, "french")
 	{
 		language = "french";
-		queueAction(a_saysomething);
+		queue a_saysomething;
 	}
 	
 	onModalAction(a_switch, "spanish")
 	{
 		language = "spanish";
-		queueAction(a_saysomething);
+		queue a_saysomething;
 	}
 
 	onAction(a_saysomething)
@@ -49,29 +49,29 @@ world
 		if (language == "english")
 		{
 			if (x == 0)
-				queueActionString(a_say, "Hello.");
+				queue a_say, "Hello.";
 			else if (x == 1)
-				queueActionString(a_say, "Cheese.");
+				queue a_say, "Cheese.";
 			else if (x == 2)
-				queueActionString(a_say, "Goodbye!");
+				queue a_say, "Goodbye!";
 		}
 		else if (language == "french")
 		{
 			if (x == 0)
-				queueActionString(a_say, "Bonjour.");
+				queue a_say, "Bonjour.";
 			else if (x == 1)
-				queueActionString(a_say, "Fromage.");
+				queue a_say, "Fromage.";
 			else if (x == 2)
-				queueActionString(a_say, "Au revoir!");
+				queue a_say, "Au revoir!";
 		}
 		else if (language == "spanish")
 		{
 			if (x == 0)
-				queueActionString(a_say, "Hola.");
+				queue a_say, "Hola.";
 			else if (x == 1)
-				queueActionString(a_say, "Queso.");
+				queue a_say, "Queso.";
 			else if (x == 2)
-				queueActionString(a_say, "¡Adiós!");
+				queue a_say, "¡Adiós!";
 		}
 	}
 

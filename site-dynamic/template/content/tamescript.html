@@ -622,7 +622,11 @@
 		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
-	<h3 id="if-else">If / Else</h3>
+</div>
+<div class="w3-container">
+	<div id="if-else" class="w3-panel w3-light-gray w3-card-1">
+		<h3>If / Else</h3>
+	</div>
 	<p>
 		An <strong>if</strong> statement represents a branch in logic - if the expression in the parenthesis evaluates 
 		to <kbd>true</kbd> or something "true-equivalent," the subsequent block (delimited by curly braces) is executed.
@@ -693,7 +697,11 @@
         }
     }
 </code></pre>
-	<h3 id="while-loop">While Loops</h3>
+</div>
+<div class="w3-container">
+	<div id="while-loop" class="w3-panel w3-light-gray w3-card-1">
+		<h3>While</h3>
+	</div>
 	<p>
 		A <strong>while</strong> loop executes a following block of statements as long as the expression in the 
 		parenthesis is still <kbd>true</kbd> or true-equivalent when the block completes.
@@ -707,7 +715,11 @@
         x = x - 1;
     }
 </code></pre>
-	<h3 id="for-loop">For Loops</h3>
+</div>
+<div class="w3-container">
+	<div id="for-loop" class="w3-panel w3-light-gray w3-card-1">
+		<h3>For</h3>
+	</div>
 	<p>
 		A <strong>for</strong> loop executes the following block of statements as long as the 
 		conditional expression is still <kbd>true</kbd> when the block completes.
@@ -740,7 +752,11 @@
 		operations are executed, it will terminate with a <kbd>FATAL</kbd> error (default threshold is <kbd>100000</kbd> operations).
 		This can be overridden in <a href="language-element-module.html#special">module headers</a>.
 	</p>
-	<h3 id="quit-keyword">Quit</h3>
+</div>
+<div class="w3-container">
+	<div id="quit-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>Quit</h3>
+	</div>
 	<p>
 		Control keywords, like <strong>quit</strong>, are not function statements. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
@@ -756,7 +772,52 @@
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="finish-keyword">Finish</h3>
+	<div id="queue-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>Queue</h3>
+	</div>
+	<p>
+		The <strong>queue</strong> keyword queues a command to be processed after the current command finishes. All queued commands
+		are processed in the order that they are queued.
+	</p>
+	<p>
+		All types of actions can be used for creating a queued command, but they must have the correct amount and type 
+		of elements for each action.
+	</p>
+	<p>
+		You can also queue several commands using a <strong>transitive</strong> or <strong>ditransitive</strong> action (as a 
+		transitive action) with an object container, which will queue an action for each object in the object container element 
+		(world, player, room, or container).
+	</p>
+	<p>
+		Commands queued this way that require objects, like <strong>transitive</strong> or <strong>ditransitive</strong> 
+		actions, do not require those objects to be <em>accessible</em>. 
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	queue a_generalaction;
+	queue a_modalaction, "mode";
+	queue a_openaction, "opentarget";
+	queue a_transitiveaction, o_object;
+	queue a_transitiveaction : c_container;
+	queue a_transitiveaction : c_container, "tagname";
+	queue a_ditransitiveaction, o_object;
+	queue a_ditransitiveaction : c_container;
+	queue a_ditransitiveaction : c_container, "tagname";
+	queue a_ditransitiveaction, o_object, o_object2;
+</code></pre>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Example" module_queue_example examples/queue.tscript ]-->
+</div>
+<div class="w3-container">
+	<p>
+		Queued commands are processed after each <em>lifecycle step</em> in TAME, until no more queued commands need
+		to be processed. See the main TAME <a href="diagrams.html">diagram</a> for how this fits into the general flow.
+	</p>
+</div>
+<div class="w3-container">
+	<div id="finish-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>Finish</h3>
+	</div>
 	<p>
 		The control keyword <strong>finish</strong> ends the currently-executing action (but continues processing queued actions). 
 		Like <em>quit</em>, there are no limits or rules as to where it can be used.
@@ -766,7 +827,9 @@
 <!--[ tamescript "Finish Example" module_finish_example examples/finish.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="end-keyword">End</h3>
+	<div id="end-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>End</h3>
+	</div>
 	<p>
 		The control keyword <strong>end</strong> ends the current <em>major entry</em> block (not smaller blocks in control statements). Cannot
 		be used to end function calls - use <em>return</em> for that.
@@ -776,7 +839,9 @@
 <!--[ tamescript "End Example" module_end_example examples/end.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="break-keyword">Break</h3>
+	<div id="break-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>Break</h3>
+	</div>
 	<p>
 		The <strong>break</strong> keyword ends the current looping block (<strong>while</strong> and <strong>for</strong>).
 		This does not "restore" any variable values or states - it just escapes the loop.
@@ -786,7 +851,9 @@
 <!--[ tamescript "Break Example" module_break_example examples/break.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="continue-keyword">Continue</h3>
+	<div id="continue-keyword" class="w3-panel w3-light-gray w3-card-1">
+		<h3>Continue</h3>
+	</div>
 	<p>
 		The <strong>continue</strong> keyword stops the current loop iteration in looping control blocks (<strong>while</strong> and <strong>for</strong>),
 		which re-evaluates the conditional, and in <strong>for</strong> loops, also performs the stepping statement first. 

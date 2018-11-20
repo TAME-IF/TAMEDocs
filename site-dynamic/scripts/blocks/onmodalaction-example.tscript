@@ -122,12 +122,12 @@ world
 		setPlayer(p_main);
 		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
 		textln("Type \"quit\".");
-		queueAction(a_look);
+		queue a_look;
 	}
 	
 	afterSuccessfulCommand()
 	{
-		queueAction(a_look);
+		queue a_look;
 	}
 	
 }

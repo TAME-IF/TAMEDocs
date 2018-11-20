@@ -6,7 +6,7 @@ world
 	onAction(a_test)
 	{
 		textln("Queueing another action...");
-		queueAction(a_anotheraction);
+		queue a_anotheraction;
 		textln("Calling finish...");
 		finish;
 		

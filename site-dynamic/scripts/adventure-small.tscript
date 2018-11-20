@@ -77,7 +77,7 @@ object o_door named "door" uses determiners "the"
 	
 	onAction(a_open)
 	{
-		queueActionObject(a_use, this);
+		queue a_use, this;
 	}
 	
 	onAction(a_use)

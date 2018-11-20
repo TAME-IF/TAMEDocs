@@ -39,11 +39,11 @@ Rainbow.extend('tamescript', [
 	},
     {
         name: 'keyword',
-        pattern: /\b(if|else|while|for|quit|end|finish|break|continue|module|world|room|player|object|container|action|general|modal|transitive|ditransitive|open|restricted|named|tagged|modes|uses|conjunctions|determiners|forbids|allows|local|clear|archetype|function|return|this|override|extend|strict|reversed)\b/gi
+        pattern: /\b(if|else|while|for|quit|end|finish|break|continue|module|world|room|player|object|container|action|general|modal|transitive|ditransitive|open|restricted|named|tagged|modes|uses|conjunctions|determiners|forbids|allows|local|clear|archetype|function|return|this|override|extend|strict|reversed|queue)\b/gi
     },
     {
         name: 'command',
-        pattern: /\b(NOOP|QUEUE(ACTION(FOR(TAGGEDOBJECTSIN|OBJECTSIN)?|STRING|OBJECT(2)?)?)|ADDCUE|TEXT(F(LN)?|LN)|PAUSE|WAIT|AS(BOOLEAN|INT|FLOAT|STRING)|STR(LENGTH|CONCAT|REPLACE(PATTERN(ALL)?)?|INDEX|LASTINDEX|CONTAINS(PATTERN|TOKEN)?|STARTSWITH|ENDSWITH|LOWER|UPPER|CHAR|TRIM)|SUBSTRING|FLOOR|CEILING|ROUND|FIX|SQRT|PI|E|SIN|COS|TAN|MIN|MAX|CLAMP|IRANDOM|FRANDOM|GRANDOM|TIME|SECONDS|MINUTES|HOURS|DAYS|FORMATTIME|OBJECT(HAS(NAME|TAG|NOOWNER)?|COUNT)|ADDOBJECT(NAME|TAG(TOALLIN)?)|REMOVEOBJECT(NAME|TAG(FROMALLIN)?)?|GIVEOBJECT|MOVEOBJECTSWITHTAG|HASOBJECT|PLAYER(ISINROOM|CANACCESSOBJECT)|BROWSE(TAGGED)?|SET(PLAYER|ROOM)|PUSHROOM|POPROOM|SWAPROOM|CURRENT(PLAYERIS|ROOMIS)|NOCURRENT(PLAYER|ROOM)|IDENTITY|HEADER)\b/gi
+        pattern: /\b(NOOP|ADDCUE|TEXT(F(LN)?|LN)|PAUSE|WAIT|AS(BOOLEAN|INT|FLOAT|STRING)|STR(LENGTH|CONCAT|REPLACE(PATTERN(ALL)?)?|INDEX|LASTINDEX|CONTAINS(PATTERN|TOKEN)?|STARTSWITH|ENDSWITH|LOWER|UPPER|CHAR|TRIM)|SUBSTRING|FLOOR|CEILING|ROUND|FIX|SQRT|PI|E|SIN|COS|TAN|MIN|MAX|CLAMP|IRANDOM|FRANDOM|GRANDOM|TIME|SECONDS|MINUTES|HOURS|DAYS|FORMATTIME|OBJECT(HAS(NAME|TAG|NOOWNER)?|COUNT)|ADDOBJECT(NAME|TAG(TOALLIN)?)|REMOVEOBJECT(NAME|TAG(FROMALLIN)?)?|GIVEOBJECT|MOVEOBJECTSWITHTAG|HASOBJECT|PLAYER(ISINROOM|CANACCESSOBJECT)|BROWSE(TAGGED)?|SET(PLAYER|ROOM)|PUSHROOM|POPROOM|SWAPROOM|CURRENT(PLAYERIS|ROOMIS)|NOCURRENT(PLAYER|ROOM)|IDENTITY|HEADER)\b/gi
     },
     {
         name: 'entry',

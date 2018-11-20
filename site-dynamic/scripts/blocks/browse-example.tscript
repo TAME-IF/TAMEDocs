@@ -146,7 +146,7 @@ world
 		browse(room);
 		browse(player);
 		browse(world);
-		queueAction(a_lookaround);
+		queue a_lookaround;
 	}
 	
 	start()

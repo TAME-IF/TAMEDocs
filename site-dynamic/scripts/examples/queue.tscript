@@ -26,7 +26,7 @@ world
 	{
 		textln("Called a_test.");
 		textln("Enqueueing a_incr.");
-		queueAction(a_incr);
+		queue a_incr;
 	}
 
 	onAction(a_wait)
@@ -60,7 +60,7 @@ world
 		local x = 0;
 		while (x < count)
 		{
-			queueAction(a_printer);
+			queue a_printer;
 			textln((x+1) + " queued!");
 			x = x + 1;
 		}

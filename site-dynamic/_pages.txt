@@ -40,12 +40,6 @@ language-block-after-failed-command.html "AfterFailedCommand Block" template/mai
 language-block-after-every-command.html "AfterEveryCommand Block" template/main.html
 language-functions.html "TAMEScript Function Reference" template/main.html
 function-noop.html "Function: NoOp" template/main.html
-function-queueaction.html "Function: QueueAction" template/main.html
-function-queueactionstring.html "Function: QueueActionString" template/main.html
-function-queueactionobject.html "Function: QueueActionObject" template/main.html
-function-queueactionforobjectsin.html "Function: QueueActionForObjectsIn" template/main.html
-function-queueactionfortaggedobjectsin.html "Function: QueueActionForTaggedObjectsIn" template/main.html
-function-queueactionobject2.html "Function: QueueActionObject2" template/main.html
 function-addcue.html "Function: AddCue" template/main.html
 function-text.html "Function: Text" template/main.html
 function-textln.html "Function: Textln" template/main.html
