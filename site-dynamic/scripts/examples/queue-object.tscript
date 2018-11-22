@@ -195,7 +195,7 @@ world
 		setRoom(p_guy, r_center);
 		giveObject(player, o_orb);
 
-		// Kick us off. afterRequest() is not called after start().
+		// Kick us off. afterSuccessfulCommand() is not called after start().
 		queue a_look;
 		queue a_examine, o_orb;
 

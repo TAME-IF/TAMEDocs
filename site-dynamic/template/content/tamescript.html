@@ -122,6 +122,8 @@
 		In order to get anything done in a TAME module, you'll probably be crafting <em>expressions</em> that change and 
 		manipulate <em>values</em>.
 	</p>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>Values</h3>
 	<p>
 		Values in TAME are represented in several ways.
@@ -182,6 +184,8 @@
 	NaN
 	Infinity
 </code></pre>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>More About Strings</h3>
 	<p>
 		Literal strings (that is, values that are a set of characters bounded in double-quotes) are a little special - 
@@ -213,6 +217,8 @@
 			<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
 		</tbody>
 	</table>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3 id="identifiers">Identifiers</h3>
 	<p>
 		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
@@ -237,6 +243,8 @@
 	not-good	// two identifiers with a dash delimiter between them
 	Mr.Person	// two identifiers with a dot delimiter between them
 </code></pre>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3 id="expressions">Expressions</h3>
 	<p>
 		Expressions are a means of combining values and operators in order to convey more complex values.
@@ -301,6 +309,8 @@
 		Expressions are nice, but without any real directives, TAME would just be doing math! Enter <em>statements</em>. A statement is a single bit of code
 		that conveys a single step or task. All statements are terminated by semicolons (<kbd>;</kbd>). 
 	</p>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>Assignments and Variables</h3>
 	<p>
 		The first type of statement is an <em>assignment</em>. Assignments define <em>variables</em> and their new values. A variable is stored at the 
@@ -376,6 +386,8 @@
 	x			// this context's x
 	o_ball.x	// o_ball's x
 </code></pre>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3>Calling Functions</h3>
 	<p>
 		<em>Functions</em> can also be invoked in a statement, including functions that return something.
@@ -453,6 +465,8 @@
 	c = a[1][0];				// assigns 9 to "b"
 	d = a[3][0];				// a[3] is not a list - assigns false to d
 </code></pre>
+</div>
+<div class="w3-container" style="margin-top: 1em;">
 	<h3 id="references" style="margin-top:1.5em;">Lists and References</h3>
 	<p>
 		Lists are a little special. Whereas most values are treated as single, quantifiable values that can be converted
@@ -623,10 +637,9 @@
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
 </div>
-<div class="w3-container">
-	<div id="if-else" class="w3-panel w3-light-gray w3-card-1">
-		<h3>If / Else</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="if-else">If / Else</h3>
 	<p>
 		An <strong>if</strong> statement represents a branch in logic - if the expression in the parenthesis evaluates 
 		to <kbd>true</kbd> or something "true-equivalent," the subsequent block (delimited by curly braces) is executed.
@@ -698,10 +711,9 @@
     }
 </code></pre>
 </div>
-<div class="w3-container">
-	<div id="while-loop" class="w3-panel w3-light-gray w3-card-1">
-		<h3>While</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="while-loop">While</h3>
 	<p>
 		A <strong>while</strong> loop executes a following block of statements as long as the expression in the 
 		parenthesis is still <kbd>true</kbd> or true-equivalent when the block completes.
@@ -716,10 +728,9 @@
     }
 </code></pre>
 </div>
-<div class="w3-container">
-	<div id="for-loop" class="w3-panel w3-light-gray w3-card-1">
-		<h3>For</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="for-loop">For</h3>
 	<p>
 		A <strong>for</strong> loop executes the following block of statements as long as the 
 		conditional expression is still <kbd>true</kbd> when the block completes.
@@ -753,10 +764,9 @@
 		This can be overridden in <a href="language-element-module.html#special">module headers</a>.
 	</p>
 </div>
-<div class="w3-container">
-	<div id="quit-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>Quit</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="quit-keyword">Quit</h3>
 	<p>
 		Control keywords, like <strong>quit</strong>, are not function statements. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
@@ -771,10 +781,9 @@
 <div class="w3-container">
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tscript ]-->
 </div>
-<div class="w3-container">
-	<div id="queue-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>Queue</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="queue-keyword">Queue</h3>
 	<p>
 		The <strong>queue</strong> keyword queues a command to be processed after the current command finishes. All queued commands
 		are processed in the order that they are queued.
@@ -783,6 +792,19 @@
 		All types of actions can be used for creating a queued command, but they must have the correct amount and type 
 		of elements for each action.
 	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Example" module_queue_example examples/queue.tscript ]-->
+</div>
+<div class="w3-container">
+	<p>
+		A queued action uses the current state of the context when it executes, not when it is queued.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Context Example" module_queue_context_example examples/queue-context.tscript ]-->
+</div>
+<div class="w3-container">
 	<p>
 		You can also queue several commands using a <strong>transitive</strong> or <strong>ditransitive</strong> action (as a 
 		transitive action) with an object container, which will queue an action for each object in the object container element 
@@ -791,6 +813,13 @@
 	<p>
 		Commands queued this way that require objects, like <strong>transitive</strong> or <strong>ditransitive</strong> 
 		actions, do not require those objects to be <em>accessible</em>. 
+	</p>
+	<p>
+		Queued commands are processed after each <em>lifecycle step</em> in TAME, until no more queued commands need
+		to be processed. See the main TAME <a href="diagrams.html">diagram</a> for how this fits into the general flow.
+	</p>
+	<p>
+		All possible syntaxes of <strong>queue</strong> are as follows:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	queue a_generalaction;
@@ -805,19 +834,9 @@
 	queue a_ditransitiveaction, o_object, o_object2;
 </code></pre>
 </div>
-<div class="w3-container">
-<!--[ tamescript "Queue Example" module_queue_example examples/queue.tscript ]-->
-</div>
-<div class="w3-container">
-	<p>
-		Queued commands are processed after each <em>lifecycle step</em> in TAME, until no more queued commands need
-		to be processed. See the main TAME <a href="diagrams.html">diagram</a> for how this fits into the general flow.
-	</p>
-</div>
-<div class="w3-container">
-	<div id="finish-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>Finish</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="finish-keyword">Finish</h3>
 	<p>
 		The control keyword <strong>finish</strong> ends the currently-executing action (but continues processing queued actions). 
 		Like <em>quit</em>, there are no limits or rules as to where it can be used.
@@ -826,10 +845,9 @@
 <div class="w3-container">
 <!--[ tamescript "Finish Example" module_finish_example examples/finish.tscript ]-->
 </div>
-<div class="w3-container">
-	<div id="end-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>End</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="end-keyword">End</h3>
 	<p>
 		The control keyword <strong>end</strong> ends the current <em>major entry</em> block (not smaller blocks in control statements). Cannot
 		be used to end function calls - use <em>return</em> for that.
@@ -838,10 +856,9 @@
 <div class="w3-container">
 <!--[ tamescript "End Example" module_end_example examples/end.tscript ]-->
 </div>
-<div class="w3-container">
-	<div id="break-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>Break</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="break-keyword">Break</h3>
 	<p>
 		The <strong>break</strong> keyword ends the current looping block (<strong>while</strong> and <strong>for</strong>).
 		This does not "restore" any variable values or states - it just escapes the loop.
@@ -850,10 +867,9 @@
 <div class="w3-container">
 <!--[ tamescript "Break Example" module_break_example examples/break.tscript ]-->
 </div>
-<div class="w3-container">
-	<div id="continue-keyword" class="w3-panel w3-light-gray w3-card-1">
-		<h3>Continue</h3>
-	</div>
+
+<div class="w3-container" style="margin-top:1em">
+	<h3 id="continue-keyword">Continue</h3>
 	<p>
 		The <strong>continue</strong> keyword stops the current loop iteration in looping control blocks (<strong>while</strong> and <strong>for</strong>),
 		which re-evaluates the conditional, and in <strong>for</strong> loops, also performs the stepping statement first. 
@@ -1123,10 +1139,12 @@
 		with <kbd>classpath:</kbd>. The include behavior can also be replaced entirely in the Java implementation. 
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#include "rooms.tscript"
 	#include "objects/keys.tscript"
 </code></pre>
+</div>
 <div class="w3-container" style="margin-top: 1em;">
 	<h3 id="prep-define">#define</h3>
 	<p>
@@ -1138,11 +1156,13 @@
 		NOTE: Unlike the C-language preprocessor, this does not create macro functions.
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#define GREETING_TEXT "Hello."
 	#define TWO_PI ( PI() * 2 )
 	#define FILE_WAS_INCLUDED
 </code></pre>
+</div>
 <div class="w3-container" style="margin-top: 1em;">
 	<h3 id="prep-undefine">#undefine</h3>
 	<p>
@@ -1150,11 +1170,13 @@
 		are treated as though they were never defined.
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#define GREETING_TEXT "Hello."
 	#undefine GREETING_TEXT
 	textln(GREETING_TEXT);   // compiler thinks GREETING_TEXT is a variable
 </code></pre>
+</div>
 <div class="w3-container" style="margin-top: 1em;">
 	<h3 id="prep-ifdef">#ifdef</h3>
 	<p>
@@ -1162,12 +1184,14 @@
 		an <kbd>#endif</kbd> directive.
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
 	textln("LINES was defined.");
 	#endif
 </code></pre>
+</div>
 <div class="w3-container" style="margin-top: 1em;">
 	<h3 id="prep-ifdef">#ifndef</h3>
 	<p>
@@ -1175,25 +1199,28 @@
 		an <kbd>#endif</kbd> directive.
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#define STUFF
 	#ifndef LINES
 	textln("LINES was not defined.");
 	#endif
 </code></pre>
+</div>
 <div class="w3-container" style="margin-top: 1em;">
 	<h3 id="prep-endif">#endif</h3>
 	<p>
 		The <kbd>#endif</kbd> directive ends the most recently started "if" directive block. 
 	</p>
 </div>
+<div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
 	textln("LINES was defined.");
 	#endif
 </code></pre>
-
+</div>
 
 <!--[ set prev_page interpreter.html ]-->
 <!--[ set next_page language-elements.html ]-->
