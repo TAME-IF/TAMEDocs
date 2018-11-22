@@ -106,26 +106,26 @@ var TAMEHandler = TAME.newBrowserHandler({
 		InputBox.focus();
 	},
 	
-	"onPauseCue": function()
+	"onPause": function()
 	{
 		InputBox.disabled = true;
 		InputDiv.style.display = "none";
 		ContinueDiv.style.display = "block";
 	},
 	
-	"onQuitCue": function(content)
+	"onQuit": function(content)
 	{
 		InputBox.disabled = true;
 		InputDiv.style.display = "none";
 		ContinueDiv.style.display = "none";
 	},
 	
-	"onErrorCue": function(content)
+	"onError": function(content)
 	{
 		tamePrintln("\n !ERROR!: "+content);
 	},
 	
-	"onFatalCue": function(content)
+	"onFatal": function(content)
 	{
 		tamePrintln("\n!!FATAL!!: "+content);
 		InputBox.disabled = true;
