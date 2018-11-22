@@ -22,7 +22,7 @@ world
 
 	onMalformedCommand(a_switch)
 	{
-		textln("Not a valid language.");
+		textln("Not a valid language choice.");
 	}
 
 	onModalAction(a_switch, "english")

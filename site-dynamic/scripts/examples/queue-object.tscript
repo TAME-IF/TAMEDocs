@@ -153,11 +153,6 @@ extend room r_west
 // Our intrepid... hero?
 player p_guy
 {
-	onBadAction(a_move)
-	{
-		textln("That is not a valid direction to travel! (north, south, east, west)");
-	}
-
 	onUnhandledAction()
 	{
 		textln("Can't do that.");
@@ -165,12 +160,17 @@ player p_guy
 
 	onMalformedCommand(a_move)
 	{
-		textln("Can't go that way.");
+		textln("That is not a valid direction to travel! (north, south, east, west)");
 	}
-	
+
 	onMalformedCommand()
 	{
 		textln("Can't do that.");
+	}
+	
+	onIncompleteCommand(a_move)
+	{
+		textln("Need a direction to go.");
 	}
 	
 	onIncompleteCommand()

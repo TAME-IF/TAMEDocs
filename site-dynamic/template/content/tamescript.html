@@ -806,13 +806,26 @@
 </div>
 <div class="w3-container">
 	<p>
+		Commands queued this way that require objects, like <strong>transitive</strong> or <strong>ditransitive</strong> 
+		actions, do not require those objects to be <em>accessible</em>. 
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Object Example" module_queue_object_example examples/queue-object.tscript ]-->
+</div>
+<div class="w3-container">
+	<p>
+		You can also queue open actions.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Open Example" module_queue_open_example examples/queue-open.tscript ]-->
+</div>
+<div class="w3-container">
+	<p>
 		You can also queue several commands using a <strong>transitive</strong> or <strong>ditransitive</strong> action (as a 
 		transitive action) with an object container, which will queue an action for each object in the object container element 
 		(world, player, room, or container).
-	</p>
-	<p>
-		Commands queued this way that require objects, like <strong>transitive</strong> or <strong>ditransitive</strong> 
-		actions, do not require those objects to be <em>accessible</em>. 
 	</p>
 	<p>
 		Queued commands are processed after each <em>lifecycle step</em> in TAME, until no more queued commands need
