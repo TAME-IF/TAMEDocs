@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="363.45419"
+     inkscape:cx="247.38276"
      inkscape:cy="215.25159"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -55,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -87,7 +87,7 @@
            height="60"
            x="284.79419"
            y="174.76494" /></flowRegion><flowPara
-         id="flowPara4676"></flowPara></flowRoot>    <text
+         id="flowPara4676" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777805px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="121.53441"
@@ -268,7 +268,8 @@
     </g>
     <g
        transform="translate(23.812503,11.906226)"
-       id="g4691-9-3-6">
+       id="g4691-9-3-6"
+       style="opacity:0.5">
       <rect
          y="8.6041327"
          x="10.583333"
@@ -280,7 +281,7 @@
          id="text4686-2-1-71"
          y="13.762166"
          x="22.636648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas, monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:6.3499999px;stroke-width:0.26458332px"
            y="13.762166"
@@ -290,7 +291,8 @@
     </g>
     <g
        transform="translate(2.6458357,27.781226)"
-       id="g4691-9-3-0">
+       id="g4691-9-3-0"
+       style="opacity:0.5">
       <rect
          y="8.6041327"
          x="10.583333"
@@ -302,7 +304,7 @@
          id="text4686-2-1-73"
          y="13.762166"
          x="22.636648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas, monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:6.3499999px;stroke-width:0.26458332px"
            y="13.762166"
@@ -330,7 +332,8 @@
          style="stroke-width:0.26458332px">CONTAINER</tspan></text>
     <g
        transform="translate(68.791669,62.177048)"
-       id="g4691-9-8">
+       id="g4691-9-8"
+       style="opacity:0.5">
       <rect
          y="8.6041327"
          x="10.583333"
@@ -342,7 +345,7 @@
          id="text4686-2-4"
          y="13.762166"
          x="22.636648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas, monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:6.3499999px;stroke-width:0.26458332px"
            y="13.762166"
@@ -352,7 +355,8 @@
     </g>
     <g
        transform="translate(97.895837,67.468715)"
-       id="g4691-9-6">
+       id="g4691-9-6"
+       style="opacity:0.5">
       <rect
          y="8.6041327"
          x="10.583333"
@@ -364,7 +368,7 @@
          id="text4686-2-3"
          y="13.762166"
          x="22.636648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas, monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:6.3499999px;stroke-width:0.26458332px"
            y="13.762166"
@@ -374,7 +378,8 @@
     </g>
     <g
        transform="translate(71.437502,74.083298)"
-       id="g4691-9-2">
+       id="g4691-9-2"
+       style="opacity:0.5">
       <rect
          y="8.6041327"
          x="10.583333"
@@ -386,7 +391,7 @@
          id="text4686-2-8"
          y="13.762166"
          x="22.636648"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas,monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.3499999px;line-height:6.61458302px;font-family:Consolas, monospace;-inkscape-font-specification:Consolas;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            style="font-size:6.3499999px;stroke-width:0.26458332px"
            y="13.762166"
