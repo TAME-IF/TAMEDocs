@@ -794,7 +794,8 @@ public final class TAMEDocsGen
 	{
 		writer.write("<!-- Start generated table for: " + name + " -->\n");
 		writer.write(TAG_NOINDEX+"\n");
-		writer.write("<table class=\"w3-table w3-striped w3-hoverable w3-border\">\n");
+		writer.write("<div class=\"tamedocs-table-overflow\">\n");
+		writer.write("<table class=\"w3-table w3-striped w3-hoverable\">\n");
 
 		ArithmeticOperator operator;
 		if ("boolean".equalsIgnoreCase(name))
@@ -855,6 +856,7 @@ public final class TAMEDocsGen
 			writer.write("<tr><th>!!! "+name+" is not a table name !!!</th></tr>");
 		}
 		writer.write("</table>\n");
+		writer.write("</div>\n");
 		writer.write(TAG_NOINDEX+"\n");
 	}
 	

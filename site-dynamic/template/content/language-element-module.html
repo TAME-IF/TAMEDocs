@@ -56,47 +56,49 @@
 		<em>standardized</em> for most systems that wish to use module metadata in a meaningful way (this may
 		change over time as more changes/standards are proposed):
 	</p>
-	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
-		<thead class="w3-teal">
-			<tr>
-				<th>Key</th>
-				<th>Type (expected)</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>title</td>
-				<td>string</td>
-				<td>The formal title of the module.</td>
-			</tr>
-			<tr>
-				<td>author</td>
-				<td>string</td>
-				<td>The author of the module's name/pseudonym.</td>
-			</tr>
-			<tr>
-				<td>email</td>
-				<td>string</td>
-				<td>The author's E-mail address.</td>
-			</tr>
-			<tr>
-				<td>web</td>
-				<td>string</td>
-				<td>The author's main web site.</td>
-			</tr>
-			<tr>
-				<td>twitter</td>
-				<td>string</td>
-				<td>The author's Twitter handle.</td>
-			</tr>
-			<tr>
-				<td>ifid</td>
-				<td>string</td>
-				<td>This module's <a href="https://babel.ifarchive.org/">IFID</a> number.</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped tamedocs-key-reference">
+			<thead class="w3-teal">
+				<tr>
+					<th>Key</th>
+					<th>Type (expected)</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>title</td>
+					<td>string</td>
+					<td>The formal title of the module.</td>
+				</tr>
+				<tr>
+					<td>author</td>
+					<td>string</td>
+					<td>The author of the module's name/pseudonym.</td>
+				</tr>
+				<tr>
+					<td>email</td>
+					<td>string</td>
+					<td>The author's E-mail address.</td>
+				</tr>
+				<tr>
+					<td>web</td>
+					<td>string</td>
+					<td>The author's main web site.</td>
+				</tr>
+				<tr>
+					<td>twitter</td>
+					<td>string</td>
+					<td>The author's Twitter handle.</td>
+				</tr>
+				<tr>
+					<td>ifid</td>
+					<td>string</td>
+					<td>This module's <a href="https://babel.ifarchive.org/">IFID</a> number.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 <div id="special" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#special"><i class="link-stub fa fa-link"></i></a> Special Headers <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
@@ -112,36 +114,38 @@
 	<p>
 		The following are header keys that influence TAME:
 	</p>
-	<table class="w3-table w3-border w3-striped tamedocs-key-reference">
-		<thead class="w3-teal">
-			<tr>
-				<th>Key</th>
-				<th>Type (expected)</th>
-				<th>Default</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>tame_runaway_max</td>
-				<td>integer</td>
-				<td><kbd>100000</kbd></td>
-				<td>
-					How many operations can be executed by TAME in one request before it stops with a <kbd>FATAL</kbd> error.
-					This is for proactively detecting infinite loops.<br/><br/>If this value is 0 or less, the default is enforced. 
-				</td>
-			</tr>
-			<tr>
-				<td>tame_funcdepth_max</td>
-				<td>integer</td>
-				<td><kbd>256</kbd></td>
-				<td>
-					The legal function depth that TAME can call in one request before it stops with a <kbd>FATAL</kbd> error.
-					This is for proactively preventing call stack overflows in the implementation.<br/><br/>If this value is 0 or less, the default is enforced. 
-				</td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped tamedocs-key-reference">
+			<thead class="w3-teal">
+				<tr>
+					<th>Key</th>
+					<th>Type (expected)</th>
+					<th>Default</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>tame_runaway_max</td>
+					<td>integer</td>
+					<td><kbd>100000</kbd></td>
+					<td>
+						How many operations can be executed by TAME in one request before it stops with a <kbd>FATAL</kbd> error.
+						This is for proactively detecting infinite loops.<br/><br/>If this value is 0 or less, the default is enforced. 
+					</td>
+				</tr>
+				<tr>
+					<td>tame_funcdepth_max</td>
+					<td>integer</td>
+					<td><kbd>256</kbd></td>
+					<td>
+						The legal function depth that TAME can call in one request before it stops with a <kbd>FATAL</kbd> error.
+						This is for proactively preventing call stack overflows in the implementation.<br/><br/>If this value is 0 or less, the default is enforced. 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>	
 
 <!--[ set prev_page language-elements.html ]-->

@@ -1,0 +1,92 @@
+action general a_quit;
+action transitive a_mash;
+action transitive a_shred;
+
+object archetype o_food
+{
+	function getName()
+	{
+		return "(FOOD)";
+	}
+
+	onAction(a_mash)
+	{
+		textln("Mashed " + getName());
+	}
+
+	onAction(a_shred)
+	{
+		textln("Shredded " + getName());
+	}
+
+	onContainerBrowse()
+	{
+		textln(getName());
+	}
+	
+}
+
+object o_apple : o_food tagged "food", "fruit"
+{
+	override function getName()
+	{
+		return "apple";
+	}
+}
+object o_banana : o_food tagged "food", "fruit"
+{
+	override function getName()
+	{
+		return "banana";
+	}
+}
+object o_cucumber : o_food tagged "food", "vegetable"
+{
+	override function getName()
+	{
+		return "cucumber";
+	}
+}
+object o_eggplant : o_food tagged "food", "vegetable"
+{
+	override function getName()
+	{
+		return "eggplant";
+	}
+}
+
+container c_basket;
+
+world
+{
+	start()
+	{
+		giveobject(c_basket, o_apple);
+		giveobject(c_basket, o_banana);
+		giveobject(c_basket, o_cucumber);
+		giveobject(c_basket, o_eggplant);
+
+		textln("In the basket, I have:");
+		browse(c_basket);
+
+		textln("The fruits are:");
+		browsetagged(c_basket, "fruit");
+		textln("The vegetables are:");
+		browsetagged(c_basket, "vegetable");
+	
+		textln("Queueing food to mash...");
+		queue a_mash : c_basket;
+
+		textln("Queueing fruits to shred...");
+		queue a_shred : c_basket, "fruit";
+
+		textln("Queueing quit...");
+		queue a_quit;
+	}
+	
+	onAction(a_quit)
+	{
+		quit;
+	}
+	
+}

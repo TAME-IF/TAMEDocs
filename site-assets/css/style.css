@@ -1,13 +1,11 @@
-html 
-{
+html {
 	font-family: "Segoe UI", Verdana, sans-serif;
 	font-size: 15px;
 	line-height: 1.5;
 	font-weight: normal;
 }
 
-h1, h2, h3, h4, h5, h6 
-{
+h1, h2, h3, h4, h5, h6 {
 	font-family: "Segoe UI", Verdana, sans-serif;
 	font-weight: 400;
 	line-height: 1;
@@ -177,6 +175,18 @@ IMG.min-nav-logo {
     padding: 0.25em;
 }
 
+.section-header {
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+	padding-bottom: 0.25em;
+	border-bottom: solid 1px #ddd;
+}
+
+.tamedocs-table-overflow {
+	overflow-x: auto;
+	border: solid 1px rgb(204, 204, 204);
+}
+
 .tamedocs-sidebar-hilite {
 	color: #fff !important;
 	background-color: #616161 !important;
@@ -289,6 +299,13 @@ TABLE.tamedocs-key-reference td:not(:last-child)
     color: #808080;
 }
 
+/* W3CSS overrides */
+
+.w3-panel {
+	margin-top:2.5em !important;
+	margin-bottom:2em !important;
+}
+
 
 /* For link hovering. */
 
@@ -302,10 +319,6 @@ i.link-stub {
 
 .w3-panel:hover .link-stub {
 	visibility: inherit;
-}
-
-.w3-panel {
-	margin-top:48px !important;
 }
 
 .w3-table {

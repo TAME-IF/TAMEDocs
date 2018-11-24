@@ -1,4 +1,4 @@
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		<strong>TAMEScript</strong> is the language that all TAME modules are written in. Through TAMEScript,
 		the world, its elements, the viewpoints, the actions the user can take, and how things interact based
@@ -11,7 +11,7 @@
 <div class="w3-container">
 <!--[ tamescript "A Small Adventure" module_intro_adventure_small adventure-small.tscript ]-->
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		The <a href="language-element-module.html">module header</a> is first declared, which describes this module
 		using a series of key-value pairs - its title, author, and basic contact information. The header may also
@@ -34,8 +34,8 @@
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>Module Style</h3>
+<div class="w3-container">
+	<h3 class="section-header">Module Style</h3>
 	<p>
 		TAMEScript is also a free-form language. Its delimiters are symbols and operators and whitespace, but amount of the
 		whitespace is not significant.
@@ -75,8 +75,8 @@
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>A Note About Notation and Style in This Documentation</h3>
+<div class="w3-container">
+	<h3 class="section-header">A Note About Notation and Style in This Documentation</h3>
 	<p>
 		In this documentation, the examples use the <a target="_blank" href="https://en.wikipedia.org/wiki/Indentation_style#Allman_style">Allman Bracing Style</a> and
 		the identifiers that refer to elements are in a format similar to <a target="_blank" href="https://en.wikipedia.org/wiki/Hungarian_notation">Hungarian Notation</a>,
@@ -93,7 +93,7 @@
 <div id="comments" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#comments"><i class="link-stub fa fa-link"></i></a> 5.1. Comments <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<em>Comments</em> are skipped by the compiler and are used to elucidate sections of code that may be cryptic, or provide notes 
 	for sections of code. Comments can be on a single line, or across multiple lines, but there are different delimiters for each.
 <pre class="tame-example"><code data-language="tamescript">
@@ -117,14 +117,14 @@
 <div id="values" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#values"><i class="link-stub fa fa-link"></i></a> 5.2. Values and Expressions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		In order to get anything done in a TAME module, you'll probably be crafting <em>expressions</em> that change and 
 		manipulate <em>values</em>.
 	</p>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>Values</h3>
+<div class="w3-container">
+	<h3 class="section-header">Values</h3>
 	<p>
 		Values in TAME are represented in several ways.
 	</p>
@@ -185,8 +185,8 @@
 	Infinity
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>More About Strings</h3>
+<div class="w3-container">
+	<h3 class="section-header">More About Strings</h3>
 	<p>
 		Literal strings (that is, values that are a set of characters bounded in double-quotes) are a little special - 
 		they may contain things called <em>"escape characters"</em> that allow you to put characters into them that
@@ -195,31 +195,33 @@
 		make TAME's compiler think a string was being started or terminated). The TAMEScript compiler recognizes most C-like escape characters,
 		such as:
 	</p>
-	<table class="w3-table w3-striped w3-hoverable w3-border">
-		<thead class="w3-teal">
-			<tr>
-				<th>Escape sequence</th>
-				<th>Output</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr><td>&#92;0</td><td>NULL character (UTF-16 0x0000)</td></tr>
-			<tr><td>&#92;b</td><td>Backspace</td></tr>
-			<tr><td>&#92;t</td><td>Tab</td></tr>
-			<tr><td>&#92;n</td><td>Newline</td></tr>
-			<tr><td>&#92;f</td><td>Form feed</td></tr>
-			<tr><td>&#92;r</td><td>Carriage Return</td></tr>
-			<tr><td>&#92;/</td><td>Forward slash</td></tr>
-			<tr><td>&#92;&quot;</td><td>Double quote</td></tr>
-			<tr><td>&#92;&#92;</td><td>Backslash</td></tr>
-			<tr><td>&#92;&#39;</td><td>Single quote</td></tr>
-			<tr><td>&#92;u<em>hhhh</em></td><td>UTF-16 character (where <em>hhhh</em> is 4 hex digits)</td></tr>
-			<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
-		</tbody>
-	</table>
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped w3-hoverable">
+			<thead class="w3-teal">
+				<tr>
+					<th>Escape sequence</th>
+					<th>Output</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td>&#92;0</td><td>NULL character (UTF-16 0x0000)</td></tr>
+				<tr><td>&#92;b</td><td>Backspace</td></tr>
+				<tr><td>&#92;t</td><td>Tab</td></tr>
+				<tr><td>&#92;n</td><td>Newline</td></tr>
+				<tr><td>&#92;f</td><td>Form feed</td></tr>
+				<tr><td>&#92;r</td><td>Carriage Return</td></tr>
+				<tr><td>&#92;/</td><td>Forward slash</td></tr>
+				<tr><td>&#92;&quot;</td><td>Double quote</td></tr>
+				<tr><td>&#92;&#92;</td><td>Backslash</td></tr>
+				<tr><td>&#92;&#39;</td><td>Single quote</td></tr>
+				<tr><td>&#92;u<em>hhhh</em></td><td>UTF-16 character (where <em>hhhh</em> is 4 hex digits)</td></tr>
+				<tr><td>&#92;x<em>hh</em></td><td>ASCII character (where <em>hh</em> is 2 hex digits)</td></tr>
+			</tbody>
+		</table>
+	</div>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="identifiers">Identifiers</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="identifiers">Identifiers</h3>
 	<p>
 		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
 		Identifiers are alphanumeric (<kbd>0-9, A-Z, a-z</kbd>) plus the underscore character (<kbd>_</kbd>), but must NOT start with a number.
@@ -244,8 +246,8 @@
 	Mr.Person	// two identifiers with a dot delimiter between them
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="expressions">Expressions</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="expressions">Expressions</h3>
 	<p>
 		Expressions are a means of combining values and operators in order to convey more complex values.
 		These are evaluated at execution time.
@@ -304,14 +306,14 @@
 <div id="statements" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#statements"><i class="link-stub fa fa-link"></i></a> 5.3. Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		Expressions are nice, but without any real directives, TAME would just be doing math! Enter <em>statements</em>. A statement is a single bit of code
 		that conveys a single step or task. All statements are terminated by semicolons (<kbd>;</kbd>). 
 	</p>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>Assignments and Variables</h3>
+<div class="w3-container">
+	<h3 class="section-header">Assignments and Variables</h3>
 	<p>
 		The first type of statement is an <em>assignment</em>. Assignments define <em>variables</em> and their new values. A variable is stored at the 
 		<em>current context</em> level, and stores only one value.
@@ -387,8 +389,8 @@
 	o_ball.x	// o_ball's x
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3>Calling Functions</h3>
+<div class="w3-container">
+	<h3 class="section-header">Calling Functions</h3>
 	<p>
 		<em>Functions</em> can also be invoked in a statement, including functions that return something.
 		To invoke a function, you type the name of the function plus a list of <em>parameters</em> to pass to
@@ -413,7 +415,7 @@
 <div id="lists" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#lists"><i class="link-stub fa fa-link"></i></a> 5.4. Lists <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		TAME has a list data structure for storing a contiguous set of values. A new list is declared by
 		putting a list of comma-delimited values or expressions in between square brackets (<kbd>[ ]</kbd>).
@@ -466,8 +468,8 @@
 	d = a[3][0];				// a[3] is not a list - assigns false to d
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="references" style="margin-top:1.5em;">Lists and References</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="references">Lists and References</h3>
 	<p>
 		Lists are a little special. Whereas most values are treated as single, quantifiable values that can be converted
 		and changed to other types, a list is a collection of values, and are maintained by a <em>reference</em>. This means
@@ -508,7 +510,7 @@
 <div id="blocks" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#blocks"><i class="link-stub fa fa-link"></i></a> 5.5. Blocks <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		A series of statements are encapsulated in <em>blocks</em>. Blocks define sections of significant code,
 		usually defining the conditions for when they get executed in TAME.
@@ -539,7 +541,7 @@
 <div id="functions" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#functions"><i class="link-stub fa fa-link"></i></a> 5.6. Functions <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		<em>Function</em> blocks consist of a series of statements executed in order, and return a value at the end to the caller.
 		They are referenced by name, and called the same way the built-in, predefined functions are.    
@@ -596,7 +598,7 @@
 <div class="w3-container">
 <!--[ tamescript "Function Example" module_func_example examples/functions.tscript ]-->
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		Functions can be called from the element they are declared on, or from another element, but variables that are not 
 		declared <em>local</em> will be set on the context that the function was called from, except
@@ -609,7 +611,7 @@
 <div class="w3-container">
 <!--[ tamescript "Function Example 2" module_func2_example examples/functions2.tscript ]-->
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		TAMEScript also supports <em>recursive functions</em>. A recursive function is a function that calls
 		itself. This could be handy for mathematical functions that define their values using themselves, or
@@ -631,15 +633,15 @@
 <div id="control" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#control"><i class="link-stub fa fa-link"></i></a> 5.7. Control Statements <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		A <em>control statement</em> is a type of statement that affects the flow of script execution, which is a
 		fancy way of saying <em>if/else branches</em>, <em>loops</em>, or <em>breaks and interrupts</em>.
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="if-else">If / Else</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="if-else">If / Else</h3>
 	<p>
 		An <strong>if</strong> statement represents a branch in logic - if the expression in the parenthesis evaluates 
 		to <kbd>true</kbd> or something "true-equivalent," the subsequent block (delimited by curly braces) is executed.
@@ -712,8 +714,8 @@
 </code></pre>
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="while-loop">While</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="while-loop">While</h3>
 	<p>
 		A <strong>while</strong> loop executes a following block of statements as long as the expression in the 
 		parenthesis is still <kbd>true</kbd> or true-equivalent when the block completes.
@@ -729,8 +731,8 @@
 </code></pre>
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="for-loop">For</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="for-loop">For</h3>
 	<p>
 		A <strong>for</strong> loop executes the following block of statements as long as the 
 		conditional expression is still <kbd>true</kbd> when the block completes.
@@ -765,8 +767,8 @@
 	</p>
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="quit-keyword">Quit</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="quit-keyword">Quit</h3>
 	<p>
 		Control keywords, like <strong>quit</strong>, are not function statements. They do not have parameters.
 		You've seen it all throughout the examples in the documentation - <strong>quit</strong> stops
@@ -782,8 +784,8 @@
 <!--[ tamescript "Quit Example" module_quit_example examples/quit.tscript ]-->
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="queue-keyword">Queue</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="queue-keyword">Queue</h3>
 	<p>
 		The <strong>queue</strong> keyword queues a command to be processed after the current command finishes. All queued commands
 		are processed in the order that they are queued.
@@ -827,9 +829,14 @@
 		transitive action) with an object container, which will queue an action for each object in the object container element 
 		(world, player, room, or container).
 	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Queue Container Example" module_queue_container_example examples/queue-container.tscript ]-->
+</div>
+<div class="w3-container">
 	<p>
 		Queued commands are processed after each <em>lifecycle step</em> in TAME, until no more queued commands need
-		to be processed. See the main TAME <a href="diagrams.html">diagram</a> for how this fits into the general flow.
+		to be processed. See the main TAME <a href="diagrams.html#successful-parse">diagrams</a> for how this fits into the general flow.
 	</p>
 	<p>
 		All possible syntaxes of <strong>queue</strong> are as follows:
@@ -848,8 +855,8 @@
 </code></pre>
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="finish-keyword">Finish</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="finish-keyword">Finish</h3>
 	<p>
 		The control keyword <strong>finish</strong> ends the currently-executing action (but continues processing queued actions). 
 		Like <em>quit</em>, there are no limits or rules as to where it can be used.
@@ -859,8 +866,8 @@
 <!--[ tamescript "Finish Example" module_finish_example examples/finish.tscript ]-->
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="end-keyword">End</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="end-keyword">End</h3>
 	<p>
 		The control keyword <strong>end</strong> ends the current <em>major entry</em> block (not smaller blocks in control statements). Cannot
 		be used to end function calls - use <em>return</em> for that.
@@ -870,8 +877,8 @@
 <!--[ tamescript "End Example" module_end_example examples/end.tscript ]-->
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="break-keyword">Break</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="break-keyword">Break</h3>
 	<p>
 		The <strong>break</strong> keyword ends the current looping block (<strong>while</strong> and <strong>for</strong>).
 		This does not "restore" any variable values or states - it just escapes the loop.
@@ -881,8 +888,8 @@
 <!--[ tamescript "Break Example" module_break_example examples/break.tscript ]-->
 </div>
 
-<div class="w3-container" style="margin-top:1em">
-	<h3 id="continue-keyword">Continue</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="continue-keyword">Continue</h3>
 	<p>
 		The <strong>continue</strong> keyword stops the current loop iteration in looping control blocks (<strong>while</strong> and <strong>for</strong>),
 		which re-evaluates the conditional, and in <strong>for</strong> loops, also performs the stepping statement first. 
@@ -899,13 +906,13 @@
 <div id="other-keywords" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#other-keywords"><i class="link-stub fa fa-link"></i></a> 5.8. Other Keywords <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		There are a few other keywords that have special use in TAMEScript that don't quite fit into the other categories.
 	</p>
 </div>
 <div class="w3-container">
-	<h3 id="world-keyword">World</h3>
+	<h3 class="section-header" id="world-keyword">World</h3>
 	<p>
 		While <strong>world</strong> is used to mark the declaration of the world, it is used as the singular main identifier
 		to refer to the world as an element in function calls.
@@ -915,7 +922,7 @@
 <!--[ tamescript "World Example" module_world_example examples/world.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="player-keyword">Player</h3>
+	<h3 class="section-header" id="player-keyword">Player</h3>
 	<p>
 		While <strong>player</strong> is used to mark the declaration of players, it can be used as an identifier to
 		mean "the current player." If there is no current player at the moment it is resolved, a <kbd>FATAL</kbd> error 
@@ -927,7 +934,7 @@
 <!--[ tamescript "Player Example" module_player_example examples/player.tscript ]-->
 </div>
 <div class="w3-container">
-	<h3 id="room-keyword">Room</h3>
+	<h3 class="section-header" id="room-keyword">Room</h3>
 	<p>
 		While <strong>room</strong> is used to mark the declaration of rooms, it can be used as an identifier to
 		mean "the current room." If there is no current room at the moment it is resolved, a <kbd>FATAL</kbd> error 
@@ -960,7 +967,7 @@
 <div id="inheritance" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.9. Inheritance <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		Since you can have multiple elements that more than likely have the same types of characteristics
 		or behavior with certain actions, it might be useful to define them hierarchically. TAMEScript has a 
@@ -1040,7 +1047,7 @@
 	}
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		There is no limit to how deep an inheritable hierarchy can go, but it's still best to use identifiers
 		and schemes that make sense in order to keep it from being overwhelming. 
@@ -1060,7 +1067,7 @@
 </code></pre>
 </div>
 <div class="w3-container">
-	<h3 id="override">Override</h3>
+	<h3 class="section-header" id="override">Override</h3>
 	<p>
 		In the previous example, one of the entry blocks was changed in the <em>child</em> object of <kbd>o_car</kbd>.
 		In order to denote that it is being replaced, the new function or entry block must be prefixed with the <strong>override</strong>
@@ -1099,7 +1106,7 @@
 	</p>
 </div>
 <div class="w3-container">
-	<h3 id="archetype">Archetype</h3>
+	<h3 class="section-header" id="archetype">Archetype</h3>
 	<p>
 		The keyword <strong>archetype</strong> can be used to create elements that do not hold a context, but instead have
 		common functions and entry points among its descendants. <em>Archetypes</em> can also inherit from other elements of the same type. 
@@ -1115,7 +1122,7 @@
 </div>
 
 <div class="w3-container">
-	<h3 id="contexts">A Clarification on Contexts</h3>
+	<h3 class="section-header" id="contexts">A Clarification on Contexts</h3>
 	<p>
 		Note that just because an element can inherit functions and entry blocks from other elements, it does NOT
 		inherit context variables or treat context variables as though they are shared in the hierarchy - each element
@@ -1131,7 +1138,7 @@
 <div id="preprocessor" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.10. The Preprocessor <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
+<div class="w3-container">
 	<p>
 		While technically not part of the language spec, the TAMEScript compiler makes use of a few "preprocessor" directives 
 		that either import other code from other script files, or use macros to define sets of tokens in the script.
@@ -1140,8 +1147,8 @@
 		Preprocessor directives must occupy a line - the directive plus parameters are terminated by a newline. 
 	</p>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-include">#include</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-include">#include</h3>
 	<p>
 		The <kbd>#include</kbd> directive includes the contents of the specified file. The filename is provided as a string parameter,
 		and can either be a relative file path from the file that contains the directive or an absolute path. Files can be included more
@@ -1158,8 +1165,8 @@
 	#include "objects/keys.tscript"
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-define">#define</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-define">#define</h3>
 	<p>
 		The <kbd>#define</kbd> directive defines a single-token macro that expands to a series of other tokens. This is also
 		useful for creating defines and testing if they were defined later. They may also expand to zero tokens. All macro
@@ -1176,8 +1183,8 @@
 	#define FILE_WAS_INCLUDED
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-undefine">#undefine</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-undefine">#undefine</h3>
 	<p>
 		The <kbd>#undefine</kbd> directive removes a previously defined macro. All subsequent uses of that macro 
 		are treated as though they were never defined.
@@ -1190,8 +1197,8 @@
 	textln(GREETING_TEXT);   // compiler thinks GREETING_TEXT is a variable
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-ifdef">#ifdef</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-ifdef">#ifdef</h3>
 	<p>
 		The <kbd>#ifdef</kbd> directive includes the next series of lines if the following macro was defined, until it reaches
 		an <kbd>#endif</kbd> directive.
@@ -1205,8 +1212,8 @@
 	#endif
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-ifdef">#ifndef</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-ifndef">#ifndef</h3>
 	<p>
 		The <kbd>#ifdef</kbd> directive includes the next series of lines if the following macro was NOT defined, until it reaches
 		an <kbd>#endif</kbd> directive.
@@ -1220,8 +1227,8 @@
 	#endif
 </code></pre>
 </div>
-<div class="w3-container" style="margin-top: 1em;">
-	<h3 id="prep-endif">#endif</h3>
+<div class="w3-container">
+	<h3 class="section-header" id="prep-endif">#endif</h3>
 	<p>
 		The <kbd>#endif</kbd> directive ends the most recently started "if" directive block. 
 	</p>
