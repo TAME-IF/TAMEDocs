@@ -80,6 +80,11 @@ function tameDebugResponse(response)
 	tamePrintln();
 }
 
+/** Entry points for addt'l cue handling (specific pages). */
+var _OnOtherCue = _OnOtherCue || null;
+var _OnStartFormatTag = _OnStartFormatTag || null;
+var _OnEndFormatTag = _OnEndFormatTag || null;
+var _OnFormatText = _OnFormatText || null;
 
 var TAMEHandler = TAME.newBrowserHandler({
 	
@@ -131,7 +136,33 @@ var TAMEHandler = TAME.newBrowserHandler({
 		InputBox.disabled = true;
 		InputDiv.style.display = "none";
 		ContinueDiv.style.display = "none";
-	}
+	},
+	
+	"onOtherCue": function(cueType, cueContent)
+	{
+		if (_OnOtherCue) 
+			return _OnOtherCue(cueType, cueContent);
+		else
+			return true;
+	},
+
+	"onStartFormatTag": function(tagName, accum)
+	{
+		if (_OnStartFormatTag) 
+			_OnStartFormatTag(tagName, accum);
+	},
+
+	"onEndFormatTag": function(tagName, accum)
+	{
+		if (_OnEndFormatTag) 
+			_OnEndFormatTag(tagName, accum);
+	},
+
+	"onFormatText": function(text, accum)
+	{
+		if (_OnFormatText) 
+			_OnFormatText(tagName, accum);
+	},
 
 });
 

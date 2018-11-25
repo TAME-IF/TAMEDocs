@@ -77,8 +77,29 @@
 		Cues are processed by a Shell in the order that they have been added. Cues are not hierarchical.
 	</p>
 	<p>
+		The cue type is a string, but cues are expected to be handled whether or not they are sent in a specific
+		character case ("text" and "TEXT" are the same type).
+	</p>
+	<p>
+		This does not prevent the author from sending other accepted cues like <kbd>ERROR</kbd>, <kbd>FATAL</kbd>,
+		and <kbd>QUIT</kbd> that may have special behavior in all Shells.
+	</p>
+	<p>
 		There is currently no limit to how many cues can be added to a response, but you, the author, should
 		use discretion in this regard, since different TAME implementations and systems can have different 
 		conceivable limits.
 	</p>
 </div>
+<script type="text/javascript">
+/* See js/tamedocs-tame.js */
+var _OnOtherCue = function (cueType, cueContent) 
+{
+	switch (cueType)
+	{
+		case 'uppercase':
+			tamePrintln(cueContent.toUpperCase());
+			break;
+	}
+	return true;
+}
+</script>

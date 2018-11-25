@@ -1,0 +1,13 @@
+world
+{
+	start()
+	{
+		textln("This prints a line of text.");
+		addCue("text", "This does the same thing.\n");
+		addCue("unhandled", "This cue is ignored.");
+		
+		// NOTE: The following is not a standard cue.
+		addCue("uppercase", "This cue is handled (specifically on this page) by printing this content uppercase.");
+		quit;
+	}
+}

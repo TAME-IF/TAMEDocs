@@ -1,0 +1,76 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Text (</span> 
+	<span class="param">MESSAGE</span> 
+	)
+</h1>
+<div class="w3-container">
+	Adds a "TEXT" cue to the response.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">MESSAGE</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The message to output.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<em>Returns nothing. Cannot be used in expressions.</em>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This adds a <kbd>TEXT</kbd> cue to the response with the provided message as the content. A <kbd>TEXT</kbd> cue is
+		meant to be printed to the screen in all TAME Shells. The input parameter is transformed to a string, no matter what value type
+		it originally is.
+	</p>
+	<p>
+		The text printed does not have a newline at the end. All <kbd>TEXT</kbd> cues end up accumulated together.
+	</p>
+	<p>
+		This is a convenience function, and is functionally equivalent to:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	addCue("TEXT", message);
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Text Example" module_function_text_example functions/text-example.tscript ]-->
+</div>
+
+<!-- OPTIONAL SECTION -->
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-addcue.html">AddCue()</a> &mdash; Adds cues to the Response.<br/>
+	</p>
+</div>
