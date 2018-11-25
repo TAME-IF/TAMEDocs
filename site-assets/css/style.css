@@ -203,10 +203,16 @@ IMG.min-nav-logo {
 	width: 1px;
 }
 .tamedocs-parameter-type {
-	white-space: nowrap;
-	width: 1px;
 }
 .tamedocs-parameter-description {
+}
+
+.tamedocs-function-title span.name {
+	white-space: nowrap;
+}
+.tamedocs-function-title span.param {
+	white-space: nowrap;
+	font-style: italic;
 }
 
 .tamedocs-function-type {
