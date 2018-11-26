@@ -1,10 +1,10 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">Text (</span> 
+	<span class="name">Textf (</span> 
 	<span class="param">MESSAGE</span> 
 	)
 </h1>
 <div class="w3-container">
-	Adds a "TEXT" cue to the response, which contains text to output.
+	Adds a "TEXTF" cue to the response, which contains text to output as well as some formatting tags to affect output.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -24,7 +24,7 @@
 				<tr>
 					<td class="tamedocs-parameter">MESSAGE</td>
 					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
-					<td class="tamedocs-parameter-description">The message to output.</td>
+					<td class="tamedocs-parameter-description">The formatted message to output.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -43,9 +43,9 @@
 </div>
 <div class="w3-container">
 	<p>
-		This adds a <kbd>TEXT</kbd> cue to the response with the provided message as the content. A <kbd>TEXT</kbd> cue is
-		meant to be printed to the screen in all TAME Shells. The input parameter is transformed to a string, no matter what value type
-		it originally is.
+		This adds a <kbd>TEXTF</kbd> cue to the response with the provided message as the content. A <kbd>TEXTF</kbd> cue is
+		meant to be printed to the screen in all TAME Shells, after being run through a parser to reformat the text for presentation. 
+		The input parameter is transformed to a string, no matter what value type it originally is.
 	</p>
 	<p>
 		The text printed does not have a newline at the end. All <kbd>TEXT</kbd> and <kbd>TEXTF</kbd> cues end up accumulated together.
@@ -54,7 +54,7 @@
 		This is a convenience function, and is functionally equivalent to:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	addCue("TEXT", message);
+	addCue("TEXTF", message);
 </code></pre>
 </div>
 
@@ -62,7 +62,7 @@
 	<h3>Example</h3>
 </div>
 <div class="w3-container">
-<!--[ tamescript "Text Example" module_function_text_example functions/text-example.tscript ]-->
+<!--[ tamescript "Textf Example" module_function_textf_example functions/textf-example.tscript ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -71,5 +71,14 @@
 <div class="w3-container">
 	<p>
 		<a href="function-addcue.html">AddCue()</a> &mdash; Adds cues to the Response.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The base TAME implementations strip out all tags, and just print text in between the tags.
 	</p>
 </div>
