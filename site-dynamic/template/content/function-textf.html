@@ -43,12 +43,13 @@
 </div>
 <div class="w3-container">
 	<p>
-		This adds a <kbd>TEXTF</kbd> cue to the response with the provided message as the content. A <kbd>TEXTF</kbd> cue is
-		meant to be printed to the screen in all TAME Shells, after being run through a parser to reformat the text for presentation. 
-		The input parameter is transformed to a string, no matter what value type it originally is.
+		Prints a message to the screen, which includes special formatting, affecting the resultant message. 
+		Be aware that the text printed does not automatically have a newline at the end.
 	</p>
 	<p>
-		The text printed does not have a newline at the end. All <kbd>TEXT</kbd> and <kbd>TEXTF</kbd> cues end up accumulated together.
+		<em>Specifically</em>, this adds a <kbd>TEXTF</kbd> cue to the response with the provided message as the content. 
+		Processing a <kbd>TEXT</kbd> and <kbd>TEXTF</kbd> cue is meant to print something to the screen in all TAME Shells. 
+		The input parameter is transformed to a string, no matter what value type it originally is.
 	</p>
 	<p>
 		This is a convenience function, and is functionally equivalent to:
@@ -56,6 +57,8 @@
 <pre class="tame-example"><code data-language="tamescript">
 	addCue("TEXTF", message);
 </code></pre>
+	<!--[ include fragments/textf-notes.html ]-->
+	<!--[ include fragments/text-notes.html ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -79,6 +82,8 @@
 </div>
 <div class="w3-container">
 	<p>
-		The base TAME implementations strip out all tags, and just print text in between the tags.
+		The base TAME implementations strip out all tags, and just print text in between the tags. Authors that use this function
+		should acquaint themselves with their target implementation, or a family of implementation standards that use certain formatted tag sets.
 	</p>
+	<!--[ include fragments/techjunk-text.html ]-->
 </div>
