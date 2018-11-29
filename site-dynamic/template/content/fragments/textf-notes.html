@@ -1,3 +1,45 @@
+	<h3 class="section-header">Formatting Tags</h3>
 	<p>
-		!!! ADD FORMATTED TEXT PARSING INFO HERE !!!
+		All formatted text use HTML-like bracket tags to wrap text that needs to be displayed in a special manner. How text is
+		rendered is up to the Shell doing the parsing and rendering.
 	</p>
+	<p>
+		An example of formatted text would be:
+	</p>
+<pre class="tame-example">
+	"This message contains [bold]text that is bolded![/bold]"
+</pre>
+	<p>
+		...which a supporting shell might render as: 
+	</p>
+<pre>
+	This message contains <strong>text that is bolded!</strong>
+</pre>
+	<p>
+		Tags can be stacked like this to combine effects:
+	</p>
+<pre class="tame-example">
+	"This message has [italic]italicized text[/italic], some [bold]text that is bolded[/bold], and [bold]some can have [italic]both![/italic][/bold]"
+</pre>
+	<p>
+		...which might render as: 
+	</p>
+<pre>
+	This message has <em>italicized text</em>, some <strong>text that is bolded</strong>, and <strong>some can have <em>both!</em></strong>
+</pre>
+	<p>
+		Ending tags do not have to have the starting tag name. Tags that are written like <kbd>[/]</kbd> will automatically 
+		terminate the most recent tag.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	"This message has [italic]italicized text[/], some [bold]text that is bolded[/], and [bold]some can have [italic]both![/][/]"
+</code></pre>
+	<p>
+		Each custom shell intended to be used by other authors or users should specify how different formatted text will be rendered.
+		Formatting tags that are not understood by a shell should just have its content displayed. Using the previous example, the
+		formatted text in a shell that does not understand both <kbd>bold</kbd> and <kbd>italic</kbd> would render as:
+	</p>
+<pre>
+	This message has italicized text, some text that is bolded, and some can have both!
+</pre>
+	

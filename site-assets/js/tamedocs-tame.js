@@ -161,7 +161,7 @@ var TAMEHandler = TAME.newBrowserHandler({
 	"onFormatText": function(text, accum)
 	{
 		if (_OnFormatText) 
-			_OnFormatText(tagName, accum);
+			_OnFormatText(text, accum);
 	},
 
 });

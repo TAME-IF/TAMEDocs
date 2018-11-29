@@ -57,8 +57,8 @@
 <pre class="tame-example"><code data-language="tamescript">
 	addCue("TEXTF", message);
 </code></pre>
-	<!--[ include fragments/textf-notes.html ]-->
 	<!--[ include fragments/text-notes.html ]-->
+	<!--[ include fragments/textf-notes.html ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -87,3 +87,19 @@
 	</p>
 	<!--[ include fragments/techjunk-text.html ]-->
 </div>
+<script type="text/javascript">
+/* See js/tamedocs-tame.js */
+var _OnStartFormatTag = function(tagName, accum){
+	if (tagName === 'red')
+		accum.push('<span style="color:red;">');
+	else if (tagName === 'green')
+		accum.push('<span style="color:green;">');
+};
+var _OnEndFormatTag = function(tagName, accum){
+	if (tagName === 'red' || tagName === 'green')
+		accum.push('</span>');
+};
+var _OnFormatText = function(text, accum){
+	accum.push(text);
+};
+</script>
