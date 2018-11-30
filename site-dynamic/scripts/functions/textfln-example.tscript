@@ -2,7 +2,7 @@ world
 {
 	start()
 	{
-		textfln("Have some [red]red text[/red]!");
+		textfln("Have some [red]red text[/]!");
 		textfln("Have some [green]green text[/]!");
 		textfln("Have some [unparsed]unformatted text[/]!");
 		textfln("Have some [[escaped]escaped tags[[/]!");
