@@ -28,7 +28,9 @@ function tamePrint(text)
 {
 	if (!text)
 		return;
-	OutputBox.appendChild($DOMNew('span',{},[$DOMText(text)]));
+	var span = $DOMNew('span')
+	span.innerHTML = text;
+	OutputBox.appendChild(span);
 	OutputDiv.scrollTop = OutputDiv.scrollHeight;
 }
 

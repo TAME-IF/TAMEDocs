@@ -1,10 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">Textf (</span> 
+	<span class="name">Textfln (</span> 
 	<span class="param">MESSAGE</span> 
 	)
 </h1>
 <div class="w3-container">
-	Adds a "TEXTF" cue to the response, which contains text to output as well as some formatting tags to affect output.
+	Adds a "TEXTF" cue to the response, which contains text to output, as well as some formatting tags to affect output, with a newline appended 
+	to end of the message.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -43,8 +44,8 @@
 </div>
 <div class="w3-container">
 	<p>
-		Prints a message to the screen, which includes special formatting, affecting the resultant message. 
-		Be aware that the text printed does not automatically have a newline at the end.
+		Prints a message to the screen, which includes special formatting, affecting the resultant message,
+		plus a newline added to the end of it.
 	</p>
 	<p>
 		<em>Specifically</em>, this adds a <kbd>TEXTF</kbd> cue to the response with the provided message as the content. 
@@ -55,7 +56,7 @@
 		This is a convenience function, and is functionally equivalent to:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	addCue("TEXTF", message);
+	addCue("TEXTF", message + "\n");
 </code></pre>
 	<!--[ include fragments/text-notes.html ]-->
 	<!--[ include fragments/textf-notes.html ]-->
@@ -70,7 +71,7 @@
 	</p>
 </div>
 <div class="w3-container">
-<!--[ tamescript "Textf Example" module_function_textf_example functions/textf-example.tscript ]-->
+<!--[ tamescript "Textfln Example" module_function_textfln_example functions/textfln-example.tscript ]-->
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">

@@ -2,9 +2,10 @@ world
 {
 	start()
 	{
-		textf("Have some [red]red text[/]!\n");
-		textf("Have some [green]green text[/]!\n");
-		textf("Have some [unparsed]unformatted text[/]!\n");
+		textf("Have some [red]red text[/red]!");
+		textf("Have some [green]green text[/]!");
+		textf("Have some [unparsed]unformatted text[/]!");
+		textf("Have some [[escaped]escaped tags[[/]!");
 		quit;
 	}
 }

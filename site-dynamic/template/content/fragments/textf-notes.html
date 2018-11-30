@@ -6,40 +6,53 @@
 	<p>
 		An example of formatted text would be:
 	</p>
-<pre class="tame-example">
-	"This message contains [bold]text that is bolded![/bold]"
+<pre class="example">
+	"This message contains [bold]text that is bolded![/]"
 </pre>
 	<p>
 		...which a supporting shell might render as: 
 	</p>
-<pre>
+<pre class="example">
 	This message contains <strong>text that is bolded!</strong>
 </pre>
 	<p>
 		Tags can be stacked like this to combine effects:
 	</p>
-<pre class="tame-example">
-	"This message has [italic]italicized text[/italic], some [bold]text that is bolded[/bold], and [bold]some can have [italic]both![/italic][/bold]"
+<pre class="example">
+	"This message has [italic]italicized text[/], some [bold]text that is bolded[/], and [bold]some can have [italic]both![/][/]"
 </pre>
 	<p>
 		...which might render as: 
 	</p>
-<pre>
+<pre class="example">
 	This message has <em>italicized text</em>, some <strong>text that is bolded</strong>, and <strong>some can have <em>both!</em></strong>
 </pre>
 	<p>
-		Ending tags do not have to have the starting tag name. Tags that are written like <kbd>[/]</kbd> will automatically 
-		terminate the most recent tag.
+		Ending tags are written like <kbd>[/]</kbd> and will automatically terminate the most recent tag.
 	</p>
-<pre class="tame-example"><code data-language="tamescript">
-	"This message has [italic]italicized text[/], some [bold]text that is bolded[/], and [bold]some can have [italic]both![/][/]"
-</code></pre>
 	<p>
 		Each custom shell intended to be used by other authors or users should specify how different formatted text will be rendered.
 		Formatting tags that are not understood by a shell should just have its content displayed. Using the previous example, the
 		formatted text in a shell that does not understand both <kbd>bold</kbd> and <kbd>italic</kbd> would render as:
 	</p>
-<pre>
+<pre class="example">
 	This message has italicized text, some text that is bolded, and some can have both!
+</pre>
+	<p>
+		Tags are recommended to be parsed case-insensitively, but some shells may allow mixed or parameterized tags like 
+		<kbd>[color=red]</kbd>, so it's recommended to handle the main part insensitively, but the parameters as-is ("color" 
+		would be case-insensitive, "red" is up to the implementor).
+	</p>
+	<p>
+		If you need to print a <kbd>[</kbd> character in a formatted message, just double it up in the text:
+	</p>
+<pre class="example">
+	"This message has tags in it that look like this: [[bold]text[[/]"
+</pre>
+	<p>
+		...which renders as: 
+	</p>
+<pre class="example">
+	This message has tags in it that look like this: [bold]text[/]
 </pre>
 	

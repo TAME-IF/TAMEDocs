@@ -121,6 +121,14 @@ PRE {
 	tab-size: 4;
 }
 
+PRE.example {
+	background-color: #fafafa;
+	border: solid 1px #e0e0e0;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	overflow-x: auto;
+}
+
 PRE.tame-example {
 	background-color: #fafafa;
 	padding: 8px;
