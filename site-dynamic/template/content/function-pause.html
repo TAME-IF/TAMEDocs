@@ -1,0 +1,79 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Pause (</span> 
+	)
+</h1>
+<div class="w3-container">
+	Adds a "PAUSE" cue to the response, which signals the shell to pause processing of cues until the user resumes it again.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>No Parameters</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		Adds a user-resumable pause to the list of cues in the response. All TAME Shells interpret a <kbd>PAUSE</kbd> cue as, "halt until
+		the user says to continue." This does not hold up the engine in any way - the pause happens entirely client-side. Pausing is useful
+		if you don't want to print walls of text to the screen and want to give the user a moment to read what was just displayed.
+	</p>
+	<p>
+		This is a convenience function, and is functionally equivalent to:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	addCue("PAUSE", "");
+</code></pre>	
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<strong>NOTE:</strong> Running this in debug mode will not actually pause, but you'll see how it appears in response cues.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Pause Example" module_function_pause_example functions/pause-example.tscript ]-->
+</div>
+
+<!-- OPTIONAL SECTION -->
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-addcue.html">AddCue()</a> &mdash; Adds cues to the Response.<br/>
+	</p>
+</div>
+
+<!-- OPTIONAL SECTION -->
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The handling of a <kbd>PAUSE</kbd> cue does not require a particular type of input for continuing - it is up 
+		to the shell to provide that, and it must be user-interactable. 
+	</p>
+	<p>
+		Although all TAME shells must handle <kbd>PAUSE</kbd>, there may be a few shells that will not make this possible. In those cases,
+		<kbd>PAUSE</kbd> will be skipped during cue processing. 
+	</p>
+</div>

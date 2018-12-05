@@ -1,0 +1,18 @@
+world
+{
+	start()
+	{
+		textln("This will count up from 0 to 9, pausing at 5.");
+		pause();
+	
+		local x = 0;
+		while (x < 10)
+		{
+			textln(x);
+			if (x == 5)
+				pause();
+			x = x + 1;
+		} 
+		quit;
+	}
+}
