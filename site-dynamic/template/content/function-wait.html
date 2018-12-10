@@ -1,0 +1,95 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">WAIT (</span> 
+	<span class="param">DURATION</span> 
+	)
+</h1>
+<div class="w3-container">
+	Adds a "WAIT" cue to the response, which signals the shell to pause processing of cues for a specific duration of time, then automatically continue.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">DURATION</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">The amount of time to wait in milliseconds.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		Adds a finitely-timed pause to the list of cues in the response. All TAME Shells interpret a <kbd>WAIT</kbd> cue as, "halt until
+		the user says to continue." This does not hold up the engine in any way - the wait happens entirely client-side. Waits are good for
+		timing other cues that create an animatic or other text effects.
+	</p>
+	<p>
+		This is a convenience function, and is functionally equivalent to:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	addCue("WAIT", duration);
+</code></pre>	
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<strong>NOTE:</strong> Running this in debug mode will not actually do any waiting, but you'll see how it appears in response cues.
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Wait Example" module_function_wait_example functions/wait-example.tscript ]-->
+</div>
+
+<!-- OPTIONAL SECTION -->
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-addcue.html">AddCue()</a> &mdash; Adds cues to the Response.<br/>
+	</p>
+</div>
+
+<!-- OPTIONAL SECTION -->
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Technical Junk</h3>
+</div>
+<div class="w3-container">
+	<p>
+		Although all TAME shells must handle <kbd>WAIT</kbd>, there may be a few shells that will not make this possible. In those cases,
+		<kbd>WAIT</kbd> will be skipped during cue processing. 
+	</p>
+	<p>
+		Despite the content of a <kbd>WAIT</kbd> cue being a string, an integer gets parsed from it. TAME Shells must treat a bad parse or a parse
+		of a negative integer as a <kbd>WAIT</kbd> of 0, or rather, ignore the <kbd>WAIT</kbd> cue.
+	</p>
+</div>
