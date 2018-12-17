@@ -20,26 +20,20 @@
 	<h2><a href="#request"><i class="link-stub fa fa-link"></i></a> 2.1 Input and Requests <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
-	<div class="w3-row">
-		<div class="w3-col l6">
-			<p>
-				Input into TAME is usually a user-typed string like:
-			</p>
+	<p>
+		Input into TAME is usually a user-typed string like:
+	</p>
 <pre>
 	pick up lamp
 	look at dog
 	scream
 </pre>
-			<p>
-				TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
-				and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
-				Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the user somehow.
-			</p>
-		</div>
-		<div class="w3-col l6 w3-center">
-			<img class="w3-image" src="images/tame-flow.svg" />
-		</div>
-	</div>
+	<p>
+		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
+		and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
+		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the user somehow.
+	</p>
+	<img class="w3-image tame-diagram" src="images/tame-flow.svg" />
 </div>
 
 <!------------------------------------------------------------------------------->
