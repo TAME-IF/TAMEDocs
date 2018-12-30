@@ -301,7 +301,7 @@ public final class TAMEDocsGen
 
 			PrintWriter pw = null;
 			try {
-				pw = new PrintWriter(outFile, "UTF-8");
+				pw = new PrintWriter(outFile);
 				parsePageResource(outPath, outFile, pw, RESOURCE_ROOT + "/" + template, variables);
 			} catch (SecurityException e) {
 				out.println("ERROR: Could not write file "+outFile.getPath()+". Access denied.");
@@ -667,7 +667,7 @@ public final class TAMEDocsGen
 			in = new FileInputStream(new File(inPath));
 			StringBuilder tagPart = new StringBuilder();
 			StringBuilder tagContent = new StringBuilder();
-			reader = new InputStreamReader(in, "UTF-8");
+			reader = new InputStreamReader(in);
 			int state = STATE_PAGE;
 			int readChar = 0;
 

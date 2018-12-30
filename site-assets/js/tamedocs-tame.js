@@ -88,7 +88,7 @@ var _OnStartFormatTag = _OnStartFormatTag || null;
 var _OnEndFormatTag = _OnEndFormatTag || null;
 var _OnFormatText = _OnFormatText || null;
 
-var TAMEHandler = TAME.newBrowserHandler({
+var TAMEHandler = TAME.newResponseHandler({
 	
 	"print": tamePrint,
 	
@@ -168,6 +168,16 @@ var TAMEHandler = TAME.newBrowserHandler({
 
 });
 
+function base64ToDataView(base64)
+{
+	let buffer = atob(base64);
+	let out = new DataView(new ArrayBuffer(buffer.length));
+	let i = 0;
+	for (i = 0; i < buffer.length; i++)
+		out.setUint8(i, buffer.charCodeAt(i));
+	return out;
+}
+
 function tameStartExample(heading, module, debug, trace)
 {
 	tameReset(heading);
@@ -176,7 +186,8 @@ function tameStartExample(heading, module, debug, trace)
 	TameStop = false;
 	TameDebug = debug;
 	TameTrace = trace;
-	CurrentModuleContext = TAME.newContext(TAME.createModule(module));
+	
+	CurrentModuleContext = TAME.newContext(TAME.readModule(base64ToDataView(module.data)));
 	
 	if (TameDebug)
 	{
