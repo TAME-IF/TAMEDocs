@@ -5,13 +5,6 @@
 		context, and a <strong>Response</strong> is generated that contains data to relate to the user. This data is a list 
 		of items called <strong>Cues</strong>.
 	</p>
-	<p>
-		TAME's Request-Response model is similar to most other transaction-based systems. For example, <em>web servers</em> receive an HTTP
-		Request from a web browser, find the correct Session, interpret the URL path, do something in the server code, and then return 
-		an HTTP Response with HTML to render in a browser. In this scenario, TAME is the server itself, the Module Context is the Session, 
-		the User Input is the URL, the Module is the package of files and server-side code, and the Shell is the web browser - the thing that 
-		submits requests and interprets responses, and the Cues are the "HTML".
-	</p>
 </div>
 
 <!------------------------------------------------------------------------------->
@@ -31,7 +24,7 @@
 	<p>
 		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures out the <em>Action</em> and the <em>Object</em>s involved
 		and then queues that action for processing, then after all actions are processed, a <strong>Response</strong> is sent back about what happened in TAME as a result.
-		Usually, this Response contains <strong>Cues</strong> that the shell needs to report to the user somehow.
+		Usually, this Response contains <strong>Cues</strong> that the shell needs to process.
 	</p>
 	<img class="w3-image tame-diagram" src="images/tame-flow.svg" />
 </div>

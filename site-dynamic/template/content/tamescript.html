@@ -1,8 +1,8 @@
 <div class="w3-container" style="margin-top: 2em;">
 	<p>
 		<strong>TAMEScript</strong> is the language that all TAME modules are written in. Through TAMEScript,
-		the world, its elements, the viewpoints, the actions the user can take, and how things interact based
-		on user input are all defined.
+		the author defines the world, its elements, the viewpoints, the actions the user can take, and how to interact with objects based
+		on user input.
 	</p>
 	<p>
 		Take, for example, the "small adventure" in the tutorial pages at the beginning of the documentation:
@@ -13,14 +13,13 @@
 </div>
 <div class="w3-container">
 	<p>
-		The <a href="language-element-module.html">module header</a> is first declared, which describes this module
-		using a series of key-value pairs - its title, author, and basic contact information. The header may also
-		describe certain behavior-changing characteristics for the module, but this example doesn't declare any.
+		First, the <a href="language-element-module.html">module header</a> is declared, which describes this module
+		using a series of key-value pairs - its title, author, and basic contact information.
 	</p>
 	<p>
 		Next, the basic <a href="language-element-action.html">actions</a> are declared. These are the means of interaction
-		between the user and the module, declaring the words that are tied to each action, as well as other linguistic 
-		constructs to complete commands.
+		between the user and the module, declaring the words that are tied to each action, as well as what kind of additional input 
+		is expected based on the action.
 	</p>
 	<p>
 		Then, a series of other <a href="language-elements.html">elements</a> are declared which define the 
@@ -29,15 +28,14 @@
 	</p>
 	<p>
 		Each of those elements contain <a href="language-blocks.html">blocks</a>, which are entry points for executing
-		logic, and the blocks are made up of <strong>statements</strong> and <a href="language-functions.html">functions</a> that
-		manipulate the context and return information.
+		logic, and the blocks are made up of <strong>statements</strong> and <a href="language-functions.html">functions</a>.
 	</p>
 </div>
 
 <div class="w3-container">
 	<h3 class="section-header">Module Style</h3>
 	<p>
-		TAMEScript is also a free-form language. Its delimiters are symbols and operators and whitespace, but amount of the
+		TAMEScript is a free-form language. Its delimiters are symbols, operators, and whitespace, but the amount of
 		whitespace is not significant.
 	</p>
 	<p>
@@ -71,7 +69,7 @@
 	world{start(){textln("Hello, world!");}}
 </code></pre>
 	<p>
-		But then again, you'd probably want to write it in a manner that is readable to others and yourself.
+		However, it is a good idea to write it in a manner that is readable to others and yourself!
 	</p>
 </div>
 
@@ -83,7 +81,7 @@
 		where the identifier is prefixed with a character denoting its type (<kbd>a_</kbd> for "action", <kbd>o_</kbd> for "object", etc.).
 	</p>
 	<p>
-		These are not hard-and-fast rules for writing modules - if it is readable, it works.
+		These are not hard-and-fast rules for writing modules - the general rule is, "If it is readable, it works."
 	</p>
 </div>
 
