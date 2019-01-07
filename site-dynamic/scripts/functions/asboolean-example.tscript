@@ -1,0 +1,19 @@
+world
+{
+	start()
+	{
+		textln("AsBoolean(true) = "+AsBoolean(true));
+		textln("AsBoolean(false) = "+AsBoolean(false));
+		textln("AsBoolean(0) = "+AsBoolean(0));
+		textln("AsBoolean(5) = "+AsBoolean(5));
+		textln("AsBoolean(\"\") = "+AsBoolean(""));
+		textln("AsBoolean(\"   \") = "+AsBoolean("   "));
+		textln("AsBoolean(\"false\") = "+AsBoolean("false"));
+		textln("AsBoolean(5 + 3) = "+AsBoolean(5 + 3));
+		textln("AsBoolean(5 - 5) = "+AsBoolean(5 - 5));
+		local a = 10;
+		textln("AsBoolean(a) = "+AsBoolean(a));
+		textln("a = "+a);
+		quit;
+	}
+}

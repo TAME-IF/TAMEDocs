@@ -1,0 +1,81 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">AsBoolean (</span> 
+	<span class="param">INPUT</span> 
+	)
+</h1>
+<div class="w3-container">
+	Returns the boolean value of an input value.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">INPUT</td>
+					<td class="tamedocs-parameter-type">VALUE</td>
+					<td class="tamedocs-parameter-description">The input value.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description">The boolean value of the input value.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function returns the boolean value of the input value or expression. <strong>TRUE</strong> is returned for values that are true-equivalent,
+		and <strong>FALSE</strong> is returned for false-equivalent values. In general, zero values, <kbd>NaN</kbd>, and zero-length strings
+		are considered to be <strong>FALSE</strong>, and everything else is <strong>TRUE</strong>. Lists, no matter their contents or 
+		amount of elements, are <strong>TRUE</strong>.
+	</p>
+	<p>
+		If the input value is already a boolean, it is returned as-is. This function does not change or convert a value in-place - you must 
+		reassign the result. 
+	</p>
+	<h3 id="true-equivalent" class="section-header">"True-Equivalent"</h3>
+	<p>
+		In multiple places in this documentation, you'll see the phrase "true-equivalent," which means "a value that would evaluate 
+		as <strong>TRUE</strong> if converted to boolean." This is important for all logical operations and control branches.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "AsBoolean Example" module_function_asboolean_example functions/asboolean-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example Result Table</h3>
+</div>
+<div class="w3-container">
+<!--[ generate-table boolean ]-->
+</div>
