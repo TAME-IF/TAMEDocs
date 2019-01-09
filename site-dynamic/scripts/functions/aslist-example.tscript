@@ -1,0 +1,14 @@
+world
+{
+	start()
+	{
+		local a;
+		a = 3;
+		textln("a[0] = "+a[0]);
+		a = AsList(3);
+		textln("a[0] = "+a[0]);
+		a = AsList("apples");
+		textln("a[0] = "+a[0]);
+		quit;
+	}
+}

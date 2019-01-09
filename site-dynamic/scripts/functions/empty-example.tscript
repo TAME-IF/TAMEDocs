@@ -1,0 +1,25 @@
+world
+{
+	start()
+	{
+		textln("Empty(true) = "+Empty(true));
+		textln("Empty(false) = "+Empty(false));
+		textln("Empty(0) = "+Empty(0));
+		textln("Empty(10) = "+Empty(10));
+		textln("Empty(0.0) = "+Empty(0.0));
+		textln("Empty(NaN) = "+Empty(NaN));
+		textln("Empty(Infinity) = "+Empty(Infinity));
+		textln("Empty(\"\") = "+Empty(""));
+		textln("Empty(\"      \") = "+Empty("       "));
+		textln("Empty(\"apple\") = "+Empty("apple"));
+		
+		local a;
+		a = [1, 2, 3, 4, 5];
+		textln("Empty("+a+") = "+Empty(a));
+		a = [];
+		textln("Empty("+a+") = "+Empty(a));
+		a = [[], [], [], []];
+		textln("Empty("+a+") = "+Empty(a));
+		quit;
+	}
+}

@@ -1,0 +1,18 @@
+world
+{
+	start()
+	{
+		textln("AsFloat(true) = "+AsFloat(true));
+		textln("AsFloat(false) = "+AsFloat(false));
+		textln("AsFloat(0) = "+AsFloat(0));
+		textln("AsFloat(3) = "+AsFloat(3));
+		textln("AsFloat(5.75) = "+AsFloat(5.75));
+		textln("AsFloat(\"128.75\") = "+AsFloat("128.75"));
+		textln("AsFloat(\"apple\") = "+AsFloat("apple"));
+		textln("AsFloat(5 + 3) = "+AsFloat(5 + 3));
+		local a = 3;
+		textln("AsFloat(a) = "+AsFloat(a));
+		textln("a = "+a);
+		quit;
+	}
+}
