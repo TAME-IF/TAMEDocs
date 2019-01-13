@@ -265,6 +265,28 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 	border: solid 1px rgb(204, 204, 204);
 }
 
+TABLE.tamedocs-table-values th:nth-child(2), 
+TABLE.tamedocs-table-values td:nth-child(2) 
+{
+	white-space: nowrap;
+	width: 1px;
+}
+
+TABLE.tamedocs-table-unary th:first-child, 
+TABLE.tamedocs-table-unary td:first-child 
+{
+	white-space: nowrap;
+	width: 1px;
+}
+
+TABLE.tamedocs-table-binary th:nth-child(2), 
+TABLE.tamedocs-table-binary td:nth-child(2), 
+TABLE.tamedocs-table-binary th:nth-child(4), 
+TABLE.tamedocs-table-binary td:nth-child(4) 
+{
+	white-space: nowrap;
+	width: 1px;
+}
 
 #tame-input {
 	font-family: "Courier New", monospace;

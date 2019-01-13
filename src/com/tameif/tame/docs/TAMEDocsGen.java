@@ -795,56 +795,67 @@ public final class TAMEDocsGen
 		writer.write("<!-- Start generated table for: " + name + " -->\n");
 		writer.write(TAG_NOINDEX+"\n");
 		writer.write("<div class=\"tamedocs-table-overflow\">\n");
-		writer.write("<table class=\"w3-table w3-striped w3-hoverable\">\n");
 
 		ArithmeticOperator operator;
 		if ("boolean".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; BOOLEAN &gt; </td><td>"+Value.create(TEST_VALUES[i].asBoolean())+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ("integer".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; INTEGER &gt; </td><td>"+Value.create(TEST_VALUES[i].asLong())+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ("float".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; FLOAT &gt; </td><td>"+Value.create(TEST_VALUES[i].asDouble())+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ("string".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; STRING &gt; </td><td>"+Value.create(TEST_VALUES[i].asString())+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ("length".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; LENGTH &gt; </td><td>"+TEST_VALUES[i].length()+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ("empty".equalsIgnoreCase(name))
 		{
+			writer.write("<table class=\"tamedocs-table-values w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
 				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; EMPTY &gt; </td><td>"+Value.create(TEST_VALUES[i].isEmpty())+"</td></tr>\n");
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else if ((operator = Reflect.createForType(name, ArithmeticOperator.class)) != null)
 		{
@@ -852,8 +863,10 @@ public final class TAMEDocsGen
 		}
 		else
 		{
+			writer.write("<table class=\"w3-table w3-striped w3-hoverable\">\n");
 			out.println("PROBLEM!!!! "+name+" is not a table name.");
 			writer.write("<tr><th>!!! "+name+" is not a table name !!!</th></tr>");
+			writer.write("</table>\n");
 		}
 		writer.write("</table>\n");
 		writer.write("</div>\n");
@@ -869,6 +882,7 @@ public final class TAMEDocsGen
 	{
 		if (operator.isBinary())
 		{
+			writer.write("<table class=\"tamedocs-table-binary w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value1</th><th>Operator</th><th>Value2</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			
@@ -877,9 +891,11 @@ public final class TAMEDocsGen
 					writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td>"+operator.getSymbol()+"</td><td>"+TEST_VALUES[j]+"</td><td>&#61;</td><td>"+operator.doOperation(TEST_VALUES[i], TEST_VALUES[j])+"</td></tr>\n");
 
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 		else
 		{
+			writer.write("<table class=\"tamedocs-table-unary w3-table w3-striped w3-hoverable\">\n");
 			writer.write("<thead class=\"w3-teal\"><tr><th>Operator</th><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			
@@ -887,6 +903,7 @@ public final class TAMEDocsGen
 				writer.write("<tr><td>"+operator.getSymbol()+"</td><td>"+TEST_VALUES[i]+"</td><td>&#61;</td><td>"+operator.doOperation(TEST_VALUES[i])+"</td></tr>\n");
 
 			writer.write("</tbody>\n");
+			writer.write("</table>\n");
 		}
 	}
 	
