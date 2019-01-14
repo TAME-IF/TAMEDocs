@@ -1,0 +1,76 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Empty (</span> 
+	<span class="param">VALUE</span> 
+	)
+</h1>
+<div class="w3-container">
+	Returns if a value is considered "empty."
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">VALUE</td>
+					<td class="tamedocs-parameter-type">VALUE</td>
+					<td class="tamedocs-parameter-description">The input value (any type).</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if empty, <strong>FALSE</strong> if not.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function returns if the provided value is considered "empty" - <strong>TRUE</strong> if so, <strong>FALSE</strong> if not.
+	</p>
+	<ul>
+		<li>If the value is boolean, an empty value is <strong>FALSE</strong>.</li>
+		<li>If the value is an integer, an empty value is <strong>0</strong>.</li>
+		<li>If the value is floating-point, an empty value is <strong>0.0</strong> or <strong>NaN</strong>.</li>
+		<li>If the value is a string, an empty value is the empty string or a zero-length string after the whitespace is <a href="function-strtrim.html">trimmed</a>.</li>
+		<li>If the value is a list, an empty value is if it is <a href="function-length.html">length</a> 0.</li>
+	</ul>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Empty Example" module_function_empty_example functions/empty-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example Result Table</h3>
+</div>
+<div class="w3-container">
+<!--[ generate-table empty ]-->
+</div>

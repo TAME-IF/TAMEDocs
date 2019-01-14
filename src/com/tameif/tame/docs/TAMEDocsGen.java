@@ -843,7 +843,7 @@ public final class TAMEDocsGen
 			writer.write("<thead class=\"w3-teal\"><tr><th>Value</th><th>&nbsp;</th><th>Result</th></tr></thead>\n");
 			writer.write("<tbody>\n");
 			for (int i = 0; i < TEST_VALUES.length; i++)
-				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; LENGTH &gt; </td><td>"+TEST_VALUES[i].length()+"</td></tr>\n");
+				writer.write("<tr><td>"+TEST_VALUES[i]+"</td><td> &gt; LENGTH &gt; </td><td>"+Value.create(TEST_VALUES[i].length())+"</td></tr>\n");
 			writer.write("</tbody>\n");
 			writer.write("</table>\n");
 		}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Copyright (c) 2015-2017 Matt Tropiano
+    Copyright (c) 2015-2019 Matt Tropiano
     All rights reserved. This program and the accompanying materials
     are made available under the terms of the GNU Lesser Public License v2.1
     which accompanies this distribution, and is available at
@@ -44,6 +44,20 @@
 		</sequential>
 	</macrodef>
 	
+	<macrodef name="git-clone-shallow">
+		<attribute name="repository" />
+		<attribute name="dest" />
+		<sequential>
+			<git command="clone">
+				<args>
+					<arg value="@{repository}" />
+					<arg value="@{dest}" />
+					<arg value="--depth=1" />
+				</args>
+			</git>
+		</sequential>
+	</macrodef>
+
 	<macrodef name="git-pull">
 		<attribute name="dest" />
 		<sequential>
@@ -55,7 +69,7 @@
 		<attribute name="repository" />
 		<attribute name="dest" />
 		<sequential>
-			<git-clone repository="@{repository}" dest="@{dest}" />
+			<git-clone-shallow repository="@{repository}" dest="@{dest}" />
 			<delete dir="@{dest}/.git" includeemptydirs="true" casesensitive="false" /> 
 		</sequential>
 	</macrodef>

@@ -15,8 +15,8 @@ world
 		textln("Length("+a+") = "+Length(a));
 		a = [[1, 2, 3], [4, 5, 6, 7, 8]];
 		textln("Length("+a+") = "+Length(a));
-		textln("Length(a[0])) = "+Length(a[0]));
-		textln("Length(a[1])) = "+Length(a[1]));
+		textln("Length(a[0]) = "+Length(a[0]));
+		textln("Length(a[1]) = "+Length(a[1]));
 		quit;
 	}
 }
