@@ -249,8 +249,6 @@ TABLE.tamedocs-key-reference td
 	vertical-align: text-top;
 }
 
-TABLE.tamedocs-function-reference th:not(:last-child), 
-TABLE.tamedocs-function-reference td:not(:last-child),
 TABLE.tamedocs-block-reference th:not(:last-child),
 TABLE.tamedocs-block-reference td:not(:last-child),
 TABLE.tamedocs-key-reference th:not(:last-child),
@@ -259,6 +257,16 @@ TABLE.tamedocs-key-reference td:not(:last-child)
 	white-space: nowrap;
 	width: 1px;
 }
+
+TABLE.tamedocs-function-reference th:first-child, 
+TABLE.tamedocs-function-reference td:first-child,
+TABLE.tamedocs-function-reference th:nth-child(3),
+TABLE.tamedocs-function-reference td:nth-child(3)
+{
+	white-space: nowrap;
+	width: 1px;
+}
+
 
 .tamedocs-table-overflow {
 	overflow-x: auto;

@@ -1,0 +1,14 @@
+world
+{
+	start()
+	{
+		textln(StrReplace("Apples and Pears", "Apples", "Oranges"));
+		local a = StrReplace("Apples and Apples", "Apples", "Oranges");
+		textln(a);
+		a = StrReplace(a, "Apples", "Oranges");
+		textln(a);
+		textln(StrReplace("Tomatoes", "Tom", "Pot"));
+		textln(StrReplace("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		quit;
+	}
+}

@@ -1,0 +1,15 @@
+world
+{
+	start()
+	{
+		local a = "to";
+		local b = "gether";
+		local c = StrConcat(a, b);
+		textln(c);
+		c = StrConcat(c, "ness");
+		textln(c);
+		textln(StrConcat(4, 5));
+		textln(StrConcat(4.9, -7));
+		quit;
+	}
+}
