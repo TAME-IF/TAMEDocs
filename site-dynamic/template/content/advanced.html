@@ -1,0 +1,22 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		This section outlines some of the more advanced things that TAME or the TAMEScript Compiler does
+		for those curious about some of the inner workings of TAME.
+	</p>
+</div>
+<div id="optimization" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#optimization"><i class="link-stub fa fa-link"></i></a> Optimization <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		The TAMEScript compiler performs some under-the-covers optimizations with expressions that are
+		comprised of literals - the compiler will collapse these expressions as much as it can to minimize
+		the amount of function calls and operations.
+	</p>
+	<p>
+		Run the following as <em>Debug and Trace</em> to see this in action:
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Optimization Example" module_advanced_optimization examples/optimization.tscript ]-->
+</div>

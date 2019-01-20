@@ -1,0 +1,10 @@
+world
+{
+	start()
+	{
+		textln(StrReplacePatternAll("000012340000", "0+", "A"));
+		textln(StrReplacePatternAll("000012340000", "(1-9)", "X"));
+		textln(StrReplacePatternAll(1.5, "\\.", "point"));
+		quit;
+	}
+}

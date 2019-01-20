@@ -1,0 +1,9 @@
+world
+{
+	start()
+	{
+		local a = (5 + 4 - 1) * 5 / 8;
+		textln(a);
+		quit;
+	}
+}
