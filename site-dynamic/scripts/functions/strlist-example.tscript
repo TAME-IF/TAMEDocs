@@ -1,0 +1,17 @@
+world
+{
+	start()
+	{
+		/*
+		StrSplit
+		StrJoin
+		StrFormat
+		*/
+
+		// StrSplit
+		textln("");
+
+
+		quit;
+	}
+}

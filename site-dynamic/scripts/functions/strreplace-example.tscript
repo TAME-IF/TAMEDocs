@@ -2,13 +2,23 @@ world
 {
 	start()
 	{
+		// Replace String
 		textln(StrReplace("Apples and Pears", "Apples", "Oranges"));
-		local a = StrReplace("Apples and Apples", "Apples", "Oranges");
-		textln(a);
-		a = StrReplace(a, "Apples", "Oranges");
-		textln(a);
+		textln(StrReplace("Apples and Apples", "Apples", "Oranges"));
 		textln(StrReplace("Tomatoes", "Tom", "Pot"));
 		textln(StrReplace("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln("");
+
+		// Replace Pattern
+		textln(StrReplacePattern("000012340000", "0+", "A"));
+		textln(StrReplacePattern("000012340000", "(1-9)", "X"));
+		textln(StrReplacePattern(1.5, "\\.", "point"));
+
+		// Replace Pattern (All)
+		textln(StrReplacePatternAll("000012340000", "0+", "A"));
+		textln(StrReplacePatternAll("000012340000", "[1-9]", "X"));
+		textln(StrReplacePatternAll(100, "0+", "A"));
+
 		quit;
 	}
 }

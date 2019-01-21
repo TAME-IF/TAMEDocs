@@ -1,0 +1,50 @@
+world
+{
+	start()
+	{
+		// Index Search
+		textln(StrIndex("Apples and Oranges", "Apples"));		// 0
+		textln(StrIndex("Apples and Oranges", "Pears"));		// -1
+		textln("");
+
+		// Index vs. LastIndex
+		textln(StrIndex("Apples and Oranges", "an"));			// 7 
+		textln(StrLastIndex("Apples and Oranges", "an"));		// 13
+		textln(StrIndex("Apples and Oranges", "es"));			// 4 
+		textln(StrLastIndex("Apples and Oranges", "es"));		// 16
+		textln("");
+
+		// Contains
+		textln(StrContains("Apples and Oranges", "Apples"));	// true 
+		textln(StrContains("Apples and Oranges", "apples"));	// false 
+		textln(StrContains("Apples and Oranges", "Pears"));		// false
+		textln(StrContains(1234, 23));							// true (numbers are converted to strings)
+		textln(StrContains(0.56, "."));							// true (numbers are converted to strings)
+		textln("");
+
+		// Contains Pattern
+		textln(StrContainsPattern("Apples and Oranges", "p+"));					// true (at least one p)
+		textln(StrContainsPattern("Apples and Oranges", "\\s+"));				// true (at least one whitespace) 
+		textln(StrContainsPattern("Apples and Oranges", "(apples|oranges)"));	// false (case sensitive)
+		textln(StrContainsPattern(12345678, "[0-9]"));							// true (numbers are converted to strings - find a digit)
+		textln(StrContainsPattern(12345678, "[a-z]+"));							// false (numbers are converted to strings - find a letter)
+		textln("");
+
+		// Starts With
+		textln(StrStartsWith("Apples and Oranges", "Apples"));	// true
+		textln(StrStartsWith("Apples and Oranges", "apples"));	// false (case sensitive)
+		textln(StrStartsWith("Apples and Oranges", "C"));		// false
+		textln(StrStartsWith(123456, 123));						// true (numbers are converted to strings)
+		textln(StrStartsWith(5 + 5, "1"));						// true (numbers are converted to strings)
+		textln("");
+
+		// Ends With
+		textln(StrEndsWith("Apples and Oranges", "Oranges"));	// true
+		textln(StrEndsWith("Apples and Oranges", "oranges"));	// false (case sensitive)
+		textln(StrEndsWith("Apples and Oranges", "z"));			// false
+		textln(StrEndsWith(123456, 456));						// true (numbers are converted to strings)
+		textln(StrEndsWith(-1.4, ".4"));						// true (numbers are converted to strings)
+
+		quit;
+	}
+}
