@@ -141,30 +141,6 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="function-strconcat.html">StrConcat</a></td>
-					<td>VALUE1(STRING), VALUE2(STRING)</td>
-					<td>VALUE(STRING)</td>
-					<td>Returns the resultant string of sticking two strings together: <em>VALUE1</em> and <em>VALUE2</em>.</td>
-				</tr>
-				<tr>
-					<td><a href="function-strreplace.html">StrReplace</a></td>
-					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
-					<td>VALUE(STRING)</td>
-					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of <em>VALUE2</em> with <em>VALUE3</em>.</td>
-				</tr>
-				<tr>
-					<td><a href="function-strreplacepattern.html">StrReplacePattern</a></td>
-					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
-					<td>VALUE(STRING)</td>
-					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
-				</tr>
-				<tr>
-					<td><a href="function-strreplacepatternall.html">StrReplacePatternAll</a></td>
-					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
-					<td>VALUE(STRING)</td>
-					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing every occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
-				</tr>
-				<tr>
 					<td><a href="function-strindex.html">StrIndex</a></td>
 					<td>VALUE1(STRING), VALUE2(STRING)</td>
 					<td>VALUE(INTEGER)</td>
@@ -189,18 +165,6 @@
 					<td>Returns <strong>TRUE</strong> if RegEx <em>VALUE2</em> matches a part of <em>VALUE1</em>, or <strong>FALSE</strong> if not.</td>
 				</tr>
 				<tr>
-					<td><a href="function-strsplit.html">StrSplit</a></td>
-					<td>VALUE1(STRING), VALUE2(STRING)</td>
-					<td>VALUE(LIST)</td>
-					<td>Returns a list of strings that is the result of splitting <strong>VALUE1</strong> into tokens using <strong>VALUE2</strong> as the delimiter.</td>
-				</tr>
-				<tr>
-					<td><a href="function-strjoin.html">StrJoin</a></td>
-					<td>VALUE1(LIST), VALUE2(STRING)</td>
-					<td>VALUE(STRING)</td>
-					<td>Returns a string that is the result of joining the tokens in <strong>VALUE1</strong> using <strong>VALUE2</strong> as the string in between each.</td>
-				</tr>
-				<tr>
 					<td><a href="function-strstartswith.html">StrStartsWith</a></td>
 					<td>VALUE1(STRING), VALUE2(STRING)</td>
 					<td>VALUE(BOOLEAN)</td>
@@ -211,6 +175,30 @@
 					<td>VALUE1(STRING), VALUE2(STRING)</td>
 					<td>VALUE(BOOLEAN)</td>
 					<td>Returns <strong>TRUE</strong> if string <em>VALUE1</em> ends with string <em>VALUE2</em>, or <strong>FALSE</strong> if not.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strreplace.html">StrReplace</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strreplacepattern.html">StrReplacePattern</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing the first occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strreplacepatternall.html">StrReplacePatternAll</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns the resultant string of taking <em>VALUE1</em> and replacing every occurrence of RegEx pattern <em>VALUE2</em> with <em>VALUE3</em>.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strconcat.html">StrConcat</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns the resultant string of sticking two strings together: <em>VALUE1</em> and <em>VALUE2</em>.</td>
 				</tr>
 				<tr>
 					<td><a href="function-substring.html">Substring</a></td>
@@ -241,6 +229,18 @@
 					<td>VALUE(STRING)</td>
 					<td>VALUE(STRING)</td>
 					<td>Returns <em>VALUE</em> with superfluous whitespace removed from both the start and end.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strsplit.html">StrSplit</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(LIST)</td>
+					<td>Returns a list of strings that is the result of splitting <strong>VALUE1</strong> into tokens using <strong>VALUE2</strong> as the delimiter.</td>
+				</tr>
+				<tr>
+					<td><a href="function-strjoin.html">StrJoin</a></td>
+					<td>VALUE1(LIST), VALUE2(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns a string that is the result of joining the tokens in <strong>VALUE1</strong> using <strong>VALUE2</strong> as the string in between each.</td>
 				</tr>
 				<tr>
 					<td><a href="function-strformat.html">StrFormat</a></td>

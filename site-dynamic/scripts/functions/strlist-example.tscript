@@ -2,15 +2,20 @@ world
 {
 	start()
 	{
-		/*
-		StrSplit
-		StrJoin
-		StrFormat
-		*/
-
 		// StrSplit
+		textln(StrSplit("Apples and Oranges", "\\s+"));		// ["Apples", "and", "Oranges"];
 		textln("");
 
+		// StrJoin
+		textln(StrJoin(["Apples", "and", "Oranges"], "|"));	// "Apples|and|Oranges"
+		textln(StrJoin([1, 2, 3, 4, 5], ":"));				// "1:2:3:4:5"
+		textln(StrJoin([[1, 2, 3], [4, 5]], " and "));		// "[1, 2, 3] and [4, 5]"
+		textln("");
+		
+		// StrFormat
+		local tokens = ["Apples", "and", "Oranges"];
+		textln(StrFormat("Hope you like [2] [1] [0]!", tokens));	// "Hope you like Oranges and Apples!"
+		textln(StrFormat("This formatting does not work: [two] [-1] [5]!", tokens));
 
 		quit;
 	}
