@@ -224,6 +224,13 @@ IMG.min-nav-logo {
 	font-style: italic;
 }
 
+@media (max-width: 600px) {
+	.tamedocs-function-title {
+		text-align: center;
+		font-size: 30px;
+	}
+}
+
 .tamedocs-function-type {
 	white-space: nowrap;
 	font-weight: bold;

@@ -1,0 +1,74 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">StrConcat (</span> 
+	<span class="param">STRING1</span>, 
+	<span class="param">STRING2</span> 
+	)
+</h1>
+<div class="w3-container">
+	Concatenates two strings together and returns the result.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRING1</td>
+					<td class="tamedocs-parameter-type">A string value.</td>
+					<td class="tamedocs-parameter-description">The first string.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">STRING2</td>
+					<td class="tamedocs-parameter-type">A string value.</td>
+					<td class="tamedocs-parameter-description">The second string.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns (one of the following)</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(STRING)</td>
+				<td class="tamedocs-parameter-description">The result of concatenating two strings together.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This returns the result of concatenating two strings together, such that the first string is placed before the second.
+		Both provided values are <a href="function-asstring.html">converted to strings</a> before they are concatenated together.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = StrConcat("apple", "sauce"); // a = "applesauce"
+	a = 6 + 4;                       // a = 10
+	a = StrConcat(6, 4)              // a = "64"
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String Manipulation Examples" module_function_strmanip_example functions/strmanipulation-example.tscript ]-->
+</div>

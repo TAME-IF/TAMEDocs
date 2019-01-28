@@ -1,0 +1,86 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">SubString (</span> 
+	<span class="param">STRING</span>, 
+	<span class="param">START</span>, 
+	<span class="param">END</span> 
+	)
+</h1>
+<div class="w3-container">
+	Gets a string from a larger string using a provided string index interval.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">A string value.</td>
+					<td class="tamedocs-parameter-description">The string to sample from.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">START</td>
+					<td class="tamedocs-parameter-type">An integer.</td>
+					<td class="tamedocs-parameter-description">The starting index (0-based), inclusive.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">END</td>
+					<td class="tamedocs-parameter-type">An integer.</td>
+					<td class="tamedocs-parameter-description">The ending index (0-based), exclusive.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(STRING)</td>
+				<td class="tamedocs-parameter-description">The result of getting a substring from the provided string.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This returns a string that is the result of copying the characters from a string from a starting index, inclusively, 
+		to an ending index, exclusively (0 to 3 means characters 0, 1, and 2). The input value is 
+		<a href="function-asstring.html">converted to a string</a>, and the indices are <a href="function-asint.html">converted to integers</a>.
+	</p>
+	<p>
+		If an index is less than 0, it is clamped to 0, and if an index is greater than the length of the string, it is
+		clamped to the length of the string. If the ending index is less than the first, the start and end indices are swapped.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = Substring("applesauce", 0, 5);  // a = "apple"
+	a = Substring("applesauce", 5, 10); // a = "sauce"
+	a = Substring("applesauce", 10, 5); // a = "sauce" (flips 10 and 5)
+	a = Substring(12345678, 1, 4);      // a = "234" (12345678 is converted to a string, first)
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String Manipulation Examples" module_function_strmanip_example functions/strmanipulation-example.tscript ]-->
+</div>
