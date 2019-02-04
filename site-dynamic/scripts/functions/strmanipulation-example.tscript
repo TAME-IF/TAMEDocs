@@ -12,7 +12,7 @@ world
 		// Substring
 		textln(Substring("applejack", 0, 5));		// "apple" 
 		textln(Substring("applejack", 5, 9));		// "jack" 
-		textln(Substring("applejack", 9, 5));		// "jack" = Substring("applejack", 5, 9) 
+		textln(Substring("applejack", 9, 5));		// "" 
 		textln(Substring("applejack", -3, 100));	// "applejack" = Substring("applejack", 0, 9)
 		textln(Substring(123, 0, 1));				// "1" (first value is converted to a string first)
 		textln("");

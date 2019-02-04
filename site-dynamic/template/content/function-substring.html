@@ -68,12 +68,12 @@
 	</p>
 	<p>
 		If an index is less than 0, it is clamped to 0, and if an index is greater than the length of the string, it is
-		clamped to the length of the string. If the ending index is less than the first, the start and end indices are swapped.
+		clamped to the length of the string. If the ending index is less than or equal to the first, the empty string is returned.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	a = Substring("applesauce", 0, 5);  // a = "apple"
 	a = Substring("applesauce", 5, 10); // a = "sauce"
-	a = Substring("applesauce", 10, 5); // a = "sauce" (flips 10 and 5)
+	a = Substring("applesauce", 10, 5); // a = "" (5 is less than 10)
 	a = Substring(12345678, 1, 4);      // a = "234" (12345678 is converted to a string, first)
 </code></pre>
 </div>
