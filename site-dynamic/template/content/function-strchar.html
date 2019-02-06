@@ -1,10 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">StrLower (</span> 
-	<span class="param">STRING</span> 
+	<span class="name">StrChar (</span> 
+	<span class="param">STRING</span>,
+	<span class="param">INDEX</span>
 	)
 </h1>
 <div class="w3-container">
-	Returns a new string with all of the case-having characters converted to lower-case.
+	Returns the character at a specific index in a string.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -26,6 +27,11 @@
 					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
 					<td class="tamedocs-parameter-description">The input string.</td>
 				</tr>
+				<tr>
+					<td class="tamedocs-parameter">INDEX</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">The 0-based index into the string.</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -39,7 +45,7 @@
 		<table class="w3-table w3-striped" >
 			<tr>
 				<td class="tamedocs-parameter">VALUE(STRING)</td>
-				<td class="tamedocs-parameter-description">A new string with all of the case-having characters converted to lower-case.</td>
+				<td class="tamedocs-parameter-description">A new string containing the character at the provided index.</td>
 			</tr>
 		</table>
 	</div>
@@ -50,13 +56,16 @@
 </div>
 <div class="w3-container">
 	<p>
-		This returns the resulting string where all of the applicable characters in it are converted to lower-case. Characters without a
-		typographical case are not changed.
+		This returns a string containing a single character: the character found at a specific index in a string. If the index
+		is less than 0 or greater than or equal to the length of the provided string, then an empty string is returned. The
+		string parameter is always <a href="function-asstring.html">converted to a string</a>, and the index is always 
+		<a href="function-asint.html">converted to/parsed as an integer</a>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrLower("Maximillian");     // a = "maximillian"
-	a = StrLower("LOUD!!!");         // a = "loud!!!"
-	a = StrLower("20-point");        // a = "20-point"
+	a = StrChar("apple", 2);     // a = "p"
+	a = StrChar("apple", 4);     // a = "e"
+	a = StrChar("apple", -1);    // a = ""
+	a = StrChar("apple", -10);   // a = ""
 </code></pre>
 </div>
 
@@ -65,11 +74,4 @@
 </div>
 <div class="w3-container">
 <!--[ tamescript "String Manipulation Examples" module_function_strmanip_example functions/strmanipulation-example.tscript ]-->
-</div>
-
-<div class="w3-panel w3-red w3-card-2">
-	<h3>Additional Technical Notes</h3>
-</div>
-<div class="w3-container">
-<!--[ include fragments/techjunk-localecase.html ]-->
 </div>

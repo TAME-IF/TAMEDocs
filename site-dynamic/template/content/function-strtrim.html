@@ -1,10 +1,10 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">StrLower (</span> 
-	<span class="param">STRING</span> 
+	<span class="name">StrTrim (</span> 
+	<span class="param">STRING</span>
 	)
 </h1>
 <div class="w3-container">
-	Returns a new string with all of the case-having characters converted to lower-case.
+	Removes the whitespace from the beginning and end of a string and returns the resulting string.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -39,7 +39,7 @@
 		<table class="w3-table w3-striped" >
 			<tr>
 				<td class="tamedocs-parameter">VALUE(STRING)</td>
-				<td class="tamedocs-parameter-description">A new string with all of the case-having characters converted to lower-case.</td>
+				<td class="tamedocs-parameter-description">A new string with the whitespace removed from the beginning and end.</td>
 			</tr>
 		</table>
 	</div>
@@ -50,13 +50,15 @@
 </div>
 <div class="w3-container">
 	<p>
-		This returns the resulting string where all of the applicable characters in it are converted to lower-case. Characters without a
-		typographical case are not changed.
+		This removes the whitespace from the beginning and end of a string and returns the resulting string.
+		Whitespace is commonly spaces, tabs, or newlines, but can be a range of non-visible characters, depending on implementation.
+		The provided value is <a href="function-asstring.html">converted to a string</a> before trim.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrLower("Maximillian");     // a = "maximillian"
-	a = StrLower("LOUD!!!");         // a = "loud!!!"
-	a = StrLower("20-point");        // a = "20-point"
+	a = StrTrim("    apple      ");   // a = "apple"
+	a = StrTrim("\tapple");           // a = "apple"
+	a = StrTrim("apple");             // a = "apple"
+	a = StrTrim("apples and pears");  // a = "apples and pears"
 </code></pre>
 </div>
 
@@ -71,5 +73,5 @@
 	<h3>Additional Technical Notes</h3>
 </div>
 <div class="w3-container">
-<!--[ include fragments/techjunk-localecase.html ]-->
+<!--[ include fragments/techjunk-whitespace.html ]-->
 </div>
