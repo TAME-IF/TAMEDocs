@@ -1,11 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">StrIndex (</span> 
+	<span class="name">StrLastIndex (</span> 
 	<span class="param">STRING</span>, 
 	<span class="param">SUBSTRING</span> 
 	)
 </h1>
 <div class="w3-container">
-	Gets the character index of the first occurrence of a string in another string.
+	Gets the character index of the last occurrence of a string in another string.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -45,7 +45,7 @@
 		<table class="w3-table w3-striped" >
 			<tr>
 				<td class="tamedocs-parameter">VALUE(INTEGER)</td>
-				<td class="tamedocs-parameter-description">The index of the first occurrence of the string (0 or greater), or -1 if not found.</td>
+				<td class="tamedocs-parameter-description">The index of the last occurrence of the string (0 or greater), or -1 if not found.</td>
 			</tr>
 		</table>
 	</div>
@@ -56,18 +56,18 @@
 </div>
 <div class="w3-container">
 	<p>
-		This function returns the index of the first occurrence of the second string in the first string. If the second string cannot be 
-		found in the first, <strong>-1</strong> is returned. Both provided values are <a href="function-asstring.html">converted to strings</a> 
-		before the search. The search is <strong>case-sensitive</strong>.
+		This function returns the index of the last occurrence of the second string in the first string (search starts from end of string). 
+		If the second string cannot be found in the first, <strong>-1</strong> is returned. Both provided values are 
+		<a href="function-asstring.html">converted to strings</a> before the search. The search is <strong>case-sensitive</strong>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrIndex("applesauce", "sauce");     // a = 5
-	a = StrIndex("banana", "na");            // a = 2
-	a = StrIndex("tomato", "to");            // a = 0
-	a = StrIndex("oranges", "stuff");        // a = -1
-	a = StrIndex(12345, 23);                 // a = 1
-	a = StrIndex(225.75, "5");               // a = 2
-	a = StrIndex("ABCDEFG", "a");            // a = -1
+	a = StrLastIndex("applesauce", "sauce");     // a = 5
+	a = StrLastIndex("banana", "na");            // a = 4
+	a = StrLastIndex("tomato", "to");            // a = 4
+	a = StrLastIndex("oranges", "stuff");        // a = -1
+	a = StrLastIndex(12345, 23);                 // a = 1
+	a = StrLastIndex(225.75, "5");               // a = 5
+	a = StrLastIndex("ABCDEFG", "a");            // a = -1
 </code></pre>
 </div>
 
