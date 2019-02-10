@@ -2,22 +2,25 @@ world
 {
 	start()
 	{
-		// Replace String
+		// Replace
 		textln(StrReplace("Apples and Pears", "Apples", "Oranges"));
 		textln(StrReplace("Apples and Apples", "Apples", "Oranges"));
-		textln(StrReplace("Tomatoes", "Tom", "Pot"));
 		textln(StrReplace("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(StrReplace(100, 0, "Zero"));
 		textln("");
 
-		// Replace Pattern
-		textln(StrReplacePattern("000012340000", "0+", "A"));
-		textln(StrReplacePattern("000012340000", "(1-9)", "X"));
-		textln(StrReplacePattern(1.5, "\\.", "point"));
+		// Replace Last
+		textln(StrReplaceLast("Apples and Pears", "Apples", "Oranges"));
+		textln(StrReplaceLast("Apples and Apples", "Apples", "Oranges"));
+		textln(StrReplaceLast("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(StrReplaceLast(100, 0, "Zero"));
+		textln("");
 
-		// Replace Pattern (All)
-		textln(StrReplacePatternAll("000012340000", "0+", "A"));
-		textln(StrReplacePatternAll("000012340000", "[1-9]", "X"));
-		textln(StrReplacePatternAll(100, "0+", "A"));
+		// Replace All
+		textln(StrReplaceAll("Apples and Pears", "Apples", "Oranges"));
+		textln(StrReplaceAll("Apples and Apples", "Apples", "Oranges"));
+		textln(StrReplaceAll("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(StrReplaceAll(100, 0, "Zero"));
 
 		quit;
 	}

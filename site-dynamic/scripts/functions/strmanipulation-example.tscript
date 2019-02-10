@@ -3,7 +3,8 @@ world
 	start()
 	{
 		// Concatenation
-		textln(StrConcat("to", "gether"));						// "together" 
+		textln("to" + "gether");                                // "together" 
+		textln(StrConcat("to", "gether"));                      // "together" 
 		textln(StrConcat(StrConcat("to", "gether"), "ness"));	// "togetherness"
 		textln(4 + 5);											// 9
 		textln(StrConcat(4, 5));								// "45" (both values are converted to strings first)

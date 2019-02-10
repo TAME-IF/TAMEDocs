@@ -1,0 +1,83 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">StrContains (</span> 
+	<span class="param">STRING</span>, 
+	<span class="param">SUBSTRING</span> 
+	)
+</h1>
+<div class="w3-container">
+	Checks if a string contains another string.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The string to search in.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">SUBSTRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The substring to search for.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description">True if the substring is in the provided string, false otherwise.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function returns <strong>TRUE</strong> if the second string is in the first string, or <strong>FALSE</strong> if not.
+		Both provided values are <a href="function-asstring.html">converted to strings</a> before the search. The search 
+		is <strong>case-sensitive</strong>.
+	</p>
+	<p>
+		This function is similar to <a href="function-strindex.html">StrIndex()</a>, except this returns <strong>TRUE</strong> when
+		<em>StrIndex</em> would return 0 or greater, and <strong>FALSE</strong> when it would return -1.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = StrContains("applesauce", "sauce");     // a = true
+	a = StrContains("banana", "na");            // a = true
+	a = StrContains("tomato", "to");            // a = true
+	a = StrContains("oranges", "stuff");        // a = false
+	a = StrContains(12345, 23);                 // a = true
+	a = StrContains(225.75, "5");               // a = true
+	a = StrContains("ABCDEFG", "a");            // a = false
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String Searching Examples" module_function_strsearch_example functions/strsearch-example.tscript ]-->
+</div>

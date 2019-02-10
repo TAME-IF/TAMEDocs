@@ -56,12 +56,11 @@ function-length.html "Function: Length" template/main.html
 function-empty.html "Function: Empty" template/main.html
 function-strconcat.html "Function: StrConcat" template/main.html
 function-strreplace.html "Function: StrReplace" template/main.html
-function-strreplacepattern.html "Function: StrReplacePattern" template/main.html
-function-strreplacepatternall.html "Function: StrReplacePatternAll" template/main.html
+function-strreplacelast.html "Function: StrReplaceLast" template/main.html
+function-strreplaceall.html "Function: StrReplaceAll" template/main.html
 function-strindex.html "Function: StrIndex" template/main.html
 function-strlastindex.html "Function: StrLastIndex" template/main.html
 function-strcontains.html "Function: StrContains" template/main.html
-function-strcontainspattern.html "Function: StrContainsPattern" template/main.html
 function-strsplit.html "Function: StrSplit" template/main.html
 function-strjoin.html "Function: StrJoin" template/main.html
 function-strstartswith.html "Function: StrStartsWith" template/main.html
