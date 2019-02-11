@@ -1,11 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">StrContains (</span> 
+	<span class="name">StrStartsWith (</span> 
 	<span class="param">STRING</span>, 
 	<span class="param">SUBSTRING</span> 
 	)
 </h1>
 <div class="w3-container">
-	Checks if a string contains another string.
+	Checks if a string starts with another string.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -30,7 +30,7 @@
 				<tr>
 					<td class="tamedocs-parameter">SUBSTRING</td>
 					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
-					<td class="tamedocs-parameter-description">The substring to search for.</td>
+					<td class="tamedocs-parameter-description">The substring to test for.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -45,7 +45,7 @@
 		<table class="w3-table w3-striped" >
 			<tr>
 				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
-				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if the substring is in the provided string, <strong>FALSE</strong> otherwise.</td>
+				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if the first string starts with the second string, <strong>FALSE</strong> otherwise.</td>
 			</tr>
 		</table>
 	</div>
@@ -56,22 +56,18 @@
 </div>
 <div class="w3-container">
 	<p>
-		This function returns <strong>TRUE</strong> if the second string is in the first string, or <strong>FALSE</strong> if not.
-		Both provided values are <a href="function-asstring.html">interpreted as strings</a> before the search. The search 
-		is <strong>case-sensitive</strong>.
-	</p>
-	<p>
-		This function is similar to <a href="function-strindex.html">StrIndex()</a>, except this returns <strong>TRUE</strong> when
-		<em>StrIndex</em> would return 0 or greater, and <strong>FALSE</strong> when it would return -1.
+		This function returns <strong>TRUE</strong> if the first string starts with the second string, or <strong>FALSE</strong> if not.
+		Both provided values are <a href="function-asstring.html">interpreted as strings</a> before the check. The check is 
+		<strong>case-sensitive</strong>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrContains("applesauce", "sauce");     // a = true
-	a = StrContains("banana", "na");            // a = true
-	a = StrContains("tomato", "to");            // a = true
-	a = StrContains("oranges", "stuff");        // a = false
-	a = StrContains(12345, 23);                 // a = true
-	a = StrContains(225.75, "5");               // a = true
-	a = StrContains("ABCDEFG", "a");            // a = false
+	a = StrStartsWith("applesauce", "apple");   // a = true
+	a = StrStartsWith("banana", "ba");          // a = true
+	a = StrStartsWith("tomato", "to");          // a = true
+	a = StrStartsWith("applesauce", "sauce");   // a = false
+	a = StrStartsWith(12345, 1);                // a = true  (converted to strings)
+	a = StrStartsWith(12345, 5);                // a = false (converted to strings)
+	a = StrStartsWith("ABCDEFG", "a");          // a = false (case-sensitive)
 </code></pre>
 </div>
 

@@ -1,0 +1,78 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">StrJoin (</span> 
+	<span class="param">STRINGLIST</span>, 
+	<span class="param">JOINER</span>
+	)
+</h1>
+<div class="w3-container">
+	Joins a list of strings together into one string.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRINGLIST</td>
+					<td class="tamedocs-parameter-type">VALUE(LIST)</td>
+					<td class="tamedocs-parameter-description">The list of strings.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">JOINER</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The joiner string to use between list items.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(STRING)</td>
+				<td class="tamedocs-parameter-description">The resultant string after the join.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes a list of strings and joins them together into one string, with the joiner string placed
+		between each list item. Each list item is <a href="function-asstring.html">interpreted as its string representation</a>
+		on read. The joiner string is also <a href="function-asstring.html">interpreted as a string</a>.
+	</p>
+	<p>
+		If the first parameter is not a list, it is converted to a list with the value as its only element.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = StrJoin(["1", "2", "3", "4", "5"], " ");        // a = "1 2 3 4 5"
+	a = StrJoin(["apples", "pears", "oranges"], ", ");  // a = "apples, pears, oranges"
+	a = StrJoin([100, 200, true, false, 3.45], "");     // a = "100200truefalse3.45"
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String List Function Examples" module_function_strlist_example functions/strlist-example.tscript ]-->
+</div>

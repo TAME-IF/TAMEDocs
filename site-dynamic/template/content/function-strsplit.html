@@ -1,0 +1,75 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">StrSplit (</span> 
+	<span class="param">STRING</span>, 
+	<span class="param">DELIMITER</span>
+	)
+</h1>
+<div class="w3-container">
+	Splits a string into a series of tokens via a delimiter string.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The original string.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The delimiter string for splitting.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(LIST)</td>
+				<td class="tamedocs-parameter-description">A list of tokens made by splitting the string.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes a string and splits it into many strings ("tokens") using a delimiter string as the substring
+		to use for finding the splits. The scan for the delimiter string is case-sensitive, and both parameters are
+		<a href="function-asstring.html">interpreted as strings</a> before the scan and split.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = StrSplit("apples and pears", " ");              // a = ["apples", "and", "pears"]
+	a = StrSplit("This:is:separated:by:colons", ":");   // a = ["This", "is", "separated", "by", "colons"]
+	a = StrSplit(1232123, "2");                         // a = ["1", "3", "1", "3"]
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String List Function Examples" module_function_strlist_example functions/strlist-example.tscript ]-->
+</div>

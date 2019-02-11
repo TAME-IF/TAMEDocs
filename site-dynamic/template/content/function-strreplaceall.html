@@ -1,0 +1,86 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">StrReplaceAll (</span> 
+	<span class="param">STRING</span>, 
+	<span class="param">SEQUENCE</span>,
+	<span class="param">REPLACEMENT</span>
+	)
+</h1>
+<div class="w3-container">
+	Replaces every occurrence of a sequence of characters in a string with the replacement string.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The string to search in.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">SEQUENCE</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The character sequence to search for.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">REPLACEMENT</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The string to replace the sets of found characters with.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(STRING)</td>
+				<td class="tamedocs-parameter-description">The resultant string from replacing every found sequence of characters with the replacement.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function searches the first string for every sequence of characters and, when found, replaces each sequence with the 
+		replacement string, and returns the result. All provided values are <a href="function-asstring.html">interpreted as strings</a> 
+		before the check. The check is <strong>case-sensitive</strong>.
+	</p>
+	<p>
+		If no occurrences of the provided search sequence are found, the original string is returned.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = StrReplaceAll("tomato", "to", "__");                    // a = "__ma__"
+	a = StrReplaceAll("Apples to Apples", "Apples", "Grapes");  // a = "Grapes to Grapes"
+	a = StrReplaceAll(12345, 12, "__");                         // a = "__345"
+	a = StrReplaceAll(100.003, "00", "__");                     // a = "1__.__3"
+	a = StrReplaceAll("ABCDEFG", "a", "_");                     // a = "ABCDEFG"
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "String Replace Examples" module_function_strreplace_example functions/strreplace-example.tscript ]-->
+</div>

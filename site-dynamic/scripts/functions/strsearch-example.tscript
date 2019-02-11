@@ -22,14 +22,6 @@ world
 		textln(StrContains(0.56, "."));							// true (numbers are converted to strings)
 		textln("");
 
-		// Contains Pattern
-		textln(StrContainsPattern("Apples and Oranges", "p+"));					// true (at least one p)
-		textln(StrContainsPattern("Apples and Oranges", "\\s+"));				// true (at least one whitespace) 
-		textln(StrContainsPattern("Apples and Oranges", "(apples|oranges)"));	// false (case sensitive)
-		textln(StrContainsPattern(12345678, "[0-9]"));							// true (numbers are converted to strings - find a digit)
-		textln(StrContainsPattern(12345678, "[a-z]+"));							// false (numbers are converted to strings - find a letter)
-		textln("");
-
 		// Starts With
 		textln(StrStartsWith("Apples and Oranges", "Apples"));	// true
 		textln(StrStartsWith("Apples and Oranges", "apples"));	// false (case sensitive)

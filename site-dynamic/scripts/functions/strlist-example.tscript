@@ -3,7 +3,8 @@ world
 	start()
 	{
 		// StrSplit
-		textln(StrSplit("Apples and Oranges", "\\s+"));		// ["Apples", "and", "Oranges"];
+		textln(StrSplit("Apples and Oranges", " "));		// ["Apples", "and", "Oranges"];
+		textln(StrSplit(1001001, "00"));		            // ["1", "1", "1"];
 		textln("");
 
 		// StrJoin
