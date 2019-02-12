@@ -1,0 +1,79 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">ListAddAt (</span> 
+	<span class="param">LIST</span>, 
+	<span class="param">ITEM</span>,
+	<span class="param">INDEX</span>
+	)
+</h1>
+<div class="w3-container">
+	Removes an item from a list.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">LIST</td>
+					<td class="tamedocs-parameter-type">VALUE(LIST)</td>
+					<td class="tamedocs-parameter-description">The list to revome from.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">ITEM</td>
+					<td class="tamedocs-parameter-type">VALUE</td>
+					<td class="tamedocs-parameter-description">The item to search for and remove.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">INDEX</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">The index to add the value at.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if added, <strong>FALSE</strong> if not.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function adds a value at a specific index in a list, and returns <strong>TRUE</strong> if added. If the provided list is not
+		a list, or the index provided is less than 0, nothing is added and this returns <strong>FALSE</strong>. If the index is greater 
+		than or equal to the list's length, it is added to the end of the list. The item can be any type, and is added as-is without any conversion.
+	</p>
+	<p>
+		A successful add increases the list's size by 1.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "List Functions Example" module_function_list_example functions/list-example.tscript ]-->
+</div>
