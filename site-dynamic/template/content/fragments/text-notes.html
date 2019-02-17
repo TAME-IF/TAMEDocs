@@ -1,11 +1,11 @@
 	<p>
-		It is up to the TAME shell to determine how to render the text. Authors should not use the function to meticulously 
+		It is up to the TAME shell to determine how to render the text. Authors should not use the text functions to meticulously 
 		lay out text, for example: adding whitespace in order to get text to appear in a specific location on the screen. If a TAME 
-		implementation has a method for doing this sort of thing, that should be employed rather than relying on the behavior 
-		of a specific medium. Authors should also be aware about implementations that employ use of different fonts or other textual effects. 
+		shells has a method for doing this sort of thing, that should be employed rather than relying on the behavior 
+		of a specific medium. Authors should also be aware about shells that employ use of different fonts or other textual effects. 
 	</p>
 	<p>
-		All TAME implementations accumulate <kbd>TEXT</kbd> and <kbd>TEXTF</kbd> cue output as through it were printed in one block.
+		All TAME shells accumulate <kbd>TEXT</kbd> and <kbd>TEXTF</kbd> cue output as through it were printed in one block.
 		Other cues like <kbd>WAIT</kbd> and <kbd>PAUSE</kbd> do not interrupt this behavior, unless the handling of a cue requires
 		output to the same place that text will also be output to, but for the most part, you can rely on behavior like newlines 
 		terminating a paragraph or line.

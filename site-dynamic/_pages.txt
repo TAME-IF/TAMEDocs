@@ -71,6 +71,15 @@ function-strupper.html "Function: StrUpper" template/main.html
 function-strchar.html "Function: StrChar" template/main.html
 function-strtrim.html "Function: StrTrim" template/main.html
 function-strformat.html "Function: StrFormat" template/main.html
+function-isregex.html "Function: IsRegex" template/main.html
+function-regexcontains.html "Function: RegexContains" template/main.html
+function-regexfind.html "Function: RegexFind" template/main.html
+function-regexfindlast.html "Function: RegexFindLast" template/main.html
+function-regexget.html "Function: RegexGet" template/main.html
+function-regexgetlast.html "Function: RegexGetLast" template/main.html
+function-regexgetall.html "Function: RegexGetAll" template/main.html
+function-regexmatches.html "Function: RegexMatches" template/main.html
+function-regexsplit.html "Function: RegexSplit" template/main.html
 function-listadd.html "Function: ListAdd" template/main.html
 function-listaddat.html "Function: ListAddAt" template/main.html
 function-listremove.html "Function: ListRemove" template/main.html
