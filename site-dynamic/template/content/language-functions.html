@@ -245,6 +245,75 @@
 			</tbody>
 		</table>
 	</div>
+	<h3 id="regex">RegEx</h3>
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped tamedocs-function-reference">
+			<thead class="w3-teal">
+				<tr>
+					<th>Command Name</th>
+					<th>Parameters</th>
+					<th>Returns</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="function-isregex.html">IsRegex</a></td>
+					<td>VALUE(STRING)</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if the provided string is a valid RegEx.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexcontains.html">RegexContains</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if <em>VALUE2</em> contains a substring that matches RegEx <em>VALUE1</em>.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexfind.html">RegexFind</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(INTEGER)</td>
+					<td>Returns the starting index in <em>VALUE2</em> of the first substring that matches RegEx <em>VALUE1</em>, <strong>-1</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexfindlast.html">RegexFindList</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(INTEGER)</td>
+					<td>Returns the starting index in <em>VALUE2</em> of the last substring that matches RegEx <em>VALUE1</em>, <strong>-1</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexget.html">RegexGet</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(STRING) or VALUE(BOOLEAN)</td>
+					<td>Returns the first substring in <em>VALUE2</em> that matches RegEx <em>VALUE1</em>, <strong>FALSE</strong> on no match.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexgetlast.html">RegexGetLast</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(STRING) or VALUE(BOOLEAN)</td>
+					<td>Returns the last substring in <em>VALUE2</em> that matches RegEx <em>VALUE1</em>, <strong>FALSE</strong> on no match.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexgetall.html">RegexGetAll</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(LIST)</td>
+					<td>Returns all substrings in <em>VALUE2</em> that matches RegEx <em>VALUE1</em> in the order found.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexmatches.html">RegexMatches</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if <em>VALUE2</em> matches RegEx <em>VALUE1</em> completely, <strong>FALSE</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-regexmatches.html">RegexSplit</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING)</td>
+					<td>VALUE(LIST)</td>
+					<td>Splits <em>VALUE2</em> into multiple strings using RegEx <em>VALUE1</em> as a delimiter pattern.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	<h3 id="list-operations">List Operations</h3>
 	<div class="tamedocs-table-overflow">
 		<table class="w3-table w3-striped tamedocs-function-reference">
