@@ -1,12 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">ListAddAt (</span> 
+	<span class="name">ListRemoveAt (</span> 
 	<span class="param">LIST</span>, 
-	<span class="param">ITEM</span>,
 	<span class="param">INDEX</span>
 	)
 </h1>
 <div class="w3-container">
-	Adds an item to a list at a specific index.
+	Removes an item from a list at a specific index.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -26,17 +25,12 @@
 				<tr>
 					<td class="tamedocs-parameter">LIST</td>
 					<td class="tamedocs-parameter-type">VALUE(LIST)</td>
-					<td class="tamedocs-parameter-description">The list to revome from.</td>
-				</tr>
-				<tr>
-					<td class="tamedocs-parameter">ITEM</td>
-					<td class="tamedocs-parameter-type">VALUE</td>
-					<td class="tamedocs-parameter-description">The item to search for and remove.</td>
+					<td class="tamedocs-parameter-description">The list to append to.</td>
 				</tr>
 				<tr>
 					<td class="tamedocs-parameter">INDEX</td>
 					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
-					<td class="tamedocs-parameter-description">The 0-based index to add the value at.</td>
+					<td class="tamedocs-parameter-description">The 0-based index into the list.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -44,14 +38,18 @@
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
-	<h3>Returns</h3>
+	<h3>Returns (one of the following)</h3>
 </div>
 <div class="w3-container">
 	<div class="tamedocs-table-overflow">
 		<table class="w3-table w3-striped" >
 			<tr>
+				<td class="tamedocs-parameter">VALUE</td>
+				<td class="tamedocs-parameter-description">The value that was removed.</td>
+			</tr>
+			<tr>
 				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
-				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if added, <strong>FALSE</strong> if not.</td>
+				<td class="tamedocs-parameter-description"><strong>FALSE</strong> if nothing was removed.</td>
 			</tr>
 		</table>
 	</div>
@@ -62,14 +60,13 @@
 </div>
 <div class="w3-container">
 	<p>
-		This function adds a value at a specific index in a list, and returns <strong>TRUE</strong> if added. If the provided list is not
-		a list, or the index provided is less than 0, nothing is added and this returns <strong>FALSE</strong>. If the index is greater 
-		than or equal to the list's <a href="function-length.html">length</a>, it is added to the end of the list. 
-		The item can be any type, and is added as-is without any conversion. The index is always <a href="function-asint.html">converted to an integer</a>, 
-		if it is not an integer. 
+		This function removes the value at the provided index from a list, and returns the value removed. If the provided list is not
+		a list or the index is less than 0 or greater than the list's <a href="function-length.html">length</a>, nothing changes and 
+		this returns <strong>FALSE</strong>. The index is always <a href="function-asint.html">converted to an integer</a>, if it is not
+		an integer. 
 	</p>
 	<p>
-		A successful add increases the list's size by 1.
+		A successful remove decreases the list's size by 1.
 	</p>
 </div>
 
