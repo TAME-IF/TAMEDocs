@@ -1,0 +1,77 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">RegexMatches (</span> 
+	<span class="param">REGEX</span>, 
+	<span class="param">STRING</span>
+	)
+</h1>
+<div class="w3-container">
+	Checks if a string matches the provided RegEx exactly.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">REGEX</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The RegEx pattern to use.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">STRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The string to scan.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description"><strong>TRUE</strong> if the provided string is a match, <strong>FALSE</strong> if not.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+        This function verifies that the provided string matches the provided RegEx pattern. The input string 
+        must match <em>completely</em>. This returns <strong>TRUE</strong> if a match occurs, and <strong>FALSE</strong> if not.
+        Both parameters are <a href="function-asstring.html">interpreted as strings</a> before the scan.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "RegEx Function Example" module_function_regex_example functions/regex-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+	<!--[ include fragments/techjunk-regex.html ]-->
+</div>
