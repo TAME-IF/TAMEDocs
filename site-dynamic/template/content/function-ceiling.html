@@ -1,0 +1,63 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Ceiling (</span> 
+	<span class="param">NUMBER</span>
+	)
+</h1>
+<div class="w3-container">
+	Returns the mathematical ceiling of a value.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">NUMBER</td>
+					<td class="tamedocs-parameter-type">VALUE(FLOAT)</td>
+					<td class="tamedocs-parameter-description">The input value.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(FLOAT)</td>
+				<td class="tamedocs-parameter-description">The mathematical ceiling of the input value.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes a numeric value and returns the <em>mathematical ceiling</em> of it: a whole number that is the
+		maximum of the two nearest whole numbers. The input value is <a href="function-asfloat.html">interpreted as a floating-point number</a>.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = Ceiling(1.25);     // a = 2.0
+	a = Ceiling(1.875);    // a = 2.0
+	a = Ceiling(1.0);      // a = 1.0
+	a = Ceiling(-1.25);    // a = -1.0
+	a = Ceiling("1.25");   // a = 2.0
+</code></pre>
+</div>

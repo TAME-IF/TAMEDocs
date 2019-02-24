@@ -1,0 +1,76 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Fix (</span> 
+	<span class="param">NUMBER</span>,
+	<span class="param">PLACE</span>
+	)
+</h1>
+<div class="w3-container">
+	Returns a value rounded to a nearest aribitrary place.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">NUMBER</td>
+					<td class="tamedocs-parameter-type">VALUE(FLOAT)</td>
+					<td class="tamedocs-parameter-description">The input value.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">PLACE</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">The place to round to.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<tr>
+				<td class="tamedocs-parameter">VALUE(FLOAT)</td>
+				<td class="tamedocs-parameter-description">The input value, rounded to the nearest chosen place.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes a numeric value and rounds it to the nearest designated place. The PLACE parameter's value determines 
+		that place: <strong>0</strong> for whole numbers, positive values for each place after the decimal point (1 is tenths, 2 is hundredths, ...),
+		and negative values for places before it (-1 is tens, -2 is hundreds, ...). The input value is 
+		<a href="function-asfloat.html">interpreted as a floating-point number</a>, and the place value is 
+		<a href="function-asint.html">interpreted as an integer</a>.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = Fix(15.25, 0);     // a = 15.0
+	a = Fix(15.25, -1);    // a = 20.0
+	a = Fix(15.25, 1);     // a = 15.3
+</code></pre>
+	<p>
+		Calling <kbd>Fix(X, 0)</kbd> is equivalent to:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	Round(X)
+</code></pre>
+</div>
