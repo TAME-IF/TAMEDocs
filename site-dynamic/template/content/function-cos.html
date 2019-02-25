@@ -1,0 +1,77 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Cos (</span> 
+	<span class="param">NUMBER</span>
+	)
+</h1>
+<div class="w3-container">
+	Returns the trigonometric cosine of a value.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">NUMBER</td>
+					<td class="tamedocs-parameter-type">VALUE(FLOAT)</td>
+					<td class="tamedocs-parameter-description">The input value.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(FLOAT)</td>
+				<td class="tamedocs-parameter-description">The cosine of the input value.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes a numeric value and returns the <em>trigonometric cosine</em> of it. The input value
+		is assumed to be in <em>radians</em>. The input value is <a href="function-asfloat.html">interpreted as a floating-point number</a>.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = Cos(0);            // a = 1.0
+	a = Cos(pi() / 2);     // a = 6.1E-17 (float rounding - close to 0)
+	a = Cos(pi());         // a = -1.0
+	a = Cos(3 * pi() / 2); // a = 1.0
+	a = Cos(2 * pi());     // a = -1.8E-16 (float rounding - close to 0)
+</code></pre>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The return value of this function relies on TAME's implementation of Cosine, which may be slightly different between
+		implementations.
+	</p>
+	<p>
+		Due to rounding issues, you may be better off epsilon-rounding the return value, as some results that should be <strong>0</strong>
+		may be nonzero, but very small.
+	</p>
+</div>
