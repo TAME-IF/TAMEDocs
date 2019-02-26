@@ -1,0 +1,87 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">Min (</span> 
+	<span class="param">VALUE1</span>, 
+	<span class="param">VALUE2</span>
+	)
+</h1>
+<div class="w3-container">
+	Returns the lesser of two values.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">VALUE1</td>
+					<td class="tamedocs-parameter-type">VALUE</td>
+					<td class="tamedocs-parameter-description">The first value.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">VALUE2</td>
+					<td class="tamedocs-parameter-type">VALUE</td>
+					<td class="tamedocs-parameter-description">The second value.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<tr>
+				<td class="tamedocs-parameter">VALUE</td>
+				<td class="tamedocs-parameter-description">The lesser value.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+        This function returns the lesser of the two provided values, comparatively. If both values are different
+        types, they are interpreted as the value of the highest type, promotion-wise (if one value is a string,
+        and the other is not, they are compared as strings). The type of the returned value is the same type as
+        the lesser value.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	a = min(-2, 2);             // a = -2
+	a = min(6, 3.4);            // a = 3.4
+	a = min("apple", "orange");	// a = "apple"
+	a = min("apple", "Apple");	// a = "Apple"
+	a = min(123, "pears");	    // a = 123
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-max.html">Max</a> &mdash; Returns the greater of two values.
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+    <!--[ include fragments/techjunk-lexicographical.html ]-->
+</div>
