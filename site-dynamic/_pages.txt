@@ -100,7 +100,7 @@ function-tan.html "Function: TAN" template/main.html
 function-min.html "Function: Min" template/main.html
 function-max.html "Function: Max" template/main.html
 function-clamp.html "Function: Clamp" template/main.html
-function-random.html "Function: Random" template/main.html
+function-irandom.html "Function: IRandom" template/main.html
 function-frandom.html "Function: FRandom" template/main.html
 function-grandom.html "Function: GRandom" template/main.html
 function-time.html "Function: Time" template/main.html

@@ -1,0 +1,88 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">IRandom (</span> 
+	<span class="param">NUMBER</span>
+	)
+</h1>
+<div class="w3-container">
+	Returns a random positive integer up to (but not including) the provided value.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">NUMBER</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">The upper bound integer.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(INTEGER)</td>
+				<td class="tamedocs-parameter-description">A random positive integer.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+        This function returns a random integer from 0 up to (but not including) the provided value.
+        The input value, if it is not an integer, is <a href="function-asint.html">interpreted as an integer</a>.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+	<p>
+        <strong>NOTE:</strong> The following code will return different values every time it is executed!
+	</p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Random Function Examples" module_function_random_example functions/random-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-frandom.html">FRandom()</a> &mdash; Returns a random floating-point value.<br/>
+		<a href="function-grandom.html">GRandom()</a> &mdash; Returns a random floating-point value with Gaussian distribution.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+    <p>
+        Authors can expect the distribution of this random number generator to be uniform.
+    </p>
+    <!--[ include fragments/techjunk-random.html ]-->
+</div>

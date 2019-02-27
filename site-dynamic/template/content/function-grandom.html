@@ -1,0 +1,102 @@
+<h1 class="tamedocs-function-title">
+    <span class="name">GRandom (</span> 
+	<span class="param">MEAN</span>,
+	<span class="param">STDDEV</span>
+    )
+</h1>
+<div class="w3-container">
+    Returns a random floating-point value starting from the mean with Gaussian distribution.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+    <h3>Parameters</h3>
+</div>
+<div class="w3-container">
+    <div class="tamedocs-table-overflow">
+        <table class="w3-table w3-striped">
+            <thead class="w3-teal">
+                <tr>
+                    <th>Parameter</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tamedocs-parameter">MEAN</td>
+                    <td class="tamedocs-parameter-type">VALUE(FLOAT)</td>
+                    <td class="tamedocs-parameter-description">The distribution mean.</td>
+                </tr>
+                <tr>
+                    <td class="tamedocs-parameter">STDDEV</td>
+                    <td class="tamedocs-parameter-type">VALUE(FLOAT)</td>
+                    <td class="tamedocs-parameter-description">The standard deviation from the mean.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+    <h3>Returns</h3>
+</div>
+<div class="w3-container">
+    <div class="tamedocs-table-overflow">
+        <table class="w3-table w3-striped">
+            <tr>
+                <td class="tamedocs-parameter">VALUE(FLOAT)</td>
+                <td class="tamedocs-parameter-description">A random floating-point value.</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+    <h3>What It Does</h3>
+</div>
+<div class="w3-container">
+    <p>
+        This function returns a random floating-point value from <em>negative infinity</em> to
+        <em>positive infinity</em>, with Gaussian distribution centered on the mean, with a specified
+        standard deviation. The input values, if they are not floating-point, are <a href="function-asfloat.html">interpreted as floating-point</a>.
+    </p>
+    <p>
+        Most uses of this function would for approximating multiple independent random values, as the 
+        combined distribution around such a task is a Gaussian (or "bell") curve. This means that there's
+        a greater chance that values will be selected closer to the mean then any other part of the numeric 
+        continuum.
+    </p>
+    <p>
+        A mean of <strong>0</strong> and standard deviation of <strong>1</strong> would give you most 
+        results around the range of <strong>-&pi;</strong> to <strong>+&pi;</strong>, on average.
+    </p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+    <h3>Example</h3>
+</div>
+<div class="w3-container">
+    <p>
+        <strong>NOTE:</strong> The following code will return different values every time it is executed!
+    </p>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Random Function Examples" module_function_random_example functions/random-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+    <h3>See Also</h3>
+</div>
+<div class="w3-container">
+    <p>
+        <a href="function-irandom.html">IRandom()</a> &mdash; Returns a random integer value.<br/>
+        <a href="function-frandom.html">FRandom()</a> &mdash; Returns a random floating-point value.
+    </p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+    <h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+    <!--[ include fragments/techjunk-random.html ]-->
+</div>
