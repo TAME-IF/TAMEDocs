@@ -80,6 +80,7 @@ function-regexgetlast.html "Function: RegexGetLast" template/main.html
 function-regexgetall.html "Function: RegexGetAll" template/main.html
 function-regexmatches.html "Function: RegexMatches" template/main.html
 function-regexsplit.html "Function: RegexSplit" template/main.html
+function-listnew.html "Function: ListNew" template/main.html
 function-listadd.html "Function: ListAdd" template/main.html
 function-listaddat.html "Function: ListAddAt" template/main.html
 function-listremove.html "Function: ListRemove" template/main.html
@@ -104,11 +105,7 @@ function-irandom.html "Function: IRandom" template/main.html
 function-frandom.html "Function: FRandom" template/main.html
 function-grandom.html "Function: GRandom" template/main.html
 function-time.html "Function: Time" template/main.html
-function-seconds.html "Function: Seconds" template/main.html
-function-minutes.html "Function: Minutes" template/main.html
-function-hours.html "Function: Hours" template/main.html
-function-days.html "Function: Days" template/main.html
-function-formattime.html "Function: FormatTime" template/main.html
+function-timeformat.html "Function: TimeFormat" template/main.html
 function-objecthasname.html "Function: ObjectHasName" template/main.html
 function-objecthastag.html "Function: ObjectHasTag" template/main.html
 function-addobjectname.html "Function: AddObjectName" template/main.html

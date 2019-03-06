@@ -13,3 +13,4 @@ versions.properties
 *.iws
 *.cmd
 *.sh
+.vscode
