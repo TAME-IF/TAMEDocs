@@ -188,21 +188,15 @@ public final class TAMEDocsGen
 	static final TAMEJSExporterOptions TAMESCRIPT_JSEXPORTER_OPTIONS_ENGINE = new TAMEJSExporterOptions()
 	{
 		@Override
-		public boolean isPathOutputEnabled()
-		{
-			return false;
-		}
-
-		@Override
-		public String getWrapperName()
-		{
-			return TAMEJSExporter.WRAPPER_ENGINE;
-		}
-
-		@Override
 		public String getModuleVariableName()
 		{
 			return null;
+		}
+
+		@Override
+		public String getStartingPath() 
+		{
+			return "tamejs/Engine.js";
 		}
 	};
 
@@ -1034,17 +1028,11 @@ public final class TAMEDocsGen
 		}
 
 		@Override
-		public String getWrapperName()
+		public String getStartingPath()
 		{
-			return TAMEJSExporter.WRAPPER_MODULE;
+			return "tamejs/ModuleData.js";
 		}
-
-		@Override
-		public boolean isPathOutputEnabled()
-		{
-			return false;
-		}
-
+		
 	}
 
 }
