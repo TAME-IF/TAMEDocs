@@ -4,7 +4,7 @@ world
 	{
 		local time = Time();
 		textln("The current UNIX time in milliseconds is " + time + ".");
-		textln("Which is " + TimeFormat(time, "yyyy-MM-dd kk:mm:ss AA', a 'WWWW"));
+		textln("Which is " + TimeFormat(time, "yyyy-MM-dd KK:mm:ss AA', a 'WWWW"));
 		quit;
 	}
 }
