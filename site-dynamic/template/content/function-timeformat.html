@@ -1,0 +1,224 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">TimeFormat (</span> 
+	<span class="param">TIME</span>,
+	<span class="param">FORMATSTRING</span>
+	)
+</h1>
+<div class="w3-container">
+	Converts a time integer into a readable string.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">TIME</td>
+					<td class="tamedocs-parameter-type">VALUE(INTEGER)</td>
+					<td class="tamedocs-parameter-description">Time in milliseconds since the UNIX Epoch.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">FORMATSTRING</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The format string.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<tr>
+				<td class="tamedocs-parameter">VALUE(STRING)</td>
+				<td class="tamedocs-parameter-description">The output string after formatting.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function returns a string representation of the provided time, using the provided formatting string to
+		define what to put in the string.
+	</p>
+	<p>
+		The formatting string uses repeated patterns of the following letters to output parts of the provided time. 
+		The formatting string can output quoted characters as-is if those series of characters are enclosed in 
+		single-quotes (<kbd>'</kbd>). Unrecognized characters are output as-is.
+	</p>
+	<p>
+		"Text" types print full names at 4 or more of the same letter (or may max out at less letters), 
+		"number" types print a minimum of the amount of digits represented by the amount of letters, padding 
+		the rest of the digits with zeroes, "month" types print numbers at 2 or less letters, text at 3 or more.
+	</p>
+	<table class="w3-table w3-striped">
+		<thead class="w3-teal">
+			<tr>
+				<th>Letter</th>
+				<th>Part of Date</th>
+				<th>Type</th>
+				<th>Examples</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>e</td>
+				<td>Era Designator (lowercase)</td>
+				<td>Text</td>
+				<td>a; ad</td>
+			</tr>
+			<tr>
+				<td>E</td>
+				<td>Era Designator (uppercase)</td>
+				<td>Text</td>
+				<td>A; AD</td>
+			</tr>
+			<tr>
+				<td>y</td>
+				<td>Year</td>
+				<td>Number</td>
+				<td>2009</td>
+			</tr>
+			<tr>
+				<td>M</td>
+				<td>Month in Year</td>
+				<td>Month</td>
+				<td>9; 09; Sep; September</td>
+			</tr>
+			<tr>
+				<td>d</td>
+				<td>Day in Month</td>
+				<td>Number</td>
+				<td>5; 05</td>
+			</tr>
+			<tr>
+				<td>W</td>
+				<td>Day of Week in Month (Name)</td>
+				<td>Text</td>
+				<td>T; Tu; Tue; Tuesday</td>
+			</tr>
+			<tr>
+				<td>w</td>
+				<td>Day Number of Week (0=Sunday, ... , 6=Saturday)</td>
+				<td>Number</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td>a</td>
+				<td>am/pm marker (lower case)</td>
+				<td>Text</td>
+				<td>a; am</td>
+			</tr>
+			<tr>
+				<td>A</td>
+				<td>AM/PM marker (upper case)</td>
+				<td>Text</td>
+				<td>A; AM</td>
+			</tr>
+			<tr>
+				<td>h</td>
+				<td>Hour in Day (0-23)</td>
+				<td>Number</td>
+				<td>8; 08</td>
+			</tr>
+			<tr>
+				<td>H</td>
+				<td>Hour in Day (1-24)</td>
+				<td>Number</td>
+				<td>9; 09</td>
+			</tr>
+			<tr>
+				<td>k</td>
+				<td>Hour in Day (AM/PM) (0-11)</td>
+				<td>Number</td>
+				<td>8; 08</td>
+			</tr>
+			<tr>
+				<td>K</td>
+				<td>Hour in Day (AM/PM) (1-12)</td>
+				<td>Number</td>
+				<td>9; 09</td>
+			</tr>
+			<tr>
+				<td>m</td>
+				<td>Minute in Hour</td>
+				<td>Number</td>
+				<td>3; 03</td>
+			</tr>
+			<tr>
+				<td>s</td>
+				<td>Seconds in Minute</td>
+				<td>Number</td>
+				<td>3; 03</td>
+			</tr>
+			<tr>
+				<td>S</td>
+				<td>Milliseconds in Second</td>
+				<td>Number</td>
+				<td>567</td>
+			</tr>
+			<tr>
+				<td>z</td>
+				<td>Time Zone</td>
+				<td>Text</td>
+				<td>GMT-08:00</td>
+			</tr>
+			<tr>
+				<td>Z</td>
+				<td>RFC 822 Time Zone</td>
+				<td>Text</td>
+				<td>-0800</td>
+			</tr>
+			<tr>
+				<td>X</td>
+				<td>Variable Length Time Zone</td>
+				<td>Text</td>
+				<td>-8; -08; -0800; -08:00; GMT-08:00</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "TimeFormat Example" module_function_timeformat_example functions/timeformat-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-time.html">Time()</a> &mdash; Returns the system time.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+	<p>
+		The output date and time are affected by local time zone, which, according to implementation, may be
+		affected by system date/time or other things that affect implementation locale. 
+	</p>
+</div>

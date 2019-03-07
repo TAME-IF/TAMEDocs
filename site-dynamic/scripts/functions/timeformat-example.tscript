@@ -1,0 +1,10 @@
+world
+{
+	start()
+	{
+		local time = Time();
+		textln("The current UNIX time in milliseconds is " + time + ".");
+		textln("Which is " + TimeFormat(time, "yyyy-MM-dd kk:mm:ss AA', a 'WWWW"));
+		quit;
+	}
+}

@@ -1,0 +1,8 @@
+world
+{
+	start()
+	{
+		textln("The current UNIX time is " + Time() + ".");
+		quit;
+	}
+}
