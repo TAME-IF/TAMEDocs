@@ -1,0 +1,84 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">AddObjectName (</span> 
+	<span class="param">OBJECT</span>, 
+	<span class="param">NAME</span>
+	)
+</h1>
+<div class="w3-container">
+	Adds an assigned name to an object.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">OBJECT</td>
+					<td class="tamedocs-parameter-type">OBJECT</td>
+					<td class="tamedocs-parameter-description">The object to add to.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">NAME</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The name to add.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function adds a name to an object, such that it now becomes an <a href="interpreter.html">interpretable</a> 
+		name for referring to the object later. There is no limit to how many objects can have the same name, and no checks are made
+		for duplicates across objects. Adding a name that is already assigned to the provided object does nothing.
+	</p>
+	<!--[ include fragments/object-sanitation.html ]-->
+	<p>
+		If the object also has <em>determiners</em>, each combination of [determiner, name] is prepended 
+		to the name before it is added. For example, if the object uses a determiner called "the", adding
+		"wooden key" to the object also adds "the wooden key".
+	</p>
+	<p>
+		Names are matched <strong>case-insensitively</strong>.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Object Names Example" module_function_objectname_example functions/objectnames-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-objecthasname.html">ObjectHasName()</a> &mdash; Checks if an object has a specific name.<br/>
+		<a href="function-removeobjectname.html">RemoveObjectName()</a> &mdash; Removes an interpretable name from an object.<br/>
+	</p>
+</div>

@@ -1,0 +1,82 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">RemoveObjectTagFromAllIn (</span> 
+	<span class="param">OBJECTCONTAINER</span>, 
+	<span class="param">TAG</span>
+	)
+</h1>
+<div class="w3-container">
+	Removes a tag from each object in an object container.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">OBJECTCONTAINER</td>
+					<td class="tamedocs-parameter-type">OBJECT-CONTAINER</td>
+					<td class="tamedocs-parameter-description">The object container element.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">TAG</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The tag to remove from each object.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function removes a tag from each object that is owned by a particular <em>object container</em> element. 
+		Removing tags that are not assigned to the provided objects does nothing.
+	</p>
+	<p>
+		Unlike <em>names</em>, tags are <em>not</em> sanitized on assignment to objects - they are added as-is.
+	</p>
+	<p>
+		Tags are matched <strong>case-insensitively</strong>.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Object Tags Example" module_function_objecttag_example functions/objecttags-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-objecthastag.html">ObjectHasTag()</a> &mdash; Checks if an object has a specific tag.<br/>
+		<a href="function-addobjecttag.html">AddObjectTag()</a> &mdash; Adds a tag to an object.<br/>
+		<a href="function-removeobjecttag.html">RemoveObjectTag()</a> &mdash; Removes a tag from an object.<br/>
+		<a href="function-addobjecttagtoallin.html">AddObjectTagToAllIn()</a> &mdash; Adds a tag to each object in an object container element.<br/>
+	</p>
+</div>

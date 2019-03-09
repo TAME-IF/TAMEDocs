@@ -1,0 +1,83 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">ObjectHasName (</span> 
+	<span class="param">OBJECT</span>, 
+	<span class="param">NAME</span>
+	)
+</h1>
+<div class="w3-container">
+	Checks if an object has an assigned name.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">OBJECT</td>
+					<td class="tamedocs-parameter-type">OBJECT</td>
+					<td class="tamedocs-parameter-description">The object to inspect.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">NAME</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The name to test for.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description"><strong>TRUE</strong> on a name match, <strong>FALSE</strong> on no match.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function inspects an object and returns <strong>TRUE</strong> if the provided name is one the names that
+		the provided object is assigned, or <strong>FALSE</strong> if not.
+	</p>
+	<!--[ include fragments/object-sanitation.html ]-->
+	<p>
+		Names are matched <strong>case-insensitively</strong>.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Object Names Example" module_function_objectname_example functions/objectnames-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-addobjectname.html">AddObjectName()</a> &mdash; Adds an interpretable name to an object.<br/>
+		<a href="function-removeobjectname.html">RemoveObjectName()</a> &mdash; Removes an interpretable name from an object.<br/>
+	</p>
+</div>
