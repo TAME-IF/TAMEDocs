@@ -1,0 +1,31 @@
+object o_ball named "ball" uses determiners "the";
+
+world
+{
+	function nameTest(list)
+	{
+		local i;
+		for (i = 0; i < Length(list); i = i + 1)
+			textln("Object has name \""+list[i]+"\": " + ObjectHasName(o_ball, list[i]));
+	}
+
+	start()
+	{
+		local names = [
+			"ball", 
+			"the ball", 
+			"red ball", 
+			"the red ball"
+		];
+		nameTest(names);
+
+		textln("Adding \"red ball\"...");
+		AddObjectName(o_ball, "red ball");
+		nameTest(names);
+		
+		textln("Removing \"ball\"...");
+		RemoveObjectName(o_ball, "ball");
+		nameTest(names);
+		quit;
+	}
+}
