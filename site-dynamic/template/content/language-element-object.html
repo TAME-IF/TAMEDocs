@@ -6,7 +6,7 @@
 </div>
 <div class="w3-container" style="margin-top:2em;">
 <pre class="tame-example"><code data-language="tamescript">
-	object [INDENTIFIER] [INHERITANCE_CLAUSE] [NAME_CLAUSE] [TAG_CLAUSE] [DETERMINER_CLAUSE]
+	object [INDENTIFIER] [INHERITANCE_CLAUSE] [NAME_CLAUSE] [DETERMINER_CLAUSE] [TAG_CLAUSE]
 	{
 		/* Lifecycle */
 		init() { ... }
@@ -53,18 +53,8 @@
 					referred by the same name will cause <em>ambiguous command</em> errors.<br/>
 					<br/>
 					This clause is <em>optional</em> - if no names are declared, this object is not parse-able
-					in the interpreter until names and added to it (via <a href="command-addobjectname.html">AddObjectName()</a>).
+					in the interpreter until names and added to it (via <a href="function-addobjectname.html">AddObjectName()</a>).
 					An object's <em>determiners</em> affect what names get assigned to this object, as well.
-				</td>
-			</tr>
-			<tr>
-				<td>[TAG_CLAUSE]</td>
-				<td>
-					The keyword <kbd>tagged</kbd> followed by a comma-delimited list of strings that TAME
-					assigns as tags to this particular object at initial state.<br/>
-					<br/>
-					This clause is <em>optional</em> - if no tags are declared, they can still be added later 
-					(via <a href="command-addobjecttag.html">AddObjectTag()</a>).
 				</td>
 			</tr>
 			<tr>
@@ -78,6 +68,16 @@
 					The names associated are "book" and "the book".<br/>
 					<br/>
 					This clause is <em>optional</em>. Determiners cannot be added later in module execution.
+				</td>
+			</tr>
+			<tr>
+				<td>[TAG_CLAUSE]</td>
+				<td>
+					The keyword <kbd>tagged</kbd> followed by a comma-delimited list of strings that TAME
+					assigns as tags to this particular object at initial state.<br/>
+					<br/>
+					This clause is <em>optional</em> - if no tags are declared, they can still be added later 
+					(via <a href="function-addobjecttag.html">AddObjectTag()</a>).
 				</td>
 			</tr>
 		</tbody>

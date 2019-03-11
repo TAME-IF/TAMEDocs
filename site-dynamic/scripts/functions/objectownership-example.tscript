@@ -1,0 +1,164 @@
+action general a_quit named "quit";
+action general a_takeall named "take all", "take everything";
+action general a_dropall named "drop all", "drop everything";
+action transitive a_take named "take", "pick up", "t";
+action transitive a_drop named "drop", "discard", "d";
+action transitive a_examine named "examine", "look at", "x";
+
+object archetype o_all
+{
+	onAction(a_take)
+	{
+		if (HasObject(player, this))
+			textln("You already have this.");
+		else
+		{
+			GiveObject(player, this);
+			textln("Taken.");
+		}
+	}
+
+	onAction(a_drop)
+	{
+		if (!HasObject(player, this))
+			textln("You don't have this.");
+		else
+		{
+			GiveObject(room, this);
+			textln("Dropped.");
+		}
+	}
+
+	function BrowseMe()
+	{
+		// Override me.
+	}
+
+	onPlayerBrowse()
+	{
+		BrowseMe();
+	}
+
+	onRoomBrowse()
+	{
+		BrowseMe();
+	}
+
+}
+
+object o_scissors : o_all named "scissors", "pair of scissors" uses determiners "the" tagged "takeable" 
+{
+	onAction(a_examine)
+	{
+		textln("Looks like a pair of scissors.");
+	}
+
+	override function BrowseMe()
+	{
+		textln("A pair of scissors.");
+	}
+
+}
+
+object o_ball : o_all named "ball" uses determiners "the" tagged "takeable"
+{
+	onAction(a_examine)
+	{
+		textln("Looks like a ball.");
+	}
+
+	override function BrowseMe()
+	{
+		textln("A ball.");
+	}
+
+}
+
+object o_key : o_all named "key", "small key" uses determiners "the" tagged "takeable"
+{
+	onAction(a_examine)
+	{
+		textln("Looks like a small key.");
+	}
+
+	override function BrowseMe()
+	{
+		textln("A small key.");
+	}
+
+}
+
+room r_main;
+
+player p_main;
+
+world
+{
+	init()
+	{
+		SetPlayer(p_main);
+		SetRoom(p_main, r_main);
+
+		GiveObject(r_main, o_scissors);
+		GiveObject(r_main, o_ball);
+		GiveObject(r_main, o_key);
+	}
+
+	function seeAll()
+	{
+		textln("");
+		if (ObjectCount(room) > 0)
+		{
+			textln("In this room, there is:");
+			browse(room);
+		}
+		else
+		{
+			textln("There's nothing in the room.");
+		}
+		textln("");
+		if (ObjectCount(player) > 0)
+		{
+			textln("I have:");
+			browse(player);
+		}
+		else
+		{
+			textln("I have nothing.");
+		}
+	}
+
+	start()
+	{
+		textln("Type \"take\" to take objects, and \"drop\" to put them down.");
+		textln("Type \"examine\" to examine objects.");
+		textln("Type \"take all\" to take all objects.");
+		textln("Type \"drop all\" to drop all objects.");
+		textln("");
+		textln("Type \"quit\" to quit.");
+		seeAll();
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	onAction(a_takeall)
+	{
+		MoveObjectsWithTag(room, player, "takeable");
+		textln("Took everything.");
+	}
+
+	onAction(a_dropall)
+	{
+		MoveObjectsWithTag(player, room, "takeable");
+		textln("Dropped everything.");
+	}
+
+	afterEveryCommand()
+	{
+		seeAll();
+	}
+
+}
