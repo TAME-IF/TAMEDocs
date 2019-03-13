@@ -1,0 +1,82 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">BrowseTagged (</span> 
+	<span class="param">OBJECTCONTAINER</span>,
+	<span class="param">TAG</span>
+	)
+</h1>
+<div class="w3-container">
+	Browses an object container element, executing the "onBrowse" blocks for each object owned by the element that
+	has a specific tag.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">OBJECTCONTAINER</td>
+					<td class="tamedocs-parameter-type">OBJECT-CONTAINER</td>
+					<td class="tamedocs-parameter-description">The element to browse.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">TAG</td>
+					<td class="tamedocs-parameter-type">VALUE(STRING)</td>
+					<td class="tamedocs-parameter-description">The object tag.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function takes the provided element and iterates through the objects it owns, calling the
+		appropriate "on[Type]Browse" blocks on each object that has the provided tag.
+	</p>
+	<!--[ include fragments/browse-iteration.html ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Object Ownership Example" module_function_objectowner_example functions/objectownership-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-browse.html">Browse()</a> &mdash; Browses an object-container element's owned objects.<br/>
+	</p>
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+<!--[ include fragments/object-browse-order.html ]-->
+</div>
