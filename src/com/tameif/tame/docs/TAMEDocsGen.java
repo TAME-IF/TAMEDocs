@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2017-2018 Matt Tropiano
+ * Copyright (c) 2017-2019 Matt Tropiano
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser Public License v2.1
  * which accompanies this distribution, and is available at
@@ -24,7 +24,6 @@ import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.blackrook.commons.Common;
 import com.blackrook.commons.CommonTokenizer;
 import com.blackrook.commons.ObjectPair;
 import com.blackrook.commons.Reflect;
@@ -33,6 +32,9 @@ import com.blackrook.commons.hash.CountMap;
 import com.blackrook.commons.hash.HashMap;
 import com.blackrook.commons.hash.HashedHashMap;
 import com.blackrook.commons.linkedlist.Queue;
+import com.blackrook.commons.util.FileUtils;
+import com.blackrook.commons.util.IOUtils;
+import com.blackrook.commons.util.StringUtils;
 import com.blackrook.lang.json.JSONObject;
 import com.blackrook.lang.json.JSONWriter;
 import com.tameif.tame.TAMEModule;
@@ -106,14 +108,14 @@ public final class TAMEDocsGen
 	static final CaseInsensitiveHash INDEX_COMMON_TOKENS = new CaseInsensitiveHash() {{
 		BufferedReader br = null;
 		try {
-			br = Common.openTextStream(Common.openResource("com/tameif/tame/docs/resources/index-common.txt"));
+			br = IOUtils.openTextStream(IOUtils.openResource("com/tameif/tame/docs/resources/index-common.txt"));
 			String s;
 			while ((s = br.readLine()) != null)
 				put(s.trim());
 		} catch (IOException e) {
 			throw new RuntimeException("Could not load common index token list!", e);
 		} finally {
-			Common.close(br);
+			IOUtils.close(br);
 		}
 	}};
 	
@@ -211,9 +213,9 @@ public final class TAMEDocsGen
 		}
 
 		// Get outpath root.
-		String outPath = Common.removeEndingSequence(args[0], "/");
+		String outPath = StringUtils.removeEndingSequence(args[0], "/");
 		File outDir = new File(outPath);
-		if (!Common.createPath(outDir.getPath()))
+		if (!FileUtils.createPath(outDir.getPath()))
 		{
 			out.println("ERROR: Could not create path for "+outDir.getPath());
 			System.exit(3);
@@ -271,7 +273,7 @@ public final class TAMEDocsGen
 			out.println("Cannot write to "+OUTPATH_JS_SEARCHINDEX+" for the search index!");
 			e.printStackTrace(out);
 		} finally {
-			Common.close(pw);
+			IOUtils.close(pw);
 		}
 
 	}
@@ -282,7 +284,7 @@ public final class TAMEDocsGen
 		{
 			boolean error = false;
 			File outFile = new File(outPath + "/" + page[0]);
-			if (!Common.createPathForFile(outFile))
+			if (!FileUtils.createPathForFile(outFile))
 			{
 				out.println("ERROR: Could not create path for "+outFile.getPath());
 				continue;
@@ -304,7 +306,7 @@ public final class TAMEDocsGen
 				out.println("ERROR: Could not write file "+outFile.getPath()+". "+e.getLocalizedMessage());
 				error = true;
 			} finally {
-				Common.close(pw);
+				IOUtils.close(pw);
 				if (error)
 					outFile.delete();
 			}
@@ -326,13 +328,13 @@ public final class TAMEDocsGen
 		{
 			BufferedReader reader = null;
 			try {
-				reader = Common.openTextFile(file);
+				reader = IOUtils.openTextFile(file);
 				generateIndexScanForFile(file.getName(), reader, tokenToAppearances, tokenToFileAppearances, partialToTokens);
 			} catch (IOException e) {
 				out.println("Cannot open "+file.getPath()+" for indexing!");
 				e.printStackTrace(out);
 			} finally {
-				Common.close(reader);
+				IOUtils.close(reader);
 			}
 		}
 
@@ -375,7 +377,7 @@ public final class TAMEDocsGen
 			out.println("Cannot write to "+OUTPATH_JS_SEARCHINDEX+" for the search index!");
 			e.printStackTrace(out);
 		} finally {
-			Common.close(pw);
+			IOUtils.close(pw);
 		}
 		
 		return true;
@@ -581,7 +583,7 @@ public final class TAMEDocsGen
 	private static boolean exportEngine(String outPath) throws IOException
 	{
 		File outFile = new File(outPath + "/" + OUTPATH_JS_TAMEENGINE);
-		if (!Common.createPathForFile(outFile))
+		if (!FileUtils.createPathForFile(outFile))
 		{
 			out.println("ERROR: Could not create path for "+outFile.getPath());
 			return false;
@@ -593,10 +595,10 @@ public final class TAMEDocsGen
 
 	private static void copyStaticPages(File outDir)
 	{
-		for (File inFile : Common.explodeFiles(new File(SOURCE_SIDEASSETS)))
+		for (File inFile : FileUtils.explodeFiles(new File(SOURCE_SIDEASSETS)))
 		{
-			File outFile = new File(outDir.getPath() + "/" + Common.removeStartingSequence(inFile.getPath().replaceAll("\\\\", "/"), SOURCE_SIDEASSETS));
-			if (!Common.createPathForFile(outFile))
+			File outFile = new File(outDir.getPath() + "/" + StringUtils.removeStartingSequence(inFile.getPath().replaceAll("\\\\", "/"), SOURCE_SIDEASSETS));
+			if (!FileUtils.createPathForFile(outFile))
 			{
 				out.println("ERROR: Could not create path for "+outFile.getPath());
 				continue;
@@ -607,14 +609,14 @@ public final class TAMEDocsGen
 			try {
 				fis = new FileInputStream(inFile);
 				fos = new FileOutputStream(outFile);
-				Common.relay(fis, fos);
+				IOUtils.relay(fis, fos);
 			} catch (SecurityException e) {
 				out.printf("ERROR: Could not copy \"%s\" to \"%s\". Access denied.\n", inFile.getPath(), outFile.getPath());
 			} catch (IOException e) {
 				out.printf("ERROR: Could not copy \"%s\" to \"%s\"\n", inFile.getPath(), outFile.getPath());
 			} finally {
-				Common.close(fis);
-				Common.close(fos);
+				IOUtils.close(fis);
+				IOUtils.close(fos);
 			}
 		}
 	}
@@ -625,7 +627,7 @@ public final class TAMEDocsGen
 		InputStream in = null;
 		try {
 			String line = null;
-			BufferedReader pageReader = Common.openTextStream(in = new FileInputStream(new File(RESOURCE_PAGESLIST)));
+			BufferedReader pageReader = IOUtils.openTextStream(in = new FileInputStream(new File(RESOURCE_PAGESLIST)));
 			while ((line = pageReader.readLine()) != null)
 			{
 				CommonTokenizer ct = new CommonTokenizer(line);
@@ -635,7 +637,7 @@ public final class TAMEDocsGen
 				out.add(linedata);
 			}
 		} finally {
-			Common.close(in);
+			IOUtils.close(in);
 		}
 		return out;
 	}
@@ -744,7 +746,7 @@ public final class TAMEDocsGen
 			}
 
 		} finally {
-			Common.close(reader);
+			IOUtils.close(reader);
 		}
 
 	}
@@ -961,7 +963,7 @@ public final class TAMEDocsGen
 			try {
 
 				scriptIn = new FileInputStream(new File(scriptFile));
-				String scriptContent = Common.getTextualContents(scriptIn);
+				String scriptContent = IOUtils.getTextualContents(scriptIn);
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
 				writer.write("<div class=\"w3-example\">\n");
 				
@@ -982,7 +984,7 @@ public final class TAMEDocsGen
 				String filePath = outPath + "/" + OUTPATH_JS_TAMEMODULE + moduleName + ".js";
 
 				File jsFile = new File(filePath);
-				if (Common.createPathForFile(jsFile))
+				if (FileUtils.createPathForFile(jsFile))
 					TAMEJSExporter.export(jsFile, module, new ModuleExporterOptions(moduleName));
 				else
 					out.println("!!! CANNOT EXPORT JS !!!");
@@ -1003,7 +1005,7 @@ public final class TAMEDocsGen
 				writer.write("<pre style=\"white-space: pre-line;\">!!! CAN'T FIND SCRIPT \""+scriptFile+"\" !!!</pre>\n");
 				return false;
 			} finally {
-				Common.close(scriptIn);
+				IOUtils.close(scriptIn);
 			}
 			writer.write("\n"+TAG_NOINDEX+"\n");			
 			return true;
