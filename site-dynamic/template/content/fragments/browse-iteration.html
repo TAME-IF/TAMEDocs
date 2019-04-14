@@ -1,0 +1,12 @@
+	<p>
+		The block called depends on the object-container type browsed - first, each object's 
+		<a href="language-block-on-element-browse.html">OnElementBrowse()</a> block is resolved for the browsed
+		element, then for the element's ancestors, and if none of those are found nor called, it will call either
+		the object's <a href="language-block-on-container-browse.html">OnContainerBrowse()</a>,
+		<a href="language-block-on-room-browse.html">OnRoomBrowse()</a>, <a href="language-block-on-player-browse.html">OnPlayerBrowse()</a>,
+		or <a href="language-block-on-world-browse.html">OnWorldBrowse()</a> block, depending on what element type
+		owns the object.
+	</p>
+	<p>
+		If none of the "browse" blocks are on an object, that object is skipped for browse.
+	</p>
