@@ -29,33 +29,23 @@ object archetype o_all
 		}
 	}
 
-	function BrowseMe()
-	{
-		// Override me.
-	}
-
-	onPlayerBrowse()
-	{
-		BrowseMe();
-	}
-
-	onRoomBrowse()
-	{
-		BrowseMe();
-	}
-
 }
 
-object o_scissors : o_all named "scissors", "pair of scissors" uses determiners "the" tagged "takeable" 
+object o_scissors : o_all named "scissors", "pair of scissors" uses determiners "the" tagged "takeable", "useful"
 {
 	onAction(a_examine)
 	{
 		textln("Looks like a pair of scissors.");
 	}
 
-	override function BrowseMe()
+	onPlayerBrowse()
 	{
 		textln("A pair of scissors.");
+	}
+
+	onRoomBrowse()
+	{
+		textln("A pair of scissors is here.");
 	}
 
 }
@@ -67,23 +57,33 @@ object o_ball : o_all named "ball" uses determiners "the" tagged "takeable"
 		textln("Looks like a ball.");
 	}
 
-	override function BrowseMe()
+	onPlayerBrowse()
 	{
 		textln("A ball.");
 	}
 
+	onRoomBrowse()
+	{
+		textln("A ball is lying on the ground.");
+	}
+
 }
 
-object o_key : o_all named "key", "small key" uses determiners "the" tagged "takeable"
+object o_key : o_all named "key", "small key" uses determiners "the" tagged "takeable", "useful"
 {
 	onAction(a_examine)
 	{
 		textln("Looks like a small key.");
 	}
 
-	override function BrowseMe()
+	onPlayerBrowse()
 	{
 		textln("A small key.");
+	}
+
+	onRoomBrowse()
+	{
+		textln("A small key is here looking unused.");
 	}
 
 }
@@ -109,7 +109,7 @@ world
 		textln("");
 		if (ObjectCount(room) > 0)
 		{
-			textln("In this room, there is:");
+			textln("In this room:");
 			browse(room);
 		}
 		else
@@ -121,6 +121,9 @@ world
 		{
 			textln("I have:");
 			browse(player);
+			textln("");
+			textln("But these look useful:");
+			browseTagged(player, "useful");
 		}
 		else
 		{

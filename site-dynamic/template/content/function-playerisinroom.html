@@ -1,0 +1,93 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">PlayerIsInRoom (</span> 
+	<span class="param">PLAYER</span>, 
+	<span class="param">ROOM</span>
+	)
+</h1>
+<div class="w3-container">
+	Checks if a player is a particular room.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">PLAYER</td>
+					<td class="tamedocs-parameter-type">PLAYER</td>
+					<td class="tamedocs-parameter-description">The player to check.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">ROOM</td>
+					<td class="tamedocs-parameter-type">ROOM</td>
+					<td class="tamedocs-parameter-description">The room to inspect.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description">
+					<strong>TRUE</strong> if the player is in the room, <strong>FALSE</strong> if not.
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function checks if a player is in a particular room, or rather, if the provided player's <em>current room</em>
+		is the provided room. If so, this returns <strong>TRUE</strong>. If not, this returns <strong>FALSE</strong>.
+	</p>
+	<p>
+		This does not return <strong>TRUE</strong> if the provided room is a room in the player's <em>room stack</em> - 
+		only if it is the topmost one (a.k.a. the "current" one).
+	</p>
+	<p>
+		Unless there's no current player or no current room, the following should always return true:
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	PlayerIsInRoom(player, room);
+</code></pre>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Room Stack Example" module_function_roomstack_example functions/roomstack-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-setroom.html">SetRoom()</a> &mdash; Sets the current room.<br/>
+		<a href="function-pushroom.html">PushRoom()</a> &mdash; Pushes a room onto a player's room stack.<br/>
+		<a href="function-poproom.html">PopRoom()</a> &mdash; Removes the topmost room from a player's room stack.<br/>
+		<a href="function-swaproom.html">SwapRoom()</a> &mdash; Changes the topmost room on a player's room stack.<br/>
+	</p>
+</div>
