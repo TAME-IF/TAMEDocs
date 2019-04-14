@@ -198,7 +198,13 @@ public final class TAMEDocsGen
 		@Override
 		public String getStartingPath() 
 		{
-			return "tamejs/Engine.js";
+			return "resource:tamejs/Engine.js";
+		}
+
+		@Override
+		public PrintStream getVerboseStream()
+		{
+			return null;
 		}
 	};
 
@@ -1032,7 +1038,13 @@ public final class TAMEDocsGen
 		@Override
 		public String getStartingPath()
 		{
-			return "tamejs/ModuleData.js";
+			return "resource:tamejs/ModuleData.js";
+		}
+
+		@Override
+		public PrintStream getVerboseStream()
+		{
+			return null;
 		}
 		
 	}
