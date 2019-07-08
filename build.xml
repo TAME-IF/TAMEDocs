@@ -15,16 +15,14 @@
 	<property name="S" value="${path.separator}" />
 
 	<!-- Project Libs -->
-	<property name="common.lib" value="${dev.base}/Common/bin" />
-	<property name="common.io.lib" value="${dev.base}/CommonIO/bin" />
-	<property name="common.lang.lib" value="${dev.base}/CommonLang/bin" />
+	<property name="json.lib" value="${dev.base}/JSON/bin" />
 	<property name="tame.lib" value="${dev.base}/TAME/bin" />
 
 	<!-- Files -->
 	<property name="resource.dir" value="resources" />
 
 	<!-- Project Info -->
-	<property name="project.classpath" value="${common.lib}${S}${common.io.lib}${S}${common.lang.lib}${S}${tame.lib}" />
+	<property name="project.classpath" value="${json.lib}${S}${tame.lib}" />
 	
 	<import file="build-import.xml" />
 	<import file="build-dependencies.xml" />
@@ -35,17 +33,9 @@
 	<property name="tame.version" value="SNAPSHOT" />
 	<property name="tame.docs.revision" value="SNAPSHOT" />
 	
-	<target name="dependency.common">
-		<git-export repository="https://github.com/BlackRookSoftware/Common" dest="${dependencies.dir}/Common" />
-		<ant antfile="${dependencies.dir}/Common/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
-	</target>
-	<target name="dependency.commonio">
-		<git-export repository="https://github.com/BlackRookSoftware/CommonIO" dest="${dependencies.dir}/CommonIO" />
-		<ant antfile="${dependencies.dir}/CommonIO/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
-	</target>
-	<target name="dependency.commonlang">
-		<git-export repository="https://github.com/BlackRookSoftware/CommonLang" dest="${dependencies.dir}/CommonLang" />
-		<ant antfile="${dependencies.dir}/CommonLang/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+	<target name="dependency.json">
+		<git-export repository="https://github.com/BlackRookSoftware/JSON" dest="${dependencies.dir}/JSON" />
+		<ant antfile="${dependencies.dir}/JSON/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
 	</target>
 	<target name="dependency.tame">
 		<git-export repository="https://github.com/TAME-IF/TAME" dest="${dependencies.dir}/TAME" />
@@ -55,7 +45,7 @@
 		<echo message="Writing to build.properties...." />
 		<echo message="dev.base=${dependencies.dir}&#10;" file="build.properties" append="true" />
 	</target>
-	<target name="dependencies" depends="init.dependencies, dependency.common, dependency.commonio, dependency.commonlang, dependency.tame, dependency.properties" description="Downloads and compiles the dependencies.">
+	<target name="dependencies" depends="init.dependencies, dependency.json, dependency.tame, dependency.properties" description="Downloads and compiles the dependencies.">
 	</target>
 
 	<target name="compile.scripts.windows" if="${os.isWindows}">

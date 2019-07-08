@@ -22,21 +22,18 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 
-import com.blackrook.commons.CommonTokenizer;
-import com.blackrook.commons.ObjectPair;
-import com.blackrook.commons.Reflect;
-import com.blackrook.commons.hash.CaseInsensitiveHash;
-import com.blackrook.commons.hash.CountMap;
-import com.blackrook.commons.hash.HashMap;
-import com.blackrook.commons.hash.HashedHashMap;
-import com.blackrook.commons.linkedlist.Queue;
-import com.blackrook.commons.util.FileUtils;
-import com.blackrook.commons.util.IOUtils;
-import com.blackrook.commons.util.StringUtils;
-import com.blackrook.lang.json.JSONObject;
-import com.blackrook.lang.json.JSONWriter;
+import com.blackrook.json.JSONObject;
+import com.blackrook.json.JSONWriter;
 import com.tameif.tame.TAMEModule;
 import com.tameif.tame.factory.TAMEJSExporter;
 import com.tameif.tame.factory.TAMEJSExporterOptions;
@@ -45,6 +42,9 @@ import com.tameif.tame.factory.TAMEScriptParseException;
 import com.tameif.tame.factory.TAMEScriptReader;
 import com.tameif.tame.lang.ArithmeticOperator;
 import com.tameif.tame.lang.Value;
+import com.tameif.tame.struct.CaseInsensitiveStringSet;
+import com.tameif.tame.struct.FileUtils;
+import com.tameif.tame.struct.IOUtils;
 
 /**
  * Generates TAME documentation.
@@ -105,7 +105,7 @@ public final class TAMEDocsGen
 	static final String TAG_NOINDEX = "<!--:NOINDEX:-->";
 
 	/** Common English tokens. */
-	static final CaseInsensitiveHash INDEX_COMMON_TOKENS = new CaseInsensitiveHash() {{
+	static final CaseInsensitiveStringSet INDEX_COMMON_TOKENS = new CaseInsensitiveStringSet() {{
 		BufferedReader br = null;
 		try {
 			br = IOUtils.openTextStream(IOUtils.openResource("com/tameif/tame/docs/resources/index-common.txt"));
@@ -175,7 +175,7 @@ public final class TAMEDocsGen
 		}
 
 		@Override
-		public String getNextIncludeResourceName(String streamName, String path) throws IOException
+		public String getIncludeResourcePath(String streamName, String path) throws IOException
 		{
 			String streamParent = null;
 			int lidx = -1;
@@ -219,7 +219,7 @@ public final class TAMEDocsGen
 		}
 
 		// Get outpath root.
-		String outPath = StringUtils.removeEndingSequence(args[0], "/");
+		String outPath = removeEndingSequence(args[0], "/");
 		File outDir = new File(outPath);
 		if (!FileUtils.createPath(outDir.getPath()))
 		{
@@ -323,7 +323,7 @@ public final class TAMEDocsGen
 	{
 		CountMap<String> tokenToAppearances = new CountMap<>();
 		HashMap<String, CountMap<String>> tokenToFileAppearances = new HashMap<>();
-		HashedHashMap<String, String> partialToTokens = new HashedHashMap<>();
+		HashMap<String, Set<String>> partialToTokens = new HashMap<>();
 		
 		// scan HTML files in output folder.
 		File outputDirectory = new File(outPath);
@@ -345,7 +345,7 @@ public final class TAMEDocsGen
 		}
 
 		HashMap<String, HashMap<String, Float>> tokenToFileDensity = new HashMap<>();
-		for (ObjectPair<String, CountMap<String>> pair : tokenToFileAppearances)
+		for (Map.Entry<String, CountMap<String>> pair : tokenToFileAppearances.entrySet())
 		{
 			String token = pair.getKey();
 			
@@ -353,11 +353,11 @@ public final class TAMEDocsGen
 			if ((map = tokenToFileDensity.get(token)) == null)
 				tokenToFileDensity.put(token, map = new HashMap<>());
 			
-			for (ObjectPair<String, Integer> c : pair.getValue())
+			for (Map.Entry<String, Integer> c : pair.getValue().entrySet())
 			{
 				String file = c.getKey();
 				float appearances = (float)c.getValue();
-				map.put(file, appearances / tokenToAppearances.getCount(token));
+				map.put(file, appearances / tokenToAppearances.amount(token));
 			}
 		}
 		
@@ -395,7 +395,7 @@ public final class TAMEDocsGen
 		Reader reader, 
 		CountMap<String> tokenToAppearances, 
 		HashMap<String, CountMap<String>> tokenToFile, 
-		HashedHashMap<String, String> partialToTokens
+		HashMap<String, Set<String>> partialToTokens
 	) throws IOException 
 	{
 		StringBuilder token = new StringBuilder();
@@ -551,7 +551,7 @@ public final class TAMEDocsGen
 		String token, 
 		CountMap<String> tokenToAppearances, 
 		HashMap<String, CountMap<String>> tokenToFile, 
-		HashedHashMap<String, String> partialToTokens
+		HashMap<String, Set<String>> partialToTokens
 	)
 	{
 		if (token.length() < 3)
@@ -561,13 +561,13 @@ public final class TAMEDocsGen
 		
 		token = token.toLowerCase();
 		
-		boolean makePartials = tokenToAppearances.getCount(token) <= 0;
-		tokenToAppearances.give(token);
+		boolean makePartials = tokenToAppearances.amount(token) <= 0;
+		tokenToAppearances.give(token, 1);
 		
 		CountMap<String> map;
 		if ((map = tokenToFile.get(token)) == null)
 			tokenToFile.put(token, (map = new CountMap<>()));
-		map.give(fileName);
+		map.give(fileName, 1);
 	
 		// partials, min 3 characters.
 		if (makePartials)
@@ -581,7 +581,12 @@ public final class TAMEDocsGen
 					partialToTokens.add(partial, token);
 				}
 				*/
-				partialToTokens.add(token.substring(0, x), token);
+				
+				String partial = token.substring(0, x);
+				Set<String> tokenSet;
+				if ((tokenSet = partialToTokens.get(partial)) == null)
+					partialToTokens.put(partial, tokenSet = new HashSet<String>());
+				tokenSet.add(token);
 			}
 		}
 	}
@@ -601,9 +606,9 @@ public final class TAMEDocsGen
 
 	private static void copyStaticPages(File outDir)
 	{
-		for (File inFile : FileUtils.explodeFiles(new File(SOURCE_SIDEASSETS)))
+		for (File inFile : explodeFiles(new File(SOURCE_SIDEASSETS)))
 		{
-			File outFile = new File(outDir.getPath() + "/" + StringUtils.removeStartingSequence(inFile.getPath().replaceAll("\\\\", "/"), SOURCE_SIDEASSETS));
+			File outFile = new File(outDir.getPath() + "/" + removeStartingSequence(inFile.getPath().replaceAll("\\\\", "/"), SOURCE_SIDEASSETS));
 			if (!FileUtils.createPathForFile(outFile))
 			{
 				out.println("ERROR: Could not create path for "+outFile.getPath());
@@ -615,7 +620,7 @@ public final class TAMEDocsGen
 			try {
 				fis = new FileInputStream(inFile);
 				fos = new FileOutputStream(outFile);
-				IOUtils.relay(fis, fos);
+				IOUtils.relay(fis, fos, 8192);
 			} catch (SecurityException e) {
 				out.printf("ERROR: Could not copy \"%s\" to \"%s\". Access denied.\n", inFile.getPath(), outFile.getPath());
 			} catch (IOException e) {
@@ -629,7 +634,7 @@ public final class TAMEDocsGen
 
 	private static Iterable<String[]> getPageList() throws IOException
 	{
-		Queue<String[]> out = new Queue<>();
+		Queue<String[]> out = new LinkedList<>();
 		InputStream in = null;
 		try {
 			String line = null;
@@ -859,7 +864,7 @@ public final class TAMEDocsGen
 			writer.write("</tbody>\n");
 			writer.write("</table>\n");
 		}
-		else if ((operator = Reflect.createForType(name, ArithmeticOperator.class)) != null)
+		else if ((operator = Enum.valueOf(ArithmeticOperator.class, name.toUpperCase())) != null)
 		{
 			generateArithmeticTable(writer, operator);
 		}
@@ -936,7 +941,7 @@ public final class TAMEDocsGen
 		else if (command.equalsIgnoreCase(COMMAND_CLEAR))
 		{
 			String variableName = tokenizer.nextToken();
-			pageContext.removeUsingKey(variableName);
+			pageContext.remove(variableName);
 			return true;
 		}
 		else if (command.equalsIgnoreCase(COMMAND_PRINT))
@@ -969,7 +974,7 @@ public final class TAMEDocsGen
 			try {
 
 				scriptIn = new FileInputStream(new File(scriptFile));
-				String scriptContent = IOUtils.getTextualContents(scriptIn);
+				String scriptContent = getTextualContents(scriptIn);
 				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
 				writer.write("<div class=\"w3-example\">\n");
 				
@@ -1020,6 +1025,95 @@ public final class TAMEDocsGen
 		return false;
 	}
 
+	/**
+	 * Retrieves the textual contents of a stream in the system's current encoding.
+	 * @param in	the input stream to use.
+	 * @return		a contiguous string (including newline characters) of the stream's contents.
+	 * @throws IOException	if the read cannot be done.
+	 */
+	private static String getTextualContents(InputStream in) throws IOException
+	{
+		StringBuilder sb = new StringBuilder();
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		String line;
+		while ((line = br.readLine()) != null)
+		{
+			sb.append(line);
+			sb.append('\n');
+		}
+		br.close();
+		return sb.toString();
+	}
+
+	/**
+	 * Removes a character sequence from the start of a string if it starts with the sequence.
+	 * @param input the input string to change.
+	 * @param sequence the sequence to potentially remove.
+	 * @return a modified string or the input string if no modification.
+	 */
+	private static String removeStartingSequence(String input, String sequence)
+	{
+		if (input.startsWith(sequence))
+			return input.substring(sequence.length());
+		else
+			return input;
+	}
+
+	/**
+	 * Removes a character sequence from the end of a string if it exists.
+	 * @param input the input string to change.
+	 * @param sequence the sequence to potentially remove.
+	 * @return a modified string or the input string if no modification.
+	 */
+	private static String removeEndingSequence(String input, String sequence)
+	{
+		if (input.endsWith(sequence))
+			return input.substring(0, input.length() - sequence.length());
+		else
+			return input;
+	}
+
+	/**
+	 * Explodes a list of files into a larger list of files,
+	 * such that all of the files in the resultant list are not
+	 * directories, by traversing directory paths.
+	 *
+	 * The returned list is not guaranteed to be in any order
+	 * related to the input list, and may contain files that are
+	 * in the input list if they are not directories.
+	 *
+	 * @param files	the list of files to expand.
+	 * @return	a list of all files found in the subdirectory search.
+	 * @throws	NullPointerException if files is null.
+	 */
+	private static File[] explodeFiles(File ... files)
+	{
+		Queue<File> fileQueue = new LinkedList<File>();
+		List<File> fileList = new ArrayList<File>();
+	
+		for (File f : files)
+			fileQueue.add(f);
+	
+		while (!fileQueue.isEmpty())
+		{
+			File dequeuedFile = fileQueue.poll();
+			if (dequeuedFile.isDirectory())
+			{
+				for (File f : dequeuedFile.listFiles())
+					fileQueue.add(f);
+			}
+			else
+			{
+				fileList.add(dequeuedFile);
+			}
+		}
+	
+		File[] out = new File[fileList.size()];
+		fileList.toArray(out);
+		return out;
+	}
+
 	/** Module Exporter Options. */
 	private static class ModuleExporterOptions implements TAMEJSExporterOptions
 	{
@@ -1048,5 +1142,5 @@ public final class TAMEDocsGen
 		}
 		
 	}
-
+	
 }
