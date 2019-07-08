@@ -1135,9 +1135,18 @@
 <!--[ tamescript "Context Example" module_inheritance_context_example examples/inheritance-context.tscript ]-->
 </div>
 
+<div id="passages" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#passages"><i class="link-stub fa fa-link"></i></a> 5.10. Passages <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		[ADD STUFF ON PASSAGES HERE]
+	</p>
+</div>
+
 
 <div id="preprocessor" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.10. The Preprocessor <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.11. The Preprocessor <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -1229,9 +1238,26 @@
 </code></pre>
 </div>
 <div class="w3-container">
+	<h3 class="section-header" id="prep-else">#else</h3>
+	<p>
+		The <kbd>#else</kbd> directive ends the most recently started "if" directive block and provides
+		an alternate section if the first "if" is not processed. 
+	</p>
+</div>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	#define LINES
+	#ifdef LINES
+	textln("LINES was defined.");
+	#else
+	textln("LINES was NOT defined.");
+	#endif
+</code></pre>
+</div>
+<div class="w3-container">
 	<h3 class="section-header" id="prep-endif">#endif</h3>
 	<p>
-		The <kbd>#endif</kbd> directive ends the most recently started "if" directive block. 
+		The <kbd>#endif</kbd> directive ends the most recently started "if" or "else" directive block. 
 	</p>
 </div>
 <div class="w3-container">
@@ -1242,7 +1268,17 @@
 	#endif
 </code></pre>
 </div>
-
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	#define LINES
+	#ifdef LINES
+	textln("LINES was defined.");
+	#else
+	textln("LINES was NOT defined.");
+	#endif
+</code></pre>
+</div>
+	
 <!--[ set prev_page interpreter.html ]-->
 <!--[ set next_page language-elements.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->

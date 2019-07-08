@@ -80,6 +80,7 @@ function-regexgetlast.html "Function: RegexGetLast" template/main.html
 function-regexgetall.html "Function: RegexGetAll" template/main.html
 function-regexmatches.html "Function: RegexMatches" template/main.html
 function-regexsplit.html "Function: RegexSplit" template/main.html
+function-regexreplace.html "Function: RegexReplace" template/main.html
 function-listnew.html "Function: ListNew" template/main.html
 function-listadd.html "Function: ListAdd" template/main.html
 function-listaddat.html "Function: ListAddAt" template/main.html

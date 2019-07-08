@@ -1,40 +1,44 @@
 world
 {
-	start()
-	{
-		textln(IsRegex("asdf\\s\\+"));	                // true
-		textln(IsRegex("\\"));			                // false
-		textln("");
-		
-		s = "Apples and Oranges! 12345.67890";
-		
-		textln(RegexFind("[A-Za-z]+", s));              // 0
-		textln(RegexFind("[0-9]+", s));                 // 20
-		textln("");
+    start()
+    {
+        textln(IsRegex("asdf\\s\\+"));	                // true
+        textln(IsRegex("\\"));			                // false
+        textln("");
+        
+        s = "Apples and Oranges! 12345.67890";
+        
+        textln(RegexFind("[A-Za-z]+", s));              // 0
+        textln(RegexFind("[0-9]+", s));                 // 20
+        textln("");
 
-		textln(RegexFindLast("[A-Za-z]+", s));          // 11
-		textln(RegexFindLast("[0-9]+", s));             // 26
-		textln("");
+        textln(RegexFindLast("[A-Za-z]+", s));          // 11
+        textln(RegexFindLast("[0-9]+", s));             // 26
+        textln("");
 
-		textln(RegexGet("[A-Za-z]+", s));               // "Apples"
-		textln(RegexGet("[0-9]+", s));                  // "12345"
-		textln("");
+        textln(RegexGet("[A-Za-z]+", s));               // "Apples"
+        textln(RegexGet("[0-9]+", s));                  // "12345"
+        textln("");
 
-		textln(RegexGetLast("[A-Za-z]+", s));           // "Oranges"
-		textln(RegexGetLast("[0-9]+", s));              // "67890"
-		textln("");
+        textln(RegexGetLast("[A-Za-z]+", s));           // "Oranges"
+        textln(RegexGetLast("[0-9]+", s));              // "67890"
+        textln("");
 
-		textln(RegexGetAll("[A-Za-z]+", s));            // ["Apples", "and", "Oranges"]
-		textln(RegexGetAll("[0-9]+", s));               // ["12345", "67890"]
-		textln("");
+        textln(RegexGetAll("[A-Za-z]+", s));            // ["Apples", "and", "Oranges"]
+        textln(RegexGetAll("[0-9]+", s));               // ["12345", "67890"]
+        textln("");
 
-		textln(RegexMatches("[A-Za-z]+", s));           // false
-		textln(RegexMatches("[A-Za-z]+", "Apples"));    // true
-		textln("");
+        textln(RegexMatches("[A-Za-z]+", s));           // false
+        textln(RegexMatches("[A-Za-z]+", "Apples"));    // true
+        textln("");
 
-		textln(RegexSplit("[\\s]+", s));                // ["Apples", "and", "Oranges!", "12345.67890"]
-		textln(RegexSplit("[\\s!\\.]+", s));			// ["Apples", "and", "Oranges", "12345", "67890"]
-		
-		quit;
-	}
+        textln(RegexSplit("[\\s]+", s));                // ["Apples", "and", "Oranges!", "12345.67890"]
+        textln(RegexSplit("[\\s!\\.]+", s));            // ["Apples", "and", "Oranges", "12345", "67890"]
+        textln("");
+
+        textln(RegexReplace("[\\s]+", "", s));          // "ApplesandOranges!12345.67890"
+        textln(RegexReplace("[\\s!\\.]+", "==", s));    // "Apples==and==Oranges==12345==67890"
+
+        quit;
+    }
 }
