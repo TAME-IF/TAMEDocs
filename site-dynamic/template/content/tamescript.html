@@ -219,6 +219,20 @@
 	</div>
 </div>
 <div class="w3-container">
+	<h3 class="section-header">Raw Strings</h3>
+	<p>
+		A "raw string" is a string of characters started and finished by a backtick (<kbd>`</kbd>) that captures everything between the
+		backticks literally. No escape characters. All whitespace is captured as well, since raw strings are multiline.
+	</p>
+<pre class="tame-example"><code data-language="tamescript">
+	`This is a raw string. ¡You can even put éxtéñdèd characters in them!`
+	`This string contains both
+	newlines and
+		the leading tabs on each
+					line.`
+</code></pre>
+</div>
+<div class="w3-container">
 	<h3 class="section-header" id="identifiers">Identifiers</h3>
 	<p>
 		An <em>identifier</em> is a word or set of characters that describe the name of something (elements, variables, functions, etc.).
@@ -970,11 +984,75 @@
 </div>
 <div class="w3-container">
 	<p>
-		[ADD STUFF ON PASSAGES HERE]
+		Most of the time in TAME, you're going to want to output text. While most text output is done by emitting <kbd>text</kbd>
+		or <kbd>textf</kbd> cues via <a href="function-textln.html">textln()</a> or <a href="function-textfln.html">textfln()</a>, 
+		you can output <strong>passages</strong> by writing statements in this fashion, using a special ellipsis operator (<kbd>...</kbd>).
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	... "This is a passage of text to output.";
+</code></pre>
+</div>
+	<p>
+		What this does is output code equivalent to:
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	textfln(StrTrim(RegexReplace("\\s*\\n\\s*", " ", "This is a passage of text to output.")));
+</code></pre>
+</div>
+	<p>
+		This is best used with raw strings, since the above code turns newlines and indentation into single spaces:
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	... `When in the Course of human events, it becomes necessary for one people to dissolve the 
+		political bands which have connected them with another, and to assume among the powers of 
+		the earth, the separate and equal station to which the Laws of Nature and of Nature's God 
+		entitle them, a decent respect to the opinions of mankind requires that they should declare 
+		the causes which impel them to the separation.`;
+</code></pre>
+</div>
+	<p>
+		You may notice that there's a <strong>textfln</strong> rather than a <strong>textln</strong> in the "equivalent
+		code" blurb - passages are output as a <kbd>textf</kbd> cue as though it were in a <a href="function-textfln.html">textfln()</a> call.
+	</p>
+	<p>
+		The expression after the <kbd>...</kbd> is just that: an expression. You can even do the following:
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	... 2 + 2;
+</code></pre>
+</div>
+	<p>
+		...which would predictably output "4".
+	</p>
+	<p>
+		You can also output a string with parameterized text like <a href="function-strformat.html">StrFormat()</a> by appending
+		a comma and a list containing the elements to insert. If the parameter list is not a list, it is upgraded to a single-element list.
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	... "Hello! My name is {0}!", ["Bob"];
+</code></pre>
+</div>
+	<p>
+		Which means the output code is equivalent to:
+	</p>
+<div class="w3-container">
+<pre class="tame-example"><code data-language="tamescript">
+	textfln(StrFormat(StrTrim(RegexReplace("\\s*\\n\\s*", " ", "Hello! My name is {0}!")), ["Bob"]));
+</code></pre>
+</div>		
+	<p>
+		Used properly, this could make a lot of code with a lot of text to output easier to read.
 	</p>
 </div>
-	
-
+<div class="w3-container">
+<!--[ tamescript "Passage Example" module_passage_example examples/passage.tscript ]-->
+</div>
+		
 <div id="inheritance" class="w3-panel w3-light-gray w3-card-2">
 	<h2><a href="#inheritance"><i class="link-stub fa fa-link"></i></a> 5.10. Inheritance <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
@@ -1278,7 +1356,13 @@
 	#endif
 </code></pre>
 </div>
-	
+
 <!--[ set prev_page interpreter.html ]-->
 <!--[ set next_page language-elements.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->
+
+<script type="text/javascript">
+var _OnFormatText = function(text, accum){
+	accum.push(text);
+};
+</script>

@@ -334,7 +334,7 @@ public final class TAMEDocsGen
 		{
 			BufferedReader reader = null;
 			try {
-				reader = IOUtils.openTextFile(file);
+				reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
 				generateIndexScanForFile(file.getName(), reader, tokenToAppearances, tokenToFileAppearances, partialToTokens);
 			} catch (IOException e) {
 				out.println("Cannot open "+file.getPath()+" for indexing!");
