@@ -56,7 +56,7 @@
 </div>
 <div class="w3-container">
 	<p>
-		This function takes an input string and finds bracketed indices in it (e.g. <kbd>[3]</kbd>) for replacing each index with the
+		This function takes an input string and finds braced indices in it (e.g. <kbd>{3}</kbd>) for replacing each index with the
 		list item that corresponds with it. If the number in the square brackets is not parseable as a positive
 		integer, it is not replaced. Indices that are greater than the list size are read as <strong>FALSE</strong>.
 	</p>
@@ -65,13 +65,13 @@
 		If the second parameter is not a list, it is converted to a list with the value as its only element.
 	</p>
 	<p>
-		You can output a <kbd>[</kbd> by doubling up the bracket like so: <kbd>[[</kbd>.
+		You can output a <kbd>{</kbd> by doubling up the brace like so: <kbd>{{</kbd>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrFormat("[0] and [1]", ["Apples", "Oranges"]);    // a = "Apples and Oranges"
-	a = StrFormat("[1] and [0]", ["Oranges", "Apples"]);    // a = "Oranges and Apples"
-	a = StrFormat("This is escaped: [[0]", ["Stuff"]);      // a = "This is escaped: [0]"
-	a = StrFormat("[0], [1], [2]", [1, 2]);                 // a = "1, 2, false"
+	a = StrFormat("{0} and {1}", ["Apples", "Oranges"]);    // a = "Apples and Oranges"
+	a = StrFormat("{1} and {0}", ["Oranges", "Apples"]);    // a = "Oranges and Apples"
+	a = StrFormat("This is escaped: {{0}", ["Stuff"]);      // a = "This is escaped: {0}"
+	a = StrFormat("{0}, {1}, {2}", [1, 2]);                 // a = "1, 2, false"
 </code></pre>
 </div>
 

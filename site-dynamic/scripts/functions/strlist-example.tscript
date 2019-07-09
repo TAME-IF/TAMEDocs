@@ -15,8 +15,8 @@ world
 		
 		// StrFormat
 		local tokens = ["Apples", "and", "Oranges"];
-		textln(StrFormat("Hope you like [2] [1] [0]!", tokens));	// "Hope you like Oranges and Apples!"
-		textln(StrFormat("This formatting does not work: [two] [-1] [5]!", tokens));
+		textln(StrFormat("Hope you like {2} {1} {0}!", tokens));	// "Hope you like Oranges and Apples!"
+		textln(StrFormat("This formatting does not work: {two} {-1} {5}!", tokens));
 
 		quit;
 	}
