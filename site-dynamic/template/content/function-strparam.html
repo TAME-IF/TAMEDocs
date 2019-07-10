@@ -1,11 +1,11 @@
 <h1 class="tamedocs-function-title">
-	<span class="name">StrFormat (</span> 
+	<span class="name">StrParam (</span> 
 	<span class="param">STRING</span>, 
 	<span class="param">PARAMETERLIST</span>
 	)
 </h1>
 <div class="w3-container">
-	Joins a list of strings together into one string.
+	Inserts a set of values into a string that contains special tokens, returning a new string.
 </div>
 
 <div class="w3-panel w3-light-gray w3-card-2">
@@ -62,16 +62,16 @@
 	</p>
 	<p>
 		If the first parameter is not a string, it is <a href="function-asstring.html">interpreted as a string</a>.
-		If the second parameter is not a list, it is converted to a list with the value as its only element.
+		If the second parameter is not a list, it is converted to a list with the parameter as its only element.
 	</p>
 	<p>
 		You can output a <kbd>{</kbd> by doubling up the brace like so: <kbd>{{</kbd>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrFormat("{0} and {1}", ["Apples", "Oranges"]);    // a = "Apples and Oranges"
-	a = StrFormat("{1} and {0}", ["Oranges", "Apples"]);    // a = "Oranges and Apples"
-	a = StrFormat("This is escaped: {{0}", ["Stuff"]);      // a = "This is escaped: {0}"
-	a = StrFormat("{0}, {1}, {2}", [1, 2]);                 // a = "1, 2, false"
+	a = StrParam("{0} and {1}", ["Apples", "Oranges"]);    // a = "Apples and Oranges"
+	a = StrParam("{1} and {0}", ["Oranges", "Apples"]);    // a = "Oranges and Apples"
+	a = StrParam("This is escaped: {{0}", ["Stuff"]);      // a = "This is escaped: {0}"
+	a = StrParam("{0}, {1}, {2}", ["a", "b"]);             // a = "a, b, false"
 </code></pre>
 </div>
 

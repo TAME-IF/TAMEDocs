@@ -1029,7 +1029,7 @@
 		...which would predictably output "4".
 	</p>
 	<p>
-		You can also output a string with parameterized text like <a href="function-strformat.html">StrFormat()</a> by appending
+		You can also output a string with parameterized text like <a href="function-strparam.html">StrParam()</a> by appending
 		a comma and a list containing the elements to insert. If the parameter list is not a list, it is upgraded to a single-element list.
 	</p>
 <div class="w3-container">
@@ -1042,7 +1042,7 @@
 	</p>
 <div class="w3-container">
 <pre class="tame-example"><code data-language="tamescript">
-	textfln(StrFormat(StrTrim(RegexReplace("\\s*\\n\\s*", " ", "Hello! My name is {0}!")), ["Bob"]));
+	textfln(StrParam(StrTrim(RegexReplace("\\s*\\n\\s*", " ", "Hello! My name is {0}!")), ["Bob"]));
 </code></pre>
 </div>		
 	<p>

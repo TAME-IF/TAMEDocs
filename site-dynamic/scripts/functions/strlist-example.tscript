@@ -13,10 +13,10 @@ world
 		textln(StrJoin([[1, 2, 3], [4, 5]], " and "));		// "[1, 2, 3] and [4, 5]"
 		textln("");
 		
-		// StrFormat
+		// StrParam
 		local tokens = ["Apples", "and", "Oranges"];
-		textln(StrFormat("Hope you like {2} {1} {0}!", tokens));	// "Hope you like Oranges and Apples!"
-		textln(StrFormat("This formatting does not work: {two} {-1} {5}!", tokens));
+		textln(StrParam("Hope you like {2} {1} {0}!", tokens));	// "Hope you like Oranges and Apples!"
+		textln(StrParam("This parameterization does not work: {two} {-1} {5}!", tokens));
 
 		quit;
 	}
