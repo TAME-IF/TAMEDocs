@@ -311,6 +311,12 @@
 					<td>VALUE(LIST)</td>
 					<td>Splits <em>VALUE2</em> into multiple strings using RegEx <em>VALUE1</em> as a delimiter pattern.</td>
 				</tr>
+				<tr>
+					<td><a href="function-regexreplace.html">RegexReplace</a></td>
+					<td>VALUE1(STRING), VALUE2(STRING), VALUE3(STRING)</td>
+					<td>VALUE(STRING)</td>
+					<td>Returns a new string where the substrings in <em>VALUE3</em> that match RegEx <em>VALUE1</em> are replaced with <em>VALUE2</em>.</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
@@ -363,13 +369,13 @@
 					<td>Concatenates two lists (or two values as though they were lists) and returns a new list.</td>
 				</tr>
 				<tr>
-					<td><a href="function-listcontains.html">ListIndex</a></td>
+					<td><a href="function-listindex.html">ListIndex</a></td>
 					<td>VALUE1(LIST), VALUE2</td>
 					<td>VALUE(INTEGER)</td>
 					<td>Returns the index of a value in the list (strict compare), or -1 if not found.</td>
 				</tr>
 				<tr>
-					<td><a href="function-listindex.html">ListContains</a></td>
+					<td><a href="function-listcontains.html">ListContains</a></td>
 					<td>VALUE1(LIST), VALUE2</td>
 					<td>VALUE(BOOLEAN)</td>
 					<td>Returns <strong>TRUE</strong> if a value in the list exists (strict compare), or <strong>FALSE</strong> if not found.</td>

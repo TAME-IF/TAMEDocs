@@ -28,11 +28,11 @@ object o_thing named "thing" uses determiners "the"
 		local edible = ObjectHasTag(this, "edible");
 		local driveable = ObjectHasTag(this, "driveable");
 
-		if (edible && drivable)
-			textln("It's a drivable, edible thing.");
+		if (edible && driveable)
+			textln("It's a driveable, edible thing.");
 		else if (edible)
 			textln("It's an edible thing.");
-		else if (drivable)
+		else if (driveable)
 			textln("It's a driveable thing.");
 		else
 			textln("It's a thing.");
@@ -52,7 +52,7 @@ world
 		textln("There's a thing here.");
 		textln(
 			"You can change the characteristics of the thing by typing \"make the thing\" and a"
-			+ "mode: \"edible\", \"drivable\", \"not edible\" or \"not drivable\". Then you can "
+			+ "mode: \"edible\", \"driveable\", \"not edible\" or \"not driveable\". Then you can "
 			+ "\"eat\" or \"drive\" it."
 		);
 		textln("Typing \"make the thing inert\" will remove those characteristics.");
@@ -71,10 +71,10 @@ world
 		textln("The thing is now edible.");
 	}
 
-	onModalAction(a_make, "drivable")
+	onModalAction(a_make, "driveable")
 	{
-		AddObjectTag(o_thing, "drivable");
-		textln("The thing is now drivable.");
+		AddObjectTag(o_thing, "driveable");
+		textln("The thing is now driveable.");
 	}
 
 	onModalAction(a_make, "not edible")
@@ -83,16 +83,16 @@ world
 		textln("The thing is now not edible.");
 	}
 
-	onModalAction(a_make, "not drivable")
+	onModalAction(a_make, "not driveable")
 	{
-		RemoveObjectTag(o_thing, "drivable");
-		textln("The thing is now not drivable.");
+		RemoveObjectTag(o_thing, "driveable");
+		textln("The thing is now not driveable.");
 	}
 
 	onModalAction(a_make, "inert")
 	{
 		RemoveObjectTagFromAllIn(world, "edible");
-		RemoveObjectTagFromAllIn(world, "drivable");
+		RemoveObjectTagFromAllIn(world, "driveable");
 		textln("The thing is now inert.");
 	}
 
