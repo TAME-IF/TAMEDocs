@@ -1,0 +1,81 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">SetRoom (</span> 
+	<span class="param">PLAYER</span>, 
+	<span class="param">NEWROOM</span>
+	)
+</h1>
+<div class="w3-container">
+	Changes the current room on a specific player (such that the room is the only one on the player's room stack).
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">PLAYER</td>
+					<td class="tamedocs-parameter-type">PLAYER</td>
+					<td class="tamedocs-parameter-description">The player whose room stack will change.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">NEWROOM</td>
+					<td class="tamedocs-parameter-type">ROOM</td>
+					<td class="tamedocs-parameter-description">The room to set as the current room.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<em>Returns nothing. Cannot be used in expressions.</em>
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function <em>clears a specific player's room stack</em> and sets its current room (which becomes the 
+		topmost room) to the provided room. From the moment that this function is executed, all functions and 
+		operations that use the current room (provided that its associated player is also current) will use the 
+		one provided until another call to <strong>SetRoom()</strong> (or the other room-changing functions) changes it again.
+	</p>
+	<!--[ include fragments/room-stack.html ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Room Example" module_room_function_example functions/room-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>See Also</h3>
+</div>
+<div class="w3-container">
+	<p>
+		<a href="function-pushroom.html">PushRoom()</a> &mdash; Adds a room onto a player's room stack, preserving the previous rooms on the stack.<br/>
+		<a href="function-poproom.html">PopRoom()</a> &mdash; Removes the topmost room from a player's room stack.<br/>
+		<a href="function-swaproom.html">SwapRoom()</a> &mdash; Changes the topmost room on a player's room stack, preserving the rest of the stack.<br/>
+		<a href="function-playerisinroom.html">PlayerIsInRoom()</a> &mdash; Checks if a room is in a player's room stack.<br/>
+		<a href="function-currentroomis.html">CurrentRoomIs()</a> &mdash; Checks the topmost room on a player's room stack against another room.<br/>
+		<a href="function-nocurrentroom.html">NoCurrentRoom()</a> &mdash; Checks if a player is not in any room.<br/>
+	</p>
+</div>

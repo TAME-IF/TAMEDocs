@@ -127,6 +127,23 @@
 </code></pre>
 </div>
 
+<div id="useful-tips" class="w3-panel w3-green w3-card-2">
+	<h2><a href="#useful-tips"><i class="link-stub fa fa-link"></i></a> Useful Tips <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container" style="margin-top: 2em;">
+	<h2>Environment State</h2>
+	<p>
+		Rooms don't necessarily have to be "rooms" - a room is an abstraction of a player's current environmental state.
+		A room can represent a "current conversation" with a character in your world, or a close-up of an object that you
+		are examining more closely.
+	</p>
+	<p>
+		Since a player maintains its current room as a <em>stack</em> rather than a single value, you can easily change this 
+		state by preserving a player's previous room (<a href="function-pushroom.html">PushRoom()</a>), and jumping back to it 
+		when the "sub-state" is left (<a href="function-poproom.html">PopRoom()</a>)!
+	</p>
+</div>
+
 
 <!--[ set prev_page language-element-player.html ]-->
 <!--[ set next_page language-element-container.html ]-->

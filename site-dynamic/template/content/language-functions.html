@@ -540,16 +540,22 @@
 					<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> can be referred to as <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 				</tr>
 				<tr>
-					<td><a href="function-objecthastag.html">ObjectHasTag</a></td>
-					<td>OBJECT, VALUE(STRING)</td>
-					<td>VALUE(BOOLEAN)</td>
-					<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> has a tag called <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
-				</tr>
-				<tr>
 					<td><a href="function-addobjectname.html">AddObjectName</a></td>
 					<td>OBJECT, VALUE(STRING)</td>
 					<td><em>Nothing</em></td>
 					<td>Adds a name <em>VALUE</em> to <em>OBJECT</em>. Affected by determiners.</td>
+				</tr>
+				<tr>
+					<td><a href="function-removeobjectname.html">RemoveObjectName</a></td>
+					<td>OBJECT, VALUE(STRING)</td>
+					<td><em>Nothing</em></td>
+					<td>Removes a name <em>VALUE</em> from <em>OBJECT</em>. Affected by determiners.</td>
+				</tr>
+				<tr>
+					<td><a href="function-objecthastag.html">ObjectHasTag</a></td>
+					<td>OBJECT, VALUE(STRING)</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> has a tag called <em>VALUE</em>, <strong>FALSE</strong> if not.</td>
 				</tr>
 				<tr>
 					<td><a href="function-addobjecttag.html">AddObjectTag</a></td>
@@ -562,12 +568,6 @@
 					<td>OBJECT-CONTAINER, VALUE(STRING)</td>
 					<td><em>Nothing</em></td>
 					<td>Adds a tag called <em>VALUE</em> to all objects in <em>OBJECT-CONTAINER</em>.</td>
-				</tr>
-				<tr>
-					<td><a href="function-removeobjectname.html">RemoveObjectName</a></td>
-					<td>OBJECT, VALUE(STRING)</td>
-					<td><em>Nothing</em></td>
-					<td>Removes a name <em>VALUE</em> from <em>OBJECT</em>. Affected by determiners.</td>
 				</tr>
 				<tr>
 					<td><a href="function-removeobjecttag.html">RemoveObjectTag</a></td>
@@ -594,22 +594,16 @@
 					<td>Removes <em>OBJECT</em> from its current owner.</td>
 				</tr>
 				<tr>
-					<td><a href="function-moveobjectswithtag.html">MoveObjectsWithTag</a></td>
-					<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
-					<td><em>Nothing</em></td>
-					<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>
-				</tr>
-				<tr>
-					<td><a href="function-objectcount.html">ObjectCount</a></td>
-					<td>OBJECT-CONTAINER</td>
-					<td>VALUE(INTEGER)</td>
-					<td>Returns how many objects are in <em>OBJECT-CONTAINER</em>.</td>
-				</tr>
-				<tr>
 					<td><a href="function-hasobject.html">HasObject</a></td>
 					<td>OBJECT-CONTAINER, OBJECT</td>
 					<td>VALUE(BOOLEAN)</td>
 					<td>Returns <strong>TRUE</strong> if <em>OBJECT-CONTAINER</em> is the owner of <em>OBJECT</em>, <strong>FALSE</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-moveobjectswithtag.html">MoveObjectsWithTag</a></td>
+					<td>OBJECT-CONTAINER1, OBJECT-CONTAINER2, VALUE(STRING)</td>
+					<td><em>Nothing</em></td>
+					<td>Sets the ownership of all objects in <em>OBJECT-CONTAINER1</em> with tag <em>VALUE</em> to <em>OBJECT-CONTAINER2</em>.</td>
 				</tr>
 				<tr>
 					<td><a href="function-objecthasnoowner.html">ObjectHasNoOwner</a></td>
@@ -618,16 +612,10 @@
 					<td>Returns <strong>TRUE</strong> if <em>OBJECT</em> does not have an owner, <strong>FALSE</strong> otherwise.</td>
 				</tr>
 				<tr>
-					<td><a href="function-playerisinroom.html">PlayerIsInRoom</a></td>
-					<td>PLAYER, ROOM</td>
-					<td>VALUE(BOOLEAN)</td>
-					<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
-				</tr>
-				<tr>
-					<td><a href="function-playercanaccessobject.html">PlayerCanAccessObject</a></td>
-					<td>PLAYER, OBJECT</td>
-					<td>VALUE(BOOLEAN)</td>
-					<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> can access <em>OBJECT</em> in its current state, <strong>FALSE</strong> otherwise.</td>
+					<td><a href="function-objectcount.html">ObjectCount</a></td>
+					<td>OBJECT-CONTAINER</td>
+					<td>VALUE(INTEGER)</td>
+					<td>Returns how many objects are in <em>OBJECT-CONTAINER</em>.</td>
 				</tr>
 				<tr>
 					<td><a href="function-browse.html">Browse</a></td>
@@ -646,6 +634,18 @@
 					<td>PLAYER</td>
 					<td><em>Nothing</em></td>
 					<td>Sets the current player to <em>PLAYER</em>.</td>
+				</tr>
+				<tr>
+					<td><a href="function-currentplayeris.html">CurrentPlayerIs</a></td>
+					<td>PLAYER</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if the current player is <em>PLAYER</em>, <strong>FALSE</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-nocurrentplayer.html">NoCurrentPlayer</a></td>
+					<td><em>None</em></td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if no current player is set, <strong>FALSE</strong> otherwise.</td>
 				</tr>
 				<tr>
 					<td><a href="function-setroom.html">SetRoom</a></td>
@@ -672,16 +672,10 @@
 					<td>Swaps the current room with <em>ROOM</em> on <em>PLAYER</em>'s current room stack. The rest of the stack is unaffected.</td>
 				</tr>
 				<tr>
-					<td><a href="function-currentplayeris.html">CurrentPlayerIs</a></td>
-					<td>PLAYER</td>
+					<td><a href="function-playerisinroom.html">PlayerIsInRoom</a></td>
+					<td>PLAYER, ROOM</td>
 					<td>VALUE(BOOLEAN)</td>
-					<td>Returns <strong>TRUE</strong> if the current player is <em>PLAYER</em>, <strong>FALSE</strong> otherwise.</td>
-				</tr>
-				<tr>
-					<td><a href="function-nocurrentplayer.html">NoCurrentPlayer</a></td>
-					<td><em>None</em></td>
-					<td>VALUE(BOOLEAN)</td>
-					<td>Returns <strong>TRUE</strong> if no current player is set, <strong>FALSE</strong> otherwise.</td>
+					<td>Returns <strong>TRUE</strong> if <em>PLAYER</em>'s current room is <em>ROOM</em>, <strong>FALSE</strong> otherwise.</td>
 				</tr>
 				<tr>
 					<td><a href="function-currentroomis.html">CurrentRoomIs</a></td>
@@ -694,6 +688,18 @@
 					<td>PLAYER</td>
 					<td>VALUE(BOOLEAN)</td>
 					<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> has no current room, <strong>FALSE</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-playercanaccessobject.html">PlayerCanAccessObject</a></td>
+					<td>PLAYER, OBJECT</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if <em>PLAYER</em> can access <em>OBJECT</em> in its current state, <strong>FALSE</strong> otherwise.</td>
+				</tr>
+				<tr>
+					<td><a href="function-elementhasancestor.html">ElementHasAncestor</a></td>
+					<td>ELEMENT1, ELEMENT2</td>
+					<td>VALUE(BOOLEAN)</td>
+					<td>Returns <strong>TRUE</strong> if <em>ELEMENT1</em> inherits from <em>ELEMENT2</em> within its lineage somewhere, or <strong>FALSE</strong> otherwise.</td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,0 +1,16 @@
+	<h3>The Room Stack</h3>
+	<p>
+		The <strong>Room Stack</strong> is the mechanism by which TAME determines or maintains the <em>current room</em>
+		per <strong>player</strong>. As the name implies, this is maintained by a structure called a <em>stack</em>.
+	</p>
+	<p>
+		The author can change what rooms each player is in (including the current player) by calling the different functions
+		that manipulate this stack: <a href="function-setroom.html">SetRoom()</a>, <a href="function-pushroom.html">PushRoom()</a>, 
+		<a href="function-poproom.html">PopRoom()</a>, and <a href="function-swaproom.html">SwapRoom()</a>, each of which
+		perform different stack operations.
+	</p>
+	<p>
+		Rooms are not exclusively owned like objects - more than one player can have the same room in their stack,
+		and a room can be in a single player's room stack more than once. Just be careful if you, the author, choose
+		to allow this: you should properly convey what room the current player is currently in at all times!
+	</p>
