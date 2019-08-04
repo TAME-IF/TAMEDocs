@@ -1,0 +1,69 @@
+action modal a_go named "go" uses modes "north", "south", "west", "east";
+action transitive a_examine named "look at", "examine", "x"; 
+action general a_leave named "back", "leave"; 
+action general a_quit named "quit"; 
+
+action general a_look; // queued every action.
+
+
+player p_main
+{
+	onUnhandledAction(a_go)
+	{
+		textln("You can't go that way.");
+	}
+}
+
+room r_bedroom;
+
+room r_livingroom
+{
+	onAction(a_look)
+	{
+		textln("You are in the living room.");
+		textln("North goes to the bedroom.");
+	}
+
+	onModalAction(a_go, "north")
+	{
+		SetRoom(player, r_bedroom);
+	}
+}
+
+extend room r_bedroom
+{
+	onAction(a_look)
+	{
+		textln("You are in the bedroom.");
+		textln("South goes to the living room.");
+	}
+
+	onModalAction(a_go, "south")
+	{
+		SetRoom(player, r_livingroom);
+	}
+}
+
+world
+{
+	init()
+	{
+		SetRoom(p_main, r_bedroom);
+		SetPlayer(p_main); // from this moment on, this is the "player" keyword.
+	}
+
+	start()
+	{
+		... `Type "quit" to quit, "go" and a compass direction to move between rooms.`;
+		... `Examine things with "look at" or "examine".`;
+		... "";
+		queue a_look;
+	}
+
+	afterSuccessfulCommand()
+	{
+		queue a_look;
+	}
+
+	// TODO: Finish me.
+}
