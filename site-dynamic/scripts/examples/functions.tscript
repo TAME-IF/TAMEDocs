@@ -16,16 +16,16 @@ world
 	start()
 	{
 		local a = 5;
-		textln("a is " + a);
+		Textln("a is " + a);
 		a = double(a);
-		textln("a is " + a);
+		Textln("a is " + a);
 		
 		// function names are case-insensitive
 		a = DoUbLe(a);
-		textln("a is " + a);
+		Textln("a is " + a);
 		
 		a = quadruple(a);
-		textln("a is " + a);
+		Textln("a is " + a);
 
 		quit;
 	}

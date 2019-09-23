@@ -6,20 +6,20 @@ world
 	{
 		local i;
 		local n = irandom(10);
-		textln("Loop will stop at " + n);
+		Textln("Loop will stop at " + n);
 		for (i = 0; i < 10; i = i + 1)
 		{
 			if (i === n)
 				break;
-			textln(i);
+			Textln(i);
 		}
 		
-		textln("i is " + i);
+		Textln("i is " + i);
 	}
 
 	start()
 	{
-		textln("Type \"test\" to run the break example.");
+		Textln("Type \"test\" to run the break example.");
 	}
 	
 }

@@ -9,9 +9,9 @@ world
 {
 	start()
 	{
-		textln("This module's name is: "+header("title"));
-		textln("It was made by: "+header("author"));
-		textln("The author's E-mail is: "+header("email"));
+		Textln("This module's name is: "+header("title"));
+		Textln("It was made by: "+header("author"));
+		Textln("The author's E-mail is: "+header("email"));
 		quit;
 	}
 }

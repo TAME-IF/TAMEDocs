@@ -91,6 +91,7 @@
 	<!--[ include fragments/techjunk-formatting.html ]-->
 	<!--[ include fragments/techjunk-text.html ]-->
 </div>
+
 <script type="text/javascript">
 /* See js/tamedocs-tame.js */
 var _OnStartFormatTag = function(tagName, accum){
@@ -104,8 +105,5 @@ var _OnEndFormatTag = function(tagName, accum){
 	tagName = tagName.toLowerCase();
 	if (tagName === 'red' || tagName === 'green')
 		accum.push('</span>');
-};
-var _OnFormatText = function(text, accum){
-	accum.push(text);
 };
 </script>

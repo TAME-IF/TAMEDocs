@@ -3,8 +3,8 @@ world
 	start()
 	{
 		local time = Time();
-		textln("The current UNIX time in milliseconds is " + time + ".");
-		textln("Which is " + TimeFormat(time, "yyyy-MM-dd KK:mm:ss AA', a 'WWWW"));
+		Textln("The current UNIX time in milliseconds is " + time + ".");
+		Textln("Which is " + TimeFormat(time, "yyyy-MM-dd KK:mm:ss AA', a 'WWWW"));
 		quit;
 	}
 }

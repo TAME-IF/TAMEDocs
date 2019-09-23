@@ -2,6 +2,6 @@ world
 {
 	start()
 	{
-		textln("Hello, world!");
+		Textln("Hello, world!");
 	}
 }

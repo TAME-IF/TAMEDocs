@@ -2,21 +2,21 @@ world
 {
 	start()
 	{
-		textln("Length(\"\") = "+Length(""));
-		textln("Length(\"apple\") = "+Length("apple"));
-		textln("Length(\"123456\") = "+Length("123456"));
-		textln("Length(\"            \") = "+Length("          "));
-		textln("Length(true) = "+Length(true));
-		textln("Length(false) = "+Length(false));
-		textln("Length(0) = "+Length(0));
+		Textln("Length(\"\") = "+Length(""));
+		Textln("Length(\"apple\") = "+Length("apple"));
+		Textln("Length(\"123456\") = "+Length("123456"));
+		Textln("Length(\"            \") = "+Length("          "));
+		Textln("Length(true) = "+Length(true));
+		Textln("Length(false) = "+Length(false));
+		Textln("Length(0) = "+Length(0));
 		
 		local a;
 		a = [1, 2, 3, 4, 5];
-		textln("Length("+a+") = "+Length(a));
+		Textln("Length("+a+") = "+Length(a));
 		a = [[1, 2, 3], [4, 5, 6, 7, 8]];
-		textln("Length("+a+") = "+Length(a));
-		textln("Length(a[0]) = "+Length(a[0]));
-		textln("Length(a[1]) = "+Length(a[1]));
+		Textln("Length("+a+") = "+Length(a));
+		Textln("Length(a[0]) = "+Length(a[0]));
+		Textln("Length(a[1]) = "+Length(a[1]));
 		quit;
 	}
 }
