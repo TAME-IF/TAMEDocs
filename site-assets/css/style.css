@@ -193,6 +193,8 @@ IMG.min-nav-logo {
 }
 
 .tamedocs-sidebar-hilite {
+	position: relative;
+	left: -2px;
 	color: #fff !important;
 	background-color: #888 !important;
 	padding: 2px;
