@@ -13,8 +13,8 @@ room r_center
 {
 	onAction(a_look)
 	{
-		textln("This looks like the center room.");
-		textln("I can go west, east, north, or south.");
+		Textln("This looks like the center room.");
+		Textln("I can go west, east, north, or south.");
 	}
 	
 	onModalAction(a_go, "west")
@@ -43,8 +43,8 @@ extend room r_west
 {
 	onAction(a_look)
 	{
-		textln("This looks like the west room.");
-		textln("I can go east.");
+		Textln("This looks like the west room.");
+		Textln("I can go east.");
 	}
 	
 	onModalAction(a_go, "east")
@@ -57,8 +57,8 @@ extend room r_east
 {
 	onAction(a_look)
 	{
-		textln("This looks like the east room.");
-		textln("I can go west.");
+		Textln("This looks like the east room.");
+		Textln("I can go west.");
 	}
 	
 	onModalAction(a_go, "west")
@@ -71,8 +71,8 @@ extend room r_north
 {
 	onAction(a_look)
 	{
-		textln("This looks like the north room.");
-		textln("I can go south.");
+		Textln("This looks like the north room.");
+		Textln("I can go south.");
 	}
 	
 	onModalAction(a_go, "south")
@@ -85,8 +85,8 @@ extend room r_south
 {
 	onAction(a_look)
 	{
-		textln("This looks like the south room.");
-		textln("I can go north.");
+		Textln("This looks like the south room.");
+		Textln("I can go north.");
 	}
 	
 	onModalAction(a_go, "north")
@@ -99,13 +99,13 @@ player p_main
 {
 	onUnhandledAction(a_go)
 	{
-		textln("Can't go that way.");
+		Textln("Can't go that way.");
 	}
 	
 	onIncompleteCommand(a_go)
 	{
-		textln("I need to GO a compass direction.");
-		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+		Textln("I need to GO a compass direction.");
+		Textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
 	}
 }
 
@@ -120,8 +120,8 @@ world
 	{
 		setRoom(p_main, r_center);
 		setPlayer(p_main);
-		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
-		textln("Type \"quit\".");
+		Textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+		Textln("Type \"quit\".");
 		queue a_look;
 	}
 	

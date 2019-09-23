@@ -5,7 +5,7 @@ object archetype o_object
 {
 	onAction(a_identify)
 	{
-		textln(identity(this));
+		Textln(identity(this));
 	}
 }
 
@@ -13,7 +13,7 @@ object o_ballred : o_object named "red ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A red ball is here.");
+		Textln("A red ball is here.");
 	}
 }
 
@@ -21,7 +21,7 @@ object o_ballblue : o_object named "blue ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A blue ball is here.");
+		Textln("A blue ball is here.");
 	}
 }
 
@@ -29,7 +29,7 @@ object o_ballyellow : o_object named "yellow ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A yellow ball is here.");
+		Textln("A yellow ball is here.");
 	}
 }
 
@@ -49,9 +49,9 @@ world
 	
 	start()
 	{
-		textln("Type \"identify\" and a ball type, and you'll get something back like:");
-		textln(identity(o_ballred));
-		textln("");
-		browse(this);
+		Textln("Type \"identify\" and a ball type, and you'll get something back like:");
+		Textln(identity(o_ballred));
+		Textln("");
+		Browse(this);
 	}
 }

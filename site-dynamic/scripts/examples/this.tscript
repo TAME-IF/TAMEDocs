@@ -6,11 +6,11 @@ object archetype o_ball
 	onAction(a_take)
 	{
 		if (hasObject(player, this))
-			textln("The current player already has this.");
+			Textln("The current player already has this.");
 		else
 		{
 			giveObject(player, this);
-			textln("Taken.");
+			Textln("Taken.");
 		}
 	}
 	
@@ -20,12 +20,12 @@ object o_red_ball : o_ball named "red ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A red ball.");
+		Textln("A red ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		textln("A red ball.");
+		Textln("A red ball.");
 	}
 }
 
@@ -33,12 +33,12 @@ object o_blue_ball : o_ball named "blue ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A blue ball.");
+		Textln("A blue ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		textln("A blue ball.");
+		Textln("A blue ball.");
 	}
 }
 
@@ -46,12 +46,12 @@ object o_green_ball : o_ball named "green ball", "ball"
 {
 	onWorldBrowse()
 	{
-		textln("A green ball.");
+		Textln("A green ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		textln("A green ball.");
+		Textln("A green ball.");
 	}
 }
 
@@ -71,17 +71,17 @@ world
 
 	function browseAll()
 	{
-		textln("The current player has:");
+		Textln("The current player has:");
 		if (objectCount(player) > 0)
-			browse(player);
+			Browse(player);
 		else
-			textln("NOTHING");
+			Textln("NOTHING");
 			
-		textln("The world has:");
+		Textln("The world has:");
 		if (objectCount(world) > 0)
-			browse(world);
+			Browse(world);
 		else
-			textln("NOTHING");
+			Textln("NOTHING");
 	}
 
 	onAction(a_quit)
@@ -91,8 +91,8 @@ world
 
 	start()
 	{
-		textln("Use \"take\" to take items.");
-		textln("Type \"quit\" to quit.");
+		Textln("Use \"take\" to take items.");
+		Textln("Type \"quit\" to quit.");
 		browseAll();
 	}
 	

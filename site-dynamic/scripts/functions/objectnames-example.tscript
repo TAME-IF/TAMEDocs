@@ -6,7 +6,7 @@ world
 	{
 		local i;
 		for (i = 0; i < Length(list); i = i + 1)
-			textln("Object has name \""+list[i]+"\": " + ObjectHasName(o_ball, list[i]));
+			Textln("Object has name \""+list[i]+"\": " + ObjectHasName(o_ball, list[i]));
 	}
 
 	start()
@@ -19,11 +19,11 @@ world
 		];
 		nameTest(names);
 
-		textln("Adding \"red ball\"...");
+		Textln("Adding \"red ball\"...");
 		AddObjectName(o_ball, "red ball");
 		nameTest(names);
 		
-		textln("Removing \"ball\"...");
+		Textln("Removing \"ball\"...");
 		RemoveObjectName(o_ball, "ball");
 		nameTest(names);
 		quit;

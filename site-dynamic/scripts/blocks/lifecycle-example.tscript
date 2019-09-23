@@ -7,7 +7,7 @@ object o_inf_ball named "infinity ball", "ball" uses determiners "the"
 	
 	onWorldBrowse()
 	{
-		textln("There is an infinity ball here.");
+		Textln("There is an infinity ball here.");
 	}
 	
 }
@@ -16,12 +16,12 @@ object o_solid_ball named "solid ball", "ball" uses determiners "the"
 {
 	onAction (a_examine)
 	{
-		textln("Looks like a ball.");
+		Textln("Looks like a ball.");
 	}
 
 	onWorldBrowse()
 	{
-		textln("There is a solid ball here.");
+		Textln("There is a solid ball here.");
 	}
 	
 }
@@ -36,15 +36,15 @@ world
 	
 	function splash()
 	{
-		textln("Examine things with \"examine\".");
-		textln("Type \"quit\" to quit.");
-		browse(world);
+		Textln("Examine things with \"examine\".");
+		Textln("Type \"quit\" to quit.");
+		Browse(world);
 	}
 	
 	start()
 	{
 		splash();
-		textln("Try to hit all of the error conditions with your input!");
+		Textln("Try to hit all of the error conditions with your input!");
 	}
 
 	onAction(a_quit)
@@ -54,32 +54,32 @@ world
 	
 	onUnhandledAction(a_examine)
 	{
-		textln("I can't examine that.");
+		Textln("I can't examine that.");
 	}
 	
 	onMalformedCommand(a_examine)
 	{
-		textln("I don't understand what you want to examine.");
+		Textln("I don't understand what you want to examine.");
 	}
 	
 	onIncompleteCommand(a_examine)
 	{
-		textln("What should I examine?");
+		Textln("What should I examine?");
 	}
 	
 	onAmbiguousCommand(a_examine)
 	{
-		textln("I need to be more specific.");
+		Textln("I need to be more specific.");
 	}
 	
 	afterSuccessfulCommand()
 	{
-		textln("Command successful.");
+		Textln("Command successful.");
 	}
 	
 	afterFailedCommand()
 	{
-		textln("Command failed.");
+		Textln("Command failed.");
 	}
 	
 	afterEveryCommand()

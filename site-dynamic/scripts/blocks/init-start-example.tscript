@@ -2,7 +2,7 @@ object o_thing named "thing"
 {
 	init()
 	{
-		textln("Init thing.");
+		Textln("Init thing.");
 	}	
 }
 
@@ -10,7 +10,7 @@ object o_ball named "ball"
 {
 	init()
 	{
-		textln("Init ball.");
+		Textln("Init ball.");
 	}	
 }
 
@@ -18,7 +18,7 @@ object archetype o_key
 {
 	init()
 	{
-		textln("Init " + identity(this));
+		Textln("Init " + identity(this));
 	}	
 }
 
@@ -29,12 +29,12 @@ world
 {
 	init()
 	{
-		textln("Init world.");
+		Textln("Init world.");
 	}
 	
 	start()
 	{
-		textln("All init blocks called.");
+		Textln("All init blocks called.");
 		quit;
 	}
 }

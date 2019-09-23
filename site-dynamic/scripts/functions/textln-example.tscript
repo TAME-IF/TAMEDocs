@@ -2,16 +2,16 @@ world
 {
 	start()
 	{
-		textln("apple");
-		textln("orange");
-		textln("pear");
-		textln("grape");
+		Textln("apple");
+		Textln("orange");
+		Textln("pear");
+		Textln("grape");
 		
 		// not just text
-		textln(5);
-		textln(3.0);
-		textln(Infinity);
-		textln(8 + 3 * 15);
+		Textln(5);
+		Textln(3.0);
+		Textln(Infinity);
+		Textln(8 + 3 * 15);
 		
 		quit;
 	}

@@ -2,19 +2,19 @@ world
 {
 	start()
 	{
-		textln("This will count up from 0 to 9, waiting a little between numbers.");
+		Textln("This will count up from 0 to 9, waiting a little between numbers.");
 		pause();
 	
 		local x = 0;
 		while (x < 10)
 		{
-			text(x);
+			Text(x);
 			wait(250);
 			x = x + 1;
 		}
 		// Stick a newline at the end.
-		text("\n");
-		textln("Done!");
+		Text("\n");
+		Textln("Done!");
 		quit;
 	}
 }

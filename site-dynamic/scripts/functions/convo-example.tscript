@@ -1,0 +1,199 @@
+// Actions
+action modal a_go named "go" uses modes "north", "south", "west", "east";
+action transitive a_examine named "look at", "examine", "x"; 
+action transitive a_talkto named "talk to"; 
+action general a_quit named "quit"; 
+
+// Conversation Actions
+action transitive a_talkabout named "talk about";
+action general a_leave named "back", "leave"; 
+
+// "Hidden" Actions
+action general a_look; // queued every action.
+action general a_roomcheck; // queued every action.
+
+// ================== Topics (as objects) =======================
+
+object archetype o_topic;
+object ot_sports : o_topic named "sports";
+object ot_music : o_topic named "music";
+object ot_movies : o_topic named "movies";
+object ot_dogs : o_topic named "dogs";
+
+// ===================== All about Bob ==========================
+
+room convo_bob
+{
+	onAction(a_look) {} // Do nothing on "look".
+
+	// If "in" the conversation, this block will be hit instead of the player fallback.
+	onAction(a_leave)
+	{
+		Textln("You cease talking to Bob.");
+		PopRoom(player); // Go back to where you were.
+	}
+
+	onActionWith(a_talkabout, ot_sports)
+	{
+		Textln("Bob says, \"Oh yeah! I love sports!\"");
+	}
+
+	onActionWith(a_talkabout, ot_movies)
+	{
+		Textln("Bob says, \"Heck yeah! I love movies!\"");
+	}
+
+	onActionWith(a_talkabout, ot_dogs)
+	{
+		Textln("Bob says, \"Oh man, I love dogs! They're adorable!\"");
+	}
+
+	// Omitting "music"
+
+	onActionWithAncestor(a_talkabout, o_topic)
+	{
+		Textln("Bob says, \"I dunno much about that.\"");
+	}
+
+	onActionWithOther(a_talkabout)
+	{
+		Textln("That's not a topic of conversation.");
+	}
+}
+
+object o_bob named "Bob"
+{
+	onAction(a_examine)
+	{
+		Textln("That's Bob. He likes to talk about things (\"TALK TO\" him).");
+	}
+
+	onAction(a_talkto)
+	{
+		Textln("You are now talking to Bob. (TALK ABOUT sports, movies, music, or dogs. You can LEAVE the conversation, too)");
+		PushRoom(player, convo_bob); // Keep current room for "leave".
+	}
+
+	onRoomBrowse()
+	{
+		Textln("Bob is here.");
+	}
+}
+
+// ======================== Actual Rooms ==========================
+
+room r_bedroom; // Prototyped due to early use in r_livingroom
+
+room r_livingroom
+{
+	init()
+	{
+		GiveObject(this, o_bob);
+	}
+
+	onAction(a_look)
+	{
+		Textln("You are in the living room.");
+		Textln("North goes to the bedroom.");
+		Browse(this);
+	}
+
+	onModalAction(a_go, "north")
+	{
+		SetRoom(player, r_bedroom);
+	}
+}
+
+extend room r_bedroom
+{
+	onAction(a_look)
+	{
+		Textln("You are in the bedroom.");
+		Textln("South goes to the living room.");
+		Browse(this);
+	}
+
+	onModalAction(a_go, "south")
+	{
+		SetRoom(player, r_livingroom);
+	}
+}
+
+player p_main
+{
+	init()
+	{
+		// add topics (so that they are always accessible to the player).
+		GiveObject(this, ot_sports);
+		GiveObject(this, ot_movies);
+		GiveObject(this, ot_music);
+		GiveObject(this, ot_dogs);
+	}
+
+	onAction(a_roomcheck)
+	{
+		if (!CurrentRoomIs(this, r_livingroom) && PlayerIsInRoom(this, r_livingroom))
+			Textln("(NOTE: You are still \"in\" the living room, but can't access things in it - \"TALK TO BOB\" will not work)");
+	}
+
+	onUnhandledAction(a_go)
+	{
+		Textln("You can't go that way.");
+	}
+
+	onIncompleteCommand(a_talkto)
+	{
+		Textln("TALK TO what?");
+	}
+
+	onUnhandledAction(a_talkto)
+	{
+		Textln("I can't TALK TO that.");
+	}
+
+	onIncompleteCommand(a_talkabout)
+	{
+		Textln("TALK ABOUT what?");
+	}
+
+	onUnhandledAction(a_talkabout)
+	{
+		Textln("You must be conversing with somebody to TALK ABOUT things.");
+	}
+
+	onAction(a_leave)
+	{
+		Textln("You're not in a conversation.");
+	}
+
+}
+
+world
+{
+	init()
+	{
+		SetRoom(p_main, r_bedroom);
+		SetPlayer(p_main); // from this moment on, this is the "player" keyword.
+	}
+
+	start()
+	{
+		Textln("Type \"quit\" to quit, \"go\" and a compass direction to move between rooms.");
+		Textln("Examine things with \"look at\" or \"examine\".");
+		Textln("");
+		queue a_look;
+		queue a_roomcheck;
+	}
+
+	onAction(a_quit)
+	{
+		quit;
+	}
+
+	afterSuccessfulCommand()
+	{
+		queue a_look;
+		queue a_roomcheck;
+	}
+
+}

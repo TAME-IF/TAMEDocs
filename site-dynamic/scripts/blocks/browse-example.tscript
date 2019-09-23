@@ -13,7 +13,7 @@ room archetype r_colored_room
 
 	onAction(a_lookaround)
 	{
-		textln("This room has a "+getColorType()+" color.");
+		Textln("This room has a "+getColorType()+" color.");
 	}
 }
 
@@ -45,7 +45,7 @@ room r_weird_room
 {
 	onAction(a_lookaround)
 	{
-		textln("You cannot grasp the form of the room.");
+		Textln("You cannot grasp the form of the room.");
 	}
 }
 
@@ -80,54 +80,54 @@ extend object o_ball
 	onAction(a_drop)
 	{
 		if (!hasObject(player, o_ball))
-			textln("I don't have the ball.");
+			Textln("I don't have the ball.");
 		else
 		{
 			giveObject(room, o_ball);
-			textln("I dropped the ball.");
+			Textln("I dropped the ball.");
 		}
 	}
 	
 	onAction(a_take)
 	{
 		if (hasObject(player, this))
-			textln("I already have this.");
+			Textln("I already have this.");
 		else
 		{
 			giveObject(player, this);
-			textln("Taken.");
+			Textln("Taken.");
 		}
 	}
 
 	onElementBrowse(r_red_room)
 	{
-		textln("A ball is here on the ground. It looks red.");
+		Textln("A ball is here on the ground. It looks red.");
 	}
 
 	onElementBrowse(r_yellow_room)
 	{
-		textln("A ball is here on the ground. It looks yellow.");
+		Textln("A ball is here on the ground. It looks yellow.");
 	}
 	
 	// archetype room.
 	onElementBrowse(r_colored_room)
 	{
-		textln("A ball is here on the ground. It is a non-specific color.");
+		Textln("A ball is here on the ground. It is a non-specific color.");
 	}
 	
 	onRoomBrowse()
 	{
-		textln("A ball is here.");
+		Textln("A ball is here.");
 	}
 	
 	onPlayerBrowse()
 	{
-		textln("I have a ball.");
+		Textln("I have a ball.");
 	}
 	
 	onWorldBrowse()
 	{
-		textln("A ball is omnipresent.");
+		Textln("A ball is omnipresent.");
 	}
 	
 }
@@ -143,16 +143,16 @@ world
 
 	function doTurn()
 	{
-		browse(room);
-		browse(player);
-		browse(world);
+		Browse(room);
+		Browse(player);
+		Browse(world);
 		queue a_lookaround;
 	}
 	
 	start()
 	{
-		textln("Move between rooms with \"go to\" and the name of a room (\"red\", \"yellow\", \"weird\", \"white\")");
-		textln("Pick up things with \"take\" or \"pick up\".");
+		Textln("Move between rooms with \"go to\" and the name of a room (\"red\", \"yellow\", \"weird\", \"white\")");
+		Textln("Pick up things with \"take\" or \"pick up\".");
 		doTurn();
 	}
 	

@@ -22,7 +22,7 @@ world
 
 	onMalformedCommand(a_switch)
 	{
-		textln("Not a valid language choice.");
+		Textln("Not a valid language choice.");
 	}
 
 	onModalAction(a_switch, "english")
@@ -71,19 +71,19 @@ world
 			else if (x == 1)
 				queue a_say, "Queso.";
 			else if (x == 2)
-				queue a_say, "¡Adiós!";
+				queue a_say, "ï¿½Adiï¿½s!";
 		}
 	}
 
 	onAction(a_say)
 	{
-		textln("You said, \""+stuff+"\"");
+		Textln("You said, \""+stuff+"\"");
 	}
 
 	start()
 	{
-		textln("Type \"say something\", or type \"switch language to\" and \"english\", \"french\", or \"spanish\".");
-		textln("Type \"quit\" to quit.");
+		Textln("Type \"say something\", or type \"switch language to\" and \"english\", \"french\", or \"spanish\".");
+		Textln("Type \"quit\" to quit.");
 	}
 	
 }

@@ -18,50 +18,50 @@ world
 	
 	onAction(a_quit)
 	{
-		textln("Quitting. Note that the lifecycle blocks do not get called.");
+		Textln("Quitting. Note that the lifecycle blocks do not get called.");
 		quit;
 	}
 
 	onAction(a_test)
 	{
-		textln("Called a_test.");
-		textln("Enqueueing a_incr.");
+		Textln("Called a_test.");
+		Textln("Enqueueing a_incr.");
 		queue a_incr;
 	}
 
 	onAction(a_wait)
 	{
-		textln("Waiting.");
+		Textln("Waiting.");
 	}
 
 	onAction(a_incr)
 	{
-		textln("Called a_incr.");
+		Textln("Called a_incr.");
 		count = count + 1;
-		textln("Counter is now " + count + ".");
+		Textln("Counter is now " + count + ".");
 	}
 
 	onAction(a_printer)
 	{
-		textln("Called a_printer.");
+		Textln("Called a_printer.");
 	}
 
 	start()
 	{
-		textln("Type \"test\" to test incrementer.");
-		textln("Type \"wait\" to do nothing.");
-		textln("Type \"quit\" to quit.");
+		Textln("Type \"test\" to test incrementer.");
+		Textln("Type \"wait\" to do nothing.");
+		Textln("Type \"quit\" to quit.");
 	}
 	
 	afterSuccessfulCommand()
 	{
-		textln("First enqueued actions done. Handling after request.");
-		textln("Enqueuing a_printer " + count + " time(s).");
+		Textln("First enqueued actions done. Handling after request.");
+		Textln("Enqueuing a_printer " + count + " time(s).");
 		local x = 0;
 		while (x < count)
 		{
 			queue a_printer;
-			textln((x+1) + " queued!");
+			Textln((x+1) + " queued!");
 			x = x + 1;
 		}
 	}

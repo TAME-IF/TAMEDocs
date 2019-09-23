@@ -13,7 +13,7 @@ room r_northroom
 	
 	onModalAction(a_go, "north")
 	{
-		textln("Cannot go north.");
+		Textln("Cannot go north.");
 	}
 }
 
@@ -21,7 +21,7 @@ extend room r_southroom
 {
 	onModalAction(a_go, "south")
 	{
-		textln("Cannot go south.");
+		Textln("Cannot go south.");
 	}
 	
 	onModalAction(a_go, "north")
@@ -49,13 +49,13 @@ world
 
 	start()
 	{
-		textln("Type \"go north\" or \"go south\".");
-		textln("Type \"quit\" to quit.");
+		Textln("Type \"go north\" or \"go south\".");
+		Textln("Type \"quit\" to quit.");
 	}
 	
 	afterSuccessfulCommand()
 	{
 		// "room" is current room.
-		textln("Current room is " + identity(room));
+		Textln("Current room is " + identity(room));
 	}
 }

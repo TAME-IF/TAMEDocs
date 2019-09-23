@@ -21,20 +21,20 @@ object o_orb named "orb"
 	onAction(a_examine)
 	{
 		if (isCorrectRoom())
-			textln("The orb is starting to glow!");
+			Textln("The orb is starting to glow!");
 		else
-			textln("The orb is doing nothing.");
+			Textln("The orb is doing nothing.");
 	}
 
 	onAction(a_use)
 	{
 		if (isCorrectRoom())
 		{
-			textln("You teleport out of the adventure!");
+			Textln("You teleport out of the adventure!");
 			quit;
 		}
 		else
-			textln("Nothing happens. Must not be the correct room.");
+			Textln("Nothing happens. Must not be the correct room.");
 	}
 }
 
@@ -53,7 +53,7 @@ room r_center
 
 	onAction(a_look)
 	{
-		textln("Looks like I'm in the center room.");
+		Textln("Looks like I'm in the center room.");
 	}
 
 	onModalAction(a_move, "north")
@@ -87,7 +87,7 @@ extend room r_south
 
 	onAction(a_look)
 	{
-		textln("Looks like I'm in the south room.");
+		Textln("Looks like I'm in the south room.");
 	}
 
 	onModalAction(a_move, "north")
@@ -105,7 +105,7 @@ extend room r_north
 
 	onAction(a_look)
 	{
-		textln("Looks like I'm in the north room.");
+		Textln("Looks like I'm in the north room.");
 	}
 
 	onModalAction(a_move, "south")
@@ -123,7 +123,7 @@ extend room r_east
 
 	onAction(a_look)
 	{
-		textln("Looks like I'm in the east room.");
+		Textln("Looks like I'm in the east room.");
 	}
 
 	onModalAction(a_move, "west")
@@ -141,7 +141,7 @@ extend room r_west
 
 	onAction(a_look)
 	{
-		textln("Looks like I'm in the west room.");
+		Textln("Looks like I'm in the west room.");
 	}
 
 	onModalAction(a_move, "east")
@@ -155,27 +155,27 @@ player p_guy
 {
 	onUnhandledAction()
 	{
-		textln("Can't do that.");
+		Textln("Can't do that.");
 	}
 
 	onMalformedCommand(a_move)
 	{
-		textln("That is not a valid direction to travel! (north, south, east, west)");
+		Textln("That is not a valid direction to travel! (north, south, east, west)");
 	}
 
 	onMalformedCommand()
 	{
-		textln("Can't do that.");
+		Textln("Can't do that.");
 	}
 	
 	onIncompleteCommand(a_move)
 	{
-		textln("Need a direction to go.");
+		Textln("Need a direction to go.");
 	}
 	
 	onIncompleteCommand()
 	{
-		textln("You should probably complete that thought.");
+		Textln("You should probably complete that thought.");
 	}
 
 }
@@ -184,7 +184,7 @@ world
 {
 	onAction(a_quit)
 	{
-		textln("Quitting.");
+		Textln("Quitting.");
 		quit;
 	}
 
@@ -199,11 +199,11 @@ world
 		queue a_look;
 		queue a_examine, o_orb;
 
-		textln("The ORB that you are carrying reacts to a certain room.");
-		textln("Using the ORB in this state will help you escape.");
-		textln("");
-		textln("Type \"move\" or \"go\" and a compass direction.");
-		textln("Type \"quit\" to quit.");
+		Textln("The ORB that you are carrying reacts to a certain room.");
+		Textln("Using the ORB in this state will help you escape.");
+		Textln("");
+		Textln("Type \"move\" or \"go\" and a compass direction.");
+		Textln("Type \"quit\" to quit.");
 	}
 
 	afterSuccessfulCommand()

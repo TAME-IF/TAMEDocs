@@ -3,45 +3,45 @@ world
 	start()
 	{
 		// Concatenation
-		textln("to" + "gether");                                // "together" 
-		textln(StrConcat("to", "gether"));                      // "together" 
-		textln(StrConcat(StrConcat("to", "gether"), "ness"));	// "togetherness"
-		textln(4 + 5);											// 9
-		textln(StrConcat(4, 5));								// "45" (both values are converted to strings first)
-		textln("");
+		Textln("to" + "gether");                                // "together" 
+		Textln(StrConcat("to", "gether"));                      // "together" 
+		Textln(StrConcat(StrConcat("to", "gether"), "ness"));	// "togetherness"
+		Textln(4 + 5);											// 9
+		Textln(StrConcat(4, 5));								// "45" (both values are converted to strings first)
+		Textln("");
 
 		// Substring
-		textln(Substring("applejack", 0, 5));		// "apple" 
-		textln(Substring("applejack", 5, 9));		// "jack" 
-		textln(Substring("applejack", 9, 5));		// "" 
-		textln(Substring("applejack", -3, 100));	// "applejack" = Substring("applejack", 0, 9)
-		textln(Substring(123, 0, 1));				// "1" (first value is converted to a string first)
-		textln("");
+		Textln(Substring("applejack", 0, 5));		// "apple" 
+		Textln(Substring("applejack", 5, 9));		// "jack" 
+		Textln(Substring("applejack", 9, 5));		// "" 
+		Textln(Substring("applejack", -3, 100));	// "applejack" = Substring("applejack", 0, 9)
+		Textln(Substring(123, 0, 1));				// "1" (first value is converted to a string first)
+		Textln("");
 
 		// Lower-case convert.
-		textln(StrLower("Apples and Oranges"));		// "apples and oranges"
-		textln(StrLower("HELLO!!!"));				// "hello!!!"
-		textln(StrLower("123456789"));				// "123456789"
-		textln("");
+		Textln(StrLower("Apples and Oranges"));		// "apples and oranges"
+		Textln(StrLower("HELLO!!!"));				// "hello!!!"
+		Textln(StrLower("123456789"));				// "123456789"
+		Textln("");
 		
 		// Upper-case convert.
-		textln(StrUpper("Apples and Oranges"));		// "APPLES AND ORANGES"
-		textln(StrUpper("hey."));					// "HEY."
-		textln(StrUpper("123456789"));				// "123456789"
-		textln("");
+		Textln(StrUpper("Apples and Oranges"));		// "APPLES AND ORANGES"
+		Textln(StrUpper("hey."));					// "HEY."
+		Textln(StrUpper("123456789"));				// "123456789"
+		Textln("");
 
 		// Get single character.
-		textln(StrChar("Apples and Oranges", 0));	// "A"
-		textln(StrChar("This is a string.", 5));	// "i"
-		textln(StrChar(12345, 2));					// "3" (converted to string first)
-		textln(StrChar("apple", -1));				// "" (out of range)
-		textln("");
+		Textln(StrChar("Apples and Oranges", 0));	// "A"
+		Textln(StrChar("This is a string.", 5));	// "i"
+		Textln(StrChar(12345, 2));					// "3" (converted to string first)
+		Textln(StrChar("apple", -1));				// "" (out of range)
+		Textln("");
 
 		// String trim.
-		textln(StrTrim("      apple"));				// "apple"
-		textln(StrTrim("apple      "));				// "apple"
-		textln(StrTrim("   apple   "));				// "apple"
-		textln(StrTrim("\tapple\t"));				// "apple"
+		Textln(StrTrim("      apple"));				// "apple"
+		Textln(StrTrim("apple      "));				// "apple"
+		Textln(StrTrim("   apple   "));				// "apple"
+		Textln(StrTrim("\tapple\t"));				// "apple"
 						 
 		quit;
 	}

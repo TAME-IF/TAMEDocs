@@ -1,46 +1,116 @@
 action modal a_go named "go" uses modes "north", "south", "west", "east";
 action transitive a_examine named "look at", "examine", "x"; 
-action general a_leave named "back", "leave"; 
 action general a_quit named "quit"; 
 
 action general a_look; // queued every action.
+action general a_roomcheck; // queued every action.
 
+room r_northroom;
+room r_southroom;
+room r_westroom;
+room r_eastroom;
 
-player p_main
-{
-	onUnhandledAction(a_go)
-	{
-		textln("You can't go that way.");
-	}
-}
-
-room r_bedroom;
-
-room r_livingroom
+room r_centerroom
 {
 	onAction(a_look)
 	{
-		textln("You are in the living room.");
-		textln("North goes to the bedroom.");
+		Textln("You are in the center room.");
+		Textln("Ways out are north, south, east, or west.");
 	}
 
 	onModalAction(a_go, "north")
 	{
-		SetRoom(player, r_bedroom);
-	}
-}
-
-extend room r_bedroom
-{
-	onAction(a_look)
-	{
-		textln("You are in the bedroom.");
-		textln("South goes to the living room.");
+		SetRoom(player, r_northroom);
 	}
 
 	onModalAction(a_go, "south")
 	{
-		SetRoom(player, r_livingroom);
+		SetRoom(player, r_southroom);
+	}
+
+	onModalAction(a_go, "west")
+	{
+		SetRoom(player, r_westroom);
+	}
+
+	onModalAction(a_go, "east")
+	{
+		SetRoom(player, r_eastroom);
+	}
+}
+
+extend room r_northroom
+{
+	onAction(a_look)
+	{
+		Textln("You are in the north room.");
+		Textln("The way out is south.");
+	}
+
+	onModalAction(a_go, "south")
+	{
+		SetRoom(player, r_centerroom);
+	}
+}
+
+extend room r_southroom
+{
+	onAction(a_look)
+	{
+		Textln("You are in the south room.");
+		Textln("The way out is north.");
+	}
+
+	onModalAction(a_go, "north")
+	{
+		SetRoom(player, r_centerroom);
+	}
+}
+
+extend room r_westroom
+{
+	onAction(a_look)
+	{
+		Textln("You are in the west room.");
+		Textln("The way out is east.");
+	}
+
+	onModalAction(a_go, "east")
+	{
+		SetRoom(player, r_centerroom);
+	}
+}
+
+extend room r_eastroom
+{
+	onAction(a_look)
+	{
+		Textln("You are in the east room.");
+		Textln("The way out is west.");
+	}
+
+	onModalAction(a_go, "west")
+	{
+		SetRoom(player, r_centerroom);
+	}
+}
+
+player p_main
+{
+	onAction(a_roomcheck)
+	{
+		if (CurrentRoomIs(this, r_centerroom))
+			Textln("Whoa. This is my favorite room!");
+	}
+
+	onIncompleteCommand(a_go)
+	{
+		Textln("GO where? (Need a compass direction)");
+	}
+
+	onUnhandledAction(a_go)
+	{
+		Textln("Can't go that way.");
 	}
 }
 
@@ -48,22 +118,24 @@ world
 {
 	init()
 	{
-		SetRoom(p_main, r_bedroom);
+		SetRoom(p_main, r_centerroom);
 		SetPlayer(p_main); // from this moment on, this is the "player" keyword.
 	}
 
 	start()
 	{
-		... `Type "quit" to quit, "go" and a compass direction to move between rooms.`;
-		... `Examine things with "look at" or "examine".`;
-		... "";
+		Textln("Type \"quit\" to quit, \"go\" and a compass direction to move between rooms.");
 		queue a_look;
+	}
+
+	onAction(a_quit)
+	{
+		quit;
 	}
 
 	afterSuccessfulCommand()
 	{
 		queue a_look;
+		queue a_roomcheck;
 	}
-
-	// TODO: Finish me.
 }

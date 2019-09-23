@@ -86,7 +86,9 @@ function tameDebugResponse(response)
 var _OnOtherCue = _OnOtherCue || null;
 var _OnStartFormatTag = _OnStartFormatTag || null;
 var _OnEndFormatTag = _OnEndFormatTag || null;
-var _OnFormatText = _OnFormatText || null;
+var _OnFormatText = _OnFormatText || (function(text, accum){
+	accum.push(text);
+});
 
 var TAMEHandler = TAME.newResponseHandler({
 	

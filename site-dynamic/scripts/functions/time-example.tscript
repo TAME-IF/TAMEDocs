@@ -2,7 +2,7 @@ world
 {
 	start()
 	{
-		textln("The current UNIX time is " + Time() + ".");
+		Textln("The current UNIX time is " + Time() + ".");
 		quit;
 	}
 }

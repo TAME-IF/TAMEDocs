@@ -10,14 +10,14 @@ object archetype o_examinables
 	// override this.
 	function examineFirst()
 	{
-		textln("[EXAMINE FIRST]");
+		Textln("[EXAMINE FIRST]");
 	}
 	
 	// called on subsequent examine.
 	// override this.
 	function examineAgain()
 	{
-		textln("[EXAMINE AGAIN]");
+		Textln("[EXAMINE AGAIN]");
 	}
 
 	onAction(a_examine)
@@ -41,17 +41,17 @@ object o_wooden_key : o_keys named "wooden key", "key"
 {
 	override function examineFirst()
 	{
-		textln("It's a wooden key.");
+		Textln("It's a wooden key.");
 	}
 	
 	override function examineAgain()
 	{
-		textln("It's still a wooden key.");
+		Textln("It's still a wooden key.");
 	}
 	
 	onWorldBrowse()
 	{
-		textln("A wooden key is here.");
+		Textln("A wooden key is here.");
 	}
 
 }
@@ -60,17 +60,17 @@ object o_steel_key : o_keys named "steel key", "key"
 {
 	override function examineFirst()
 	{
-		textln("It's a steel key.");
+		Textln("It's a steel key.");
 	}
 	
 	override function examineAgain()
 	{
-		textln("It's still a steel key.");
+		Textln("It's still a steel key.");
 	}
 
 	onWorldBrowse()
 	{
-		textln("A steel key is here.");
+		Textln("A steel key is here.");
 	}
 
 }
@@ -81,13 +81,13 @@ object archetype o_doors : o_examinables
 	// fallback on an incorrect key.
 	onActionWithAncestor(a_unlock, o_keys)
 	{
-		textln("This key isn't working.");
+		Textln("This key isn't working.");
 	}
 	
 	// fallback on an incorrect anything.
 	onActionWithOther(a_unlock)
 	{
-		textln("I can't unlock this with that.");
+		Textln("I can't unlock this with that.");
 	}
 }
 
@@ -95,22 +95,22 @@ object o_wooden_door : o_doors named "wooden door", "door"
 {
 	override function examineFirst()
 	{
-		textln("It's a wooden door.");
+		Textln("It's a wooden door.");
 	}
 	
 	override function examineAgain()
 	{
-		textln("It's still a wooden door.");
+		Textln("It's still a wooden door.");
 	}
 
 	onWorldBrowse()
 	{
-		textln("A wooden door is here.");
+		Textln("A wooden door is here.");
 	}
 
 	onActionWith(a_unlock, o_wooden_key)
 	{
-		textln("You unlock the wooden door.");
+		Textln("You unlock the wooden door.");
 	}
 }
 
@@ -118,22 +118,22 @@ object o_steel_door : o_doors named "steel door", "door"
 {
 	override function examineFirst()
 	{
-		textln("It's a steel door.");
+		Textln("It's a steel door.");
 	}
 	
 	override function examineAgain()
 	{
-		textln("It's still a steel door.");
+		Textln("It's still a steel door.");
 	}
 
 	onWorldBrowse()
 	{
-		textln("A steel door is here.");
+		Textln("A steel door is here.");
 	}
 
 	onActionWith(a_unlock, o_steel_key)
 	{
-		textln("You unlock the steel door.");
+		Textln("You unlock the steel door.");
 	}
 }
 
@@ -145,49 +145,49 @@ world
 		giveObject(world, o_steel_key);
 		giveObject(world, o_wooden_door);
 		giveObject(world, o_steel_door);
-		textln("You are in a room with some keys and doors.");
-		textln("You can EXAMINE things or UNLOCK things.");
-		browse(world);
+		Textln("You are in a room with some keys and doors.");
+		Textln("You can EXAMINE things or UNLOCK things.");
+		Browse(world);
 	}
 	
 	onAction(a_lookaround)
 	{
-		browse(world);
+		Browse(world);
 	}
 
 	onMalformedCommand()
 	{
-		textln("I don't understand.");
+		Textln("I don't understand.");
 	}
 
 	onIncompleteCommand(a_examine)
 	{
-		textln("Examine what?");
+		Textln("Examine what?");
 	}
 
 	onMalformedCommand(a_examine)
 	{
-		textln("I don't understand. That's not a thing I can examine.");
+		Textln("I don't understand. That's not a thing I can examine.");
 	}
 
 	onUnhandledAction(a_examine)
 	{
-		textln("I can't examine that.");
+		Textln("I can't examine that.");
 	}
 
 	onIncompleteCommand(a_unlock)
 	{
-		textln("Unlock what with what?");
+		Textln("Unlock what with what?");
 	}
 
 	onMalformedCommand(a_unlock)
 	{
-		textln("I don't understand. That's not a thing I can unlock.");
+		Textln("I don't understand. That's not a thing I can unlock.");
 	}
 
 	onUnhandledAction(a_unlock)
 	{
-		textln("I can't unlock that.");
+		Textln("I can't unlock that.");
 	}
 
 	onAction(a_quit)

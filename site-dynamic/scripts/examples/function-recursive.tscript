@@ -16,7 +16,7 @@ world
 	onAction(a_fact)
 	{
 		local n = AsInt(number);
-		textln(n + "! = " + factorial(n));
+		Textln(n + "! = " + factorial(n));
 	}
 	
 	onAction(a_quit)
@@ -26,8 +26,8 @@ world
 	
 	start()
 	{
-		textln("Type \"factorial\" and a number to compute the factorial of it.");
-		textln("Don't use too high of a number - a fatal error may occur, or values above 22 will cause integer overflows!");
+		Textln("Type \"factorial\" and a number to compute the factorial of it.");
+		Textln("Don't use too high of a number - a fatal error may occur, or values above 22 will cause integer overflows!");
 	}
 	
 }

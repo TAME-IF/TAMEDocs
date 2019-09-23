@@ -5,19 +5,19 @@ world
 {
 	onAction(a_testfor)
 	{
-		textln("Printing every even digit from 0 to 20:");
+		Textln("Printing every even digit from 0 to 20:");
 		local i;
 		for (i = 0; i <= 20; i = i + 1)
 		{
 			if (i % 2 != 0)
 				continue;
-			textln(i);
+			Textln(i);
 		}
 	}
 
 	onAction(a_testwhile)
 	{
-		textln("Printing every even digit from 0 to 20:");
+		Textln("Printing every even digit from 0 to 20:");
 		local previ;
 		local i = 0;
 		while (i <= 20)
@@ -26,13 +26,13 @@ world
 			i = i + 1;
 			if (previ % 2 != 0)
 				continue;
-			textln(previ);
+			Textln(previ);
 		}
 	}
 
 	start()
 	{
-		textln("Type \"test for\" or \"test while\" to run the continue example.");
+		Textln("Type \"test for\" or \"test while\" to run the continue example.");
 	}
 	
 }

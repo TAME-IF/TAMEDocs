@@ -17,7 +17,7 @@ object o_key named "key", "small key"
 {
 	onAction(a_examine)
 	{
-		textln("Looks like a small key.");
+		Textln("Looks like a small key.");
 	}
 	
 	onAction(a_take)
@@ -25,20 +25,20 @@ object o_key named "key", "small key"
 		if (!hasObject(player, this))
 		{
 			giveObject(player, this);
-			textln("You take the key.");
+			Textln("You take the key.");
 		}
 		else
-			textln("You already have this.");
+			Textln("You already have this.");
 	}
 	
 	onRoomBrowse()
 	{
-		textln("There's a key, here.");
+		Textln("There's a key, here.");
 	}
 	
 	onPlayerBrowse()
 	{
-		textln("A key.");
+		Textln("A key.");
 	}
 	
 }
@@ -53,7 +53,7 @@ object o_door named "door" uses determiners "the"
 
 	onAction(a_examine)
 	{
-		textln("Looks like a wooden door.");
+		Textln("Looks like a wooden door.");
 		addObjectName(this, "wooden door");
 	}
 	
@@ -62,17 +62,17 @@ object o_door named "door" uses determiners "the"
 		if (locked)
 		{
 			locked = false;
-			textln("You unlocked the door!");
+			Textln("You unlocked the door!");
 		}
 		else
 		{
-			textln("The door is already unlocked.");
+			Textln("The door is already unlocked.");
 		}
 	}
 	
 	onAction(a_take)
 	{
-		textln("You can't pick up a door.");
+		Textln("You can't pick up a door.");
 	}
 	
 	onAction(a_open)
@@ -83,17 +83,17 @@ object o_door named "door" uses determiners "the"
 	onAction(a_use)
 	{
 		if (locked)
-			textln("The door is locked.");
+			Textln("The door is locked.");
 		else
 		{
-			textln("You open the door.");
+			Textln("You open the door.");
 			world.win = true;
 		}
 	}
 
 	onRoomBrowse()
 	{
-		textln("There's a wooden door, here.");
+		Textln("There's a wooden door, here.");
 	}
 
 }
@@ -105,11 +105,11 @@ player p_guy
 	{
 		local x = irandom(3);
 		if (x == 0)
-			textln("I can't do that.");
+			Textln("I can't do that.");
 		else if (x == 1)
-			textln("I don't understand.");
+			Textln("I don't understand.");
 		else
-			textln("I don't think so.");
+			Textln("I don't think so.");
 	}
 	
 	onUnhandledAction()
@@ -156,13 +156,13 @@ world
 	{
 		if (win == true)
 		{
-			textln("You escaped the room!");
+			Textln("You escaped the room!");
 			quit;
 		}
 		else if (objectCount(player) > 0)
 		{
-			textln("You have:");
-			browse(player);
+			Textln("You have:");
+			Browse(player);
 		}
 	}
 	
@@ -171,7 +171,7 @@ world
 		setRoom(p_guy, r_startroom);
 		setPlayer(p_guy);
 
-		textln("Escape the room!");
-		browse(room);
+		Textln("Escape the room!");
+		Browse(room);
 	}
 }
