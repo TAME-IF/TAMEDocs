@@ -4,10 +4,10 @@
 			Every module contains one <strong>world</strong>. The world is the main abstraction of the concept of <em>everything</em>.
 		</p>
 		<p>
-			The world can also hold <strong>objects</strong> that are <em>accessible</em> to all players (even if no player is set). 
-			While nothing is specifically connected to it, it is a primary context that you can count on existing, and contains entry 
-			points that are executed every request, or after the module initializes. All actions and failure to execute 
-			actions fall through to this for handling. 
+			The world can also hold <strong>objects</strong>. Objects owned by the world are always <em>accessible</em>, especially 
+			to all players (even if no player is set). While nothing is specifically connected to it, it is a primary context that 
+			you can count on existing, and contains entry points that are executed every request, or after the module initializes
+			every element's context. All actions and failure to execute actions fall through to this for handling. 
 		</p>
 	</div>
 	<div class="w3-center w3-col s12 m6">

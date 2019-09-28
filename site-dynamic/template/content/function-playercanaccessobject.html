@@ -1,0 +1,87 @@
+<h1 class="tamedocs-function-title">
+	<span class="name">PlayerCanAccessObject (</span> 
+	<span class="param">PLAYER</span>, 
+	<span class="param">OBJECT</span>
+	)
+</h1>
+<div class="w3-container">
+	Checks if a player can <em>access</em> a specific object, given its current state.
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Parameters</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped">
+			<thead class="w3-teal">
+				<tr>
+					<th>Parameter</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="tamedocs-parameter">PLAYER</td>
+					<td class="tamedocs-parameter-type">PLAYER</td>
+					<td class="tamedocs-parameter-description">The player to check from.</td>
+				</tr>
+				<tr>
+					<td class="tamedocs-parameter">OBJECT</td>
+					<td class="tamedocs-parameter-type">OBJECT</td>
+					<td class="tamedocs-parameter-description">The object to test.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Returns</h3>
+</div>
+<div class="w3-container">
+	<div class="tamedocs-table-overflow">
+		<table class="w3-table w3-striped" >
+			<tr>
+				<td class="tamedocs-parameter">VALUE(BOOLEAN)</td>
+				<td class="tamedocs-parameter-description">
+					<strong>TRUE</strong> if the provided player can access the provided object, or <strong>FALSE</strong> if not.
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>What It Does</h3>
+</div>
+<div class="w3-container">
+	<p>
+		This function performs a check to see if a player can access a specific object, given its current state (player's current room, object's
+		current owner, etc.). These are the same checks for testing what objects can be "seen" when a command is entered into the interpreter.
+	</p>
+</div>
+
+<div class="w3-panel w3-light-gray w3-card-2">
+	<h3>Example</h3>
+</div>
+<div class="w3-container">
+<!--[ tamescript "Player Object Accessibility Example" module_function_playercanaccess_example functions/playercanaccessobject-example.tscript ]-->
+</div>
+
+<div class="w3-panel w3-red w3-card-2">
+	<h3>Additional Technical Notes</h3>
+</div>
+<div class="w3-container">
+	<p>
+		"Object Accessibility" from this function call is determined by the player and object state 
+		at the moment that the function is executed - not before, not after. If the provided player is not
+		in any room or the provided object has no owner, the object is never accessible from that player.
+	</p>
+	<p>
+		An object without any names assigned to it, and thus not accessible/parse-able via an interpreted
+		command, can still be considered accessible by this function. An anonymous object is still a valid
+		object.
+	</p>
+</div>

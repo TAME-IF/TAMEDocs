@@ -40,8 +40,9 @@
 			<tr>
 				<td>[INHERITANCE_CLAUSE]</td>
 				<td>
-					If this object <a href="tamescript.html#inheritance">inherits</a> entry points and functions from another object, you declare its
-					parent object by adding a colon (<kbd>:</kbd>) plus the identifier of the parent object.
+					If this object <a href="tamescript.html#inheritance">inherits</a> entry points and functions
+					from another object, you declare its parent object by adding a colon (<kbd>:</kbd>) plus the 
+					identifier of the parent object.
 				</td>
 			</tr>
 			<tr>
@@ -50,11 +51,15 @@
 					The keyword <kbd>named</kbd> followed by a comma-delimited list of strings that the
 					interpreter is supposed to associate with this object at initial state. Objects can share
 					names, but without distinct names to refer to an object as, more than one accessible object
-					referred by the same name will cause <em>ambiguous command</em> errors.<br/>
+					referred to by the same name will cause <em>ambiguous command</em> errors.<br/>
 					<br/>
 					This clause is <em>optional</em> - if no names are declared, this object is not parse-able
-					in the interpreter until names and added to it (via <a href="function-addobjectname.html">AddObjectName()</a>).
-					An object's <em>determiners</em> affect what names get assigned to this object, as well.
+					in the interpreter until names are added to it (via <a href="function-addobjectname.html">AddObjectName()</a>).
+					An object's <em>determiners</em> affect what names get assigned to this object, as well.<br/>
+					<br/>
+					An object does not need a parse-able name in order to exist or have an owner, and even though
+					it is not accessible via interpreter, it may be accessible according to a 
+					<a href="function-playercanaccessobject.html">PlayerCanAccessObject()</a> function call.
 				</td>
 			</tr>
 			<tr>
@@ -64,8 +69,8 @@
 					assigns as determiners to this particular object at initial state.<br/>
 					<br/>
 					A <em>determiner</em> is an optional prefix added to object names to make them parse-able in
-					the interpreter. For example, if an object had the determiner <strong>the</strong> and the name <strong>book</strong>,
-					The names associated are "book" and "the book".<br/>
+					the interpreter. For example, if an object had the determiner <strong>the</strong> and the 
+					name <strong>book</strong>, The names associated are "book" and "the book".<br/>
 					<br/>
 					This clause is <em>optional</em>. Determiners cannot be added later in module execution.
 				</td>
