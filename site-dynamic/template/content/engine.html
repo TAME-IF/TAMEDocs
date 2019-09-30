@@ -1,0 +1,70 @@
+<div class="w3-container" style="margin-top: 2em;">
+	<p>
+		When TAME is given input (usually submitted using a <em>Shell</em>), TAME processes it, 
+		changes a module context's state, and returns a result. <strong>Requests</strong> that contain the input are created, 
+		and a <strong>Response</strong> is generated after the Request is processed. The Response contains a list of items 
+		called <strong>Cues</strong> that are read by the Shell and rendered in a way that the user can read.
+	</p>
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="request" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#request"><i class="link-stub fa fa-link"></i></a> 2.1 Input and Requests <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		Input into TAME is usually a user-typed string like:
+	</p>
+<pre>
+	pick up lamp
+	look at dog
+	scream
+</pre>
+	<p>
+		TAME takes this input and wraps it in a <strong>Request</strong> object. The <strong>Interpreter</strong> figures 
+		out the <em>Action</em> and the <em>Object</em>s involved and then queues that action for processing, then 
+		after all actions are processed, a <strong>Response</strong> is returned, usually containing <strong>Cues</strong> 
+		that the Shell then needs to process.
+	</p>
+	<img class="w3-image tame-diagram" src="images/tame-flow.svg" />
+</div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="response" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#response"><i class="link-stub fa fa-link"></i></a> 2.2 Response and Cues <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		Every processed TAME Request returns a <strong>Response</strong>. The Response contains things like:
+	</p>
+	<ul>
+		<li>How long it took to interpret the input.</li>
+		<li>How long it took to process the request.</li>
+		<li>How many operations occurred to complete the full request.</li>
+		<li>The list of Cues generated.</li>
+	</ul>
+	<p>
+		After the Response is received, the Shell has to do something wih it. Each of the <strong>Cues</strong> in the Response 
+		is something for the Shell to do, <em>in the order that they are read from the list</em>, before it can send input again. 
+		Not every TAME Shell can or should handle these Cues, but there are a few types of Cues that ALL Shells need to
+		handle (you can see these Cues when you run modules in this documentation in <em>DEBUG</em> mode).
+	</p>
+	<p>
+		The fact that not every Shell can handle every Cue is the thing that gives TAME additional flexibility in authoring - 
+		some Cues can describe graphical actions, some can change a screen layout, and some could tell the Shell to play music 
+		or sound effects, but this is only relevant to special Shells. If written with enough care and creativity, the same 
+		TAME module can be executed in both a rich multimedia environment, such as a web browser, as well as a purely textual 
+		environment, such as a command terminal or even in an IRC or Discord server!
+	</p>
+</div>
+<div class="w3-container">
+	<p>
+		But of course, TAME doesn't even know what the user wants to do unless it runs their input through an <em><strong>Interpreter</strong></em>.
+	</p>
+</div>
+
+<!--[ set prev_page intro.html ]-->
+<!--[ set next_page interpreter.html ]-->
+<!--[ include fragments/page-nav-footer.html ]-->

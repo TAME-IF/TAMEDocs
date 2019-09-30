@@ -65,30 +65,30 @@
 </div>
 <div class="w3-container">
 	<p>
-		A Context is the thing that changes when changes to the game occur. A context contains:
+		A Context is the thing that changes when changes to the game occur. A module's full context contains:
 	</p>
 	<ul>
 		<li>What elements contain which objects.</li>
 		<li>In what room or rooms each player is in.</li>
-		<li>Every variable stored in every element instance.</li>
+		<li>Every variable stored in every element's individual context.</li>
 		<li>Every current name or names of every object.</li>
 		<li>Every current tag or tags of every object.</li>
 	</ul>
 	<p>
-		Nearly every command and function in TAME affects the context. A context is tied to one module.
+		Nearly every command and function in TAME affects the context. A module context is tied to one module.
 	</p>
 	<p>
 		A Context can also be saved and restored. Nearly every implementation of TAME contains a way to do this.
 	</p>
 	<p>
-		The way that the <em>user</em> interacts with TAME in order to make things happen or change is through a <strong>shell</strong>.
+		The way that the <em>user</em> interacts with TAME in order to make things happen or change is through a <strong>Shell</strong>.
 	</p>
 </div>
 
 <!------------------------------------------------------------------------------->
 
 <div id="shell" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#shell"><i class="link-stub fa fa-link"></i></a> 1.4 What is a &quot;Shell?&quot; <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#shell"><i class="link-stub fa fa-link"></i></a> 1.4 What is a "Shell?" <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -102,15 +102,17 @@
 </pre>
 	<p>
 		This part of TAME is called the <em>Shell</em>. It is the thing that enables a user to interact with TAME, as well
-		as the part that renders TAME's output in a human-understandable way. Technically, the shell does not have to be a 
+		as the part that renders TAME's output in a human-understandable way. Technically, the Shell does not have to be a 
 		text interface. While TAME provides text interfaces out-of-the-box, it can also be point-and-click, 
-		or even a 3D environment. It is up to the implementor of the shell to provide or change this.
+		or even a 3D environment. It is up to the implementor of the Shell to provide or change this.
 	</p>
+</div>
+<div class="w3-container">
 	<p>
-		In fact, a TAME system can be set up in many different ways, not just a single, monolithic Shell-Context-Module environment. 
+		But no matter how it is set up, every TAME Implementation follows a <strong>Request-Response</strong> cycle.
 	</p>
 </div>
 
 <!--[ set prev_page index.html ]-->
-<!--[ set next_page systems.html ]-->
+<!--[ set next_page engine.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->

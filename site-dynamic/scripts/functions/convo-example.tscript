@@ -132,7 +132,7 @@ player p_main
 
 	onAction(a_roomcheck)
 	{
-		if (!CurrentRoomIs(this, r_livingroom) && PlayerIsInRoom(this, r_livingroom))
+		if (!CurrentRoomIs(this, r_livingroom) && PlayerHasRoomInStack(this, r_livingroom))
 			Textln("(NOTE: You are still \"in\" the living room, but can't access things in it - \"TALK TO BOB\" will not work)");
 	}
 

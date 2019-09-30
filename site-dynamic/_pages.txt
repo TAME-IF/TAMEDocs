@@ -1,6 +1,6 @@
 index.html "Table of Contents" template/main.html
 intro.html "What is TAME?" template/main.html
-systems.html "TAME Systems" template/main.html
+engine.html "The Engine Cycle" template/main.html
 module.html "Module Overview" template/main.html
 interpreter.html "The Interpreter" template/main.html
 tamescript.html "TAMEScript" template/main.html
@@ -121,7 +121,7 @@ function-moveobjectswithtag.html "Function: RemoveObjectWithTag" template/main.h
 function-objectcount.html "Function: ObjectCount" template/main.html
 function-hasobject.html "Function: HasCount" template/main.html
 function-objecthasnoowner.html "Function: ObjectHasNoOwner" template/main.html
-function-playerisinroom.html "Function: PlayerIsInRoom" template/main.html
+function-playerhasroominstack.html "Function: PlayerHasRoomInStack" template/main.html
 function-playercanaccessobject.html "Function: PlayerCanAccessObject" template/main.html
 function-browse.html "Function: Browse" template/main.html
 function-browsetagged.html "Function: BrowseTagged" template/main.html

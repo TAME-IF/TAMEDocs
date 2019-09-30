@@ -21,7 +21,7 @@
 <!------------------------------------------------------------------------------->
 
 <div id="parsing" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#parsing"><i class="link-stub fa fa-link"></i></a> 4.1. How TAME Parses Input <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#parsing"><i class="link-stub fa fa-link"></i></a> 3.1. How TAME Parses Input <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -79,7 +79,7 @@
 <!------------------------------------------------------------------------------->
 
 <div id="greedy" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#greedy"><i class="link-stub fa fa-link"></i></a> 4.2. What is a &quot;Greedy&quot; interpreter? <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#greedy"><i class="link-stub fa fa-link"></i></a> 3.2. What is a &quot;Greedy&quot; interpreter? <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -122,7 +122,7 @@
 <!------------------------------------------------------------------------------->
 
 <div id="command" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#command"><i class="link-stub fa fa-link"></i></a> 4.3. How an Action gets Processed <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#command"><i class="link-stub fa fa-link"></i></a> 3.3. How an Action gets Processed <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -138,13 +138,13 @@
 <!------------------------------------------------------------------------------->
 
 <div id="fail" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#fail"><i class="link-stub fa fa-link"></i></a> 4.4. When the Interpreter Fails Parsing <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#fail"><i class="link-stub fa fa-link"></i></a> 3.4. When the Interpreter Fails Parsing <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
 		Sometimes the user will input something that will fail to parse completely or result in an action that is unhandled. 
-		This, too is handled in module logic in other blocks. Depending on what parts of the input are either incomplete or
-		unresolvable, different blocks will be called.
+		This, too is handled in module logic in other <a href="language-blocks.html">blocks</a>. Depending on what parts 
+		of the input are either incomplete or unresolvable, different blocks will be called.
 	</p>
 	<p>
 		If a block does not exist that handles these cases, TAME will add an <kbd>ERROR</kbd> cue to the response 
@@ -155,6 +155,6 @@
 	</p>
 </div>
 
-<!--[ set prev_page module.html ]-->
-<!--[ set next_page tamescript.html ]-->
+<!--[ set prev_page engine.html ]-->
+<!--[ set next_page module.html ]-->
 <!--[ include fragments/page-nav-footer.html ]-->

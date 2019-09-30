@@ -5,7 +5,7 @@
 	</p>
 </div>
 <div id="optimization" class="w3-panel w3-light-gray w3-card-2">
-	<h2><a href="#optimization"><i class="link-stub fa fa-link"></i></a> Optimization <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+	<h2><a href="#optimization"><i class="link-stub fa fa-link"></i></a> E.1 Optimization <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
 </div>
 <div class="w3-container">
 	<p>
@@ -20,3 +20,32 @@
 <div class="w3-container">
 <!--[ tamescript "Optimization Example" module_advanced_optimization examples/optimization.tscript ]-->
 </div>
+
+<!------------------------------------------------------------------------------->
+
+<div id="diagrams" class="w3-panel w3-light-gray w3-card-2">
+	<h2><a href="#diagrams"><i class="link-stub fa fa-link"></i></a> E.2 Diagrams of TAME Setups <a class="w3-right" href="#top"><i class="link-stub fa fa-arrow-up"></i></a></h2>
+</div>
+<div class="w3-container">
+	<p>
+		For the most part, the most common TAME setup is this one - a user that interacts with a shell that changes a context, and 
+		the separation between shell, context, and module doesn't exist (for instance, most all-in-one adventures or games).
+	</p>
+	<img class="w3-image tame-diagram" src="images/tame-diagram-1.svg" />
+	<p>
+		But to be honest, they do not have to be together conceptually - the shell can be a dumb terminal that relies on the context for parsing and execution, like
+		a website that holds a context and the engine in memory, and can change its frontend appearance at will, or start new games.
+	</p>
+	<img class="w3-image tame-diagram" src="images/tame-diagram-2.svg" />
+	<p>
+		In fact, in some multi-user versions, you can have a system built to handle input from many users with 
+		many separate contexts, all built from the same module, like a old-school UNIX-style terminal system or an interactive IRC bot!
+	</p>
+	<img class="w3-image tame-diagram" src="images/tame-diagram-3.svg" />
+	<p>
+		It is this separation that gives TAME additional flexibility, be it for authoring, rendering, or running on multiple platforms that have a TAME
+		implementation. But regardless of the implementation, TAME still follows the same Request-Response model.
+	</p>
+</div>
+
+
