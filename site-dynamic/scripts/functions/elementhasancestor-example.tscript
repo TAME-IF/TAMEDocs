@@ -1,0 +1,16 @@
+object archetype o_keys;
+object o_bronzekey : o_keys;
+object o_woodenkey : o_keys;
+object o_door;
+
+world
+{
+	start()
+	{
+		Textln("o_bronzekey is an ancestor of o_keys: " + ElementHasAncestor(o_bronzekey, o_keys));
+		Textln("o_woodenkey is an ancestor of o_keys: " + ElementHasAncestor(o_woodenkey, o_keys));
+		Textln("o_keys is an ancestor of o_woodenkey: " + ElementHasAncestor(o_keys, o_woodenkey));
+		Textln("o_door is an ancestor of o_keys: " + ElementHasAncestor(o_door, o_keys));
+		quit;
+	}
+}
