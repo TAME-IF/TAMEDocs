@@ -59,7 +59,7 @@ player p_first
 	onAction(a_switch)
 	{
 		Textln("Switching to second player.");
-		setPlayer(p_second);
+		SetPlayer(p_second);
 	}
 
 	onUnhandledAction(a_use)
@@ -90,7 +90,7 @@ extend player p_second // finish declaring
 	onAction(a_switch)
 	{
 		Textln("Switching to first player.");
-		setPlayer(p_first);
+		SetPlayer(p_first);
 	}
 
 	onUnhandledAction(a_use)
@@ -124,11 +124,11 @@ world
 	
 	start()
 	{
-		setRoom(p_first, r_main);
-		setRoom(p_second, r_main);
-		setPlayer(p_first);
-		giveObject(room, o_ball);
-		giveObject(room, o_thing);
+		SetRoom(p_first, r_main);
+		SetRoom(p_second, r_main);
+		SetPlayer(p_first);
+		GiveObject(room, o_ball);
+		GiveObject(room, o_thing);
 		Browse(room);
 		queue a_identifyself;
 	}

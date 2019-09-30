@@ -45,7 +45,7 @@ world
 
 	onAction(a_saysomething)
 	{
-		local x = irandom(3);
+		local x = IRandom(3);
 		if (language == "english")
 		{
 			if (x == 0)

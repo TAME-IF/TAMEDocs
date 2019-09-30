@@ -8,7 +8,7 @@ room r_northroom
 {
 	onModalAction(a_go, "south")
 	{
-		setRoom(player, r_southroom);
+		SetRoom(player, r_southroom);
 	}
 	
 	onModalAction(a_go, "north")
@@ -26,7 +26,7 @@ extend room r_southroom
 	
 	onModalAction(a_go, "north")
 	{
-		setRoom(player, r_northroom);
+		SetRoom(player, r_northroom);
 	}
 }
 
@@ -38,8 +38,8 @@ world
 {
 	init()
 	{
-		setPlayer(p_main);
-		setRoom(player, r_northroom);
+		SetPlayer(p_main);
+		SetRoom(player, r_northroom);
 	}
 
 	onAction(a_quit)

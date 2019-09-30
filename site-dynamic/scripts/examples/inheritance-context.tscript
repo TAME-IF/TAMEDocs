@@ -41,8 +41,8 @@ world
 {
 	start()
 	{
-		giveObject(world, o_red_door);
-		giveObject(world, o_blue_door);
+		GiveObject(world, o_red_door);
+		GiveObject(world, o_blue_door);
 		Textln("You can USE the doors.");
 		Browse(world);
 	}

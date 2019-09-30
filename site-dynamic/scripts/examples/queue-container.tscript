@@ -70,9 +70,9 @@ world
 		Browse(c_basket);
 
 		Textln("The fruits are:");
-		browsetagged(c_basket, "fruit");
+		BrowseTagged(c_basket, "fruit");
 		Textln("The vegetables are:");
-		browsetagged(c_basket, "vegetable");
+		BrowseTagged(c_basket, "vegetable");
 	
 		Textln("Queueing food to mash...");
 		queue a_mash : c_basket;

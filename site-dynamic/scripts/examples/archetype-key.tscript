@@ -141,10 +141,10 @@ world
 {
 	start()
 	{
-		giveObject(world, o_wooden_key);
-		giveObject(world, o_steel_key);
-		giveObject(world, o_wooden_door);
-		giveObject(world, o_steel_door);
+		GiveObject(world, o_wooden_key);
+		GiveObject(world, o_steel_key);
+		GiveObject(world, o_wooden_door);
+		GiveObject(world, o_steel_door);
 		Textln("You are in a room with some keys and doors.");
 		Textln("You can EXAMINE things or UNLOCK things.");
 		Browse(world);

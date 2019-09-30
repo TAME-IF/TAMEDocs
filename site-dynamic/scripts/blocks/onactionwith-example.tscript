@@ -89,7 +89,7 @@ object o_paint_yellow : o_paint named "paint", "yellow paint"
 	onActionWith(a_mix, o_paint_blue)
 	{
 		Textln("Hey, it made green paint!");
-		giveObject(world, o_paint_green);
+		GiveObject(world, o_paint_green);
 	}
 
 }
@@ -104,13 +104,13 @@ object o_paint_red : o_paint named "paint", "red paint"
 	onActionWith(a_mix, o_paint_yellow)
 	{
 		Textln("Hey, it made orange paint!");
-		giveObject(world, o_paint_orange);
+		GiveObject(world, o_paint_orange);
 	}
 	
 	onActionWith(a_mix, o_paint_blue)
 	{
 		Textln("Hey, it made purple paint!");
-		giveObject(world, o_paint_purple);
+		GiveObject(world, o_paint_purple);
 	}
 	
 }
@@ -231,11 +231,11 @@ world
 
 	start()
 	{
-		giveObject(world, o_bob);
-		giveObject(world, o_susan);
-		giveObject(world, o_paint_red);
-		giveObject(world, o_paint_yellow);
-		giveObject(world, o_paint_blue);
+		GiveObject(world, o_bob);
+		GiveObject(world, o_susan);
+		GiveObject(world, o_paint_red);
+		GiveObject(world, o_paint_yellow);
+		GiveObject(world, o_paint_blue);
 		Textln("These people need a color of paint.");
 		Textln("TALK TO them to figure out what they want.");
 		Textln("MIX the paint to make different colors, then GIVE the paint to them.");

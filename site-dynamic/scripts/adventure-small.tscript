@@ -22,9 +22,9 @@ object o_key named "key", "small key"
 	
 	onAction(a_take)
 	{
-		if (!hasObject(player, this))
+		if (!HasObject(player, this))
 		{
-			giveObject(player, this);
+			GiveObject(player, this);
 			Textln("You take the key.");
 		}
 		else
@@ -103,7 +103,7 @@ player p_guy
 {
 	function oops()
 	{
-		local x = irandom(3);
+		local x = IRandom(3);
 		if (x == 0)
 			Textln("I can't do that.");
 		else if (x == 1)
@@ -139,8 +139,8 @@ room r_startroom
 {
 	init()
 	{
-		giveObject(r_startroom, o_key);
-		giveObject(r_startroom, o_door);
+		GiveObject(r_startroom, o_key);
+		GiveObject(r_startroom, o_door);
 	}
 }
 
@@ -159,7 +159,7 @@ world
 			Textln("You escaped the room!");
 			quit;
 		}
-		else if (objectCount(player) > 0)
+		else if (ObjectCount(player) > 0)
 		{
 			Textln("You have:");
 			Browse(player);
@@ -168,8 +168,8 @@ world
 	
 	start()
 	{
-		setRoom(p_guy, r_startroom);
-		setPlayer(p_guy);
+		SetRoom(p_guy, r_startroom);
+		SetPlayer(p_guy);
 
 		Textln("Escape the room!");
 		Browse(room);

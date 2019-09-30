@@ -25,7 +25,7 @@ world
 	// Adds the ball to the world.
 	init()
 	{
-		giveObject(world, o_ball);
+		GiveObject(world, o_ball);
 	}
 	
 	// The world's start() block is called after all init() blocks are called.

@@ -22,22 +22,22 @@ room r_center
 
 	onModalAction(a_move, "north")
 	{
-		setRoom(player, r_north);
+		SetRoom(player, r_north);
 	}
 
 	onModalAction(a_move, "south")
 	{
-		setRoom(player, r_south);
+		SetRoom(player, r_south);
 	}
 
 	onModalAction(a_move, "west")
 	{
-		setRoom(player, r_west);
+		SetRoom(player, r_west);
 	}
 
 	onModalAction(a_move, "east")
 	{
-		setRoom(player, r_east);
+		SetRoom(player, r_east);
 	}
 }
 
@@ -51,7 +51,7 @@ extend room r_south
 
 	onModalAction(a_move, "north")
 	{
-		setRoom(player, r_center);
+		SetRoom(player, r_center);
 	}
 }
 
@@ -64,7 +64,7 @@ extend room r_north
 
 	onModalAction(a_move, "south")
 	{
-		setRoom(player, r_center);
+		SetRoom(player, r_center);
 	}
 }
 
@@ -77,7 +77,7 @@ extend room r_east
 
 	onModalAction(a_move, "west")
 	{
-		setRoom(player, r_center);
+		SetRoom(player, r_center);
 	}
 }
 
@@ -90,7 +90,7 @@ extend room r_west
 
 	onModalAction(a_move, "east")
 	{
-		setRoom(player, r_center);
+		SetRoom(player, r_center);
 	}
 }
 
@@ -120,8 +120,8 @@ world
 	start()
 	{
 		// init player.
-		setPlayer(p_guy);
-		setRoom(p_guy, r_center);
+		SetPlayer(p_guy);
+		SetRoom(p_guy, r_center);
 
 		// Kick us off. afterRequest() is not called after start().
 		queue a_look;

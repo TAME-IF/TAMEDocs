@@ -30,12 +30,12 @@ world
 	
 	onAction(a_switchplayer1)	
 	{
-		setPlayer(p_player1);
+		SetPlayer(p_player1);
 	}
 
 	onAction(a_switchplayer2)
 	{
-		setPlayer(p_player2);
+		SetPlayer(p_player2);
 	}
 
 	onAction(a_inc)	
@@ -57,7 +57,7 @@ world
 
 	start()
 	{
-		setPlayer(p_player1);
+		SetPlayer(p_player1);
 		Textln("Type \"switch 1\" to switch to player 1.");
 		Textln("Type \"switch 2\" to switch to player 2");
 		Textln("Type \"increment\" to increment player.count");

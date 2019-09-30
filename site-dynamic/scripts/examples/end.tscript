@@ -9,7 +9,7 @@ world
 		{
 			Textln(i);
 			// 1-in-4 chance to stop.
-			if (irandom(4) == 0)
+			if (IRandom(4) == 0)
 				end;
 		}
 		

@@ -37,9 +37,9 @@ world
 {
 	init()
 	{
-		giveObject(this, o_ballred);
-		giveObject(this, o_ballblue);
-		giveObject(this, o_ballyellow);
+		GiveObject(this, o_ballred);
+		GiveObject(this, o_ballblue);
+		GiveObject(this, o_ballyellow);
 	}
 
 	onAction(a_quit)

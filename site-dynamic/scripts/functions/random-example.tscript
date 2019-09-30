@@ -7,7 +7,7 @@ world
 		Textln("Generating " + a + " integers from 0 to 9:");
 		while (a > 0)
 		{
-			Textln(irandom(10));
+			Textln(IRandom(10));
 			a = a - 1;
 		}
 		Textln("");
@@ -16,7 +16,7 @@ world
 		Textln("Generating " + a + " floats from [0.0, 1.0):");
 		while (a > 0)
 		{
-			Textln(frandom());
+			Textln(FRandom());
 			a = a - 1;
 		}
 		Textln("");
@@ -25,7 +25,7 @@ world
 		Textln("Generating " + a + " Gaussian floats, mean 0, std. dev. 1:");
 		while (a > 0)
 		{
-			Textln(grandom(0, 1));
+			Textln(GRandom(0, 1));
 			a = a - 1;
 		}
 		

@@ -55,22 +55,22 @@ player p_main
 {
 	onModalAction(a_goto, "red room")
 	{
-		setRoom(player, r_red_room);
+		SetRoom(player, r_red_room);
 	}
 	
 	onModalAction(a_goto, "yellow room")
 	{
-		setRoom(player, r_yellow_room);
+		SetRoom(player, r_yellow_room);
 	}
 	
 	onModalAction(a_goto, "white room")
 	{
-		setRoom(player, r_white_room);
+		SetRoom(player, r_white_room);
 	}
 	
 	onModalAction(a_goto, "weird room")
 	{
-		setRoom(player, r_weird_room);
+		SetRoom(player, r_weird_room);
 	}
 	
 }
@@ -79,22 +79,22 @@ extend object o_ball
 {
 	onAction(a_drop)
 	{
-		if (!hasObject(player, o_ball))
+		if (!HasObject(player, o_ball))
 			Textln("I don't have the ball.");
 		else
 		{
-			giveObject(room, o_ball);
+			GiveObject(room, o_ball);
 			Textln("I dropped the ball.");
 		}
 	}
 	
 	onAction(a_take)
 	{
-		if (hasObject(player, this))
+		if (HasObject(player, this))
 			Textln("I already have this.");
 		else
 		{
-			giveObject(player, this);
+			GiveObject(player, this);
 			Textln("Taken.");
 		}
 	}
@@ -136,9 +136,9 @@ world
 {
 	init()
 	{
-		giveObject(world, o_ball);
-		setPlayer(p_main);
-		setRoom(p_main, r_red_room);
+		GiveObject(world, o_ball);
+		SetPlayer(p_main);
+		SetRoom(p_main, r_red_room);
 	}
 
 	function doTurn()

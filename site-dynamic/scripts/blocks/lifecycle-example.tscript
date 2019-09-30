@@ -30,8 +30,8 @@ world
 {
 	init()
 	{
-		giveObject(this, o_inf_ball);
-		giveObject(this, o_solid_ball);
+		GiveObject(this, o_inf_ball);
+		GiveObject(this, o_solid_ball);
 	}
 	
 	function splash()

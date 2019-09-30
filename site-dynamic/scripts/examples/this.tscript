@@ -5,11 +5,11 @@ object archetype o_ball
 {
 	onAction(a_take)
 	{
-		if (hasObject(player, this))
+		if (HasObject(player, this))
 			Textln("The current player already has this.");
 		else
 		{
-			giveObject(player, this);
+			GiveObject(player, this);
 			Textln("Taken.");
 		}
 	}
@@ -63,22 +63,22 @@ world
 {
 	init()
 	{
-		setPlayer(p_main);
-		giveObject(world, o_red_ball);
-		giveObject(world, o_blue_ball);
-		giveObject(world, o_green_ball);
+		SetPlayer(p_main);
+		GiveObject(world, o_red_ball);
+		GiveObject(world, o_blue_ball);
+		GiveObject(world, o_green_ball);
 	}
 
 	function browseAll()
 	{
 		Textln("The current player has:");
-		if (objectCount(player) > 0)
+		if (ObjectCount(player) > 0)
 			Browse(player);
 		else
 			Textln("NOTHING");
 			
 		Textln("The world has:");
-		if (objectCount(world) > 0)
+		if (ObjectCount(world) > 0)
 			Browse(world);
 		else
 			Textln("NOTHING");
