@@ -6,11 +6,11 @@ world
 		a = 3;
 		textln("a = "+a);
 		textln("a[0] = "+a[0]);
-		textln("asLista) = "+asLista));
+		textln("asList(a) = "+asList(a));
 		
 		a = [3];
 		textln("a = "+a);
-		a = asLista);
+		a = asList(a);
 		textln("a = "+a);
 		quit;
 	}
