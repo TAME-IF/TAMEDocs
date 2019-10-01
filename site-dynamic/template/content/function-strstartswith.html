@@ -61,13 +61,13 @@
 		<strong>case-sensitive</strong>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = StrStartsWith("applesauce", "apple");   // a = true
-	a = StrStartsWith("banana", "ba");          // a = true
-	a = StrStartsWith("tomato", "to");          // a = true
-	a = StrStartsWith("applesauce", "sauce");   // a = false
-	a = StrStartsWith(12345, 1);                // a = true  (converted to strings)
-	a = StrStartsWith(12345, 5);                // a = false (converted to strings)
-	a = StrStartsWith("ABCDEFG", "a");          // a = false (case-sensitive)
+	a = strStartsWith("applesauce", "apple");   // a = true
+	a = strStartsWith("banana", "ba");          // a = true
+	a = strStartsWith("tomato", "to");          // a = true
+	a = strStartsWith("applesauce", "sauce");   // a = false
+	a = strStartsWith(12345, 1);                // a = true  (converted to strings)
+	a = strStartsWith(12345, 5);                // a = false (converted to strings)
+	a = strStartsWith("ABCDEFG", "a");          // a = false (case-sensitive)
 </code></pre>
 </div>
 

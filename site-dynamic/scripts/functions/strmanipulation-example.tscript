@@ -11,11 +11,11 @@ world
 		textln("");
 
 		// Substring
-		textln(Substring("applejack", 0, 5));		// "apple" 
-		textln(Substring("applejack", 5, 9));		// "jack" 
-		textln(Substring("applejack", 9, 5));		// "" 
-		textln(Substring("applejack", -3, 100));	// "applejack" = Substring("applejack", 0, 9)
-		textln(Substring(123, 0, 1));				// "1" (first value is converted to a string first)
+		textln(substring("applejack", 0, 5));		// "apple" 
+		textln(substring("applejack", 5, 9));		// "jack" 
+		textln(substring("applejack", 9, 5));		// "" 
+		textln(substring("applejack", -3, 100));	// "applejack" = substring("applejack", 0, 9)
+		textln(substring(123, 0, 1));				// "1" (first value is converted to a string first)
 		textln("");
 
 		// Lower-case convert.
