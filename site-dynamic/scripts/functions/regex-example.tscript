@@ -2,8 +2,8 @@ world
 {
     start()
     {
-        textln(isregex(`asdf\s\+`));	                // true
-        textln(isregex(`\`));			                // false
+        textln(isRegex(`asdf\s\+`));	                // true
+        textln(isRegex(`\`));			                // false
         textln("");
         
         s = "Apples and Oranges! 12345.67890";

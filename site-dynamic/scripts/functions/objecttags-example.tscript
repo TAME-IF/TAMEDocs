@@ -9,7 +9,7 @@ object o_thing named "thing" uses determiners "the"
 {
 	onAction(a_eat)
 	{
-		if (ObjectHasTag(this, "edible"))
+		if (objectHasTag(this, "edible"))
 			textln("You ate the thing. Delicious!");
 		else
 			textln("You can't eat this.");
@@ -17,7 +17,7 @@ object o_thing named "thing" uses determiners "the"
 
 	onAction(a_drive)
 	{
-		if (ObjectHasTag(this, "driveable"))
+		if (objectHasTag(this, "driveable"))
 			textln("You drive the thing. Vroom!");
 		else
 			textln("You can't drive this.");
@@ -25,8 +25,8 @@ object o_thing named "thing" uses determiners "the"
 
 	onAction(a_examine)
 	{
-		local edible = ObjectHasTag(this, "edible");
-		local driveable = ObjectHasTag(this, "driveable");
+		local edible = objectHasTag(this, "edible");
+		local driveable = objectHasTag(this, "driveable");
 
 		if (edible && driveable)
 			textln("It's a driveable, edible thing.");

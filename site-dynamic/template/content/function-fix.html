@@ -63,14 +63,14 @@
 		<a href="function-asint.html">interpreted as an integer</a>.
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	a = Fix(15.25, 0);     // a = 15.0
-	a = Fix(15.25, -1);    // a = 20.0
-	a = Fix(15.25, 1);     // a = 15.3
+	a = fix(15.25, 0);     // a = 15.0
+	a = fix(15.25, -1);    // a = 20.0
+	a = fix(15.25, 1);     // a = 15.3
 </code></pre>
 	<p>
-		Calling <kbd>Fix(X, 0)</kbd> is equivalent to:
+		Calling <kbd>fix(X, 0)</kbd> is equivalent to:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	Round(X)
+	round(X)
 </code></pre>
 </div>
