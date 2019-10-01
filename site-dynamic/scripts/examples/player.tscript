@@ -24,29 +24,29 @@ world
 {
 	function printPlayer()
 	{
-		Textln("current player is " + identity(player));
-		Textln("player.count is " + player.count);
+		textln("current player is " + identity(player));
+		textln("player.count is " + player.count);
 	}
 	
 	onAction(a_switchplayer1)	
 	{
-		SetPlayer(p_player1);
+		setPlayer(p_player1);
 	}
 
 	onAction(a_switchplayer2)
 	{
-		SetPlayer(p_player2);
+		setPlayer(p_player2);
 	}
 
 	onAction(a_inc)	
 	{
-		Textln("Incrementing player.count...");
+		textln("Incrementing player.count...");
 		player.count = player.count + 1;
 	}
 
 	onAction(a_dec)
 	{
-		Textln("Decrementing player.count...");
+		textln("Decrementing player.count...");
 		player.count = player.count - 1;
 	}
 
@@ -57,12 +57,12 @@ world
 
 	start()
 	{
-		SetPlayer(p_player1);
-		Textln("Type \"switch 1\" to switch to player 1.");
-		Textln("Type \"switch 2\" to switch to player 2");
-		Textln("Type \"increment\" to increment player.count");
-		Textln("Type \"decrement\" to decrement player.count");
-		Textln("Type \"quit\" to quit.");
+		setPlayer(p_player1);
+		textln("Type \"switch 1\" to switch to player 1.");
+		textln("Type \"switch 2\" to switch to player 2");
+		textln("Type \"increment\" to increment player.count");
+		textln("Type \"decrement\" to decrement player.count");
+		textln("Type \"quit\" to quit.");
 		printPlayer();
 	}
 	

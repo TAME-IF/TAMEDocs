@@ -2,18 +2,18 @@ world
 {
 	start()
 	{
-		Textln("AsBoolean(true) = "+AsBoolean(true));
-		Textln("AsBoolean(false) = "+AsBoolean(false));
-		Textln("AsBoolean(0) = "+AsBoolean(0));
-		Textln("AsBoolean(5) = "+AsBoolean(5));
-		Textln("AsBoolean(\"\") = "+AsBoolean(""));
-		Textln("AsBoolean(\"   \") = "+AsBoolean("   "));
-		Textln("AsBoolean(\"false\") = "+AsBoolean("false"));
-		Textln("AsBoolean(5 + 3) = "+AsBoolean(5 + 3));
-		Textln("AsBoolean(5 - 5) = "+AsBoolean(5 - 5));
+		textln("asBoolean(true) = "+asBoolean(true));
+		textln("asBoolean(false) = "+asBoolean(false));
+		textln("asBoolean(0) = "+asBoolean(0));
+		textln("asBoolean(5) = "+asBoolean(5));
+		textln("asBoolean(\"\") = "+asBoolean(""));
+		textln("asBoolean(\"   \") = "+asBoolean("   "));
+		textln("asBoolean(\"false\") = "+asBoolean("false"));
+		textln("asBoolean(5 + 3) = "+asBoolean(5 + 3));
+		textln("asBoolean(5 - 5) = "+asBoolean(5 - 5));
 		local a = 10;
-		Textln("AsBoolean(a) = "+AsBoolean(a));
-		Textln("a = "+a);
+		textln("asBoolean(a) = "+asBoolean(a));
+		textln("a = "+a);
 		quit;
 	}
 }

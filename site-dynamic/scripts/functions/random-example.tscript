@@ -4,28 +4,28 @@ world
 	{
 		local a;
 		a = 10;
-		Textln("Generating " + a + " integers from 0 to 9:");
+		textln("Generating " + a + " integers from 0 to 9:");
 		while (a > 0)
 		{
-			Textln(IRandom(10));
+			textln(irandom(10));
 			a = a - 1;
 		}
-		Textln("");
+		textln("");
 
 		a = 10;
-		Textln("Generating " + a + " floats from [0.0, 1.0):");
+		textln("Generating " + a + " floats from [0.0, 1.0):");
 		while (a > 0)
 		{
-			Textln(FRandom());
+			textln(frandom());
 			a = a - 1;
 		}
-		Textln("");
+		textln("");
 
 		a = 10;
-		Textln("Generating " + a + " Gaussian floats, mean 0, std. dev. 1:");
+		textln("Generating " + a + " Gaussian floats, mean 0, std. dev. 1:");
 		while (a > 0)
 		{
-			Textln(GRandom(0, 1));
+			textln(grandom(0, 1));
 			a = a - 1;
 		}
 		

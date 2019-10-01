@@ -2,17 +2,17 @@ world
 {
 	start()
 	{
-		Textln("AsFloat(true) = "+AsFloat(true));
-		Textln("AsFloat(false) = "+AsFloat(false));
-		Textln("AsFloat(0) = "+AsFloat(0));
-		Textln("AsFloat(3) = "+AsFloat(3));
-		Textln("AsFloat(5.75) = "+AsFloat(5.75));
-		Textln("AsFloat(\"128.75\") = "+AsFloat("128.75"));
-		Textln("AsFloat(\"apple\") = "+AsFloat("apple"));
-		Textln("AsFloat(5 + 3) = "+AsFloat(5 + 3));
+		textln("asFloat(true) = "+asFloat(true));
+		textln("asFloat(false) = "+asFloat(false));
+		textln("asFloat(0) = "+asFloat(0));
+		textln("asFloat(3) = "+asFloat(3));
+		textln("asFloat(5.75) = "+asFloat(5.75));
+		textln("asFloat(\"128.75\") = "+asFloat("128.75"));
+		textln("asFloat(\"apple\") = "+asFloat("apple"));
+		textln("asFloat(5 + 3) = "+asFloat(5 + 3));
 		local a = 3;
-		Textln("AsFloat(a) = "+AsFloat(a));
-		Textln("a = "+a);
+		textln("asFloat(a) = "+asFloat(a));
+		textln("a = "+a);
 		quit;
 	}
 }

@@ -7,7 +7,7 @@ world
 	start()
 	{
 		// I'm about to print something.
-		Textln("Hello, comment world!");
+		textln("Hello, comment world!");
 		
 		// Done printing. Time to quit.
 		quit;

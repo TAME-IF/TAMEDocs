@@ -3,24 +3,24 @@ world
 	start()
 	{
 		// Replace
-		Textln(StrReplace("Apples and Pears", "Apples", "Oranges"));
-		Textln(StrReplace("Apples and Apples", "Apples", "Oranges"));
-		Textln(StrReplace("Kiwis and Lemons", "Grapefruits", "Peaches"));
-		Textln(StrReplace(100, 0, "Zero"));
-		Textln("");
+		textln(strReplace("Apples and Pears", "Apples", "Oranges"));
+		textln(strReplace("Apples and Apples", "Apples", "Oranges"));
+		textln(strReplace("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(strReplace(100, 0, "Zero"));
+		textln("");
 
 		// Replace Last
-		Textln(StrReplaceLast("Apples and Pears", "Apples", "Oranges"));
-		Textln(StrReplaceLast("Apples and Apples", "Apples", "Oranges"));
-		Textln(StrReplaceLast("Kiwis and Lemons", "Grapefruits", "Peaches"));
-		Textln(StrReplaceLast(100, 0, "Zero"));
-		Textln("");
+		textln(strReplaceLast("Apples and Pears", "Apples", "Oranges"));
+		textln(strReplaceLast("Apples and Apples", "Apples", "Oranges"));
+		textln(strReplaceLast("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(strReplaceLast(100, 0, "Zero"));
+		textln("");
 
 		// Replace All
-		Textln(StrReplaceAll("Apples and Pears", "Apples", "Oranges"));
-		Textln(StrReplaceAll("Apples and Apples", "Apples", "Oranges"));
-		Textln(StrReplaceAll("Kiwis and Lemons", "Grapefruits", "Peaches"));
-		Textln(StrReplaceAll(100, 0, "Zero"));
+		textln(strReplaceAll("Apples and Pears", "Apples", "Oranges"));
+		textln(strReplaceAll("Apples and Apples", "Apples", "Oranges"));
+		textln(strReplaceAll("Kiwis and Lemons", "Grapefruits", "Peaches"));
+		textln(strReplaceAll(100, 0, "Zero"));
 
 		quit;
 	}

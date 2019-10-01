@@ -13,12 +13,12 @@ object o_redball named "red ball", "ball" uses determiners "the"
 {
 	onAction(a_examine)
 	{
-		Textln("It's a red ball.");
+		textln("It's a red ball.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("A red ball is here.");
+		textln("A red ball is here.");
 	}
 }
 
@@ -26,12 +26,12 @@ object o_blueball named "blue ball", "ball" uses determiners "the"
 {
 	onAction(a_examine)
 	{
-		Textln("It's a blue ball.");
+		textln("It's a blue ball.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("A blue ball is here.");
+		textln("A blue ball is here.");
 	}
 }
 
@@ -39,12 +39,12 @@ object o_greenball named "green ball", "ball" uses determiners "the"
 {
 	onAction(a_examine)
 	{
-		Textln("It's a green ball.");
+		textln("It's a green ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A green ball.");
+		textln("A green ball.");
 	}
 }
 
@@ -52,14 +52,14 @@ extend room r_northroom
 {
 	onAction(a_look)
 	{
-		Textln("You are in the north room.");
-		Textln("The way out is south.");
-		Browse(room);
+		textln("You are in the north room.");
+		textln("The way out is south.");
+		browse(room);
 	}
 
 	onModalAction(a_go, "south")
 	{
-		SetRoom(player, r_southroom);
+		setRoom(player, r_southroom);
 	}
 }
 
@@ -67,14 +67,14 @@ extend room r_southroom
 {
 	onAction(a_look)
 	{
-		Textln("You are in the south room.");
-		Textln("The way out is north.");
-		Browse(room);
+		textln("You are in the south room.");
+		textln("The way out is north.");
+		browse(room);
 	}
 
 	onModalAction(a_go, "north")
 	{
-		SetRoom(player, r_northroom);
+		setRoom(player, r_northroom);
 	}
 }
 
@@ -82,12 +82,12 @@ player p_main
 {
 	onIncompleteCommand(a_go)
 	{
-		Textln("GO where? (Need a compass direction)");
+		textln("GO where? (Need a compass direction)");
 	}
 
 	onUnhandledAction(a_go)
 	{
-		Textln("Can't go that way.");
+		textln("Can't go that way.");
 	}
 }
 
@@ -95,37 +95,37 @@ world
 {
 	init()
 	{
-		SetRoom(p_main, r_southroom);
-		SetPlayer(p_main); // from this moment on, this is the "player" keyword.
-		GiveObject(p_main, o_greenball);
-		GiveObject(world, o_redball);
-		GiveObject(r_northroom, o_blueball);
+		setRoom(p_main, r_southroom);
+		setPlayer(p_main); // from this moment on, this is the "player" keyword.
+		giveObject(p_main, o_greenball);
+		giveObject(world, o_redball);
+		giveObject(r_northroom, o_blueball);
 	}
 
 	start()
 	{
-		Textln("Type \"quit\" to quit, \"go\" and a compass direction to move between rooms.");
-		Textln("You have a green ball.");
+		textln("Type \"quit\" to quit, \"go\" and a compass direction to move between rooms.");
+		textln("You have a green ball.");
 		queue a_look;
 		queue a_objectcheck;
 	}
 
 	onAction(a_objectcheck)
 	{
-		if (PlayerCanAccessObject(player, o_greenball))
-			Textln("You can access the green ball.");
+		if (playerCanAccessObject(player, o_greenball))
+			textln("You can access the green ball.");
 		else
-			Textln("You can NOT access the green ball.");
+			textln("You can NOT access the green ball.");
 
-		if (PlayerCanAccessObject(player, o_redball))
-			Textln("You can access the red ball.");
+		if (playerCanAccessObject(player, o_redball))
+			textln("You can access the red ball.");
 		else
-			Textln("You can NOT access the red ball.");
+			textln("You can NOT access the red ball.");
 
-		if (PlayerCanAccessObject(player, o_blueball))
-			Textln("You can access the blue ball.");
+		if (playerCanAccessObject(player, o_blueball))
+			textln("You can access the blue ball.");
 		else
-			Textln("You can NOT access the blue ball.");
+			textln("You can NOT access the blue ball.");
 	}
 
 	onAction(a_quit)

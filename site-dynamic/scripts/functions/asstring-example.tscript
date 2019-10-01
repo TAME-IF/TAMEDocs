@@ -2,18 +2,18 @@ world
 {
 	start()
 	{
-		Textln("AsString(true) = "+AsString(true));
-		Textln("AsString(false) = "+AsString(false));
-		Textln("AsString(0) = "+AsString(0));
-		Textln("AsString(5.75) = "+AsString(5.75));
-		Textln("AsString(\"123\") = "+AsString("123"));
-		Textln("AsString(\"apple\") = "+AsString("apple"));
-		Textln("AsString(5 + 3) = "+AsString(5 + 3));
+		textln("asString(true) = "+asString(true));
+		textln("asString(false) = "+asString(false));
+		textln("asString(0) = "+asString(0));
+		textln("asString(5.75) = "+asString(5.75));
+		textln("asString(\"123\") = "+asString("123"));
+		textln("asString(\"apple\") = "+asString("apple"));
+		textln("asString(5 + 3) = "+asString(5 + 3));
 		local a = 3.0;
-		Textln("AsString(a) = "+AsString(a));
-		Textln("a = "+a);
+		textln("asString(a) = "+asString(a));
+		textln("a = "+a);
 		a = [1, 2, 3.0, -4, 5 + 7.3, "oranges"];
-		Textln(AsString(a));
+		textln(asString(a));
 		quit;
 	}
 }

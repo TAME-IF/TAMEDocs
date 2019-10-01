@@ -8,12 +8,12 @@ room r_northroom
 {
 	onModalAction(a_go, "south")
 	{
-		SetRoom(player, r_southroom);
+		setRoom(player, r_southroom);
 	}
 	
 	onModalAction(a_go, "north")
 	{
-		Textln("Cannot go north.");
+		textln("Cannot go north.");
 	}
 }
 
@@ -21,12 +21,12 @@ extend room r_southroom
 {
 	onModalAction(a_go, "south")
 	{
-		Textln("Cannot go south.");
+		textln("Cannot go south.");
 	}
 	
 	onModalAction(a_go, "north")
 	{
-		SetRoom(player, r_northroom);
+		setRoom(player, r_northroom);
 	}
 }
 
@@ -38,8 +38,8 @@ world
 {
 	init()
 	{
-		SetPlayer(p_main);
-		SetRoom(player, r_northroom);
+		setPlayer(p_main);
+		setRoom(player, r_northroom);
 	}
 
 	onAction(a_quit)
@@ -49,13 +49,13 @@ world
 
 	start()
 	{
-		Textln("Type \"go north\" or \"go south\".");
-		Textln("Type \"quit\" to quit.");
+		textln("Type \"go north\" or \"go south\".");
+		textln("Type \"quit\" to quit.");
 	}
 	
 	afterSuccessfulCommand()
 	{
 		// "room" is current room.
-		Textln("Current room is " + identity(room));
+		textln("Current room is " + identity(room));
 	}
 }

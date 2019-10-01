@@ -25,7 +25,7 @@ object o_red_door : o_door named "red door", "door"
 {	
 	onWorldBrowse()
 	{
-		Textln("The red door is "+getStateName()+".");
+		textln("The red door is "+getStateName()+".");
 	}
 }
 
@@ -33,7 +33,7 @@ object o_blue_door : o_door named "blue door", "door"
 {	
 	onWorldBrowse()
 	{
-		Textln("The blue door is "+getStateName()+".");
+		textln("The blue door is "+getStateName()+".");
 	}
 }
 
@@ -41,10 +41,10 @@ world
 {
 	start()
 	{
-		GiveObject(world, o_red_door);
-		GiveObject(world, o_blue_door);
-		Textln("You can USE the doors.");
-		Browse(world);
+		giveObject(world, o_red_door);
+		giveObject(world, o_blue_door);
+		textln("You can USE the doors.");
+		browse(world);
 	}
 	
 	onAction(a_quit)
@@ -54,7 +54,7 @@ world
 	
 	afterEveryCommand()
 	{
-		Browse(world);
+		browse(world);
 	}
 	
 }

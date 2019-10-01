@@ -2,13 +2,13 @@ world
 {
 	start()
 	{
-		Textln("This will count up from 0 to 9, pausing at 5.");
+		textln("This will count up from 0 to 9, pausing at 5.");
 		pause();
 	
 		local x = 0;
 		while (x < 10)
 		{
-			Textln(x);
+			textln(x);
 			if (x == 5)
 				pause();
 			x = x + 1;

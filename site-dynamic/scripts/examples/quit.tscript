@@ -2,12 +2,12 @@ world
 {
 	start()
 	{
-		Textln("Doing stuff.");
-		Textln("Quitting...");
+		textln("Doing stuff.");
+		textln("Quitting...");
 		quit;
 		
 		// Nothing after quit gets called - execution stops after it!
-		Textln("Doing more stuff.");
+		textln("Doing more stuff.");
 	}
 	
 }

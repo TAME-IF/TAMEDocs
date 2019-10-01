@@ -10,7 +10,7 @@ object o_orb named "orb"
 	init()
 	{
 		// Pick a room.
-		roomid = IRandom(4) + 1;
+		roomid = irandom(4) + 1;
 	}
 
 	function isCorrectRoom()
@@ -21,20 +21,20 @@ object o_orb named "orb"
 	onAction(a_examine)
 	{
 		if (isCorrectRoom())
-			Textln("The orb is starting to glow!");
+			textln("The orb is starting to glow!");
 		else
-			Textln("The orb is doing nothing.");
+			textln("The orb is doing nothing.");
 	}
 
 	onAction(a_use)
 	{
 		if (isCorrectRoom())
 		{
-			Textln("You teleport out of the adventure!");
+			textln("You teleport out of the adventure!");
 			quit;
 		}
 		else
-			Textln("Nothing happens. Must not be the correct room.");
+			textln("Nothing happens. Must not be the correct room.");
 	}
 }
 
@@ -53,27 +53,27 @@ room r_center
 
 	onAction(a_look)
 	{
-		Textln("Looks like I'm in the center room.");
+		textln("Looks like I'm in the center room.");
 	}
 
 	onModalAction(a_move, "north")
 	{
-		SetRoom(player, r_north);
+		setRoom(player, r_north);
 	}
 
 	onModalAction(a_move, "south")
 	{
-		SetRoom(player, r_south);
+		setRoom(player, r_south);
 	}
 
 	onModalAction(a_move, "west")
 	{
-		SetRoom(player, r_west);
+		setRoom(player, r_west);
 	}
 
 	onModalAction(a_move, "east")
 	{
-		SetRoom(player, r_east);
+		setRoom(player, r_east);
 	}
 }
 
@@ -87,12 +87,12 @@ extend room r_south
 
 	onAction(a_look)
 	{
-		Textln("Looks like I'm in the south room.");
+		textln("Looks like I'm in the south room.");
 	}
 
 	onModalAction(a_move, "north")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -105,12 +105,12 @@ extend room r_north
 
 	onAction(a_look)
 	{
-		Textln("Looks like I'm in the north room.");
+		textln("Looks like I'm in the north room.");
 	}
 
 	onModalAction(a_move, "south")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -123,12 +123,12 @@ extend room r_east
 
 	onAction(a_look)
 	{
-		Textln("Looks like I'm in the east room.");
+		textln("Looks like I'm in the east room.");
 	}
 
 	onModalAction(a_move, "west")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -141,12 +141,12 @@ extend room r_west
 
 	onAction(a_look)
 	{
-		Textln("Looks like I'm in the west room.");
+		textln("Looks like I'm in the west room.");
 	}
 
 	onModalAction(a_move, "east")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -155,27 +155,27 @@ player p_guy
 {
 	onUnhandledAction()
 	{
-		Textln("Can't do that.");
+		textln("Can't do that.");
 	}
 
 	onMalformedCommand(a_move)
 	{
-		Textln("That is not a valid direction to travel! (north, south, east, west)");
+		textln("That is not a valid direction to travel! (north, south, east, west)");
 	}
 
 	onMalformedCommand()
 	{
-		Textln("Can't do that.");
+		textln("Can't do that.");
 	}
 	
 	onIncompleteCommand(a_move)
 	{
-		Textln("Need a direction to go.");
+		textln("Need a direction to go.");
 	}
 	
 	onIncompleteCommand()
 	{
-		Textln("You should probably complete that thought.");
+		textln("You should probably complete that thought.");
 	}
 
 }
@@ -184,26 +184,26 @@ world
 {
 	onAction(a_quit)
 	{
-		Textln("Quitting.");
+		textln("Quitting.");
 		quit;
 	}
 
 	start()
 	{
 		// init player.
-		SetPlayer(p_guy);
-		SetRoom(p_guy, r_center);
-		GiveObject(player, o_orb);
+		setPlayer(p_guy);
+		setRoom(p_guy, r_center);
+		giveObject(player, o_orb);
 
 		// Kick us off. afterSuccessfulCommand() is not called after start().
 		queue a_look;
 		queue a_examine, o_orb;
 
-		Textln("The ORB that you are carrying reacts to a certain room.");
-		Textln("Using the ORB in this state will help you escape.");
-		Textln("");
-		Textln("Type \"move\" or \"go\" and a compass direction.");
-		Textln("Type \"quit\" to quit.");
+		textln("The ORB that you are carrying reacts to a certain room.");
+		textln("Using the ORB in this state will help you escape.");
+		textln("");
+		textln("Type \"move\" or \"go\" and a compass direction.");
+		textln("Type \"quit\" to quit.");
 	}
 
 	afterSuccessfulCommand()

@@ -5,30 +5,30 @@ world
 {
 	onAction(a_test)
 	{
-		Textln("Queueing another action...");
+		textln("Queueing another action...");
 		queue a_anotheraction;
-		Textln("Calling finish...");
+		textln("Calling finish...");
 		finish;
 		
 		// Nothing after finish gets called - execution of the current action stops after it!
-		Textln("Doing more stuff.");
+		textln("Doing more stuff.");
 		
 	}
 
 	onAction(a_anotheraction)
 	{
-		Textln("Doing another action.");
+		textln("Doing another action.");
 	}
 
 	start()
 	{
-		Textln("Type \"test\" to run the queued action example.");
+		textln("Type \"test\" to run the queued action example.");
 		
-		Textln("Calling finish...");
+		textln("Calling finish...");
 		finish;
 		
 		// Nothing after finish gets called - execution of the current action stops after it!
-		Textln("Doing more stuff.");
+		textln("Doing more stuff.");
 	}
 	
 }

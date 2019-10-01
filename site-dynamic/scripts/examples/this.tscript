@@ -5,12 +5,12 @@ object archetype o_ball
 {
 	onAction(a_take)
 	{
-		if (HasObject(player, this))
-			Textln("The current player already has this.");
+		if (hasObject(player, this))
+			textln("The current player already has this.");
 		else
 		{
-			GiveObject(player, this);
-			Textln("Taken.");
+			giveObject(player, this);
+			textln("Taken.");
 		}
 	}
 	
@@ -20,12 +20,12 @@ object o_red_ball : o_ball named "red ball", "ball"
 {
 	onWorldBrowse()
 	{
-		Textln("A red ball.");
+		textln("A red ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A red ball.");
+		textln("A red ball.");
 	}
 }
 
@@ -33,12 +33,12 @@ object o_blue_ball : o_ball named "blue ball", "ball"
 {
 	onWorldBrowse()
 	{
-		Textln("A blue ball.");
+		textln("A blue ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A blue ball.");
+		textln("A blue ball.");
 	}
 }
 
@@ -46,12 +46,12 @@ object o_green_ball : o_ball named "green ball", "ball"
 {
 	onWorldBrowse()
 	{
-		Textln("A green ball.");
+		textln("A green ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A green ball.");
+		textln("A green ball.");
 	}
 }
 
@@ -63,25 +63,25 @@ world
 {
 	init()
 	{
-		SetPlayer(p_main);
-		GiveObject(world, o_red_ball);
-		GiveObject(world, o_blue_ball);
-		GiveObject(world, o_green_ball);
+		setPlayer(p_main);
+		giveObject(world, o_red_ball);
+		giveObject(world, o_blue_ball);
+		giveObject(world, o_green_ball);
 	}
 
 	function browseAll()
 	{
-		Textln("The current player has:");
-		if (ObjectCount(player) > 0)
-			Browse(player);
+		textln("The current player has:");
+		if (objectCount(player) > 0)
+			browse(player);
 		else
-			Textln("NOTHING");
+			textln("NOTHING");
 			
-		Textln("The world has:");
-		if (ObjectCount(world) > 0)
-			Browse(world);
+		textln("The world has:");
+		if (objectCount(world) > 0)
+			browse(world);
 		else
-			Textln("NOTHING");
+			textln("NOTHING");
 	}
 
 	onAction(a_quit)
@@ -91,8 +91,8 @@ world
 
 	start()
 	{
-		Textln("Use \"take\" to take items.");
-		Textln("Type \"quit\" to quit.");
+		textln("Use \"take\" to take items.");
+		textln("Type \"quit\" to quit.");
 		browseAll();
 	}
 	

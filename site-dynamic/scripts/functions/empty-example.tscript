@@ -2,24 +2,24 @@ world
 {
 	start()
 	{
-		Textln("Empty(true) = "+Empty(true));
-		Textln("Empty(false) = "+Empty(false));
-		Textln("Empty(0) = "+Empty(0));
-		Textln("Empty(10) = "+Empty(10));
-		Textln("Empty(0.0) = "+Empty(0.0));
-		Textln("Empty(NaN) = "+Empty(NaN));
-		Textln("Empty(Infinity) = "+Empty(Infinity));
-		Textln("Empty(\"\") = "+Empty(""));
-		Textln("Empty(\"      \") = "+Empty("       "));
-		Textln("Empty(\"apple\") = "+Empty("apple"));
+		textln("empty(true) = "+empty(true));
+		textln("empty(false) = "+empty(false));
+		textln("empty(0) = "+empty(0));
+		textln("empty(10) = "+empty(10));
+		textln("empty(0.0) = "+empty(0.0));
+		textln("empty(NaN) = "+empty(NaN));
+		textln("empty(Infinity) = "+empty(Infinity));
+		textln("empty(\"\") = "+empty(""));
+		textln("empty(\"      \") = "+empty("       "));
+		textln("empty(\"apple\") = "+empty("apple"));
 		
 		local a;
 		a = [1, 2, 3, 4, 5];
-		Textln("Empty("+a+") = "+Empty(a));
+		textln("empty("+a+") = "+empty(a));
 		a = [];
-		Textln("Empty("+a+") = "+Empty(a));
+		textln("empty("+a+") = "+empty(a));
 		a = [[], [], [], []];
-		Textln("Empty("+a+") = "+Empty(a));
+		textln("empty("+a+") = "+empty(a));
 		quit;
 	}
 }

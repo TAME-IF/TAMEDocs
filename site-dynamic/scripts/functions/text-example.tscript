@@ -2,18 +2,18 @@ world
 {
 	start()
 	{
-		Text(8 + 3);
+		text(8 + 3);
 		// newline after
-		Text("\n");
+		text("\n");
 
 		// with newlines
-		Text("apple\n");
+		text("apple\n");
 
 		// without newlines
-		Text("apple");
-		Text("orange");
-		Text("pear");
-		Text("grape");
+		text("apple");
+		text("orange");
+		text("pear");
+		text("grape");
 		quit;
 	}
 }

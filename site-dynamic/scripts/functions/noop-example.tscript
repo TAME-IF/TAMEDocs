@@ -2,9 +2,9 @@ world
 {
 	start()
 	{
-		Textln("Get ready to do nothing.");
+		textln("Get ready to do nothing.");
 		noOp();
-		Textln("Nothing done.");
+		textln("Nothing done.");
 		quit;
 	}
 }

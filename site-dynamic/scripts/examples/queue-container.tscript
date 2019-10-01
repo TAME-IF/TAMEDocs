@@ -11,17 +11,17 @@ object archetype o_food
 
 	onAction(a_mash)
 	{
-		Textln("Mashed " + getName());
+		textln("Mashed " + getName());
 	}
 
 	onAction(a_shred)
 	{
-		Textln("Shredded " + getName());
+		textln("Shredded " + getName());
 	}
 
 	onContainerBrowse()
 	{
-		Textln(getName());
+		textln(getName());
 	}
 	
 }
@@ -66,21 +66,21 @@ world
 		giveobject(c_basket, o_cucumber);
 		giveobject(c_basket, o_eggplant);
 
-		Textln("In the basket, I have:");
-		Browse(c_basket);
+		textln("In the basket, I have:");
+		browse(c_basket);
 
-		Textln("The fruits are:");
-		BrowseTagged(c_basket, "fruit");
-		Textln("The vegetables are:");
-		BrowseTagged(c_basket, "vegetable");
+		textln("The fruits are:");
+		browseTagged(c_basket, "fruit");
+		textln("The vegetables are:");
+		browseTagged(c_basket, "vegetable");
 	
-		Textln("Queueing food to mash...");
+		textln("Queueing food to mash...");
 		queue a_mash : c_basket;
 
-		Textln("Queueing fruits to shred...");
+		textln("Queueing fruits to shred...");
 		queue a_shred : c_basket, "fruit";
 
-		Textln("Queueing quit...");
+		textln("Queueing quit...");
 		queue a_quit;
 	}
 	

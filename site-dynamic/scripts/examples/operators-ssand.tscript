@@ -2,22 +2,22 @@ world
 {
 	function trueFunction()
 	{
-		Textln("Calling trueFunction() - returning true.");
+		textln("Calling trueFunction() - returning true.");
 		return true;
 	}
 	
 	function falseFunction()
 	{
-		Textln("Calling falseFunction() - returning false.");
+		textln("Calling falseFunction() - returning false.");
 		return false;
 	}
 
 	start()
 	{
-		Textln("falseFunction() && trueFunction()");
-		Textln("Result: " + (falseFunction() && trueFunction()));
-		Textln("trueFunction() && falseFunction()");
-		Textln("Result: " + (trueFunction() && falseFunction()));
+		textln("falseFunction() && trueFunction()");
+		textln("Result: " + (falseFunction() && trueFunction()));
+		textln("trueFunction() && falseFunction()");
+		textln("Result: " + (trueFunction() && falseFunction()));
 		quit;
 	}
 	

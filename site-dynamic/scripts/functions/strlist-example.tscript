@@ -2,21 +2,21 @@ world
 {
 	start()
 	{
-		// StrSplit
-		Textln(StrSplit("Apples and Oranges", " "));		// ["Apples", "and", "Oranges"];
-		Textln(StrSplit(1001001, "00"));		            // ["1", "1", "1"];
-		Textln("");
+		// strSplit
+		textln(strSplit("Apples and Oranges", " "));		// ["Apples", "and", "Oranges"];
+		textln(strSplit(1001001, "00"));		            // ["1", "1", "1"];
+		textln("");
 
-		// StrJoin
-		Textln(StrJoin(["Apples", "and", "Oranges"], "|"));	// "Apples|and|Oranges"
-		Textln(StrJoin([1, 2, 3, 4, 5], ":"));				// "1:2:3:4:5"
-		Textln(StrJoin([[1, 2, 3], [4, 5]], " and "));		// "[1, 2, 3] and [4, 5]"
-		Textln("");
+		// strJoin
+		textln(strJoin(["Apples", "and", "Oranges"], "|"));	// "Apples|and|Oranges"
+		textln(strJoin([1, 2, 3, 4, 5], ":"));				// "1:2:3:4:5"
+		textln(strJoin([[1, 2, 3], [4, 5]], " and "));		// "[1, 2, 3] and [4, 5]"
+		textln("");
 		
-		// StrParam
+		// strParam
 		local tokens = ["Apples", "and", "Oranges"];
-		Textln(StrParam("Hope you like {2} {1} {0}!", tokens));	// "Hope you like Oranges and Apples!"
-		Textln(StrParam("This parameterization does not work: {two} {-1} {5}!", tokens));
+		textln(strParam("Hope you like {2} {1} {0}!", tokens));	// "Hope you like Oranges and Apples!"
+		textln(strParam("This parameterization does not work: {two} {-1} {5}!", tokens));
 
 		quit;
 	}

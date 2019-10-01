@@ -11,17 +11,17 @@ object o_ball named "ball" uses determiners "the"
 {
 	onAction(a_use)
 	{
-		Textln("You dribble the ball. Fun!");
+		textln("You dribble the ball. Fun!");
 	}
 	
 	onAction(a_examine)
 	{
-		Textln("It looks like a ball.");
+		textln("It looks like a ball.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("There's a ball, here.");
+		textln("There's a ball, here.");
 	}
 }
 
@@ -29,7 +29,7 @@ object o_thing named "thing" uses determiners "the"
 {
 	onRoomBrowse()
 	{
-		Textln("There's a thing, here.");
+		textln("There's a thing, here.");
 	}
 }
 
@@ -37,8 +37,8 @@ room r_main
 {
 	onAction(a_look)
 	{
-		Textln("You look around the room.");
-		Browse(this);
+		textln("You look around the room.");
+		browse(this);
 	}
 }
 
@@ -48,33 +48,33 @@ player p_first
 {
 	onAction(a_identifyself)
 	{
-		Textln("I am the first player.");
+		textln("I am the first player.");
 	}
 
 	onAction(a_dance)
 	{
-		Textln("You do a jig.");
+		textln("You do a jig.");
 	}
 
 	onAction(a_switch)
 	{
-		Textln("Switching to second player.");
-		SetPlayer(p_second);
+		textln("Switching to second player.");
+		setPlayer(p_second);
 	}
 
 	onUnhandledAction(a_use)
 	{
-		Textln("I can't use that.");
+		textln("I can't use that.");
 	}
 
 	onUnhandledAction(a_examine)
 	{
-		Textln("I can't examine that.");
+		textln("I can't examine that.");
 	}
 	
 	onUnhandledAction()
 	{
-		Textln("I can't do that.");
+		textln("I can't do that.");
 	}
 
 }
@@ -84,28 +84,28 @@ extend player p_second // finish declaring
 
 	onAction(a_identifyself)
 	{
-		Textln("I am the second player.");
+		textln("I am the second player.");
 	}
 
 	onAction(a_switch)
 	{
-		Textln("Switching to first player.");
-		SetPlayer(p_first);
+		textln("Switching to first player.");
+		setPlayer(p_first);
 	}
 
 	onUnhandledAction(a_use)
 	{
-		Textln("Nope. Can't use that.");
+		textln("Nope. Can't use that.");
 	}
 
 	onUnhandledAction(a_examine)
 	{
-		Textln("Nope. Can't examine that.");
+		textln("Nope. Can't examine that.");
 	}
 	
 	onUnhandledAction()
 	{
-		Textln("Nope. Can't do that.");
+		textln("Nope. Can't do that.");
 	}
 	
 }
@@ -119,17 +119,17 @@ world
 
 	onUnhandledAction(a_dance)
 	{
-		Textln("I can't dance.");
+		textln("I can't dance.");
 	}
 	
 	start()
 	{
-		SetRoom(p_first, r_main);
-		SetRoom(p_second, r_main);
-		SetPlayer(p_first);
-		GiveObject(room, o_ball);
-		GiveObject(room, o_thing);
-		Browse(room);
+		setRoom(p_first, r_main);
+		setRoom(p_second, r_main);
+		setPlayer(p_first);
+		giveObject(room, o_ball);
+		giveObject(room, o_thing);
+		browse(room);
 		queue a_identifyself;
 	}
 }

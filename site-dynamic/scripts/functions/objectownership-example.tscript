@@ -9,23 +9,23 @@ object archetype o_all
 {
 	onAction(a_take)
 	{
-		if (HasObject(player, this))
-			Textln("You already have this.");
+		if (hasObject(player, this))
+			textln("You already have this.");
 		else
 		{
-			GiveObject(player, this);
-			Textln("Taken.");
+			giveObject(player, this);
+			textln("Taken.");
 		}
 	}
 
 	onAction(a_drop)
 	{
-		if (!HasObject(player, this))
-			Textln("You don't have this.");
+		if (!hasObject(player, this))
+			textln("You don't have this.");
 		else
 		{
-			GiveObject(room, this);
-			Textln("Dropped.");
+			giveObject(room, this);
+			textln("Dropped.");
 		}
 	}
 
@@ -35,17 +35,17 @@ object o_scissors : o_all named "scissors", "pair of scissors" uses determiners 
 {
 	onAction(a_examine)
 	{
-		Textln("Looks like a pair of scissors.");
+		textln("Looks like a pair of scissors.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A pair of scissors.");
+		textln("A pair of scissors.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("A pair of scissors is here.");
+		textln("A pair of scissors is here.");
 	}
 
 }
@@ -54,17 +54,17 @@ object o_ball : o_all named "ball" uses determiners "the" tagged "takeable"
 {
 	onAction(a_examine)
 	{
-		Textln("Looks like a ball.");
+		textln("Looks like a ball.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A ball.");
+		textln("A ball.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("A ball is lying on the ground.");
+		textln("A ball is lying on the ground.");
 	}
 
 }
@@ -73,17 +73,17 @@ object o_key : o_all named "key", "small key" uses determiners "the" tagged "tak
 {
 	onAction(a_examine)
 	{
-		Textln("Looks like a small key.");
+		textln("Looks like a small key.");
 	}
 
 	onPlayerBrowse()
 	{
-		Textln("A small key.");
+		textln("A small key.");
 	}
 
 	onRoomBrowse()
 	{
-		Textln("A small key is here looking unused.");
+		textln("A small key is here looking unused.");
 	}
 
 }
@@ -96,49 +96,49 @@ world
 {
 	init()
 	{
-		SetPlayer(p_main);
-		SetRoom(p_main, r_main);
+		setPlayer(p_main);
+		setRoom(p_main, r_main);
 
-		GiveObject(r_main, o_scissors);
-		GiveObject(r_main, o_ball);
-		GiveObject(r_main, o_key);
+		giveObject(r_main, o_scissors);
+		giveObject(r_main, o_ball);
+		giveObject(r_main, o_key);
 	}
 
 	function seeAll()
 	{
-		Textln("");
-		if (ObjectCount(room) > 0)
+		textln("");
+		if (objectCount(room) > 0)
 		{
-			Textln("In this room:");
-			Browse(room);
+			textln("In this room:");
+			browse(room);
 		}
 		else
 		{
-			Textln("There's nothing in the room.");
+			textln("There's nothing in the room.");
 		}
-		Textln("");
-		if (ObjectCount(player) > 0)
+		textln("");
+		if (objectCount(player) > 0)
 		{
-			Textln("I have:");
-			Browse(player);
-			Textln("");
-			Textln("But these look useful:");
-			BrowseTagged(player, "useful");
+			textln("I have:");
+			browse(player);
+			textln("");
+			textln("But these look useful:");
+			browseTagged(player, "useful");
 		}
 		else
 		{
-			Textln("I have nothing.");
+			textln("I have nothing.");
 		}
 	}
 
 	start()
 	{
-		Textln("Type \"take\" to take objects, and \"drop\" to put them down.");
-		Textln("Type \"examine\" to examine objects.");
-		Textln("Type \"take all\" to take all objects.");
-		Textln("Type \"drop all\" to drop all objects.");
-		Textln("");
-		Textln("Type \"quit\" to quit.");
+		textln("Type \"take\" to take objects, and \"drop\" to put them down.");
+		textln("Type \"examine\" to examine objects.");
+		textln("Type \"take all\" to take all objects.");
+		textln("Type \"drop all\" to drop all objects.");
+		textln("");
+		textln("Type \"quit\" to quit.");
 		seeAll();
 	}
 
@@ -149,14 +149,14 @@ world
 
 	onAction(a_takeall)
 	{
-		MoveObjectsWithTag(room, player, "takeable");
-		Textln("Took everything.");
+		moveObjectsWithTag(room, player, "takeable");
+		textln("Took everything.");
 	}
 
 	onAction(a_dropall)
 	{
-		MoveObjectsWithTag(player, room, "takeable");
-		Textln("Dropped everything.");
+		moveObjectsWithTag(player, room, "takeable");
+		textln("Dropped everything.");
 	}
 
 	afterEveryCommand()

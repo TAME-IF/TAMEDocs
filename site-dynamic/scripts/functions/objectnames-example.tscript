@@ -5,8 +5,8 @@ world
 	function nameTest(list)
 	{
 		local i;
-		for (i = 0; i < Length(list); i = i + 1)
-			Textln("Object has name \""+list[i]+"\": " + ObjectHasName(o_ball, list[i]));
+		for (i = 0; i < length(list); i = i + 1)
+			textln("Object has name \""+list[i]+"\": " + ObjectHasName(o_ball, list[i]));
 	}
 
 	start()
@@ -19,12 +19,12 @@ world
 		];
 		nameTest(names);
 
-		Textln("Adding \"red ball\"...");
-		AddObjectName(o_ball, "red ball");
+		textln("Adding \"red ball\"...");
+		addObjectName(o_ball, "red ball");
 		nameTest(names);
 		
-		Textln("Removing \"ball\"...");
-		RemoveObjectName(o_ball, "ball");
+		textln("Removing \"ball\"...");
+		removeObjectName(o_ball, "ball");
 		nameTest(names);
 		quit;
 	}

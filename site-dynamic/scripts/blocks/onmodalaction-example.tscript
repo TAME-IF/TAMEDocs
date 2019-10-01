@@ -13,28 +13,28 @@ room r_center
 {
 	onAction(a_look)
 	{
-		Textln("This looks like the center room.");
-		Textln("I can go west, east, north, or south.");
+		textln("This looks like the center room.");
+		textln("I can go west, east, north, or south.");
 	}
 	
 	onModalAction(a_go, "west")
 	{
-		SetRoom(player, r_west);
+		setRoom(player, r_west);
 	}
 	
 	onModalAction(a_go, "east")
 	{
-		SetRoom(player, r_east);
+		setRoom(player, r_east);
 	}
 	
 	onModalAction(a_go, "south")
 	{
-		SetRoom(player, r_south);
+		setRoom(player, r_south);
 	}
 	
 	onModalAction(a_go, "north")
 	{
-		SetRoom(player, r_north);
+		setRoom(player, r_north);
 	}
 	
 }
@@ -43,13 +43,13 @@ extend room r_west
 {
 	onAction(a_look)
 	{
-		Textln("This looks like the west room.");
-		Textln("I can go east.");
+		textln("This looks like the west room.");
+		textln("I can go east.");
 	}
 	
 	onModalAction(a_go, "east")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -57,13 +57,13 @@ extend room r_east
 {
 	onAction(a_look)
 	{
-		Textln("This looks like the east room.");
-		Textln("I can go west.");
+		textln("This looks like the east room.");
+		textln("I can go west.");
 	}
 	
 	onModalAction(a_go, "west")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -71,13 +71,13 @@ extend room r_north
 {
 	onAction(a_look)
 	{
-		Textln("This looks like the north room.");
-		Textln("I can go south.");
+		textln("This looks like the north room.");
+		textln("I can go south.");
 	}
 	
 	onModalAction(a_go, "south")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -85,13 +85,13 @@ extend room r_south
 {
 	onAction(a_look)
 	{
-		Textln("This looks like the south room.");
-		Textln("I can go north.");
+		textln("This looks like the south room.");
+		textln("I can go north.");
 	}
 	
 	onModalAction(a_go, "north")
 	{
-		SetRoom(player, r_center);
+		setRoom(player, r_center);
 	}
 }
 
@@ -99,13 +99,13 @@ player p_main
 {
 	onUnhandledAction(a_go)
 	{
-		Textln("Can't go that way.");
+		textln("Can't go that way.");
 	}
 	
 	onIncompleteCommand(a_go)
 	{
-		Textln("I need to GO a compass direction.");
-		Textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+		textln("I need to GO a compass direction.");
+		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
 	}
 }
 
@@ -118,10 +118,10 @@ world
 
 	start()
 	{
-		SetRoom(p_main, r_center);
-		SetPlayer(p_main);
-		Textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
-		Textln("Type \"quit\".");
+		setRoom(p_main, r_center);
+		setPlayer(p_main);
+		textln("Type \"go\" and \"west\", \"east\", \"south\", or \"north\" to move around.");
+		textln("Type \"quit\".");
 		queue a_look;
 	}
 	

@@ -4,14 +4,14 @@ world
 	{
 		local a;
 		a = 3;
-		Textln("a = "+a);
-		Textln("a[0] = "+a[0]);
-		Textln("AsList(a) = "+AsList(a));
+		textln("a = "+a);
+		textln("a[0] = "+a[0]);
+		textln("asLista) = "+asLista));
 		
 		a = [3];
-		Textln("a = "+a);
-		a = AsList(a);
-		Textln("a = "+a);
+		textln("a = "+a);
+		a = asLista);
+		textln("a = "+a);
 		quit;
 	}
 }

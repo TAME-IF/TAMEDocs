@@ -22,7 +22,7 @@ world
 
 	onMalformedCommand(a_switch)
 	{
-		Textln("Not a valid language choice.");
+		textln("Not a valid language choice.");
 	}
 
 	onModalAction(a_switch, "english")
@@ -45,7 +45,7 @@ world
 
 	onAction(a_saysomething)
 	{
-		local x = IRandom(3);
+		local x = irandom(3);
 		if (language == "english")
 		{
 			if (x == 0)
@@ -77,13 +77,13 @@ world
 
 	onAction(a_say)
 	{
-		Textln("You said, \""+stuff+"\"");
+		textln("You said, \""+stuff+"\"");
 	}
 
 	start()
 	{
-		Textln("Type \"say something\", or type \"switch language to\" and \"english\", \"french\", or \"spanish\".");
-		Textln("Type \"quit\" to quit.");
+		textln("Type \"say something\", or type \"switch language to\" and \"english\", \"french\", or \"spanish\".");
+		textln("Type \"quit\" to quit.");
 	}
 	
 }

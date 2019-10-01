@@ -10,14 +10,14 @@ object archetype o_examinables
 	// override this.
 	function examineFirst()
 	{
-		Textln("[EXAMINE FIRST]");
+		textln("[EXAMINE FIRST]");
 	}
 	
 	// called on subsequent examine.
 	// override this.
 	function examineAgain()
 	{
-		Textln("[EXAMINE AGAIN]");
+		textln("[EXAMINE AGAIN]");
 	}
 
 	onAction(a_examine)
@@ -41,17 +41,17 @@ object o_wooden_key : o_keys named "wooden key", "key"
 {
 	override function examineFirst()
 	{
-		Textln("It's a wooden key.");
+		textln("It's a wooden key.");
 	}
 	
 	override function examineAgain()
 	{
-		Textln("It's still a wooden key.");
+		textln("It's still a wooden key.");
 	}
 	
 	onWorldBrowse()
 	{
-		Textln("A wooden key is here.");
+		textln("A wooden key is here.");
 	}
 
 }
@@ -60,17 +60,17 @@ object o_steel_key : o_keys named "steel key", "key"
 {
 	override function examineFirst()
 	{
-		Textln("It's a steel key.");
+		textln("It's a steel key.");
 	}
 	
 	override function examineAgain()
 	{
-		Textln("It's still a steel key.");
+		textln("It's still a steel key.");
 	}
 
 	onWorldBrowse()
 	{
-		Textln("A steel key is here.");
+		textln("A steel key is here.");
 	}
 
 }
@@ -81,13 +81,13 @@ object archetype o_doors : o_examinables
 	// fallback on an incorrect key.
 	onActionWithAncestor(a_unlock, o_keys)
 	{
-		Textln("This key isn't working.");
+		textln("This key isn't working.");
 	}
 	
 	// fallback on an incorrect anything.
 	onActionWithOther(a_unlock)
 	{
-		Textln("I can't unlock this with that.");
+		textln("I can't unlock this with that.");
 	}
 }
 
@@ -95,22 +95,22 @@ object o_wooden_door : o_doors named "wooden door", "door"
 {
 	override function examineFirst()
 	{
-		Textln("It's a wooden door.");
+		textln("It's a wooden door.");
 	}
 	
 	override function examineAgain()
 	{
-		Textln("It's still a wooden door.");
+		textln("It's still a wooden door.");
 	}
 
 	onWorldBrowse()
 	{
-		Textln("A wooden door is here.");
+		textln("A wooden door is here.");
 	}
 
 	onActionWith(a_unlock, o_wooden_key)
 	{
-		Textln("You unlock the wooden door.");
+		textln("You unlock the wooden door.");
 	}
 }
 
@@ -118,22 +118,22 @@ object o_steel_door : o_doors named "steel door", "door"
 {
 	override function examineFirst()
 	{
-		Textln("It's a steel door.");
+		textln("It's a steel door.");
 	}
 	
 	override function examineAgain()
 	{
-		Textln("It's still a steel door.");
+		textln("It's still a steel door.");
 	}
 
 	onWorldBrowse()
 	{
-		Textln("A steel door is here.");
+		textln("A steel door is here.");
 	}
 
 	onActionWith(a_unlock, o_steel_key)
 	{
-		Textln("You unlock the steel door.");
+		textln("You unlock the steel door.");
 	}
 }
 
@@ -141,53 +141,53 @@ world
 {
 	start()
 	{
-		GiveObject(world, o_wooden_key);
-		GiveObject(world, o_steel_key);
-		GiveObject(world, o_wooden_door);
-		GiveObject(world, o_steel_door);
-		Textln("You are in a room with some keys and doors.");
-		Textln("You can EXAMINE things or UNLOCK things.");
-		Browse(world);
+		giveObject(world, o_wooden_key);
+		giveObject(world, o_steel_key);
+		giveObject(world, o_wooden_door);
+		giveObject(world, o_steel_door);
+		textln("You are in a room with some keys and doors.");
+		textln("You can EXAMINE things or UNLOCK things.");
+		browse(world);
 	}
 	
 	onAction(a_lookaround)
 	{
-		Browse(world);
+		browse(world);
 	}
 
 	onMalformedCommand()
 	{
-		Textln("I don't understand.");
+		textln("I don't understand.");
 	}
 
 	onIncompleteCommand(a_examine)
 	{
-		Textln("Examine what?");
+		textln("Examine what?");
 	}
 
 	onMalformedCommand(a_examine)
 	{
-		Textln("I don't understand. That's not a thing I can examine.");
+		textln("I don't understand. That's not a thing I can examine.");
 	}
 
 	onUnhandledAction(a_examine)
 	{
-		Textln("I can't examine that.");
+		textln("I can't examine that.");
 	}
 
 	onIncompleteCommand(a_unlock)
 	{
-		Textln("Unlock what with what?");
+		textln("Unlock what with what?");
 	}
 
 	onMalformedCommand(a_unlock)
 	{
-		Textln("I don't understand. That's not a thing I can unlock.");
+		textln("I don't understand. That's not a thing I can unlock.");
 	}
 
 	onUnhandledAction(a_unlock)
 	{
-		Textln("I can't unlock that.");
+		textln("I can't unlock that.");
 	}
 
 	onAction(a_quit)

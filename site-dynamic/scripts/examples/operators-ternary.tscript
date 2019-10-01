@@ -6,25 +6,25 @@ world
 {
 	function firstResult()
 	{
-		Textln("Calling first result: 10");
+		textln("Calling first result: 10");
 		return 10;
 	}
 	
 	function secondResult()
 	{
-		Textln("Calling second result: 20");
+		textln("Calling second result: 20");
 		return 20;
 	}
 
 	function testExpressions(value)
 	{
-		Textln("Passing " + value + "...");
+		textln("Passing " + value + "...");
 
-		Textln(value + " ? \"apple\" : \"banana\"");
-		Textln(value ? "apple" : "banana");
+		textln(value + " ? \"apple\" : \"banana\"");
+		textln(value ? "apple" : "banana");
 
-		Textln(value + " ? firstResult() : secondResult()");
-		Textln(value ? firstResult() : secondResult());
+		textln(value + " ? firstResult() : secondResult()");
+		textln(value ? firstResult() : secondResult());
 	}
 
 	onAction(a_testtrue)
@@ -44,7 +44,7 @@ world
 
 	start()
 	{
-		Textln("Type \"test true\", \"test false\", or \"quit\".");
+		textln("Type \"test true\", \"test false\", or \"quit\".");
 	}
 	
 }

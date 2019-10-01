@@ -3,39 +3,39 @@ world
 	start()
 	{
 		// Index Search
-		Textln(StrIndex("Apples and Oranges", "Apples"));		// 0
-		Textln(StrIndex("Apples and Oranges", "Pears"));		// -1
-		Textln("");
+		textln(strIndex("Apples and Oranges", "Apples"));		// 0
+		textln(strIndex("Apples and Oranges", "Pears"));		// -1
+		textln("");
 
 		// Index vs. LastIndex
-		Textln(StrIndex("Apples and Oranges", "an"));			// 7 
-		Textln(StrLastIndex("Apples and Oranges", "an"));		// 13
-		Textln(StrIndex("Apples and Oranges", "es"));			// 4 
-		Textln(StrLastIndex("Apples and Oranges", "es"));		// 16
-		Textln("");
+		textln(strIndex("Apples and Oranges", "an"));			// 7 
+		textln(strLastIndex("Apples and Oranges", "an"));		// 13
+		textln(strIndex("Apples and Oranges", "es"));			// 4 
+		textln(strLastIndex("Apples and Oranges", "es"));		// 16
+		textln("");
 
 		// Contains
-		Textln(StrContains("Apples and Oranges", "Apples"));	// true 
-		Textln(StrContains("Apples and Oranges", "apples"));	// false 
-		Textln(StrContains("Apples and Oranges", "Pears"));		// false
-		Textln(StrContains(1234, 23));							// true (numbers are converted to strings)
-		Textln(StrContains(0.56, "."));							// true (numbers are converted to strings)
-		Textln("");
+		textln(strContains("Apples and Oranges", "Apples"));	// true 
+		textln(strContains("Apples and Oranges", "apples"));	// false 
+		textln(strContains("Apples and Oranges", "Pears"));		// false
+		textln(strContains(1234, 23));							// true (numbers are converted to strings)
+		textln(strContains(0.56, "."));							// true (numbers are converted to strings)
+		textln("");
 
 		// Starts With
-		Textln(StrStartsWith("Apples and Oranges", "Apples"));	// true
-		Textln(StrStartsWith("Apples and Oranges", "apples"));	// false (case sensitive)
-		Textln(StrStartsWith("Apples and Oranges", "C"));		// false
-		Textln(StrStartsWith(123456, 123));						// true (numbers are converted to strings)
-		Textln(StrStartsWith(5 + 5, "1"));						// true (numbers are converted to strings)
-		Textln("");
+		textln(strStartsWith("Apples and Oranges", "Apples"));	// true
+		textln(strStartsWith("Apples and Oranges", "apples"));	// false (case sensitive)
+		textln(strStartsWith("Apples and Oranges", "C"));		// false
+		textln(strStartsWith(123456, 123));						// true (numbers are converted to strings)
+		textln(strStartsWith(5 + 5, "1"));						// true (numbers are converted to strings)
+		textln("");
 
 		// Ends With
-		Textln(StrEndsWith("Apples and Oranges", "Oranges"));	// true
-		Textln(StrEndsWith("Apples and Oranges", "oranges"));	// false (case sensitive)
-		Textln(StrEndsWith("Apples and Oranges", "z"));			// false
-		Textln(StrEndsWith(123456, 456));						// true (numbers are converted to strings)
-		Textln(StrEndsWith(-1.4, ".4"));						// true (numbers are converted to strings)
+		textln(strEndsWith("Apples and Oranges", "Oranges"));	// true
+		textln(strEndsWith("Apples and Oranges", "oranges"));	// false (case sensitive)
+		textln(strEndsWith("Apples and Oranges", "z"));			// false
+		textln(strEndsWith(123456, 456));						// true (numbers are converted to strings)
+		textln(strEndsWith(-1.4, ".4"));						// true (numbers are converted to strings)
 
 		quit;
 	}

@@ -2,7 +2,7 @@ world
 {
 	start()
 	{
-		Textln("This prints a line of text.");
+		textln("This prints a line of text.");
 		addCue("text", "This does the same thing.\n");
 		addCue("unhandled", "This cue is ignored.");
 		

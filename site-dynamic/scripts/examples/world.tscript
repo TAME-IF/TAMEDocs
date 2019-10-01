@@ -12,9 +12,9 @@ container c_test
 	{
 		// check the value of x on the world's context.
 		if (world.x === 5)
-			Textln("world.x is 5!");
+			textln("world.x is 5!");
 		else
-			Textln("world.x is NOT 5!");
+			textln("world.x is NOT 5!");
 	}
 }
 
@@ -28,13 +28,13 @@ world
 
 	onAction(a_inc)	
 	{
-		Textln("Incrementing world.x...");
+		textln("Incrementing world.x...");
 		x = x + 1;
 	}
 
 	onAction(a_dec)
 	{
-		Textln("Decrementing world.x...");
+		textln("Decrementing world.x...");
 		x = x - 1;
 	}
 
@@ -45,15 +45,15 @@ world
 
 	start()
 	{
-		Textln("Type \"increment\" to increment world.x");
-		Textln("Type \"decrement\" to decrement world.x");
-		Textln("Type \"quit\" to quit.");
+		textln("Type \"increment\" to increment world.x");
+		textln("Type \"decrement\" to decrement world.x");
+		textln("Type \"quit\" to quit.");
 	}
 	
 	afterSuccessfulCommand()
 	{
 		// call the container's function.
-		Textln("world.x is " + x);
+		textln("world.x is " + x);
 		c_test.checkWorld();
 	}
 	

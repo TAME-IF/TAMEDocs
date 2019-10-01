@@ -14,7 +14,7 @@ object o_ball named "ball"
 	// the target of a specific transitive action.
 	onAction(a_examine)
 	{
-		Textln("Looks like a ball!");
+		textln("Looks like a ball!");
 	}
 	
 }
@@ -25,14 +25,14 @@ world
 	// Adds the ball to the world.
 	init()
 	{
-		GiveObject(world, o_ball);
+		giveObject(world, o_ball);
 	}
 	
 	// The world's start() block is called after all init() blocks are called.
 	start()
 	{
-		Textln("Type \"quit\" to quit.");
-		Textln("Type \"examine ball\" to examine the ball.");
+		textln("Type \"quit\" to quit.");
+		textln("Type \"examine ball\" to examine the ball.");
 	}
 
 	// onAction() blocks on the world are called when specific general

@@ -10,17 +10,17 @@ object o_thing named "thing" uses determiners "the"
 	onAction(a_eat)
 	{
 		if (ObjectHasTag(this, "edible"))
-			Textln("You ate the thing. Delicious!");
+			textln("You ate the thing. Delicious!");
 		else
-			Textln("You can't eat this.");
+			textln("You can't eat this.");
 	}
 
 	onAction(a_drive)
 	{
 		if (ObjectHasTag(this, "driveable"))
-			Textln("You drive the thing. Vroom!");
+			textln("You drive the thing. Vroom!");
 		else
-			Textln("You can't drive this.");
+			textln("You can't drive this.");
 	}
 
 	onAction(a_examine)
@@ -29,13 +29,13 @@ object o_thing named "thing" uses determiners "the"
 		local driveable = ObjectHasTag(this, "driveable");
 
 		if (edible && driveable)
-			Textln("It's a driveable, edible thing.");
+			textln("It's a driveable, edible thing.");
 		else if (edible)
-			Textln("It's an edible thing.");
+			textln("It's an edible thing.");
 		else if (driveable)
-			Textln("It's a driveable thing.");
+			textln("It's a driveable thing.");
 		else
-			Textln("It's a thing.");
+			textln("It's a thing.");
 	}
 
 }
@@ -44,20 +44,20 @@ world
 {
 	init()
 	{
-		GiveObject(this, o_thing);
+		giveObject(this, o_thing);
 	}
 
 	start()
 	{
-		Textln("There's a thing here.");
-		Textln(
+		textln("There's a thing here.");
+		textln(
 			"You can change the characteristics of the thing by typing \"make the thing\" and a"
 			+ "mode: \"edible\", \"driveable\", \"not edible\" or \"not driveable\". Then you can "
 			+ "\"eat\" or \"drive\" it."
 		);
-		Textln("Typing \"make the thing inert\" will remove those characteristics.");
-		Textln("");
-		Textln("Type \"quit\" to quit.");
+		textln("Typing \"make the thing inert\" will remove those characteristics.");
+		textln("");
+		textln("Type \"quit\" to quit.");
 	}
 
 	onAction(a_quit)
@@ -67,33 +67,33 @@ world
 
 	onModalAction(a_make, "edible")
 	{
-		AddObjectTag(o_thing, "edible");
-		Textln("The thing is now edible.");
+		addObjectTag(o_thing, "edible");
+		textln("The thing is now edible.");
 	}
 
 	onModalAction(a_make, "driveable")
 	{
-		AddObjectTag(o_thing, "driveable");
-		Textln("The thing is now driveable.");
+		addObjectTag(o_thing, "driveable");
+		textln("The thing is now driveable.");
 	}
 
 	onModalAction(a_make, "not edible")
 	{
-		RemoveObjectTag(o_thing, "edible");
-		Textln("The thing is now not edible.");
+		removeObjectTag(o_thing, "edible");
+		textln("The thing is now not edible.");
 	}
 
 	onModalAction(a_make, "not driveable")
 	{
-		RemoveObjectTag(o_thing, "driveable");
-		Textln("The thing is now not driveable.");
+		removeObjectTag(o_thing, "driveable");
+		textln("The thing is now not driveable.");
 	}
 
 	onModalAction(a_make, "inert")
 	{
-		RemoveObjectTagFromAllIn(world, "edible");
-		RemoveObjectTagFromAllIn(world, "driveable");
-		Textln("The thing is now inert.");
+		removeObjectTagFromAllIn(world, "edible");
+		removeObjectTagFromAllIn(world, "driveable");
+		textln("The thing is now inert.");
 	}
 
 }
