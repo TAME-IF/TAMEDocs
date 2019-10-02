@@ -21,6 +21,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,6 +41,7 @@ import com.tameif.tame.factory.TAMEJSExporterOptions;
 import com.tameif.tame.factory.TAMEScriptIncluder;
 import com.tameif.tame.factory.TAMEScriptParseException;
 import com.tameif.tame.factory.TAMEScriptReader;
+import com.tameif.tame.factory.TAMEScriptReaderOptions;
 import com.tameif.tame.lang.ArithmeticOperator;
 import com.tameif.tame.lang.Value;
 import com.tameif.tame.struct.CaseInsensitiveStringSet;
@@ -186,6 +188,35 @@ public final class TAMEDocsGen
 		}
 	};
 
+	private static final String[] BLANK_STRING_ARRAY = {};
+
+	static final TAMEScriptReaderOptions TAMESCRIPT_OPTIONS = new TAMEScriptReaderOptions()
+	{
+		@Override
+		public String[] getDefines() 
+		{
+			return BLANK_STRING_ARRAY;
+		}
+
+		@Override
+		public Charset getInputCharset() 
+		{
+			return Charset.forName("UTF-8");
+		}
+
+		@Override
+		public boolean isOptimizing() 
+		{
+			return true;
+		}
+
+		@Override
+		public PrintStream getVerboseStream() 
+		{
+			return null;
+		}
+	};
+
 	/** TAMEScript JS Exporter Options. */
 	static final TAMEJSExporterOptions TAMESCRIPT_JSEXPORTER_OPTIONS_ENGINE = new TAMEJSExporterOptions()
 	{
@@ -268,7 +299,7 @@ public final class TAMEDocsGen
 		
 		PrintWriter pw = null;
 		try {
-			pw = new PrintWriter(new FileOutputStream(new File(outPath + "/" + OUTPATH_JS_MISSINGPAGE)), true);
+			pw = new PrintWriter(new File(outPath + "/" + OUTPATH_JS_MISSINGPAGE), "UTF-8");
 			pw.println("var TAMEDOCS_MISSINGPAGES = ");
 			JSONWriter.writeJSON(index, pw);
 			pw.println(";");
@@ -303,7 +334,7 @@ public final class TAMEDocsGen
 
 			PrintWriter pw = null;
 			try {
-				pw = new PrintWriter(outFile);
+				pw = new PrintWriter(outFile, "UTF-8");
 				parsePageResource(outPath, outFile, pw, RESOURCE_ROOT + "/" + template, variables);
 			} catch (SecurityException e) {
 				out.println("ERROR: Could not write file "+outFile.getPath()+". Access denied.");
@@ -372,7 +403,7 @@ public final class TAMEDocsGen
 		
 		PrintWriter pw = null;
 		try {
-			pw = new PrintWriter(new FileOutputStream(new File(outPath + "/" + OUTPATH_JS_SEARCHINDEX)), true);
+			pw = new PrintWriter(new File(outPath + "/" + OUTPATH_JS_SEARCHINDEX), "UTF-8");
 			pw.println("var TAMEDOCS_SEARCH_INDEX = ");
 			JSONWriter.writeJSON(index, pw);
 			pw.println(";");
@@ -635,10 +666,10 @@ public final class TAMEDocsGen
 	private static Iterable<String[]> getPageList() throws IOException
 	{
 		Queue<String[]> out = new LinkedList<>();
-		InputStream in = null;
+		BufferedReader pageReader = null;
 		try {
 			String line = null;
-			BufferedReader pageReader = IOUtils.openTextStream(in = new FileInputStream(new File(RESOURCE_PAGESLIST)));
+			pageReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(RESOURCE_PAGESLIST)), "UTF-8"));
 			while ((line = pageReader.readLine()) != null)
 			{
 				CommonTokenizer ct = new CommonTokenizer(line);
@@ -648,7 +679,7 @@ public final class TAMEDocsGen
 				out.add(linedata);
 			}
 		} finally {
-			IOUtils.close(in);
+			IOUtils.close(pageReader);
 		}
 		return out;
 	}
@@ -674,7 +705,7 @@ public final class TAMEDocsGen
 			in = new FileInputStream(new File(inPath));
 			StringBuilder tagPart = new StringBuilder();
 			StringBuilder tagContent = new StringBuilder();
-			reader = new InputStreamReader(in);
+			reader = new InputStreamReader(in, "UTF-8");
 			int state = STATE_PAGE;
 			int readChar = 0;
 
@@ -975,7 +1006,7 @@ public final class TAMEDocsGen
 
 				scriptIn = new FileInputStream(new File(scriptFile));
 				String scriptContent = getTextualContents(scriptIn);
-				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_INCLUDER);
+				TAMEModule module = TAMEScriptReader.read(scriptFile, scriptContent, TAMESCRIPT_OPTIONS, TAMESCRIPT_INCLUDER);
 				writer.write("<div class=\"w3-example\">\n");
 				
 				writer.write("\t<div class=\"w3-right\" style=\"margin-top:12px\">");
@@ -1034,8 +1065,7 @@ public final class TAMEDocsGen
 	private static String getTextualContents(InputStream in) throws IOException
 	{
 		StringBuilder sb = new StringBuilder();
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 		String line;
 		while ((line = br.readLine()) != null)
 		{

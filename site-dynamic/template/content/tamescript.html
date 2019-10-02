@@ -46,7 +46,7 @@
 	{
 		start()
 		{
-			Textln("Hello, world!");
+			textln("Hello, world!");
 		}
 	}
 </code></pre>
@@ -66,7 +66,7 @@
 		...or like this:
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
-	world{start(){Textln("Hello, world!");}}
+	world{start(){textln("Hello, world!");}}
 </code></pre>
 	<p>
 		However, it is a good idea to write it in a manner that is readable to others and yourself!
@@ -356,18 +356,18 @@
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	local x = 5;	// assigns "x" the value 5, but not persisted in the context.
-	Textln(x);		// adds a "text" cue: "5\n"
+	textln(x);		// adds a "text" cue: "5\n"
 	x = 3;
-	Textln(x);		// adds a "text" cue: "3\n"
+	textln(x);		// adds a "text" cue: "3\n"
 </code></pre>
 	<p>
 		Local declarations don't need an assignment - just declaring it initializes it to <kbd>false</kbd>. 
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	local x;		// assigns "x" the value false, but not persisted in the context.
-	Textln(x);		// adds a "text" cue: "false\n"
+	textln(x);		// adds a "text" cue: "false\n"
 	x = 3;
-	Textln(x);		// adds a "text" cue: "3\n"
+	textln(x);		// adds a "text" cue: "3\n"
 </code></pre>
 	<p>
 		You can remove a variable's assignment entirely using the <kbd>clear</kbd> keyword - the next use of that variable
@@ -375,9 +375,9 @@
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	x = 5;			// assigns "x" the value 5.
-	Textln(x);		// adds a "text" cue: "5\n"
+	textln(x);		// adds a "text" cue: "5\n"
 	clear x;
-	Textln(x);		// adds a "text" cue: "false\n"
+	textln(x);		// adds a "text" cue: "false\n"
 </code></pre>
 	<p>
 		It is possible to mix <strong>local</strong> and variables persisted on the context with the same name, but this is not advisable. 
@@ -386,11 +386,11 @@
 <pre class="tame-example"><code data-language="tamescript">
 	x = 5;			// assigns "x" the value 5.
 	local x = 7;	// assigns "x" the value 7.
-	Textln(x);		// adds a "text" cue: "7\n"
+	textln(x);		// adds a "text" cue: "7\n"
 	clear x;		// clear local x
-	Textln(x);		// adds a "text" cue: "5\n"
+	textln(x);		// adds a "text" cue: "5\n"
 	clear x;		// clear x (persisted)
-	Textln(x);		// adds a "text" cue: "false\n"
+	textln(x);		// adds a "text" cue: "false\n"
 </code></pre>
 	<p>
 		Variables can be referred to on other elements, and can be read or written to in the same way. To reference a variable
@@ -410,7 +410,7 @@
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	fix(5.6, 0);				// rounds 5.6 to the nearest whole number and returns it, but does nothing with it.
-	Textln("Hello, world!");	// adds a "text" cue to the response with "Hello, world!\n" as its content. 
+	textln("Hello, world!");	// adds a "text" cue to the response with "Hello, world!\n" as its content. 
 	floor(5.6);					// Calculates the floor of 5.6 and returns it, but does nothing with it. 
 </code></pre>
 	<p>
@@ -419,7 +419,7 @@
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
 	a = 5;									// assigns "a" the value 5.
-	Textln("The value of \"a\" is " + a);	// adds a "text" cue: "The value of \"a\" is 5".
+	textln("The value of \"a\" is " + a);	// adds a "text" cue: "The value of \"a\" is 5".
 	b = floor(10.5 * 6.7) / 3.0;			// calculate a bunch of things and store it in "b".
 </code></pre>
 </div>
@@ -591,15 +591,15 @@
 
 	function diceRoll(n)
 	{
-		local i = IRandom(n) + 1; 
+		local i = irandom(n) + 1; 
 		return i;
 	}
 	
 	function printThings(a, b, c)
 	{
-		Textln(a);
-		Textln(b);
-		Textln(c);
+		textln(a);
+		textln(b);
+		textln(c);
 	} 
 </code></pre>
 	<p>
@@ -662,7 +662,7 @@
 <pre class="tame-example"><code data-language="tamescript">
     if (x == 4)
     {
-        Textln("x is 4!");
+        textln("x is 4!");
     }
 </code></pre>
 	<p>
@@ -672,11 +672,11 @@
 <pre class="tame-example"><code data-language="tamescript">
     if (x == 4)
     {
-        Textln("x is 4!");
+        textln("x is 4!");
     }
     else
     {
-        Textln("x is not 4!");
+        textln("x is not 4!");
     }
 </code></pre>
 	<p>
@@ -684,9 +684,9 @@
 	</p>
 <pre class="tame-example"><code data-language="tamescript">
     if (x == 4)
-        Textln("x is 4!");
+        textln("x is 4!");
     else
-        Textln("x is not 4!");
+        textln("x is not 4!");
 </code></pre>
 	<p>
 		For this reason, you can chain together if-elses...
@@ -694,15 +694,15 @@
 <pre class="tame-example"><code data-language="tamescript">
     if (x == 4)
     {
-        Textln("x is 4!");
+        textln("x is 4!");
     }
     else if (x == 5)
     {
-        Textln("x is 5!");
+        textln("x is 5!");
     }
     else
     {
-        Textln("x is neither 4 nor 5!");
+        textln("x is neither 4 nor 5!");
     }
 </code></pre>
 	<p>
@@ -711,17 +711,17 @@
 <pre class="tame-example"><code data-language="tamescript">
     if (x == 4)
     {
-        Textln("x is 4!");
+        textln("x is 4!");
     }
     else 
     {
         if (x == 5)
         {
-            Textln("x is 5!");
+            textln("x is 5!");
         }
         else
         {
-            Textln("x is neither 4 nor 5!");
+            textln("x is neither 4 nor 5!");
         }
     }
 </code></pre>
@@ -739,7 +739,7 @@
     // This code will loop 5 times.
     while (x > 0)
     {
-        Textln("x is " + x);
+        textln("x is " + x);
         x = x - 1;
     }
 </code></pre>
@@ -760,7 +760,7 @@
     // This code will loop 10 times.
     for (x = 0; x &lt; 10; x = x + 1)
     {
-        Textln("x is " + x);
+        textln("x is " + x);
     }
 </code></pre>
 	<p>
@@ -770,7 +770,7 @@
     x = 0;
     for (; x &lt; 10;)
     {
-        Textln("x is " + x);
+        textln("x is " + x);
         x = x + 1;
     }
 </code></pre>
@@ -989,7 +989,7 @@
 <div class="w3-container">
 	<p>
 		Most of the time in TAME, you're going to want to output text. While most text output is done by emitting <kbd>text</kbd>
-		or <kbd>textf</kbd> cues via <a href="function-textln.html">Textln()</a> or <a href="function-textfln.html">Textfln()</a>, 
+		or <kbd>textf</kbd> cues via <a href="function-textln.html">textln()</a> or <a href="function-textfln.html">Textfln()</a>, 
 		you can output <strong>passages</strong> by writing statements in this fashion, using a special ellipsis operator (<kbd>...</kbd>).
 	</p>
 <div class="w3-container">
@@ -1083,15 +1083,15 @@
 		onAction(a_drive)
 		{
 			if (driven)
-				Textln("I already drove it.");
+				textln("I already drove it.");
 			else
-				Textln("You drive the car. Wheee!");
+				textln("You drive the car. Wheee!");
 			driven = true;
 		}
 
 		onAction(a_examine)
 		{
-			Textln("Looks like a car.");
+			textln("Looks like a car.");
 		}
 
 	}
@@ -1100,7 +1100,7 @@
 	{
 		override onAction(a_examine)
 		{
-			Textln("Looks like a sedan.");
+			textln("Looks like a sedan.");
 		}
 	}
 </code></pre>
@@ -1125,9 +1125,9 @@
 		onAction(a_drive)
 		{
 			if (driven)
-				Textln("I already drove it.");
+				textln("I already drove it.");
 			else
-				Textln("You drive the car. Wheee!");
+				textln("You drive the car. Wheee!");
 			driven = true;
 		}
 
@@ -1135,7 +1135,7 @@
 	
 		onAction(a_examine)
 		{
-			Textln("Looks like a sedan.");
+			textln("Looks like a sedan.");
 		}
 	}
 </code></pre>
@@ -1173,7 +1173,7 @@
 	{
 		function examineRoom()
 		{
-			Textln("You are in the living room.");
+			textln("You are in the living room.");
 		}
 
 		onAction(a_lookaround)
@@ -1187,7 +1187,7 @@
 	{
 		override function examineRoom()
 		{
-			Textln("You are in the COZY living room.");
+			textln("You are in the COZY living room.");
 		}
 	}
 </code></pre>
@@ -1286,7 +1286,7 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define GREETING_TEXT "Hello."
 	#undefine GREETING_TEXT
-	Textln(GREETING_TEXT);   // compiler thinks GREETING_TEXT is a variable
+	textln(GREETING_TEXT);   // compiler thinks GREETING_TEXT is a variable
 </code></pre>
 </div>
 <div class="w3-container">
@@ -1300,7 +1300,7 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
-	Textln("LINES was defined.");
+	textln("LINES was defined.");
 	#endif
 </code></pre>
 </div>
@@ -1315,7 +1315,7 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define STUFF
 	#ifndef LINES
-	Textln("LINES was not defined.");
+	textln("LINES was not defined.");
 	#endif
 </code></pre>
 </div>
@@ -1330,9 +1330,9 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
-	Textln("LINES was defined.");
+	textln("LINES was defined.");
 	#else
-	Textln("LINES was NOT defined.");
+	textln("LINES was NOT defined.");
 	#endif
 </code></pre>
 </div>
@@ -1346,7 +1346,7 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
-	Textln("LINES was defined.");
+	textln("LINES was defined.");
 	#endif
 </code></pre>
 </div>
@@ -1354,9 +1354,9 @@
 <pre class="tame-example"><code data-language="tamescript">
 	#define LINES
 	#ifdef LINES
-	Textln("LINES was defined.");
+	textln("LINES was defined.");
 	#else
-	Textln("LINES was NOT defined.");
+	textln("LINES was NOT defined.");
 	#endif
 </code></pre>
 </div>
