@@ -1,8 +1,8 @@
 index.html "Table of Contents" template/main.html
 intro.html "What is TAME?" template/main.html
 engine.html "The Engine Cycle" template/main.html
-module.html "Module Overview" template/main.html
 interpreter.html "The Interpreter" template/main.html
+module.html "Module Overview" template/main.html
 tamescript.html "TAMEScript" template/main.html
 language-elements.html "TAMEScript Module Elements" template/main.html
 language-element-module.html "Module Element" template/main.html
