@@ -15,14 +15,19 @@
 	<property name="S" value="${path.separator}" />
 
 	<!-- Project Libs -->
-	<property name="json.lib" value="${dev.base}/JSON/bin" />
-	<property name="tame.lib" value="${dev.base}/TAME/bin" />
+	<property name="json.lib.version" value="1.1.2" />
+	<property name="json.tag" value="${json.lib.version}-RELEASE" />
+	<property name="json.project" value="blackrook-json-${json.lib.version}" />	
+	<property name="json.jar" value="${json.project}.jar" />
+	<property name="json.jar.src" value="${json.project}-sources.jar" />
+	<property name="tame.version" value="0.9BETA20" />
+	<property name="tame.jar" value="tame-${tame.version}.jar" />
 
 	<!-- Files -->
 	<property name="resource.dir" value="resources" />
 
 	<!-- Project Info -->
-	<property name="project.classpath" value="${json.lib}${S}${tame.lib}" />
+	<property name="project.classpath" value="${dev.base}/${json.jar}${S}${dev.base}/jar/${tame.jar}" />
 	
 	<import file="build-import.xml" />
 	<import file="build-dependencies.xml" />
@@ -34,12 +39,18 @@
 	<property name="tame.docs.revision" value="SNAPSHOT" />
 	
 	<target name="dependency.json">
-		<git-export repository="https://github.com/BlackRookSoftware/JSON" dest="${dependencies.dir}/JSON" />
-		<ant antfile="${dependencies.dir}/JSON/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+		<github-dl repository="BlackRookSoftware/JSON" tag="${json.tag}" file="${json.jar}" dest="${dependencies.dir}" />
+		<github-dl repository="BlackRookSoftware/JSON" tag="${json.tag}" file="${json.jar.src}" dest="${dependencies.dir}" />
 	</target>
 	<target name="dependency.tame">
-		<git-export repository="https://github.com/TAME-IF/TAME" dest="${dependencies.dir}/TAME" />
-		<ant antfile="${dependencies.dir}/TAME/build.xml" useNativeBasedir="true" inheritAll="false" target="compile" />
+		<echo message="Fetching https://tame-if.com/downloads/dist/tame-jar-${tame.version}-RELEASE.zip..." />
+		<get retries="3" src="https://tame-if.com/downloads/dist/tame-jar-${tame.version}-RELEASE.zip" dest="${dependencies.dir}"/>
+		<unzip src="${dependencies.dir}/tame-jar-${tame.version}-RELEASE.zip" dest="${dependencies.dir}">
+		    <patternset>
+		        <include name="jar/${tame.jar}"/>
+		        <include name="jar/tame-${tame.version}-sources.jar"/>
+		    </patternset>
+		</unzip>
 	</target>
 	<target name="dependency.properties">
 		<echo message="Writing to build.properties...." />
