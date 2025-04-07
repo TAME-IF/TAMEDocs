@@ -20,7 +20,7 @@
 	<property name="json.project" value="blackrook-json-${json.lib.version}" />	
 	<property name="json.jar" value="${json.project}.jar" />
 	<property name="json.jar.src" value="${json.project}-sources.jar" />
-	<property name="tame.version" value="0.9BETA20" />
+	<property name="tame.version" value="0.9BETA21" />
 	<property name="tame.jar" value="tame-${tame.version}.jar" />
 
 	<!-- Files -->
